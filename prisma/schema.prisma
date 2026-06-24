@@ -14,34 +14,182 @@ enum JourneyStatus {
 }
 
 model Journey {
-  id               String         @id @default(uuid())
-  slug             String         @unique
+  id               String            @id @default(uuid())
+  slug             String            @unique
   title            String
   shortDescription String
   themeKey         String
   achievementTitle String
   estimatedMinutes Int
-  status           JourneyStatus  @default(DRAFT)
+  status           JourneyStatus     @default(DRAFT)
   displayOrder     Int
-  createdAt        DateTime       @default(now())
-  updatedAt        DateTime       @updatedAt
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
   stages           JourneyStage[]
+  activities       Activity[]
+  journeyProgress  JourneyProgress[]
 
   @@index([status, displayOrder])
 }
 
 model JourneyStage {
-  id               String   @id @default(uuid())
+  id               String     @id @default(uuid())
   journeyId        String
-  journey          Journey  @relation(fields: [journeyId], references: [id], onDelete: Cascade)
+  journey          Journey    @relation(fields: [journeyId], references: [id], onDelete: Cascade)
   slug             String
   title            String
   shortDescription String
   displayOrder     Int
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+  activities       Activity[]
 
   @@unique([journeyId, slug])
   @@unique([journeyId, displayOrder])
   @@index([journeyId])
+}
+
+model Activity {
+  id                 String             @id @default(uuid())
+  journeyId          String
+  journey            Journey            @relation(fields: [journeyId], references: [id], onDelete: Cascade)
+  stageId            String
+  stage              JourneyStage       @relation(fields: [stageId], references: [id], onDelete: Cascade)
+  slug               String
+  type               String
+  title              String
+  instruction        String
+  prompt             String?
+  skillTags          Json
+  isGraded           Boolean            @default(true)
+  isPublished        Boolean            @default(true)
+  isSensitive        Boolean            @default(false)
+  storagePolicy      String
+  audioAssetId       String?
+  audioAsset         AudioAsset?        @relation(fields: [audioAssetId], references: [id], onDelete: SetNull)
+  configuration      Json?
+  correctFeedback    String?
+  incorrectFeedback  String?
+  completionFeedback String?
+  displayOrder       Int
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  options            ActivityOption[]
+  answerKey          ActivityAnswerKey?
+  attempts           ActivityAttempt[]
+  activityProgress   ActivityProgress[]
+
+  @@unique([journeyId, slug])
+  @@unique([stageId, displayOrder])
+  @@index([stageId])
+  @@index([journeyId])
+}
+
+model ActivityOption {
+  id            String   @id @default(uuid())
+  activityId    String
+  activity      Activity @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  optionKey     String
+  label         String
+  secondaryText String?
+  displayOrder  Int
+  mediaKey      String?
+
+  @@unique([activityId, optionKey])
+  @@unique([activityId, displayOrder])
+  @@index([activityId])
+}
+
+model ActivityAnswerKey {
+  id                   String   @id @default(uuid())
+  activityId           String   @unique
+  activity             Activity @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  answerData           Json
+  acceptedAlternatives Json?
+  modelAnswer          String?
+  explanation          String?
+
+  @@index([activityId])
+}
+
+model AudioAsset {
+  id                     String     @id @default(uuid())
+  assetKey               String     @unique
+  provider               String
+  providerVoiceId        String
+  locale                 String
+  spokenText             String
+  ssmlText               String?
+  durationSeconds        Float
+  fileHash               String
+  generationVersion      String
+  status                 String
+  reviewedAt             DateTime?
+  pronunciationOverrides Json?
+  createdAt              DateTime   @default(now())
+  updatedAt              DateTime   @updatedAt
+  activities             Activity[]
+}
+
+model PlayerSession {
+  id               String             @id @default(uuid())
+  publicTokenHash  String             @unique
+  createdAt        DateTime           @default(now())
+  lastSeenAt       DateTime           @updatedAt
+  attempts         ActivityAttempt[]
+  journeyProgress  JourneyProgress[]
+  activityProgress ActivityProgress[]
+}
+
+model ActivityAttempt {
+  id              String        @id @default(uuid())
+  playerSessionId String
+  playerSession   PlayerSession @relation(fields: [playerSessionId], references: [id], onDelete: Cascade)
+  activityId      String
+  activity        Activity      @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  attemptNumber   Int
+  responseData    Json?
+  responseHash    String?
+  isCorrect       Boolean?
+  score           Float?
+  storagePolicy   String
+  completedAt     DateTime      @default(now())
+  createdAt       DateTime      @default(now())
+
+  @@unique([playerSessionId, activityId, attemptNumber])
+  @@index([playerSessionId, activityId])
+}
+
+model JourneyProgress {
+  id               String        @id @default(uuid())
+  playerSessionId  String
+  playerSession    PlayerSession @relation(fields: [playerSessionId], references: [id], onDelete: Cascade)
+  journeyId        String
+  journey          Journey       @relation(fields: [journeyId], references: [id], onDelete: Cascade)
+  status           String
+  lastActivityId   String?
+  objectiveCorrect Int           @default(0)
+  objectiveTotal   Int           @default(0)
+  startedAt        DateTime      @default(now())
+  completedAt      DateTime?
+  updatedAt        DateTime      @updatedAt
+
+  @@unique([playerSessionId, journeyId])
+  @@index([playerSessionId])
+}
+
+model ActivityProgress {
+  id              String        @id @default(uuid())
+  playerSessionId String
+  playerSession   PlayerSession @relation(fields: [playerSessionId], references: [id], onDelete: Cascade)
+  activityId      String
+  activity        Activity      @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  status          String
+  attemptsCount   Int           @default(0)
+  bestScore       Float?
+  completedAt     DateTime?
+  updatedAt       DateTime      @updatedAt
+
+  @@unique([playerSessionId, activityId])
+  @@index([playerSessionId])
 }
