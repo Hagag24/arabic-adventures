@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,md}\" \"prisma/**/*.ts\" \"scripts/**/*.ts\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css,md}\" \"prisma/**/*.ts\" \"scripts/**/*.ts\"",
-    "test": "cross-env DATABASE_URL=\"file:./data/test.db\" tsx scripts/prepare-test-db.ts && cross-env DATABASE_URL=\"file:./data/test.db\" vitest run && tsx scripts/cleanup-test-db.ts",
+    "test": "cross-env DATABASE_URL=\"file:./data/test.db\" tsx scripts/prepare-test-db.ts && cross-env DATABASE_URL=\"file:./data/test.db\" vitest run --fileParallelism=false && tsx scripts/cleanup-test-db.ts",
     "test:e2e": "playwright test",
     "db:generate": "prisma generate",
     "db:migrate:dev": "prisma migrate dev",

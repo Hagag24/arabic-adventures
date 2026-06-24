@@ -14,16 +14,10 @@ export default function NotFoundPage() {
         </p>
         <div className="flex flex-col gap-3">
           <Link
-            href="/student/journeys"
+            href="/"
             className="px-6 py-3 bg-teal-primary text-white font-bold rounded-xl shadow hover:bg-teal-900 transition-colors text-sm touch-target flex items-center justify-center"
           >
-            الانتقال لرحلات التعلم 🗺️
-          </Link>
-          <Link
-            href="/"
-            className="px-6 py-3 bg-white border border-teal-light text-teal-primary font-bold rounded-xl hover:bg-teal-light transition-colors text-sm touch-target flex items-center justify-center"
-          >
-            العودة للصفحة الرئيسية
+            العودة إلى الصفحة الرئيسية
           </Link>
         </div>
       </div>

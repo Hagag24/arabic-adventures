@@ -14,6 +14,14 @@ export { testPrisma };
 
 beforeEach(async () => {
   // Clean all records before each test to ensure test isolation
+  await testPrisma.$executeRawUnsafe(`DELETE FROM "ActivityProgress";`);
+  await testPrisma.$executeRawUnsafe(`DELETE FROM "JourneyProgress";`);
+  await testPrisma.$executeRawUnsafe(`DELETE FROM "ActivityAttempt";`);
+  await testPrisma.$executeRawUnsafe(`DELETE FROM "PlayerSession";`);
+  await testPrisma.$executeRawUnsafe(`DELETE FROM "ActivityAnswerKey";`);
+  await testPrisma.$executeRawUnsafe(`DELETE FROM "ActivityOption";`);
+  await testPrisma.$executeRawUnsafe(`DELETE FROM "Activity";`);
+  await testPrisma.$executeRawUnsafe(`DELETE FROM "AudioAsset";`);
   await testPrisma.$executeRawUnsafe(`DELETE FROM "JourneyStage";`);
   await testPrisma.$executeRawUnsafe(`DELETE FROM "Journey";`);
 });

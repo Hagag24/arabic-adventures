@@ -59,7 +59,7 @@ async function generateSpeech(req) {
     const buffer = Buffer.concat(chunks);
     fs.writeFileSync(filePath, buffer);
     const fileHash = computeHash(buffer);
-    const duration = buffer.length / (16000 * 2); // rough estimate or we can estimate based on word count: ~130 words/minute
+    // rough estimate or we can estimate based on word count: ~130 words/minute
     
     // An average Egyptian speaker reads MSA at around 130 words per minute
     const wordCount = req.spokenText.split(/\s+/).length;
@@ -91,7 +91,7 @@ async function main() {
     try {
       const asset = await generateSpeech(req);
       manifest[req.assetKey] = asset;
-    } catch (e) {
+    } catch {
       console.error(`Aborting generation due to error on ${req.assetKey}`);
       process.exit(1);
     }

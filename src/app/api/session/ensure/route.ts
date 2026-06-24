@@ -5,10 +5,10 @@ export async function POST() {
   try {
     await ensurePlayerSession();
     return NextResponse.json({ success: true, status: "session_active" });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: "حدث خطأ أثناء تهيئة الجلسة." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

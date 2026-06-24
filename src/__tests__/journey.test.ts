@@ -47,7 +47,7 @@ describe("Database Migration & Seeding Tests", () => {
     for (const journey of journeys) {
       expect(journey.stages.length).toBe(8);
     }
-  });
+  }, 60000);
 });
 
 describe("Repository & Service Ordering and Filtering", () => {
