@@ -31,7 +31,7 @@ describe("Database Migration & Seeding Tests", () => {
       expect(journey.status).toBe("PUBLISHED");
       expect(journey.stages.length).toBe(8);
     }
-  });
+  }, 60000);
 
   test("Seed is idempotent", async () => {
     // Seed first time

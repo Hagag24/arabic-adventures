@@ -11,8 +11,10 @@ export interface StudentActivityPayload {
   id: string;
   journeyId: string;
   journeySlug: string;
+  journeyTitle: string;
   stageId: string;
   stageSlug: string;
+  stageTitle: string;
   slug: string;
   type: string;
   title: string;
@@ -34,6 +36,10 @@ export interface StudentActivityPayload {
     secondaryText: string | null;
     displayOrder: number;
   }[];
+  activityNumber: number;
+  totalActivities: number;
+  previousActivitySlug: string | null;
+  nextActivitySlug: string | null;
 }
 
 export interface SafeEvaluationResult {
@@ -84,13 +90,45 @@ export async function getActivityPayload(
 
   if (!activity) return null;
 
+  // Fetch all published activities in the same journey to compute navigation metadata
+  const journeyActivities = await prisma.activity.findMany({
+    where: {
+      journeyId: activity.journeyId,
+      isPublished: true,
+    },
+    include: {
+      stage: true,
+    },
+  });
+
+  // Sort by stage displayOrder first, then activity displayOrder
+  journeyActivities.sort((a, b) => {
+    if (a.stage.displayOrder !== b.stage.displayOrder) {
+      return a.stage.displayOrder - b.stage.displayOrder;
+    }
+    return a.displayOrder - b.displayOrder;
+  });
+
+  const currentIndex = journeyActivities.findIndex((a) => a.id === activity.id);
+  const activityNumber = currentIndex + 1;
+  const totalActivities = journeyActivities.length;
+
+  const previousActivitySlug =
+    currentIndex > 0 ? journeyActivities[currentIndex - 1].slug : null;
+  const nextActivitySlug =
+    currentIndex < journeyActivities.length - 1
+      ? journeyActivities[currentIndex + 1].slug
+      : null;
+
   // Map to safe payload, omitting answerKey information
   return {
     id: activity.id,
     journeyId: activity.journeyId,
     journeySlug: activity.journey.slug,
+    journeyTitle: activity.journey.title,
     stageId: activity.stageId,
     stageSlug: activity.stage.slug,
+    stageTitle: activity.stage.title,
     slug: activity.slug,
     type: activity.type,
     title: activity.title,
@@ -114,6 +152,10 @@ export async function getActivityPayload(
       secondaryText: opt.secondaryText,
       displayOrder: opt.displayOrder,
     })),
+    activityNumber,
+    totalActivities,
+    previousActivitySlug,
+    nextActivitySlug,
   };
 }
 
@@ -124,9 +166,7 @@ export async function evaluateSubmission(
   const parsed = submissionSchema.parse(input);
   const { activityId, responseData } = parsed;
 
-  function normalizeJsonValue(
-    rawValue: unknown,
-  ): Prisma.InputJsonValue | null {
+  function normalizeJsonValue(rawValue: unknown): Prisma.InputJsonValue | null {
     if (rawValue === null || rawValue === undefined) {
       return null;
     }
@@ -213,7 +253,10 @@ export async function evaluateSubmission(
         submittedOrder.every((val, index) => val === correctOrder[index]);
       isCorrect = matchesAll;
       score = isCorrect ? 1.0 : 0.0;
-    } else if (activity.type === "fill_in_the_blank") {
+    } else if (
+      activity.type === "fill_in_the_blank" ||
+      activity.type === "word_bank"
+    ) {
       // responseData is expected to be { blanks: { blank1: "value", blank2: "value" } }
       const submittedBlanks =
         (responseData?.blanks as Record<string, string>) || {};

@@ -6,6 +6,8 @@ import {
   SafeEvaluationResult,
 } from "@/server/services/activity-service";
 import ChoiceRenderer from "./renderers/ChoiceRenderer";
+import ChecklistRenderer from "./renderers/ChecklistRenderer";
+import WordBankRenderer from "./renderers/WordBankRenderer";
 import MatchingRenderer from "./renderers/MatchingRenderer";
 import OrderingRenderer from "./renderers/OrderingRenderer";
 import FillBlankRenderer from "./renderers/FillBlankRenderer";
@@ -19,6 +21,8 @@ import AgreeDisagreeRenderer from "./renderers/AgreeDisagreeRenderer";
 type ActivityType =
   | "single_choice"
   | "checklist"
+  | "multiple_select"
+  | "word_bank"
   | "matching"
   | "ordering"
   | "fill_in_the_blank"
@@ -53,9 +57,27 @@ export default function ActivityRenderer({
 
   switch (type) {
     case "single_choice":
-    case "checklist":
       return (
         <ChoiceRenderer
+          activity={activity}
+          onSubmit={onSubmit}
+          isSubmitting={isSubmitting}
+          evaluationResult={evaluationResult}
+        />
+      );
+    case "checklist":
+    case "multiple_select":
+      return (
+        <ChecklistRenderer
+          activity={activity}
+          onSubmit={onSubmit}
+          isSubmitting={isSubmitting}
+          evaluationResult={evaluationResult}
+        />
+      );
+    case "word_bank":
+      return (
+        <WordBankRenderer
           activity={activity}
           onSubmit={onSubmit}
           isSubmitting={isSubmitting}

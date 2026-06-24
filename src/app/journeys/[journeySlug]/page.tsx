@@ -8,13 +8,13 @@ import SessionInitializer from "@/components/session/SessionInitializer";
 export const dynamic = "force-dynamic";
 
 interface JourneyMapPageProps {
-  params: {
+  params: Promise<{
     journeySlug: string;
-  };
+  }>;
 }
 
 export default async function JourneyMapPage({ params }: JourneyMapPageProps) {
-  const { journeySlug } = params;
+  const { journeySlug } = await params;
   const sessionId = await getPlayerSessionId();
 
   const journey = await prisma.journey.findFirst({

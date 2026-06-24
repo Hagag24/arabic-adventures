@@ -84,6 +84,7 @@ describe("Gameplay & Payload Safety Tests", () => {
       data: {
         journeyId,
         stageId,
+        sourceItemKey: "quiz-leak-key",
         slug: "quiz-leak-check",
         type: "single_choice",
         title: "Quiz",
@@ -128,6 +129,7 @@ describe("Gameplay & Payload Safety Tests", () => {
       data: {
         journeyId,
         stageId,
+        sourceItemKey: "mismatch-key",
         slug: "mismatch-activity",
         type: "single_choice",
         title: "Mismatch",
@@ -151,6 +153,7 @@ describe("Gameplay & Payload Safety Tests", () => {
       data: {
         journeyId,
         stageId,
+        sourceItemKey: "duplicate-slug-key-1",
         slug: "duplicate-slug",
         type: "single_choice",
         title: "First",
@@ -167,6 +170,7 @@ describe("Gameplay & Payload Safety Tests", () => {
         data: {
           journeyId,
           stageId,
+          sourceItemKey: "duplicate-slug-key-2",
           slug: "duplicate-slug",
           type: "single_choice",
           title: "Second",
@@ -177,6 +181,83 @@ describe("Gameplay & Payload Safety Tests", () => {
         },
       }),
     ).rejects.toThrow();
+  });
+  test("Answer-key leakage test for all types (choice, matching, ordering, fill blank, word bank, open response)", async () => {
+    const types = [
+      "single_choice",
+      "matching",
+      "ordering",
+      "fill_in_the_blank",
+      "word_bank",
+      "short_text",
+    ];
+
+    for (let i = 0; i < types.length; i++) {
+      const t = types[i];
+      const slug = `leak-check-${t}`;
+      await testPrisma.activity.create({
+        data: {
+          journeyId,
+          stageId,
+          sourceItemKey: `leak-check-key-${t}`,
+          slug,
+          type: t,
+          title: `Quiz ${t}`,
+          instruction: "Choose",
+          skillTags: ["reading"],
+          storagePolicy: "FULL_RESPONSE",
+          displayOrder: 10 + i,
+          options: {
+            create: [{ optionKey: "optA", label: "Option A", displayOrder: 1 }],
+          },
+          answerKey: {
+            create: {
+              answerData: {
+                correctOption: "optA",
+                pairs: { a: "b" },
+                order: ["optA"],
+                blank1: ["test"],
+              },
+              modelAnswer: "Sample answer example",
+              explanation: "Hidden explanation detail",
+            },
+          },
+        },
+      });
+
+      const payload = await getActivityPayload("test-journey", slug);
+      expect(payload).not.toBeNull();
+
+      const payloadStr = JSON.stringify(payload);
+
+      // Blacklisted keys that must NOT leak to the client before submission
+      const blacklistedKeys = [
+        "answerKey",
+        "answerData",
+        "correctOptionKey",
+        "correctOrder",
+        "matchingPairs",
+        "acceptedAlternatives",
+        "acceptedAnswers",
+        "modelAnswer",
+        "hiddenExplanation",
+        "internalNotes",
+      ];
+
+      for (const key of blacklistedKeys) {
+        expect(payloadStr).not.toContain(key);
+      }
+
+      // Ensure the return object itself has none of these properties
+      const p = payload as unknown as Record<string, unknown>;
+      expect(p.answerKey).toBeUndefined();
+      expect(p.answerData).toBeUndefined();
+      expect(p.correctOptionKey).toBeUndefined();
+      expect(p.correctOrder).toBeUndefined();
+      expect(p.matchingPairs).toBeUndefined();
+      expect(p.modelAnswer).toBeUndefined();
+      expect(p.explanation).toBeUndefined();
+    }
   });
 });
 
@@ -221,6 +302,7 @@ describe("Storage Policies Enforcement", () => {
       data: {
         journeyId,
         stageId,
+        sourceItemKey: "full-policy-key",
         slug: "full-policy-act",
         type: "single_choice",
         title: "Choice",
@@ -260,6 +342,7 @@ describe("Storage Policies Enforcement", () => {
       data: {
         journeyId,
         stageId,
+        sourceItemKey: "objective-only-key",
         slug: "objective-only-act",
         type: "single_choice",
         title: "Choice",
@@ -297,6 +380,7 @@ describe("Storage Policies Enforcement", () => {
       data: {
         journeyId,
         stageId,
+        sourceItemKey: "completion-only-key",
         slug: "completion-only-act",
         type: "short_text",
         title: "Open Text",
@@ -331,6 +415,7 @@ describe("Storage Policies Enforcement", () => {
       data: {
         journeyId,
         stageId,
+        sourceItemKey: "no-persist-key",
         slug: "no-persist-act",
         type: "short_text",
         title: "No Persist",

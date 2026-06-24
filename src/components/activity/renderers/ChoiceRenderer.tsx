@@ -20,6 +20,7 @@ export default function ChoiceRenderer({
   evaluationResult,
 }: ChoiceRendererProps) {
   const isMultiple = activity.type === "checklist";
+  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
   const [selectedSingle, setSelectedSingle] = useState<string | null>(null);
   const [selectedMultiple, setSelectedMultiple] = useState<string[]>([]);
 
@@ -34,6 +35,35 @@ export default function ChoiceRenderer({
       );
     } else {
       setSelectedSingle(optionKey);
+    }
+  };
+
+  const handleKeyDown = (
+    e: React.KeyboardEvent,
+    index: number,
+    optionKey: string,
+  ) => {
+    if (evaluationResult) return;
+
+    if (e.key === " " || e.key === "Enter") {
+      e.preventDefault();
+      handleCardClick(optionKey);
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      const nextIndex = index < activity.options.length - 1 ? index + 1 : 0;
+      setFocusedIndex(nextIndex);
+      const btn = document.getElementById(
+        `opt-${activity.options[nextIndex].optionKey}`,
+      );
+      btn?.focus();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      const prevIndex = index > 0 ? index - 1 : activity.options.length - 1;
+      setFocusedIndex(prevIndex);
+      const btn = document.getElementById(
+        `opt-${activity.options[prevIndex].optionKey}`,
+      );
+      btn?.focus();
     }
   };
 
@@ -57,10 +87,11 @@ export default function ChoiceRenderer({
       )}
 
       <div className="grid grid-cols-1 gap-4 mb-6">
-        {activity.options.map((option) => {
+        {activity.options.map((option, index) => {
           const isSelected = isMultiple
             ? selectedMultiple.includes(option.optionKey)
             : selectedSingle === option.optionKey;
+          const isFocused = focusedIndex === index;
 
           let cardBorderColor = "border-teal-100 hover:border-teal-300";
           let cardBgColor = "bg-white hover:bg-teal-50/30";
@@ -68,6 +99,10 @@ export default function ChoiceRenderer({
           if (isSelected) {
             cardBorderColor = "border-teal-600 ring-2 ring-teal-500/20";
             cardBgColor = "bg-teal-50/70";
+          }
+
+          if (isFocused && !evaluationResult) {
+            cardBorderColor = "border-teal-600 ring-2 ring-teal-600/30";
           }
 
           // Show green/red state after evaluation
@@ -94,10 +129,14 @@ export default function ChoiceRenderer({
           return (
             <button
               key={option.optionKey}
+              id={`opt-${option.optionKey}`}
               type="button"
               onClick={() => handleCardClick(option.optionKey)}
+              onFocus={() => setFocusedIndex(index)}
+              onBlur={() => setFocusedIndex(null)}
+              onKeyDown={(e) => handleKeyDown(e, index, option.optionKey)}
               disabled={!!evaluationResult || isSubmitting}
-              className={`flex items-center p-4 rounded-2xl border text-right transition-all duration-200 cursor-pointer ${cardBorderColor} ${cardBgColor} touch-target`}
+              className={`flex items-center p-4 rounded-2xl border text-right transition-all duration-200 cursor-pointer focus:outline-none ${cardBorderColor} ${cardBgColor} touch-target`}
             >
               {/* Checkbox / Radio Circle */}
               <div

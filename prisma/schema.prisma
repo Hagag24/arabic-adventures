@@ -50,34 +50,40 @@ model JourneyStage {
 }
 
 model Activity {
-  id                 String             @id @default(uuid())
-  journeyId          String
-  journey            Journey            @relation(fields: [journeyId], references: [id], onDelete: Cascade)
-  stageId            String
-  stage              JourneyStage       @relation(fields: [stageId], references: [id], onDelete: Cascade)
-  slug               String
-  type               String
-  title              String
-  instruction        String
-  prompt             String?
-  skillTags          Json
-  isGraded           Boolean            @default(true)
-  isPublished        Boolean            @default(true)
-  isSensitive        Boolean            @default(false)
-  storagePolicy      String
-  audioAssetId       String?
-  audioAsset         AudioAsset?        @relation(fields: [audioAssetId], references: [id], onDelete: SetNull)
-  configuration      Json?
-  correctFeedback    String?
-  incorrectFeedback  String?
-  completionFeedback String?
-  displayOrder       Int
-  createdAt          DateTime           @default(now())
-  updatedAt          DateTime           @updatedAt
-  options            ActivityOption[]
-  answerKey          ActivityAnswerKey?
-  attempts           ActivityAttempt[]
-  activityProgress   ActivityProgress[]
+  id                               String             @id @default(uuid())
+  journeyId                        String
+  journey                          Journey            @relation(fields: [journeyId], references: [id], onDelete: Cascade)
+  stageId                          String
+  stage                            JourneyStage       @relation(fields: [stageId], references: [id], onDelete: Cascade)
+  slug                             String
+  type                             String
+  title                            String
+  instruction                      String
+  prompt                           String?
+  skillTags                        Json
+  isGraded                         Boolean            @default(true)
+  isPublished                      Boolean            @default(true)
+  isSensitive                      Boolean            @default(false)
+  storagePolicy                    String
+  audioAssetId                     String?
+  audioAsset                       AudioAsset?        @relation(fields: [audioAssetId], references: [id], onDelete: SetNull)
+  configuration                    Json?
+  correctFeedback                  String?
+  incorrectFeedback                String?
+  completionFeedback               String?
+  displayOrder                     Int
+  sourceItemKey                    String             @unique
+  instructionNarrationKey          String?
+  promptNarrationKey               String?
+  correctFeedbackNarrationKey      String?
+  incorrectFeedbackNarrationKey    String?
+  completionFeedbackNarrationKey   String?
+  createdAt                        DateTime           @default(now())
+  updatedAt                        DateTime           @updatedAt
+  options                          ActivityOption[]
+  answerKey                        ActivityAnswerKey?
+  attempts                         ActivityAttempt[]
+  activityProgress                 ActivityProgress[]
 
   @@unique([journeyId, slug])
   @@unique([stageId, displayOrder])
@@ -94,6 +100,7 @@ model ActivityOption {
   secondaryText String?
   displayOrder  Int
   mediaKey      String?
+  narrationKey  String?
 
   @@unique([activityId, optionKey])
   @@unique([activityId, displayOrder])
