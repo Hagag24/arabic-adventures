@@ -17,20 +17,25 @@ async function runSeed() {
 }
 
 describe("Database Migration & Seeding Tests", () => {
-  test("Seed creates exactly three PUBLISHED journeys with 8 stages each", async () => {
-    // Run seed on test database
+  test("Seed creates exactly two PUBLISHED lessons", async () => {
     await runSeed();
 
-    // Verify journeys count
     const journeys = await testPrisma.journey.findMany({
-      include: { stages: true },
+      include: {
+        activities: {
+          where: { isPublished: true },
+        },
+      },
     });
-    expect(journeys.length).toBe(3);
+    expect(journeys.length).toBe(2);
 
-    for (const journey of journeys) {
-      expect(journey.status).toBe("PUBLISHED");
-      expect(journey.stages.length).toBe(8);
-    }
+    const lesson1 = journeys.find((j) => j.slug === "ancient-egyptian-teacher");
+    expect(lesson1).not.toBeUndefined();
+    expect(lesson1?.activities.length).toBe(19);
+
+    const lesson2 = journeys.find((j) => j.slug === "magdi-yacoub");
+    expect(lesson2).not.toBeUndefined();
+    expect(lesson2?.activities.length).toBe(28);
   }, 60000);
 
   test("Seed is idempotent", async () => {
@@ -40,13 +45,19 @@ describe("Database Migration & Seeding Tests", () => {
     await runSeed();
 
     const journeys = await testPrisma.journey.findMany({
-      include: { stages: true },
+      include: {
+        activities: {
+          where: { isPublished: true },
+        },
+      },
     });
-    expect(journeys.length).toBe(3);
+    expect(journeys.length).toBe(2);
 
-    for (const journey of journeys) {
-      expect(journey.stages.length).toBe(8);
-    }
+    const lesson1 = journeys.find((j) => j.slug === "ancient-egyptian-teacher");
+    expect(lesson1?.activities.length).toBe(19);
+
+    const lesson2 = journeys.find((j) => j.slug === "magdi-yacoub");
+    expect(lesson2?.activities.length).toBe(28);
   }, 60000);
 });
 
@@ -102,26 +113,16 @@ describe("Repository & Service Ordering and Filtering", () => {
       ],
     });
 
-    // Create stages
-    await testPrisma.journeyStage.createMany({
-      data: [
-        {
-          id: "stage-1-2",
-          journeyId: "j-published-1",
-          slug: "stage-2",
-          title: "Stage 2",
-          shortDescription: "desc",
-          displayOrder: 2,
-        },
-        {
-          id: "stage-1-1",
-          journeyId: "j-published-1",
-          slug: "stage-1",
-          title: "Stage 1",
-          shortDescription: "desc",
-          displayOrder: 1,
-        },
-      ],
+    // Create default stage for pub-1
+    await testPrisma.journeyStage.create({
+      data: {
+        id: "stage-1",
+        journeyId: "j-published-1",
+        slug: "main",
+        title: "مراحل الدرس",
+        shortDescription: "desc",
+        displayOrder: 1,
+      },
     });
   });
 
@@ -131,13 +132,8 @@ describe("Repository & Service Ordering and Filtering", () => {
     // Should exclude DRAFT and ARCHIVED, leaving only 2 journeys
     expect(journeys.length).toBe(2);
 
-    // First should be displayOrder: 1 (pub-1)
     expect(journeys[0].slug).toBe("pub-1");
     expect(journeys[1].slug).toBe("pub-2");
-
-    // Stages should be ordered by displayOrder
-    expect(journeys[0].stages[0].slug).toBe("stage-1");
-    expect(journeys[0].stages[1].slug).toBe("stage-2");
   });
 
   test("Service filters out Draft and Archived journeys from lists", async () => {
@@ -153,19 +149,15 @@ describe("Repository & Service Ordering and Filtering", () => {
     const journey = await fetchJourneyBySlug("pub-1");
     expect(journey).not.toBeNull();
     expect(journey?.title).toBe("Published 1");
-    expect(journey?.stages.length).toBe(2);
   });
 
   test("Invalid or unpublished journey slug returns null", async () => {
-    // Non-existent slug
     const nonExistent = await fetchJourneyBySlug("non-existent");
     expect(nonExistent).toBeNull();
 
-    // Draft slug
     const draftJourney = await fetchJourneyBySlug("draft-slug");
     expect(draftJourney).toBeNull();
 
-    // Archived slug
     const archivedJourney = await fetchJourneyBySlug("archived-slug");
     expect(archivedJourney).toBeNull();
   });

@@ -43,6 +43,8 @@ next-env.d.ts
 /data/*.db-wal
 /data/*.db.bak
 /data/*.bak
+/data/backups/
+
 
 # generated prisma files
 /src/generated/

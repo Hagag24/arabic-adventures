@@ -44,6 +44,7 @@ export interface StudentActivityPayload {
   previousResponseData: any | null;
   modelAnswer?: string | null;
   explanation?: string | null;
+  configuration: any | null;
 }
 
 export interface SafeEvaluationResult {
@@ -207,6 +208,7 @@ export async function getActivityPayload(
     nextActivitySlug,
     isCompleted,
     previousResponseData,
+    configuration: activity.configuration,
   };
 
   if (isCompleted) {
@@ -315,6 +317,48 @@ export async function evaluateSubmission(
         submittedOrder.every((val, index) => val === correctOrder[index]);
       isCorrect = matchesAll;
       score = isCorrect ? 1.0 : 0.0;
+    } else if (activity.type === "multi_round") {
+      const config = (activity.configuration as any) || {};
+      const rounds = config.rounds || [];
+      const submittedRounds = (responseData?.rounds as Record<string, any>) || {};
+      let totalRounds = 0;
+      let correctRounds = 0;
+
+      for (const r of rounds) {
+        if (r.answerKey) {
+          totalRounds++;
+          const roundData = submittedRounds[r.id] || {};
+          let roundCorrect = false;
+
+          if (r.type === "ordering") {
+            const subOrder = (roundData.order as string[]) || [];
+            const corrOrder = (r.answerKey.answerData?.order as string[]) || [];
+            roundCorrect = subOrder.length === corrOrder.length && subOrder.every((val: string, idx: number) => val === corrOrder[idx]);
+          } else if (r.type === "matching") {
+            const subPairs = roundData.pairs || {};
+            const corrPairs = r.answerKey.answerData?.pairs || {};
+            const keys = Object.keys(corrPairs);
+            let matches = 0;
+            for (const k of keys) {
+              if (subPairs[k] === corrPairs[k]) {
+                matches++;
+              }
+            }
+            roundCorrect = keys.length > 0 && matches === keys.length;
+          } else if (r.type === "single_choice") {
+            const subOpt = roundData.selectedOption;
+            const corrOpt = r.answerKey.answerData?.correctOption;
+            roundCorrect = subOpt === corrOpt;
+          }
+
+          if (roundCorrect) {
+            correctRounds++;
+          }
+        }
+      }
+
+      isCorrect = totalRounds === 0 || correctRounds === totalRounds;
+      score = totalRounds > 0 ? correctRounds / totalRounds : 1.0;
     } else if (
       activity.type === "fill_in_the_blank" ||
       activity.type === "word_bank"

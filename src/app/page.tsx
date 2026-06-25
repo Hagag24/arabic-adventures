@@ -105,7 +105,7 @@ export default async function LandingPage() {
             اختر مغامرتك التعليمية لتبدأ الرحلة:
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {journeys.map((journey) => {
               const progress = progressMap[journey.id] || {
                 percent: 0,
@@ -115,8 +115,6 @@ export default async function LandingPage() {
               let tagColor = "bg-teal-50 text-teal-700 border-teal-100";
               if (journey.themeKey === "humanity") {
                 tagColor = "bg-amber-50 text-amber-700 border-amber-100";
-              } else if (journey.themeKey === "safety") {
-                tagColor = "bg-rose-50 text-rose-700 border-rose-100";
               }
 
               return (
@@ -131,9 +129,7 @@ export default async function LandingPage() {
                       >
                         {journey.themeKey === "ancient-egypt"
                           ? "حضارة وتاريخ"
-                          : journey.themeKey === "humanity"
-                            ? "إنسانية وعطاء"
-                            : "أمان وحماية"}
+                          : "إنسانية وعطاء"}
                       </span>
                       <span className="bg-teal-50/55 border border-teal-100/50 text-teal-800 text-[10px] font-bold px-2 py-0.5 rounded-md">
                         {journey.estimatedMinutes} دقيقة ⏱️
@@ -153,7 +149,7 @@ export default async function LandingPage() {
                     {/* Progress Indicator */}
                     <div className="w-full text-right">
                       <div className="flex justify-between items-center text-xs font-bold text-teal-800 mb-1.5">
-                        <span>تقدم المغامرة:</span>
+                        <span>تقدم الدرس:</span>
                         <span>{progress.percent}%</span>
                       </div>
                       <div className="w-full bg-teal-100/30 rounded-full h-2 overflow-hidden border border-teal-50">
@@ -165,14 +161,14 @@ export default async function LandingPage() {
                     </div>
 
                     <Link
-                      href={`/journeys/${journey.slug}`}
+                      href={`/lessons/${journey.slug}`}
                       className="w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm md:text-base rounded-2xl shadow-sm text-center transition-all duration-200 hover:shadow active:scale-95 touch-target block"
                     >
                       {progress.percent > 0
                         ? progress.completed
-                          ? "مكتملة! العب مجدداً 🌟"
-                          : "تابع المغامرة 🚀"
-                        : "ابدأ المغامرة الآن 🚀"}
+                          ? "مكتمل! العب مجدداً 🌟"
+                          : "تابع الدرس 🚀"
+                        : "ابدأ الدرس الآن 🚀"}
                     </Link>
                   </div>
                 </div>

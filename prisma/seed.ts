@@ -1,455 +1,207 @@
 import { createPrismaClient } from "../src/lib/db/create-prisma-client";
 import dotenv from "dotenv";
-import fs from "fs";
-import path from "path";
-import { buildSeedActivities } from "../src/content/activity-seed-builder";
-import { workbookActivityInventory } from "../src/content/workbook-activity-inventory";
+import { allActivities } from "../src/content/lesson-activity-definitions";
 
 dotenv.config();
 
 const dbUrl = process.env.DATABASE_URL || "file:./data/arabic-adventures.db";
 const prisma = createPrismaClient(dbUrl);
 
-interface StageData {
-  slug: string;
-  title: string;
-  shortDescription: string;
-  displayOrder: number;
-}
-
-interface JourneyData {
-  slug: string;
-  title: string;
-  shortDescription: string;
-  themeKey: string;
-  achievementTitle: string;
-  estimatedMinutes: number;
-  status: "PUBLISHED" | "DRAFT" | "ARCHIVED";
-  displayOrder: number;
-  stages: StageData[];
-}
-
-const seedJourneys: JourneyData[] = [
+const seedLessons = [
   {
     slug: "ancient-egyptian-teacher",
-    title: "أسرار المعلم المصري القديم",
-    shortDescription:
-      "اكتشف أسرار الكتابة والتعليم في مصر القديمة ودور المعلم المصري.",
+    title: "خبر عن المعلم المصري القديم",
+    shortDescription: "اكتشف أسرار الكتابة والتعليم في مصر القديمة ودور المعلم المصري.",
     themeKey: "ancient-egypt",
     achievementTitle: "مستكشف الحضارة",
     estimatedMinutes: 45,
-    status: "PUBLISHED",
+    status: "PUBLISHED" as const,
     displayOrder: 1,
-    stages: [
-      {
-        slug: "prepare",
-        title: "استعد",
-        shortDescription: "تهيئة واستعداد للرحلة المشوقة.",
-        displayOrder: 1,
-      },
-      {
-        slug: "predict",
-        title: "توقّع",
-        shortDescription: "ماذا تتوقع أن تتعلم في هذه الرحلة؟",
-        displayOrder: 2,
-      },
-      {
-        slug: "listen",
-        title: "استمع",
-        shortDescription: "استمع إلى القصة أو المحتوى التعليمي بتركيز.",
-        displayOrder: 3,
-      },
-      {
-        slug: "understand",
-        title: "افهم",
-        shortDescription: "أنشطة وأسئلة لقياس فهمك للمحتوى.",
-        displayOrder: 4,
-      },
-      {
-        slug: "word-play",
-        title: "العب بالكلمات",
-        shortDescription: "تطوير المفردات اللغوية من خلال الألعاب.",
-        displayOrder: 5,
-      },
-      {
-        slug: "sequence-events",
-        title: "رتّب الأحداث",
-        shortDescription: "ترتيب الأحداث بطريقة منطقية وزمنية.",
-        displayOrder: 6,
-      },
-      {
-        slug: "think-and-create",
-        title: "فكّر وأبدع",
-        shortDescription: "نشاط تعبيري وإبداعي لتطبيق ما تعلمته.",
-        displayOrder: 7,
-      },
-      {
-        slug: "review-achievement",
-        title: "راجع إنجازك",
-        shortDescription: "تقييم ذاتي ومراجعة لما أنجزته.",
-        displayOrder: 8,
-      },
-    ],
   },
   {
-    slug: "king-of-hearts",
-    title: "ملك القلوب",
-    shortDescription:
-      "رحلة ملهمة حول العطاء الإنساني وصناعة الأمل لمستقبل أفضل.",
+    slug: "magdi-yacoub",
+    title: "حوار مع د. مجدي يعقوب",
+    shortDescription: "رحلة ملهمة حول العطاء الإنساني وصناعة الأمل لمستقبل أفضل.",
     themeKey: "humanity",
     achievementTitle: "صانع الأمل",
     estimatedMinutes: 30,
-    status: "PUBLISHED",
+    status: "PUBLISHED" as const,
     displayOrder: 2,
-    stages: [
-      {
-        slug: "prepare",
-        title: "استعد",
-        shortDescription: "تهيئة واستعداد للرحلة المشوقة.",
-        displayOrder: 1,
-      },
-      {
-        slug: "predict",
-        title: "توقّع",
-        shortDescription: "ماذا تتوقع أن تتعلم في هذه الرحلة؟",
-        displayOrder: 2,
-      },
-      {
-        slug: "listen",
-        title: "استمع",
-        shortDescription: "استمع إلى القصة أو المحتوى التعليمي بتركيز.",
-        displayOrder: 3,
-      },
-      {
-        slug: "understand",
-        title: "افهم",
-        shortDescription: "أنشطة وأسئلة لقياس فهمك للمحتوى.",
-        displayOrder: 4,
-      },
-      {
-        slug: "word-play",
-        title: "العب بالكلمات",
-        shortDescription: "تطوير المفردات اللغوية من خلال الألعاب.",
-        displayOrder: 5,
-      },
-      {
-        slug: "sequence-events",
-        title: "رتّب الأحداث",
-        shortDescription: "ترتيب الأحداث بطريقة منطقية وزمنية.",
-        displayOrder: 6,
-      },
-      {
-        slug: "think-and-create",
-        title: "فكّر وأبدع",
-        shortDescription: "نشاط تعبيري وإبداعي لتطبيق ما تعلمته.",
-        displayOrder: 7,
-      },
-      {
-        slug: "review-achievement",
-        title: "راجع إنجازك",
-        shortDescription: "تقييم ذاتي ومراجعة لما أنجزته.",
-        displayOrder: 8,
-      },
-    ],
-  },
-  {
-    slug: "my-body-is-a-trust",
-    title: "جسدي أمانة",
-    shortDescription: "تعلم كيفية حماية جسدك وفهم حدود الأمان الشخصي والجسدي.",
-    themeKey: "safety",
-    achievementTitle: "بطل الأمان",
-    estimatedMinutes: 40,
-    status: "PUBLISHED",
-    displayOrder: 3,
-    stages: [
-      {
-        slug: "prepare",
-        title: "استعد",
-        shortDescription: "تهيئة واستعداد للرحلة المشوقة.",
-        displayOrder: 1,
-      },
-      {
-        slug: "predict",
-        title: "توقّع",
-        shortDescription: "ماذا تتوقع أن تتعلم في هذه الرحلة؟",
-        displayOrder: 2,
-      },
-      {
-        slug: "listen",
-        title: "استمع",
-        shortDescription: "استمع إلى القصة أو المحتوى التعليمي بتركيز.",
-        displayOrder: 3,
-      },
-      {
-        slug: "understand",
-        title: "افهم",
-        shortDescription: "أنشطة وأسئلة لقياس فهمك للمحتوى.",
-        displayOrder: 4,
-      },
-      {
-        slug: "word-play",
-        title: "العب بالكلمات",
-        shortDescription: "تطوير المفردات اللغوية من خلال الألعاب.",
-        displayOrder: 5,
-      },
-      {
-        slug: "sequence-events",
-        title: "رتّب الأحداث",
-        shortDescription: "ترتيب الأحداث بطريقة منطقية وزمنية.",
-        displayOrder: 6,
-      },
-      {
-        slug: "think-and-create",
-        title: "فكّر وأبدع",
-        shortDescription: "نشاط تعبيري وإبداعي لتطبيق ما تعلمته.",
-        displayOrder: 7,
-      },
-      {
-        slug: "review-achievement",
-        title: "راجع إنجازك",
-        shortDescription: "تقييم ذاتي ومراجعة لما أنجزته.",
-        displayOrder: 8,
-      },
-    ],
-  },
+  }
 ];
 
-const seedActivities = buildSeedActivities();
-
 async function main() {
-  console.log("Starting database seeding...");
+  console.log("Starting safe two-lesson database seeding...");
 
-  // 1. Seed/Upsert Journeys and Stages
-  for (const journeyData of seedJourneys) {
-    await prisma.$transaction(async (tx) => {
-      // Upsert Journey
+  await prisma.$transaction(async (tx) => {
+    // 1. Delete all obsolete lessons/journeys that are not in the new seedLessons (e.g. "my-body-is-a-trust" or "king-of-hearts")
+    const activeSlugs = seedLessons.map(l => l.slug);
+    
+    // Find obsolete journeys
+    const obsoleteJourneys = await tx.journey.findMany({
+      where: { slug: { notIn: activeSlugs } }
+    });
+    
+    for (const oj of obsoleteJourneys) {
+      console.log(`Deleting obsolete journey [${oj.slug}] and all cascaded records...`);
+      await tx.journey.delete({ where: { id: oj.id } });
+    }
+
+    // 2. Upsert the 2 active journeys (lessons) and their single internal default stage
+    const journeyMap = new Map<string, { id: string; stageId: string }>();
+
+    for (const l of seedLessons) {
       const journey = await tx.journey.upsert({
-        where: { slug: journeyData.slug },
+        where: { slug: l.slug },
         update: {
-          title: journeyData.title,
-          shortDescription: journeyData.shortDescription,
-          themeKey: journeyData.themeKey,
-          achievementTitle: journeyData.achievementTitle,
-          estimatedMinutes: journeyData.estimatedMinutes,
-          status: journeyData.status,
-          displayOrder: journeyData.displayOrder,
+          title: l.title,
+          shortDescription: l.shortDescription,
+          themeKey: l.themeKey,
+          achievementTitle: l.achievementTitle,
+          estimatedMinutes: l.estimatedMinutes,
+          status: l.status,
+          displayOrder: l.displayOrder,
         },
         create: {
-          slug: journeyData.slug,
-          title: journeyData.title,
-          shortDescription: journeyData.shortDescription,
-          themeKey: journeyData.themeKey,
-          achievementTitle: journeyData.achievementTitle,
-          estimatedMinutes: journeyData.estimatedMinutes,
-          status: journeyData.status,
-          displayOrder: journeyData.displayOrder,
-        },
+          slug: l.slug,
+          title: l.title,
+          shortDescription: l.shortDescription,
+          themeKey: l.themeKey,
+          achievementTitle: l.achievementTitle,
+          estimatedMinutes: l.estimatedMinutes,
+          status: l.status,
+          displayOrder: l.displayOrder,
+        }
       });
 
-      console.log(`Journey [${journey.slug}] upserted.`);
-
-      // Upsert stages
-      const activeStageIds: string[] = [];
-      for (const stageData of journeyData.stages) {
-        const stage = await tx.journeyStage.upsert({
-          where: {
-            journeyId_slug: {
-              journeyId: journey.id,
-              slug: stageData.slug,
-            },
-          },
-          update: {
-            title: stageData.title,
-            shortDescription: stageData.shortDescription,
-            displayOrder: stageData.displayOrder,
-          },
-          create: {
-            journeyId: journey.id,
-            slug: stageData.slug,
-            title: stageData.title,
-            shortDescription: stageData.shortDescription,
-            displayOrder: stageData.displayOrder,
-          },
-        });
-        activeStageIds.push(stage.id);
-      }
-
-      // Remove obsolete stages
+      // Remove any other stages for this journey FIRST to avoid displayOrder unique constraint conflicts
       await tx.journeyStage.deleteMany({
         where: {
           journeyId: journey.id,
-          id: { notIn: activeStageIds },
-        },
+          slug: { not: "main" }
+        }
       });
-    });
-  }
 
-  // 2. Read manifest and seed AudioAsset records
-  const manifestPath = path.resolve(
-    "public/audio/approved/audio_manifest.json",
-  );
-  if (fs.existsSync(manifestPath)) {
-    console.log("Found audio manifest. Seeding AudioAsset records...");
-    const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
-    for (const key of Object.keys(manifest)) {
-      const asset = manifest[key];
-      await prisma.audioAsset.upsert({
-        where: { assetKey: asset.assetKey },
-        update: {
-          provider: asset.provider,
-          providerVoiceId: asset.providerVoiceId,
-          locale: asset.locale,
-          spokenText: asset.spokenText,
-          durationSeconds: asset.durationSeconds,
-          fileHash: asset.fileHash,
-          generationVersion: asset.generationVersion,
-          status: asset.status,
-        },
-        create: {
-          assetKey: asset.assetKey,
-          provider: asset.provider,
-          providerVoiceId: asset.providerVoiceId,
-          locale: asset.locale,
-          spokenText: asset.spokenText,
-          durationSeconds: asset.durationSeconds,
-          fileHash: asset.fileHash,
-          generationVersion: asset.generationVersion,
-          status: asset.status,
-        },
-      });
-      console.log(`AudioAsset [${asset.assetKey}] seeded.`);
-    }
-  } else {
-    console.warn("Audio manifest not found. Skipping AudioAsset seeding.");
-  }
-
-  // Fetch all journeys and stages for fast reference
-  const allJourneys = await prisma.journey.findMany({
-    include: { stages: true },
-  });
-  const journeyMap = new Map(allJourneys.map((j) => [j.slug, j]));
-  console.log(
-    "Shifting existing displayOrders to prevent unique constraint conflicts...",
-  );
-  await prisma.activity.updateMany({
-    data: {
-      displayOrder: {
-        decrement: 10000,
-      },
-    },
-  });
-  await prisma.activityOption.updateMany({
-    data: {
-      displayOrder: {
-        decrement: 10000,
-      },
-    },
-  });
-
-  const stageActivityCounters = new Map<string, number>();
-
-  const visibleSeedActivities = seedActivities.filter((sa) => {
-    const invItem = workbookActivityInventory.find(
-      (item) => item.sourceItemKey === sa.sourceItemKey
-    );
-    return !invItem || invItem.implementationStatus !== "MERGED_WITH_REASON";
-  });
-
-  console.log(`Seeding ${visibleSeedActivities.length} activities...`);
-
-  // 3. Seed/Upsert Activities
-  for (const act of visibleSeedActivities) {
-    const journey = journeyMap.get(act.journeySlug);
-    if (!journey) {
-      throw new Error(`Journey [${act.journeySlug}] not found during seeding.`);
-    }
-    const stage = journey.stages.find((s) => s.slug === act.stageSlug);
-    if (!stage) {
-      throw new Error(
-        `Stage [${act.stageSlug}] not found in Journey [${act.journeySlug}] during seeding.`,
-      );
-    }
-
-    const currentCount = stageActivityCounters.get(stage.id) || 0;
-    const displayOrder = currentCount + 1;
-    stageActivityCounters.set(stage.id, displayOrder);
-
-    // Use transaction for activity + options + answerKey upsert
-    await prisma.$transaction(async (tx) => {
-      // Upsert Activity
-      const activity = await tx.activity.upsert({
+      // Upsert exactly ONE internal stage for this journey
+      const stage = await tx.journeyStage.upsert({
         where: {
           journeyId_slug: {
             journeyId: journey.id,
-            slug: act.slug,
-          },
+            slug: "main"
+          }
         },
         update: {
-          stageId: stage.id,
+          title: "مراحل الدرس",
+          shortDescription: "مراحل وتحديات الدرس",
+          displayOrder: 1,
+        },
+        create: {
+          journeyId: journey.id,
+          slug: "main",
+          title: "مراحل الدرس",
+          shortDescription: "مراحل وتحديات الدرس",
+          displayOrder: 1,
+        }
+      });
+
+      journeyMap.set(l.slug, { id: journey.id, stageId: stage.id });
+      console.log(`Journey [${journey.slug}] and default stage upserted.`);
+    }
+
+    // 3. Upsert the 47 activities
+    // Shift displayOrder to avoid unique constraint violations on displayOrder during updates
+    await tx.activity.updateMany({
+      data: { displayOrder: { decrement: 10000 } }
+    });
+    await tx.activityOption.updateMany({
+      data: { displayOrder: { decrement: 10000 } }
+    });
+
+    const activeActivityIds = new Set<string>();
+
+    for (const act of allActivities) {
+      const journeySlug = act.sourceLessonNumber === 1 ? "ancient-egyptian-teacher" : "magdi-yacoub";
+      const ids = journeyMap.get(journeySlug);
+      if (!ids) {
+        throw new Error(`Journey mapping not found for slug ${journeySlug}`);
+      }
+
+      // Upsert activity
+      const activity = await tx.activity.upsert({
+        where: {
+          journeyId_slug: {
+            journeyId: ids.id,
+            slug: act.slug
+          }
+        },
+        update: {
+          stageId: ids.stageId,
           type: act.type,
           title: act.title,
           instruction: act.instruction,
-          prompt: act.prompt || null,
+          prompt: act.prompt,
           skillTags: act.skillTags,
           isGraded: act.isGraded,
           isSensitive: act.isSensitive,
           storagePolicy: act.storagePolicy,
-          sourceItemKey: act.sourceItemKey,
-          correctFeedback: act.correctFeedback || null,
-          incorrectFeedback: act.incorrectFeedback || null,
-          completionFeedback: act.completionFeedback || null,
-          instructionNarrationKey: act.instructionNarrationKey || null,
-          promptNarrationKey: act.promptNarrationKey || null,
-          correctFeedbackNarrationKey: act.correctFeedbackNarrationKey || null,
-          incorrectFeedbackNarrationKey:
-            act.incorrectFeedbackNarrationKey || null,
-          completionFeedbackNarrationKey:
-            act.completionFeedbackNarrationKey || null,
-          displayOrder,
+          displayOrder: act.sourceActivityNumber,
+          sourceItemKey: act.sourceKey, // Keep old sourceItemKey populated for now
+          // Populate new source fields
+          sourceLessonNumber: act.sourceLessonNumber,
+          sourceActivityNumber: act.sourceActivityNumber,
+          sourceKey: act.sourceKey,
+          instructionNarrationKey: act.instructionAudioKey,
+          promptNarrationKey: act.promptAudioKey,
+          correctFeedbackNarrationKey: act.correctFeedbackAudioKey,
+          incorrectFeedbackNarrationKey: act.incorrectFeedbackAudioKey,
+          completionFeedbackNarrationKey: act.completionFeedbackAudioKey,
+          configuration: act.configuration ? act.configuration : null,
         },
         create: {
-          journeyId: journey.id,
-          stageId: stage.id,
+          journeyId: ids.id,
+          stageId: ids.stageId,
           slug: act.slug,
           type: act.type,
           title: act.title,
           instruction: act.instruction,
-          prompt: act.prompt || null,
+          prompt: act.prompt,
           skillTags: act.skillTags,
           isGraded: act.isGraded,
           isSensitive: act.isSensitive,
           storagePolicy: act.storagePolicy,
-          sourceItemKey: act.sourceItemKey,
-          correctFeedback: act.correctFeedback || null,
-          incorrectFeedback: act.incorrectFeedback || null,
-          completionFeedback: act.completionFeedback || null,
-          instructionNarrationKey: act.instructionNarrationKey || null,
-          promptNarrationKey: act.promptNarrationKey || null,
-          correctFeedbackNarrationKey: act.correctFeedbackNarrationKey || null,
-          incorrectFeedbackNarrationKey:
-            act.incorrectFeedbackNarrationKey || null,
-          completionFeedbackNarrationKey:
-            act.completionFeedbackNarrationKey || null,
-          displayOrder,
-        },
+          displayOrder: act.sourceActivityNumber,
+          sourceItemKey: act.sourceKey,
+          // Populate new source fields
+          sourceLessonNumber: act.sourceLessonNumber,
+          sourceActivityNumber: act.sourceActivityNumber,
+          sourceKey: act.sourceKey,
+          instructionNarrationKey: act.instructionAudioKey,
+          promptNarrationKey: act.promptAudioKey,
+          correctFeedbackNarrationKey: act.correctFeedbackAudioKey,
+          incorrectFeedbackNarrationKey: act.incorrectFeedbackAudioKey,
+          completionFeedbackNarrationKey: act.completionFeedbackAudioKey,
+          configuration: act.configuration ? act.configuration : null,
+        }
       });
 
-      // Upsert Options
+      activeActivityIds.add(activity.id);
+
+      // Seed options
       if (act.options && act.options.length > 0) {
-        const activeOptionKeys: string[] = [];
+        const optionKeys = act.options.map(o => o.optionKey);
         for (const opt of act.options) {
           await tx.activityOption.upsert({
             where: {
               activityId_optionKey: {
                 activityId: activity.id,
-                optionKey: opt.optionKey,
-              },
+                optionKey: opt.optionKey
+              }
             },
             update: {
               label: opt.label,
               secondaryText: opt.secondaryText || null,
               displayOrder: opt.displayOrder,
-              narrationKey: opt.narrationKey || null,
+              narrationKey: opt.narrationKey || null
             },
             create: {
               activityId: activity.id,
@@ -457,96 +209,57 @@ async function main() {
               label: opt.label,
               secondaryText: opt.secondaryText || null,
               displayOrder: opt.displayOrder,
-              narrationKey: opt.narrationKey || null,
-            },
+              narrationKey: opt.narrationKey || null
+            }
           });
-          activeOptionKeys.push(opt.optionKey);
         }
-
-        // Clean obsolete options
+        // Delete obsolete options
         await tx.activityOption.deleteMany({
           where: {
             activityId: activity.id,
-            optionKey: { notIn: activeOptionKeys },
-          },
+            optionKey: { notIn: optionKeys }
+          }
         });
       } else {
         await tx.activityOption.deleteMany({
-          where: { activityId: activity.id },
+          where: { activityId: activity.id }
         });
       }
 
-      // Upsert Answer Key
+      // Seed answer keys
       if (act.answerKey) {
         await tx.activityAnswerKey.upsert({
           where: { activityId: activity.id },
           update: {
             answerData: act.answerKey.answerData,
-            acceptedAlternatives:
-              act.answerKey.acceptedAlternatives ?? undefined,
-            modelAnswer: act.answerKey.modelAnswer ?? undefined,
-            explanation: act.answerKey.explanation ?? undefined,
+            acceptedAlternatives: act.answerKey.acceptedAlternatives || null,
+            modelAnswer: act.answerKey.modelAnswer || null,
+            explanation: act.answerKey.explanation || null
           },
           create: {
             activityId: activity.id,
             answerData: act.answerKey.answerData,
-            acceptedAlternatives:
-              act.answerKey.acceptedAlternatives ?? undefined,
-            modelAnswer: act.answerKey.modelAnswer ?? undefined,
-            explanation: act.answerKey.explanation ?? undefined,
-          },
+            acceptedAlternatives: act.answerKey.acceptedAlternatives || null,
+            modelAnswer: act.answerKey.modelAnswer || null,
+            explanation: act.answerKey.explanation || null
+          }
         });
       } else {
         await tx.activityAnswerKey.deleteMany({
-          where: { activityId: activity.id },
+          where: { activityId: activity.id }
         });
       }
+    }
 
-      // Seed Mappings
-      const inventoryItems = workbookActivityInventory.filter(
-        (item) =>
-          item.sourceItemKey === act.sourceItemKey ||
-          item.mergedIntoSourceItemKey === act.sourceItemKey
-      );
-
-      for (const item of inventoryItems) {
-        await tx.activitySourceMapping.upsert({
-          where: { sourceItemKey: item.sourceItemKey },
-          update: {
-            activityId: activity.id,
-            sourcePage: item.sourcePage,
-            implementationStatus: item.implementationStatus,
-            mergeReason: item.notes || null,
-          },
-          create: {
-            activityId: activity.id,
-            sourceItemKey: item.sourceItemKey,
-            sourcePage: item.sourcePage,
-            implementationStatus: item.implementationStatus,
-            mergeReason: item.notes || null,
-          },
-        });
+    // Delete any activities not in the new 47 list for these journeys
+    await tx.activity.deleteMany({
+      where: {
+        id: { notIn: Array.from(activeActivityIds) }
       }
     });
-  }
 
-  // Clean up any activities that were NOT seeded but exist in DB for these journeys
-  const seededSlugs = visibleSeedActivities.map((sa) => sa.slug);
-  await prisma.activity.deleteMany({
-    where: {
-      slug: { notIn: seededSlugs },
-    },
+    console.log("Seeding completed successfully.");
   });
-
-  // Also clean up obsolete mappings
-  const seededSourceKeys = workbookActivityInventory.map((i) => i.sourceItemKey);
-  await prisma.activitySourceMapping.deleteMany({
-    where: {
-      sourceItemKey: { notIn: seededSourceKeys },
-    },
-  });
-
-  console.log("Seeding completed successfully.");
 }
 
 main()

@@ -17,6 +17,7 @@ import StoryBuilderRenderer from "./renderers/StoryBuilderRenderer";
 import SelfAssessmentRenderer from "./renderers/SelfAssessmentRenderer";
 import OpenTextRenderer from "./renderers/OpenTextRenderer";
 import AgreeDisagreeRenderer from "./renderers/AgreeDisagreeRenderer";
+import MultiRoundRenderer from "./renderers/MultiRoundRenderer";
 
 type ActivityType =
   | "single_choice"
@@ -34,7 +35,8 @@ type ActivityType =
   | "long_text"
   | "creative_ending"
   | "retell_story"
-  | "agree_disagree";
+  | "agree_disagree"
+  | "multi_round";
 
 interface ActivityRendererProps {
   activity: StudentActivityPayload;
@@ -162,6 +164,15 @@ export default function ActivityRenderer({
     case "agree_disagree":
       return (
         <AgreeDisagreeRenderer
+          activity={activity}
+          onSubmit={onSubmit}
+          isSubmitting={isSubmitting}
+          evaluationResult={evaluationResult}
+        />
+      );
+    case "multi_round":
+      return (
+        <MultiRoundRenderer
           activity={activity}
           onSubmit={onSubmit}
           isSubmitting={isSubmitting}

@@ -73,6 +73,9 @@ model Activity {
   completionFeedback               String?
   displayOrder                     Int
   sourceItemKey                    String             @unique
+  sourceLessonNumber               Int
+  sourceActivityNumber             Int
+  sourceKey                        String             @unique
   instructionNarrationKey          String?
   promptNarrationKey               String?
   correctFeedbackNarrationKey      String?
@@ -84,10 +87,10 @@ model Activity {
   answerKey                        ActivityAnswerKey?
   attempts                         ActivityAttempt[]
   activityProgress                 ActivityProgress[]
-  sourceMappings                   ActivitySourceMapping[]
 
   @@unique([journeyId, slug])
   @@unique([stageId, displayOrder])
+  @@unique([sourceLessonNumber, sourceActivityNumber])
   @@index([stageId])
   @@index([journeyId])
 }
@@ -202,15 +205,3 @@ model ActivityProgress {
   @@index([playerSessionId])
 }
 
-model ActivitySourceMapping {
-  id                   String   @id @default(uuid())
-  activityId           String
-  sourceItemKey        String   @unique
-  sourcePage           Int?
-  implementationStatus String
-  mergeReason          String?
-
-  activity Activity @relation(fields: [activityId], references: [id], onDelete: Cascade)
-
-  @@index([activityId])
-}

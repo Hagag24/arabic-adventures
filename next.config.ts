@@ -3,30 +3,43 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      // Old journey redirects to new lesson roadmaps
       {
-        source: "/student",
-        destination: "/",
-        permanent: true,
+        source: "/journeys/ancient-egyptian-teacher",
+        destination: "/lessons/ancient-egyptian-teacher",
+        permanent: false,
       },
       {
-        source: "/student/journeys",
-        destination: "/",
-        permanent: true,
+        source: "/journeys/king-of-hearts",
+        destination: "/lessons/magdi-yacoub",
+        permanent: false,
+      },
+      // Old activity play links to new activity play links
+      {
+        source: "/journeys/ancient-egyptian-teacher/play/:activitySlug",
+        destination: "/lessons/ancient-egyptian-teacher/activities/:activitySlug",
+        permanent: false,
       },
       {
-        source: "/teacher",
+        source: "/journeys/king-of-hearts/play/:activitySlug",
+        destination: "/lessons/magdi-yacoub/activities/:activitySlug",
+        permanent: false,
+      },
+      // Legacy portals redirect to home
+      {
+        source: "/student/:path*",
         destination: "/",
-        permanent: true,
+        permanent: false,
       },
       {
-        source: "/admin",
+        source: "/teacher/:path*",
         destination: "/",
-        permanent: true,
+        permanent: false,
       },
       {
-        source: "/student/journeys/:journeySlug",
-        destination: "/journeys/:journeySlug",
-        permanent: true,
+        source: "/admin/:path*",
+        destination: "/",
+        permanent: false,
       },
     ];
   },
