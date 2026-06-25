@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import fs from "fs";
 import path from "path";
 import { buildSeedActivities } from "../src/content/activity-seed-builder";
+import { workbookActivityInventory } from "../src/content/workbook-activity-inventory";
 
 dotenv.config();
 
@@ -347,10 +348,17 @@ async function main() {
 
   const stageActivityCounters = new Map<string, number>();
 
-  console.log(`Seeding ${seedActivities.length} activities...`);
+  const visibleSeedActivities = seedActivities.filter((sa) => {
+    const invItem = workbookActivityInventory.find(
+      (item) => item.sourceItemKey === sa.sourceItemKey
+    );
+    return !invItem || invItem.implementationStatus !== "MERGED_WITH_REASON";
+  });
+
+  console.log(`Seeding ${visibleSeedActivities.length} activities...`);
 
   // 3. Seed/Upsert Activities
-  for (const act of seedActivities) {
+  for (const act of visibleSeedActivities) {
     const journey = journeyMap.get(act.journeySlug);
     if (!journey) {
       throw new Error(`Journey [${act.journeySlug}] not found during seeding.`);
@@ -493,14 +501,48 @@ async function main() {
           where: { activityId: activity.id },
         });
       }
+
+      // Seed Mappings
+      const inventoryItems = workbookActivityInventory.filter(
+        (item) =>
+          item.sourceItemKey === act.sourceItemKey ||
+          item.mergedIntoSourceItemKey === act.sourceItemKey
+      );
+
+      for (const item of inventoryItems) {
+        await tx.activitySourceMapping.upsert({
+          where: { sourceItemKey: item.sourceItemKey },
+          update: {
+            activityId: activity.id,
+            sourcePage: item.sourcePage,
+            implementationStatus: item.implementationStatus,
+            mergeReason: item.notes || null,
+          },
+          create: {
+            activityId: activity.id,
+            sourceItemKey: item.sourceItemKey,
+            sourcePage: item.sourcePage,
+            implementationStatus: item.implementationStatus,
+            mergeReason: item.notes || null,
+          },
+        });
+      }
     });
   }
 
   // Clean up any activities that were NOT seeded but exist in DB for these journeys
-  const seededSlugs = seedActivities.map((sa) => sa.slug);
+  const seededSlugs = visibleSeedActivities.map((sa) => sa.slug);
   await prisma.activity.deleteMany({
     where: {
       slug: { notIn: seededSlugs },
+    },
+  });
+
+  // Also clean up obsolete mappings
+  const seededSourceKeys = workbookActivityInventory.map((i) => i.sourceItemKey);
+  await prisma.activitySourceMapping.deleteMany({
+    where: {
+      sourceItemKey: { notIn: seededSourceKeys },
     },
   });
 

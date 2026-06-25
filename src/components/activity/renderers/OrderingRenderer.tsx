@@ -19,7 +19,15 @@ export default function OrderingRenderer({
   isSubmitting,
   evaluationResult,
 }: OrderingRendererProps) {
-  const [items, setItems] = useState(activity.options);
+  const [items, setItems] = useState(() => {
+    const prevOrder = activity.previousResponseData?.order as string[];
+    if (prevOrder && prevOrder.length === activity.options.length) {
+      const sorted = [...activity.options];
+      sorted.sort((a, b) => prevOrder.indexOf(a.optionKey) - prevOrder.indexOf(b.optionKey));
+      return sorted;
+    }
+    return activity.options;
+  });
 
   const handleMoveUp = (index: number) => {
     if (evaluationResult || index === 0) return;

@@ -40,6 +40,10 @@ export interface StudentActivityPayload {
   totalActivities: number;
   previousActivitySlug: string | null;
   nextActivitySlug: string | null;
+  isCompleted: boolean;
+  previousResponseData: any | null;
+  modelAnswer?: string | null;
+  explanation?: string | null;
 }
 
 export interface SafeEvaluationResult {
@@ -71,6 +75,7 @@ export function normalizeArabicText(text: string): string {
 export async function getActivityPayload(
   journeySlug: string,
   activitySlug: string,
+  playerSessionId?: string | null,
 ): Promise<StudentActivityPayload | null> {
   const activity = await prisma.activity.findFirst({
     where: {
@@ -120,8 +125,52 @@ export async function getActivityPayload(
       ? journeyActivities[currentIndex + 1].slug
       : null;
 
+  let isCompleted = false;
+  let previousResponseData: any = null;
+
+  if (playerSessionId) {
+    const progress = await prisma.activityProgress.findUnique({
+      where: {
+        playerSessionId_activityId: {
+          playerSessionId,
+          activityId: activity.id,
+        },
+      },
+    });
+    if (progress && progress.status === "COMPLETED") {
+      isCompleted = true;
+    }
+
+    if (activity.storagePolicy === "FULL_RESPONSE") {
+      const lastAttempt = await prisma.activityAttempt.findFirst({
+        where: {
+          playerSessionId,
+          activityId: activity.id,
+        },
+        orderBy: { attemptNumber: "desc" },
+      });
+      if (lastAttempt) {
+        previousResponseData = lastAttempt.responseData;
+      }
+    }
+  }
+
+  let modelAnswer: string | null = null;
+  let explanation: string | null = null;
+
+  if (isCompleted) {
+    const fullActivity = await prisma.activity.findUnique({
+      where: { id: activity.id },
+      include: { answerKey: true },
+    });
+    if (fullActivity?.answerKey) {
+      modelAnswer = fullActivity.answerKey.modelAnswer;
+      explanation = fullActivity.answerKey.explanation;
+    }
+  }
+
   // Map to safe payload, omitting answerKey information
-  return {
+  const payload: StudentActivityPayload = {
     id: activity.id,
     journeyId: activity.journeyId,
     journeySlug: activity.journey.slug,
@@ -156,7 +205,20 @@ export async function getActivityPayload(
     totalActivities,
     previousActivitySlug,
     nextActivitySlug,
+    isCompleted,
+    previousResponseData,
   };
+
+  if (isCompleted) {
+    if (modelAnswer !== null) {
+      payload.modelAnswer = modelAnswer;
+    }
+    if (explanation !== null) {
+      payload.explanation = explanation;
+    }
+  }
+
+  return payload;
 }
 
 export async function evaluateSubmission(

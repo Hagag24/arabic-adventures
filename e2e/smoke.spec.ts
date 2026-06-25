@@ -59,10 +59,12 @@ test.describe("Arabic Adventures Smoke Tests", () => {
     const response = await request.get("/api/health");
     expect(response.ok()).toBeTruthy();
     const body = await response.json();
-    expect(body).toEqual({
-      status: "ok",
-      database: "connected",
-    });
+    expect(body.status).toBe("ok");
+    expect(body.database).toBe("connected");
+    expect(body.contentVersion).toBe("workbook-activities-v1");
+    expect(body.journeys).toBe(3);
+    expect(body.sourceItems).toBe(77);
+    expect(body.publishedActivities).toBe(72);
   });
 
   test("No horizontal overflow at 320px width", async ({ page }) => {

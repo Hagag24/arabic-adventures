@@ -18,7 +18,18 @@ export default function ActivityPlayerClient({
 }: ActivityPlayerClientProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [evaluationResult, setEvaluationResult] =
-    useState<SafeEvaluationResult | null>(null);
+    useState<SafeEvaluationResult | null>(
+      activity.isCompleted
+        ? {
+            isCorrect: true,
+            score: activity.isGraded ? 1.0 : 0.0,
+            storagePolicy: activity.storagePolicy,
+            modelAnswer: activity.modelAnswer || null,
+            explanation: activity.explanation || null,
+            journeyStatus: "IN_PROGRESS",
+          }
+        : null
+    );
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [shake, setShake] = useState(false);
 
@@ -251,7 +262,7 @@ export default function ActivityPlayerClient({
             <div /> // Spacer
           )}
 
-          {(!activity.isGraded || evaluationResult?.isCorrect) && (
+          {(!activity.isGraded || evaluationResult?.isCorrect || activity.isCompleted) && (
             <Link
               href={
                 activity.nextActivitySlug

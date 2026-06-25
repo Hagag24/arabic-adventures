@@ -19,7 +19,9 @@ export default function ThreeAnswersRenderer({
   isSubmitting,
   evaluationResult,
 }: ThreeAnswersRendererProps) {
-  const [answers, setAnswers] = useState<string[]>(["", "", ""]);
+  const [answers, setAnswers] = useState<string[]>(
+    (activity.previousResponseData?.answers as string[]) || ["", "", ""]
+  );
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const handleInputChange = (index: number, val: string) => {

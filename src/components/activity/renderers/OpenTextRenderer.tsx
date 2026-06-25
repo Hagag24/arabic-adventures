@@ -19,7 +19,9 @@ export default function OpenTextRenderer({
   isSubmitting,
   evaluationResult,
 }: OpenTextRendererProps) {
-  const [text, setText] = useState("");
+  const [text, setText] = useState(
+    (activity.previousResponseData?.text as string) || ""
+  );
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

@@ -84,6 +84,7 @@ model Activity {
   answerKey                        ActivityAnswerKey?
   attempts                         ActivityAttempt[]
   activityProgress                 ActivityProgress[]
+  sourceMappings                   ActivitySourceMapping[]
 
   @@unique([journeyId, slug])
   @@unique([stageId, displayOrder])
@@ -199,4 +200,17 @@ model ActivityProgress {
 
   @@unique([playerSessionId, activityId])
   @@index([playerSessionId])
+}
+
+model ActivitySourceMapping {
+  id                   String   @id @default(uuid())
+  activityId           String
+  sourceItemKey        String   @unique
+  sourcePage           Int?
+  implementationStatus String
+  mergeReason          String?
+
+  activity Activity @relation(fields: [activityId], references: [id], onDelete: Cascade)
+
+  @@index([activityId])
 }

@@ -20,9 +20,16 @@ export default function ProblemSolutionRenderer({
   evaluationResult,
 }: ProblemSolutionRendererProps) {
   // If prompt already specifies the problem (e.g. Yacoub project), we can display it read-only
-  const [problem, setProblem] = useState("");
-  const [solution1, setSolution1] = useState("");
-  const [solution2, setSolution2] = useState("");
+  const [problem, setProblem] = useState(
+    (activity.previousResponseData?.problem as string) || 
+    (activity.prompt && activity.prompt.includes("المشكلة:") ? activity.prompt : "")
+  );
+  const [solution1, setSolution1] = useState(
+    (activity.previousResponseData?.solution1 as string) || ""
+  );
+  const [solution2, setSolution2] = useState(
+    (activity.previousResponseData?.solution2 as string) || ""
+  );
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -97,6 +104,18 @@ export default function ProblemSolutionRenderer({
         </div>
       </div>
 
+      {/* Model Answer Display */}
+      {evaluationResult && evaluationResult.modelAnswer && (
+        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-6 text-right transition-all duration-300">
+          <span className="text-xs font-bold text-amber-800 block mb-2">
+            💡 نموذج للإجابة المقترحة للمقارنة:
+          </span>
+          <p className="text-amber-950 font-semibold text-sm md:text-base leading-relaxed whitespace-pre-line">
+            {evaluationResult.modelAnswer}
+          </p>
+        </div>
+      )}
+
       {!evaluationResult && (
         <button
           type="submit"
@@ -109,3 +128,4 @@ export default function ProblemSolutionRenderer({
     </form>
   );
 }
+

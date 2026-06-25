@@ -19,7 +19,9 @@ export default function ChecklistRenderer({
   isSubmitting,
   evaluationResult,
 }: ChecklistRendererProps) {
-  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+  const [selectedOptions, setSelectedOptions] = useState<string[]>(
+    (activity.previousResponseData?.selectedOptions as string[]) || []
+  );
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
 
   const handleCardClick = (optionKey: string) => {

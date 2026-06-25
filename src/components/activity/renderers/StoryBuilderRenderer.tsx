@@ -19,9 +19,15 @@ export default function StoryBuilderRenderer({
   isSubmitting,
   evaluationResult,
 }: StoryBuilderRendererProps) {
-  const [problem, setProblem] = useState("");
-  const [solution, setSolution] = useState("");
-  const [ending, setEnding] = useState("");
+  const [problem, setProblem] = useState(
+    (activity.previousResponseData?.problem as string) || ""
+  );
+  const [solution, setSolution] = useState(
+    (activity.previousResponseData?.solution as string) || ""
+  );
+  const [ending, setEnding] = useState(
+    (activity.previousResponseData?.ending as string) || ""
+  );
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -90,6 +96,18 @@ export default function StoryBuilderRenderer({
         </div>
       </div>
 
+      {/* Model Answer Display */}
+      {evaluationResult && evaluationResult.modelAnswer && (
+        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-6 text-right transition-all duration-300">
+          <span className="text-xs font-bold text-amber-800 block mb-2">
+            💡 نموذج للإجابة المقترحة للمقارنة:
+          </span>
+          <p className="text-amber-950 font-semibold text-sm md:text-base leading-relaxed whitespace-pre-line">
+            {evaluationResult.modelAnswer}
+          </p>
+        </div>
+      )}
+
       {!evaluationResult && (
         <button
           type="submit"
@@ -102,3 +120,4 @@ export default function StoryBuilderRenderer({
     </form>
   );
 }
+

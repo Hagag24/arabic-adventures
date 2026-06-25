@@ -19,7 +19,9 @@ export default function SelfAssessmentRenderer({
   isSubmitting,
   evaluationResult,
 }: SelfAssessmentRendererProps) {
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selected, setSelected] = useState<string | null>(
+    (activity.previousResponseData?.ratingKey as string) || null
+  );
 
   const handleSelect = (key: string) => {
     if (evaluationResult) return;

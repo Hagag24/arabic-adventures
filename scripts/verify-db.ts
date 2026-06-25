@@ -39,10 +39,13 @@ async function verify() {
 
   // 2. Activity Counts
   const activities = await prisma.activity.findMany({
-    include: { options: true, answerKey: true },
+    include: { options: true, answerKey: true, sourceMappings: true },
   });
   const totalActivityCount = activities.length;
   console.log(`Total Activities in DB: ${totalActivityCount}`);
+
+  const mappings = await prisma.activitySourceMapping.findMany();
+  console.log(`Total Source Mappings in DB: ${mappings.length}`);
 
   // Report counts per journey
   console.log("\n--- Activities per Journey ---");
@@ -246,10 +249,11 @@ async function verify() {
     (i) => i.implementationStatus === "BLOCKED_CONTENT_REVIEW",
   ).length;
 
-  console.log(`- Implemented: ${implementedCount}`);
-  console.log(`- Review: ${reviewCount}`);
-  console.log(`- Merged: ${mergedCount}`);
-  console.log(`- Blocked: ${blockedCount}`);
+  console.log(`Total visible activity screens: ${totalActivityCount}`);
+  console.log(`- Implemented source items: ${implementedCount}`);
+  console.log(`- Review source items: ${reviewCount}`);
+  console.log(`- Merged source items: ${mergedCount}`);
+  console.log(`- Blocked source items: ${blockedCount}`);
 
   const calculatedTotal =
     implementedCount + reviewCount + mergedCount + blockedCount;
@@ -263,18 +267,39 @@ async function verify() {
     `✔ Inventory status totals reconcile successfully (Implemented + Review + Merged + Blocked = Total).`,
   );
 
-  // Inventory mapping counts
-  const dbSourceKeys = new Set(
-    activities.filter((a) => a.isPublished).map((a) => a.sourceItemKey),
+  // Check duplicate source mappings (should map to at most 1 activity)
+  const mappingKeys = mappings.map((m) => m.sourceItemKey);
+  const duplicateMappings = mappingKeys.filter(
+    (key, index) => mappingKeys.indexOf(key) !== index
   );
+  console.log(`- Accidental duplicate screens: ${duplicateMappings.length}`);
+  if (duplicateMappings.length > 0) {
+    throw new Error(
+      `Accidental duplicate screens/mappings found: ${duplicateMappings.join(", ")}`
+    );
+  }
+
+  // Check missing source mappings (activities with zero mappings)
+  const activitiesMissingMappings = activities.filter(
+    (a) => a.sourceMappings.length === 0
+  );
+  console.log(`- Missing source mappings: ${activitiesMissingMappings.length}`);
+  if (activitiesMissingMappings.length > 0) {
+    throw new Error(
+      `Activities missing source mappings: ${activitiesMissingMappings.map((a) => a.slug).join(", ")}`
+    );
+  }
+
+  // Inventory mapping counts
+  const dbMappedKeys = new Set(mappings.map((m) => m.sourceItemKey));
   const inventoryKeys = workbookActivityInventory.map((i) => i.sourceItemKey);
 
-  const mappedCount = inventoryKeys.filter((k) => dbSourceKeys.has(k)).length;
+  const mappedCount = inventoryKeys.filter((k) => dbMappedKeys.has(k)).length;
   const unmappedCount = inventoryKeys.filter(
-    (k) => !dbSourceKeys.has(k),
+    (k) => !dbMappedKeys.has(k)
   ).length;
   const inventedPublished = activities.filter(
-    (a) => a.isPublished && !inventoryKeys.includes(a.sourceItemKey || ""),
+    (a) => a.isPublished && !inventoryKeys.includes(a.sourceItemKey || "")
   ).length;
 
   console.log(`- Inventory mapped count: ${mappedCount}`);
@@ -283,12 +308,12 @@ async function verify() {
 
   if (unmappedCount > 0) {
     throw new Error(
-      `Found ${unmappedCount} unmapped inventory items not present in the DB.`,
+      `Found ${unmappedCount} unmapped inventory items not present in the DB mappings.`
     );
   }
   if (inventedPublished > 0) {
     throw new Error(
-      `Found ${inventedPublished} invented published activities in the DB.`,
+      `Found ${inventedPublished} invented published activities in the DB.`
     );
   }
   console.log(`✔ Zero unmapped or invented published activities exist in DB.`);
