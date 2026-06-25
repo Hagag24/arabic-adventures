@@ -20,7 +20,7 @@ export default function ThreeAnswersRenderer({
   evaluationResult,
 }: ThreeAnswersRendererProps) {
   const [answers, setAnswers] = useState<string[]>(
-    (activity.previousResponseData?.answers as string[]) || ["", "", ""]
+    (activity.previousResponseData?.answers as string[]) || ["", "", ""],
   );
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 

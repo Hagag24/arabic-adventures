@@ -26,7 +26,7 @@ export default function FillBlankRenderer({
   const blankKeys = blankMatches.map((m) => m[1]);
 
   const [blanks, setBlanks] = useState<Record<string, string>>(
-    (activity.previousResponseData?.blanks as Record<string, string>) || {}
+    (activity.previousResponseData?.blanks as Record<string, string>) || {},
   );
   const [activeBlank, setActiveBlank] = useState<string | null>(
     blankKeys[0] || null,

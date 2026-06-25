@@ -7,24 +7,26 @@ export async function GET() {
   try {
     // Query SQLite safely to check connectivity
     await prisma.$queryRaw`SELECT 1`;
-    const publishedLessons = await prisma.journey.count({ where: { status: "PUBLISHED" } });
-    
+    const publishedLessons = await prisma.journey.count({
+      where: { status: "PUBLISHED" },
+    });
+
     const lesson1Activities = await prisma.activity.count({
       where: {
         isPublished: true,
-        journey: { slug: "ancient-egyptian-teacher" }
-      }
+        journey: { slug: "ancient-egyptian-teacher" },
+      },
     });
 
     const lesson2Activities = await prisma.activity.count({
       where: {
         isPublished: true,
-        journey: { slug: "magdi-yacoub" }
-      }
+        journey: { slug: "magdi-yacoub" },
+      },
     });
 
     const totalPublicActivities = await prisma.activity.count({
-      where: { isPublished: true }
+      where: { isPublished: true },
     });
 
     const countsValid =
@@ -38,7 +40,7 @@ export async function GET() {
         publishedLessons,
         lesson1Activities,
         lesson2Activities,
-        totalPublicActivities
+        totalPublicActivities,
       });
       return NextResponse.json(
         {
@@ -47,9 +49,9 @@ export async function GET() {
           publishedLessons,
           lesson1Activities,
           lesson2Activities,
-          totalPublicActivities
+          totalPublicActivities,
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -59,7 +61,7 @@ export async function GET() {
       publishedLessons,
       lesson1Activities,
       lesson2Activities,
-      totalPublicActivities
+      totalPublicActivities,
     });
   } catch (error) {
     console.error("Health check database error:", error);

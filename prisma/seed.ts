@@ -11,7 +11,8 @@ const seedLessons = [
   {
     slug: "ancient-egyptian-teacher",
     title: "خبر عن المعلم المصري القديم",
-    shortDescription: "اكتشف أسرار الكتابة والتعليم في مصر القديمة ودور المعلم المصري.",
+    shortDescription:
+      "اكتشف أسرار الكتابة والتعليم في مصر القديمة ودور المعلم المصري.",
     themeKey: "ancient-egypt",
     achievementTitle: "مستكشف الحضارة",
     estimatedMinutes: 45,
@@ -21,13 +22,14 @@ const seedLessons = [
   {
     slug: "magdi-yacoub",
     title: "حوار مع د. مجدي يعقوب",
-    shortDescription: "رحلة ملهمة حول العطاء الإنساني وصناعة الأمل لمستقبل أفضل.",
+    shortDescription:
+      "رحلة ملهمة حول العطاء الإنساني وصناعة الأمل لمستقبل أفضل.",
     themeKey: "humanity",
     achievementTitle: "صانع الأمل",
     estimatedMinutes: 30,
     status: "PUBLISHED" as const,
     displayOrder: 2,
-  }
+  },
 ];
 
 async function main() {
@@ -35,15 +37,17 @@ async function main() {
 
   await prisma.$transaction(async (tx) => {
     // 1. Delete all obsolete lessons/journeys that are not in the new seedLessons (e.g. "my-body-is-a-trust" or "king-of-hearts")
-    const activeSlugs = seedLessons.map(l => l.slug);
-    
+    const activeSlugs = seedLessons.map((l) => l.slug);
+
     // Find obsolete journeys
     const obsoleteJourneys = await tx.journey.findMany({
-      where: { slug: { notIn: activeSlugs } }
+      where: { slug: { notIn: activeSlugs } },
     });
-    
+
     for (const oj of obsoleteJourneys) {
-      console.log(`Deleting obsolete journey [${oj.slug}] and all cascaded records...`);
+      console.log(
+        `Deleting obsolete journey [${oj.slug}] and all cascaded records...`,
+      );
       await tx.journey.delete({ where: { id: oj.id } });
     }
 
@@ -71,15 +75,15 @@ async function main() {
           estimatedMinutes: l.estimatedMinutes,
           status: l.status,
           displayOrder: l.displayOrder,
-        }
+        },
       });
 
       // Remove any other stages for this journey FIRST to avoid displayOrder unique constraint conflicts
       await tx.journeyStage.deleteMany({
         where: {
           journeyId: journey.id,
-          slug: { not: "main" }
-        }
+          slug: { not: "main" },
+        },
       });
 
       // Upsert exactly ONE internal stage for this journey
@@ -87,8 +91,8 @@ async function main() {
         where: {
           journeyId_slug: {
             journeyId: journey.id,
-            slug: "main"
-          }
+            slug: "main",
+          },
         },
         update: {
           title: "مراحل الدرس",
@@ -101,7 +105,7 @@ async function main() {
           title: "مراحل الدرس",
           shortDescription: "مراحل وتحديات الدرس",
           displayOrder: 1,
-        }
+        },
       });
 
       journeyMap.set(l.slug, { id: journey.id, stageId: stage.id });
@@ -111,16 +115,19 @@ async function main() {
     // 3. Upsert the 47 activities
     // Shift displayOrder to avoid unique constraint violations on displayOrder during updates
     await tx.activity.updateMany({
-      data: { displayOrder: { decrement: 10000 } }
+      data: { displayOrder: { decrement: 10000 } },
     });
     await tx.activityOption.updateMany({
-      data: { displayOrder: { decrement: 10000 } }
+      data: { displayOrder: { decrement: 10000 } },
     });
 
     const activeActivityIds = new Set<string>();
 
     for (const act of allActivities) {
-      const journeySlug = act.sourceLessonNumber === 1 ? "ancient-egyptian-teacher" : "magdi-yacoub";
+      const journeySlug =
+        act.sourceLessonNumber === 1
+          ? "ancient-egyptian-teacher"
+          : "magdi-yacoub";
       const ids = journeyMap.get(journeySlug);
       if (!ids) {
         throw new Error(`Journey mapping not found for slug ${journeySlug}`);
@@ -131,8 +138,8 @@ async function main() {
         where: {
           journeyId_slug: {
             journeyId: ids.id,
-            slug: act.slug
-          }
+            slug: act.slug,
+          },
         },
         update: {
           stageId: ids.stageId,
@@ -181,27 +188,27 @@ async function main() {
           incorrectFeedbackNarrationKey: act.incorrectFeedbackAudioKey,
           completionFeedbackNarrationKey: act.completionFeedbackAudioKey,
           configuration: act.configuration ? act.configuration : null,
-        }
+        },
       });
 
       activeActivityIds.add(activity.id);
 
       // Seed options
       if (act.options && act.options.length > 0) {
-        const optionKeys = act.options.map(o => o.optionKey);
+        const optionKeys = act.options.map((o) => o.optionKey);
         for (const opt of act.options) {
           await tx.activityOption.upsert({
             where: {
               activityId_optionKey: {
                 activityId: activity.id,
-                optionKey: opt.optionKey
-              }
+                optionKey: opt.optionKey,
+              },
             },
             update: {
               label: opt.label,
               secondaryText: opt.secondaryText || null,
               displayOrder: opt.displayOrder,
-              narrationKey: opt.narrationKey || null
+              narrationKey: opt.narrationKey || null,
             },
             create: {
               activityId: activity.id,
@@ -209,20 +216,20 @@ async function main() {
               label: opt.label,
               secondaryText: opt.secondaryText || null,
               displayOrder: opt.displayOrder,
-              narrationKey: opt.narrationKey || null
-            }
+              narrationKey: opt.narrationKey || null,
+            },
           });
         }
         // Delete obsolete options
         await tx.activityOption.deleteMany({
           where: {
             activityId: activity.id,
-            optionKey: { notIn: optionKeys }
-          }
+            optionKey: { notIn: optionKeys },
+          },
         });
       } else {
         await tx.activityOption.deleteMany({
-          where: { activityId: activity.id }
+          where: { activityId: activity.id },
         });
       }
 
@@ -234,19 +241,19 @@ async function main() {
             answerData: act.answerKey.answerData,
             acceptedAlternatives: act.answerKey.acceptedAlternatives || null,
             modelAnswer: act.answerKey.modelAnswer || null,
-            explanation: act.answerKey.explanation || null
+            explanation: act.answerKey.explanation || null,
           },
           create: {
             activityId: activity.id,
             answerData: act.answerKey.answerData,
             acceptedAlternatives: act.answerKey.acceptedAlternatives || null,
             modelAnswer: act.answerKey.modelAnswer || null,
-            explanation: act.answerKey.explanation || null
-          }
+            explanation: act.answerKey.explanation || null,
+          },
         });
       } else {
         await tx.activityAnswerKey.deleteMany({
-          where: { activityId: activity.id }
+          where: { activityId: activity.id },
         });
       }
     }
@@ -254,8 +261,8 @@ async function main() {
     // Delete any activities not in the new 47 list for these journeys
     await tx.activity.deleteMany({
       where: {
-        id: { notIn: Array.from(activeActivityIds) }
-      }
+        id: { notIn: Array.from(activeActivityIds) },
+      },
     });
 
     console.log("Seeding completed successfully.");

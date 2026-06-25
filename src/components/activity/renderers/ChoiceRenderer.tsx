@@ -22,10 +22,10 @@ export default function ChoiceRenderer({
   const isMultiple = activity.type === "checklist";
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
   const [selectedSingle, setSelectedSingle] = useState<string | null>(
-    (activity.previousResponseData?.selectedOption as string) || null
+    (activity.previousResponseData?.selectedOption as string) || null,
   );
   const [selectedMultiple, setSelectedMultiple] = useState<string[]>(
-    (activity.previousResponseData?.selectedOptions as string[]) || []
+    (activity.previousResponseData?.selectedOptions as string[]) || [],
   );
 
   const handleCardClick = (optionKey: string) => {

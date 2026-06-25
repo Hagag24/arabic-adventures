@@ -24,7 +24,7 @@ export default function WordBankRenderer({
   const blankKeys = blankMatches.map((m) => m[1]);
 
   const [blanks, setBlanks] = useState<Record<string, string>>(
-    (activity.previousResponseData?.blanks as Record<string, string>) || {}
+    (activity.previousResponseData?.blanks as Record<string, string>) || {},
   );
   const [selectedWord, setSelectedWord] = useState<string | null>(null);
 

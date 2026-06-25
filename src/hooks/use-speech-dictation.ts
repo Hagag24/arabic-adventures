@@ -7,6 +7,20 @@ export interface UseSpeechDictationOptions {
   locale?: string;
 }
 
+interface ISpeechRecognitionEvent {
+  results: {
+    0: {
+      0: {
+        transcript: string;
+      };
+    };
+  };
+}
+
+interface ISpeechRecognitionErrorEvent {
+  error: string;
+}
+
 export function useSpeechDictation({
   onTranscript,
   locale = "ar-EG",
@@ -14,17 +28,30 @@ export function useSpeechDictation({
   const [isListening, setIsListening] = useState(false);
   const [isSupported, setIsSupported] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const recognitionRef = useRef<any>(null);
+  const onTranscriptRef = useRef(onTranscript);
+
+  useEffect(() => {
+    onTranscriptRef.current = onTranscript;
+  }, [onTranscript]);
 
   useEffect(() => {
     // Browser feature detection
-    const SpeechRecognition =
+    const SpeechRecognitionClass =
       typeof window !== "undefined" &&
-      ((window as any).SpeechRecognition || (window as any).webkitSpeechRecognition);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ((window as any).SpeechRecognition ||
+        (window as any).webkitSpeechRecognition);
 
-    if (SpeechRecognition) {
-      setIsSupported(true);
-      const rec = new SpeechRecognition();
+    if (SpeechRecognitionClass) {
+      // Use set timeout to avoid calling setState synchronously inside effect body
+      setTimeout(() => {
+        setIsSupported(true);
+      }, 0);
+
+      const rec = new SpeechRecognitionClass();
       rec.continuous = false;
       rec.interimResults = false;
       rec.lang = locale;
@@ -34,14 +61,14 @@ export function useSpeechDictation({
         setError(null);
       };
 
-      rec.onresult = (event: any) => {
+      rec.onresult = (event: ISpeechRecognitionEvent) => {
         const transcript = event.results[0][0].transcript;
         if (transcript) {
-          onTranscript(transcript);
+          onTranscriptRef.current(transcript);
         }
       };
 
-      rec.onerror = (event: any) => {
+      rec.onerror = (event: ISpeechRecognitionErrorEvent) => {
         console.error("Speech recognition error:", event.error);
         if (event.error === "not-allowed") {
           setError("permission-denied");
@@ -63,12 +90,12 @@ export function useSpeechDictation({
       if (recognitionRef.current) {
         try {
           recognitionRef.current.abort();
-        } catch (e) {
+        } catch {
           // ignore
         }
       }
     };
-  }, [locale, onTranscript]);
+  }, [locale]);
 
   const startListening = () => {
     if (!isSupported || !recognitionRef.current) {
@@ -77,8 +104,8 @@ export function useSpeechDictation({
     }
     try {
       recognitionRef.current.start();
-    } catch (e) {
-      console.error("Failed to start speech recognition:", e);
+    } catch (err) {
+      console.error("Failed to start speech recognition:", err);
     }
   };
 
@@ -86,7 +113,7 @@ export function useSpeechDictation({
     if (recognitionRef.current) {
       try {
         recognitionRef.current.stop();
-      } catch (e) {
+      } catch {
         // ignore
       }
     }

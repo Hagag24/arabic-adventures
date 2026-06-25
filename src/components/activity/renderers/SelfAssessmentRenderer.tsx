@@ -20,7 +20,7 @@ export default function SelfAssessmentRenderer({
   evaluationResult,
 }: SelfAssessmentRendererProps) {
   const [selected, setSelected] = useState<string | null>(
-    (activity.previousResponseData?.ratingKey as string) || null
+    (activity.previousResponseData?.ratingKey as string) || null,
   );
 
   const handleSelect = (key: string) => {

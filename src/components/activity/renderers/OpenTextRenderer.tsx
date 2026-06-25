@@ -20,7 +20,7 @@ export default function OpenTextRenderer({
   evaluationResult,
 }: OpenTextRendererProps) {
   const [text, setText] = useState(
-    (activity.previousResponseData?.text as string) || ""
+    (activity.previousResponseData?.text as string) || "",
   );
 
   const handleSubmit = (e: React.FormEvent) => {

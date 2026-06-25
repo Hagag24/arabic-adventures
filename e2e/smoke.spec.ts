@@ -8,17 +8,18 @@ test.describe("Arabic Adventures Smoke Tests", () => {
     await expect(html).toHaveAttribute("dir", "rtl");
   });
 
-  test("Landing page renders title and journey cards", async ({ page }) => {
+  test("Landing page renders title and lesson cards", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator("header")).toContainText("مغامرات العربية");
     await expect(page.locator("h1")).toContainText("اللغة العربية");
     
-    await expect(page.locator("text=أسرار المعلم المصري القديم")).toBeVisible();
-    await expect(page.locator("text=ملك القلوب")).toBeVisible();
-    await expect(page.locator("text=جسدي أمانة")).toBeVisible();
+    // Exactly two lessons should be present
+    await expect(page.locator("text=خبر عن المعلم المصري القديم")).toBeVisible();
+    await expect(page.locator("text=حوار مع د. مجدي يعقوب")).toBeVisible();
+    await expect(page.locator("text=جسدي أمانة")).not.toBeVisible();
   });
 
-  test("Old routes redirect to home page", async ({ page }) => {
+  test("Old portal routes redirect to home page", async ({ page }) => {
     const oldRoutes = ["/teacher", "/admin", "/student", "/student/journeys"];
     
     for (const route of oldRoutes) {
@@ -29,49 +30,53 @@ test.describe("Arabic Adventures Smoke Tests", () => {
     }
   });
 
-  test("Old student journey route redirects to new journey route", async ({ page }) => {
-    await page.goto("/student/journeys/ancient-egyptian-teacher");
-    await page.waitForLoadState("networkidle");
-    // Should redirect to /journeys/ancient-egyptian-teacher
-    await expect(page).toHaveURL(/\/journeys\/ancient-egyptian-teacher$/);
-    await expect(page.locator("h1")).toContainText("أسرار المعلم المصري القديم");
-  });
-
-  test("Valid journey details page renders stages correctly", async ({ page }) => {
+  test("Old journey routes redirect to new lesson routes", async ({ page }) => {
+    // 1. Ancient Egyptian Teacher
     await page.goto("/journeys/ancient-egyptian-teacher");
-    await expect(page.locator("h1")).toContainText("أسرار المعلم المصري القديم");
-    
-    await expect(page.getByRole("heading", { name: "استعد", exact: true })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "توقّع", exact: true })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "راجع إنجازك", exact: true })).toBeVisible();
+    await page.waitForLoadState("networkidle");
+    await expect(page).toHaveURL(/\/lessons\/ancient-egyptian-teacher$/);
+    await expect(page.locator("h1")).toContainText("خبر عن المعلم المصري القديم");
+
+    // 2. King of Hearts -> magdi-yacoub
+    await page.goto("/journeys/king-of-hearts");
+    await page.waitForLoadState("networkidle");
+    await expect(page).toHaveURL(/\/lessons\/magdi-yacoub$/);
+    await expect(page.locator("h1")).toContainText("حوار مع د. مجدي يعقوب");
   });
 
-  test("Invalid journey slug returns custom Arabic 404 page", async ({ page }) => {
-    const response = await page.goto("/journeys/invalid-slug-123");
+  test("Old play routes redirect to new play routes", async ({ page }) => {
+    await page.goto("/journeys/ancient-egyptian-teacher/play/best-title-choice");
+    await page.waitForLoadState("networkidle");
+    await expect(page).toHaveURL(/\/lessons\/ancient-egyptian-teacher\/activities\/best-title-choice$/);
+  });
+
+  test("Valid lesson details page renders roadmap correctly", async ({ page }) => {
+    await page.goto("/lessons/ancient-egyptian-teacher");
+    await expect(page.locator("h1")).toContainText("خبر عن المعلم المصري القديم");
+    await expect(page.locator("text=خريطة الطريق للدرس")).toBeVisible();
+  });
+
+  test("Invalid lesson slug returns custom Arabic 404 page", async ({ page }) => {
+    const response = await page.goto("/lessons/invalid-slug-123");
     expect(response?.status()).toBe(404);
-    await expect(page.locator("h1")).toContainText(
-      "لم نتمكن من العثور على هذه الصفحة",
-    );
-    await expect(page.locator("text=العودة إلى الصفحة الرئيسية")).toBeVisible();
   });
 
-  test("API Health route returns OK", async ({ request }) => {
+  test("API Health route returns two-lesson metadata", async ({ request }) => {
     const response = await request.get("/api/health");
     expect(response.ok()).toBeTruthy();
     const body = await response.json();
     expect(body.status).toBe("ok");
-    expect(body.database).toBe("connected");
-    expect(body.contentVersion).toBe("workbook-activities-v1");
-    expect(body.journeys).toBe(3);
-    expect(body.sourceItems).toBe(77);
-    expect(body.publishedActivities).toBe(72);
+    expect(body.experience).toBe("two-lessons");
+    expect(body.publishedLessons).toBe(2);
+    expect(body.lesson1Activities).toBe(19);
+    expect(body.lesson2Activities).toBe(28);
+    expect(body.totalPublicActivities).toBe(47);
   });
 
   test("No horizontal overflow at 320px width", async ({ page }) => {
     const routes = [
       "/",
-      "/journeys/ancient-egyptian-teacher",
-      "/journeys/invalid-slug-123"
+      "/lessons/ancient-egyptian-teacher",
     ];
 
     await page.setViewportSize({ width: 320, height: 568 });

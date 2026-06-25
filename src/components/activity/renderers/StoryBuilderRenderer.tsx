@@ -20,13 +20,13 @@ export default function StoryBuilderRenderer({
   evaluationResult,
 }: StoryBuilderRendererProps) {
   const [problem, setProblem] = useState(
-    (activity.previousResponseData?.problem as string) || ""
+    (activity.previousResponseData?.problem as string) || "",
   );
   const [solution, setSolution] = useState(
-    (activity.previousResponseData?.solution as string) || ""
+    (activity.previousResponseData?.solution as string) || "",
   );
   const [ending, setEnding] = useState(
-    (activity.previousResponseData?.ending as string) || ""
+    (activity.previousResponseData?.ending as string) || "",
   );
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -120,4 +120,3 @@ export default function StoryBuilderRenderer({
     </form>
   );
 }
-

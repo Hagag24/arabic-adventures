@@ -33,7 +33,7 @@ export default function MatchingRenderer({
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
   const [selectedRight, setSelectedRight] = useState<string | null>(null);
   const [pairs, setPairs] = useState<Record<string, string>>(
-    (activity.previousResponseData?.pairs as Record<string, string>) || {}
+    (activity.previousResponseData?.pairs as Record<string, string>) || {},
   );
 
   const handleLeftClick = (key: string) => {

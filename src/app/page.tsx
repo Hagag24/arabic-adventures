@@ -71,12 +71,12 @@ export default async function LandingPage() {
       <SessionInitializer />
 
       {/* Header */}
-      <header className="border-b border-teal-100 bg-white py-4 px-6 md:px-12 flex justify-between items-center shadow-sm">
+      <header className="border-b border-teal-100 bg-white py-4 px-6 md:px-12 flex flex-col sm:flex-row justify-between items-center gap-3 shadow-sm">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center text-white font-extrabold text-lg shadow-md">
             م
           </div>
-          <span className="text-2xl font-black text-teal-800">
+          <span className="text-xl sm:text-2xl font-black text-teal-800">
             مغامرات العربية
           </span>
         </div>

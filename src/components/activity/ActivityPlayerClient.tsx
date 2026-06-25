@@ -27,7 +27,7 @@ export default function ActivityPlayerClient({
             explanation: activity.explanation || null,
             journeyStatus: "IN_PROGRESS",
           }
-        : null
+        : null,
     );
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [shake, setShake] = useState(false);
@@ -185,14 +185,18 @@ export default function ActivityPlayerClient({
                 {evaluationResult.isCorrect ? "🎉" : "💡"}
               </span>
               <h3 className="text-base md:text-lg font-bold text-slate-800">
-                {evaluationResult.isCorrect ? "أحسنت! إجابة صحيحة" : "محاولة جيدة!"}
+                {evaluationResult.isCorrect
+                  ? "أحسنت! إجابة صحيحة"
+                  : "محاولة جيدة!"}
               </h3>
             </div>
 
             {/* Model answer for reflection / open-text tasks */}
             {evaluationResult.modelAnswer && (
               <div className="bg-teal-50/30 border border-teal-100/40 p-4 rounded-2xl mb-4 text-right">
-                <span className="text-xs font-bold text-teal-700 block mb-2">💡 الإجابة المقترحة:</span>
+                <span className="text-xs font-bold text-teal-700 block mb-2">
+                  💡 الإجابة المقترحة:
+                </span>
                 <p className="text-xs md:text-sm text-slate-700 font-semibold leading-relaxed whitespace-pre-line">
                   {evaluationResult.modelAnswer}
                 </p>
@@ -202,7 +206,9 @@ export default function ActivityPlayerClient({
             {/* Explanations */}
             {evaluationResult.explanation && (
               <div className="bg-slate-50 border border-slate-150 p-4 rounded-2xl mb-6 text-right">
-                <span className="text-xs font-bold text-slate-500 block mb-2">📘 الشرح والتوضيح:</span>
+                <span className="text-xs font-bold text-slate-500 block mb-2">
+                  📘 الشرح والتوضيح:
+                </span>
                 <p className="text-xs md:text-sm text-slate-600 font-medium leading-relaxed">
                   {evaluationResult.explanation}
                 </p>
@@ -226,7 +232,9 @@ export default function ActivityPlayerClient({
                   href={nextActivityUrl}
                   className="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm md:text-base rounded-2xl transition-all shadow-md active:scale-95 touch-target text-center"
                 >
-                  {activity.nextActivitySlug ? "النشاط التالي ➔" : "إنهاء الدرس 🏆"}
+                  {activity.nextActivitySlug
+                    ? "النشاط التالي ➔"
+                    : "إنهاء الدرس 🏆"}
                 </Link>
               )}
             </div>

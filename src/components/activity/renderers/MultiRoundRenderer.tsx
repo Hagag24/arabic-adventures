@@ -40,13 +40,15 @@ export default function MultiRoundRenderer({
 
   const [currentRoundIdx, setCurrentRoundIdx] = useState(0);
   const [roundResponses, setRoundResponses] = useState<Record<string, any>>({});
-  
+
   // States for matching round type
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
   const [selectedRight, setSelectedRight] = useState<string | null>(null);
 
   if (rounds.length === 0) {
-    return <div className="text-center py-8">لا توجد جولات مهيأة لهذا النشاط.</div>;
+    return (
+      <div className="text-center py-8">لا توجد جولات مهيأة لهذا النشاط.</div>
+    );
   }
 
   const currentRound = rounds[currentRoundIdx];
@@ -86,7 +88,9 @@ export default function MultiRoundRenderer({
   const handleMatchingChange = (leftKey: string, rightKey: string) => {
     if (evaluationResult) return;
     setRoundResponses((prev) => {
-      const currentRoundPairs = prev[currentRound.id]?.pairs ? { ...prev[currentRound.id].pairs } : {};
+      const currentRoundPairs = prev[currentRound.id]?.pairs
+        ? { ...prev[currentRound.id].pairs }
+        : {};
       // Delete any duplicate rightKey mappings
       for (const k of Object.keys(currentRoundPairs)) {
         if (currentRoundPairs[k] === rightKey) {
@@ -109,7 +113,9 @@ export default function MultiRoundRenderer({
   const handleRemovePair = (leftKey: string) => {
     if (evaluationResult) return;
     setRoundResponses((prev) => {
-      const currentRoundPairs = prev[currentRound.id]?.pairs ? { ...prev[currentRound.id].pairs } : {};
+      const currentRoundPairs = prev[currentRound.id]?.pairs
+        ? { ...prev[currentRound.id].pairs }
+        : {};
       delete currentRoundPairs[leftKey];
       return {
         ...prev,
@@ -165,7 +171,10 @@ export default function MultiRoundRenderer({
     if (currentRound.type === "matching") {
       const pairs = responseForCurrent.pairs || {};
       const leftOptions = currentRound.options.filter(
-        (o) => o.optionKey.startsWith("word") || o.optionKey.startsWith("evt") || o.optionKey.startsWith("elm")
+        (o) =>
+          o.optionKey.startsWith("word") ||
+          o.optionKey.startsWith("evt") ||
+          o.optionKey.startsWith("elm"),
       );
       return Object.keys(pairs).length === leftOptions.length;
     }
@@ -185,7 +194,10 @@ export default function MultiRoundRenderer({
     }
     if (r.type === "matching") {
       const leftOptions = r.options.filter(
-        (o) => o.optionKey.startsWith("word") || o.optionKey.startsWith("evt") || o.optionKey.startsWith("elm")
+        (o) =>
+          o.optionKey.startsWith("word") ||
+          o.optionKey.startsWith("evt") ||
+          o.optionKey.startsWith("elm"),
       );
       return Object.keys(resp.pairs || {}).length === leftOptions.length;
     }
@@ -201,8 +213,10 @@ export default function MultiRoundRenderer({
   // Render individual round content
   const renderRoundContent = () => {
     if (currentRound.type === "ordering") {
-      const items = responseForCurrent.order || currentRound.options.map(o => o.optionKey);
-      
+      const items =
+        responseForCurrent.order ||
+        currentRound.options.map((o) => o.optionKey);
+
       const moveItem = (fromIdx: number, toIdx: number) => {
         const nextOrder = [...items];
         const [moved] = nextOrder.splice(fromIdx, 1);
@@ -212,17 +226,23 @@ export default function MultiRoundRenderer({
 
       return (
         <div className="flex flex-col gap-4">
-          <p className="text-sm text-slate-500 font-medium">رتب الجمل التالية بسحبها أو ترتيبها بالتسلسل الصحيح:</p>
+          <p className="text-sm text-slate-500 font-medium">
+            رتب الجمل التالية بسحبها أو ترتيبها بالتسلسل الصحيح:
+          </p>
           <div className="flex flex-col gap-3">
             {items.map((optKey: string, idx: number) => {
-              const opt = currentRound.options.find(o => o.optionKey === optKey);
+              const opt = currentRound.options.find(
+                (o) => o.optionKey === optKey,
+              );
               if (!opt) return null;
               return (
                 <div
                   key={optKey}
                   className="flex items-center justify-between p-4 bg-white border border-slate-200 rounded-2xl shadow-sm hover:border-teal-300 transition-all"
                 >
-                  <span className="font-semibold text-slate-800 text-sm">{opt.label}</span>
+                  <span className="font-semibold text-slate-800 text-sm">
+                    {opt.label}
+                  </span>
                   <div className="flex items-center gap-2">
                     <button
                       type="button"
@@ -251,9 +271,14 @@ export default function MultiRoundRenderer({
 
     if (currentRound.type === "matching") {
       const leftOptions = currentRound.options.filter(
-        (o) => o.optionKey.startsWith("word") || o.optionKey.startsWith("evt") || o.optionKey.startsWith("elm")
+        (o) =>
+          o.optionKey.startsWith("word") ||
+          o.optionKey.startsWith("evt") ||
+          o.optionKey.startsWith("elm"),
       );
-      const rightOptions = currentRound.options.filter((o) => !leftOptions.includes(o));
+      const rightOptions = currentRound.options.filter(
+        (o) => !leftOptions.includes(o),
+      );
       const pairs = responseForCurrent.pairs || {};
 
       const handleLeftClick = (key: string) => {
@@ -270,7 +295,9 @@ export default function MultiRoundRenderer({
 
       return (
         <div className="flex flex-col gap-6">
-          <p className="text-sm text-slate-500 font-medium">اختر عنصراً من اليمين ثم ما يطابقه من اليسار:</p>
+          <p className="text-sm text-slate-500 font-medium">
+            اختر عنصراً من اليمين ثم ما يطابقه من اليسار:
+          </p>
           <div className="grid grid-cols-2 gap-6">
             {/* Left Column */}
             <div className="flex flex-col gap-3">
@@ -325,11 +352,15 @@ export default function MultiRoundRenderer({
           {/* Show Current Pairs */}
           {Object.keys(pairs).length > 0 && (
             <div className="mt-4 border-t border-slate-100 pt-4">
-              <span className="text-xs font-bold text-slate-400 block mb-3">التوصيلات الحالية:</span>
+              <span className="text-xs font-bold text-slate-400 block mb-3">
+                التوصيلات الحالية:
+              </span>
               <div className="flex flex-col gap-2">
                 {Object.entries(pairs).map(([lKey, rKey]) => {
-                  const leftOpt = leftOptions.find(o => o.optionKey === lKey);
-                  const rightOpt = rightOptions.find(o => o.optionKey === rKey);
+                  const leftOpt = leftOptions.find((o) => o.optionKey === lKey);
+                  const rightOpt = rightOptions.find(
+                    (o) => o.optionKey === rKey,
+                  );
                   if (!leftOpt || !rightOpt) return null;
                   return (
                     <div
@@ -337,9 +368,13 @@ export default function MultiRoundRenderer({
                       className="flex items-center justify-between p-3 bg-teal-50/30 border border-teal-100/40 rounded-xl text-xs"
                     >
                       <div className="flex items-center gap-2">
-                        <span className="font-semibold text-slate-700">{leftOpt.label}</span>
+                        <span className="font-semibold text-slate-700">
+                          {leftOpt.label}
+                        </span>
                         <span className="text-slate-400">⟷</span>
-                        <span className="font-semibold text-slate-700">{rightOpt.label}</span>
+                        <span className="font-semibold text-slate-700">
+                          {rightOpt.label}
+                        </span>
                       </div>
                       {!evaluationResult && (
                         <button
@@ -429,8 +464,12 @@ export default function MultiRoundRenderer({
       </div>
 
       <div className="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm mb-6">
-        <h3 className="text-base md:text-lg font-bold text-slate-800 mb-3">{currentRound.title}</h3>
-        <p className="text-sm text-slate-600 mb-6 font-medium leading-relaxed">{currentRound.instruction}</p>
+        <h3 className="text-base md:text-lg font-bold text-slate-800 mb-3">
+          {currentRound.title}
+        </h3>
+        <p className="text-sm text-slate-600 mb-6 font-medium leading-relaxed">
+          {currentRound.instruction}
+        </p>
 
         {currentRound.prompt && (
           <p className="text-teal-950 font-bold text-sm md:text-base mb-6 leading-relaxed bg-teal-50/50 p-4 rounded-xl border border-teal-100/60">

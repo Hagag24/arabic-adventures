@@ -13,7 +13,9 @@ interface LessonRoadmapPageProps {
   }>;
 }
 
-export default async function LessonRoadmapPage({ params }: LessonRoadmapPageProps) {
+export default async function LessonRoadmapPage({
+  params,
+}: LessonRoadmapPageProps) {
   const { lessonSlug } = await params;
   const sessionId = await getPlayerSessionId();
 
@@ -44,7 +46,8 @@ export default async function LessonRoadmapPage({ params }: LessonRoadmapPagePro
 
   // Determine locking states sequentially by displayOrder
   const activitiesWithStatus = lesson.activities.map((act, idx) => {
-    const isUnlocked = idx === 0 || completedSet.has(lesson.activities[idx - 1].id);
+    const isUnlocked =
+      idx === 0 || completedSet.has(lesson.activities[idx - 1].id);
     const isCompleted = completedSet.has(act.id);
     return {
       ...act,
@@ -53,7 +56,9 @@ export default async function LessonRoadmapPage({ params }: LessonRoadmapPagePro
     };
   });
 
-  const allActivitiesCompleted = activitiesWithStatus.every((a) => a.isCompleted);
+  const allActivitiesCompleted = activitiesWithStatus.every(
+    (a) => a.isCompleted,
+  );
 
   // Setup theme styling colors based on themeKey
   let themeHeaderBg = "bg-teal-600 text-white";
@@ -71,19 +76,23 @@ export default async function LessonRoadmapPage({ params }: LessonRoadmapPagePro
       <SessionInitializer />
 
       {/* Header */}
-      <header className={`${themeHeaderBg} py-5 px-6 md:px-12 flex justify-between items-center shadow-md`}>
+      <header
+        className={`${themeHeaderBg} py-5 px-6 md:px-12 flex flex-col sm:flex-row justify-between items-center gap-3 shadow-md`}
+      >
         <div className="flex items-center gap-3">
           <Link
             href="/"
-            className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white font-extrabold text-sm transition-all shadow-sm"
+            className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white font-extrabold text-sm transition-all shadow-sm shrink-0"
           >
             ➔
           </Link>
-          <h1 className="text-xl md:text-2xl font-black">{lesson.title}</h1>
+          <h1 className="text-lg sm:text-xl md:text-2xl font-black text-center sm:text-right">
+            {lesson.title}
+          </h1>
         </div>
         <Link
           href="/"
-          className="text-xs md:text-sm font-semibold bg-white/10 hover:bg-white/25 px-4 py-2 rounded-xl transition-all"
+          className="text-xs md:text-sm font-semibold bg-white/10 hover:bg-white/25 px-4 py-2 rounded-xl transition-all shrink-0"
         >
           الرئيسية
         </Link>
@@ -174,48 +183,59 @@ export default async function LessonRoadmapPage({ params }: LessonRoadmapPagePro
                 />
 
                 {/* Activity Card */}
-                <div className={`bg-white p-6 rounded-3xl border shadow-sm transition-all duration-300 ${cardBorder}`}>
-                  <div className="flex justify-between items-center mb-3">
-                    <div className="flex items-center gap-2">
-                      <span className={`font-black text-sm md:text-base ${themeAccent}`}>
+                <div
+                  className={`bg-white p-6 rounded-3xl border shadow-sm transition-all duration-300 ${cardBorder}`}
+                >
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-3">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span
+                        className={`font-black text-sm md:text-base ${themeAccent} shrink-0`}
+                      >
                         النشاط {idx + 1}:
                       </span>
                       <h3 className="text-base md:text-lg font-bold text-slate-800">
                         {act.title}
                       </h3>
                     </div>
-                    {statusBadge}
+                    <div className="shrink-0">{statusBadge}</div>
                   </div>
 
                   <p className="text-xs md:text-sm text-slate-500 mb-6 leading-relaxed">
                     {act.instruction}
                   </p>
 
-                  <div className="flex justify-between items-center">
-                    <div className="flex gap-1">
-                      {(act.skillTags as string[] || []).map((tag: string) => (
-                        <span key={tag} className="text-[10px] text-slate-400 bg-slate-50 px-2 py-0.5 rounded border border-slate-100">
-                          #{tag}
-                        </span>
-                      ))}
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <div className="flex flex-wrap gap-1">
+                      {((act.skillTags as string[]) || []).map(
+                        (tag: string) => (
+                          <span
+                            key={tag}
+                            className="text-[10px] text-slate-400 bg-slate-50 px-2 py-0.5 rounded border border-slate-100"
+                          >
+                            #{tag}
+                          </span>
+                        ),
+                      )}
                     </div>
 
-                    {isUnlocked ? (
-                      <Link
-                        href={`/lessons/${lessonSlug}/activities/${act.slug}`}
-                        className={`px-5 py-2 rounded-xl font-bold text-xs shadow-sm transition-colors touch-target ${
-                          isCompleted
-                            ? "bg-slate-100 hover:bg-slate-200 text-slate-700"
-                            : "bg-teal-600 hover:bg-teal-700 text-white"
-                        }`}
-                      >
-                        {isCompleted ? "إعادة اللعب 🔄" : "ابدأ التحدي 🚀"}
-                      </Link>
-                    ) : (
-                      <span className="text-xs text-slate-400 italic">
-                        أكمل الأنشطة السابقة لفتح هذا التحدي.
-                      </span>
-                    )}
+                    <div className="w-full sm:w-auto flex justify-end shrink-0">
+                      {isUnlocked ? (
+                        <Link
+                          href={`/lessons/${lessonSlug}/activities/${act.slug}`}
+                          className={`px-5 py-2 rounded-xl font-bold text-xs shadow-sm transition-colors touch-target text-center w-full sm:w-auto ${
+                            isCompleted
+                              ? "bg-slate-100 hover:bg-slate-200 text-slate-700"
+                              : "bg-teal-600 hover:bg-teal-700 text-white"
+                          }`}
+                        >
+                          {isCompleted ? "إعادة اللعب 🔄" : "ابدأ التحدي 🚀"}
+                        </Link>
+                      ) : (
+                        <span className="text-xs text-slate-400 italic">
+                          أكمل الأنشطة السابقة لفتح هذا التحدي.
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>

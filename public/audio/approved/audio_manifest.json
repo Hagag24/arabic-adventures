@@ -22,17 +22,5 @@
     "generationVersion": "1.0.0",
     "status": "APPROVED",
     "filePath": "/audio/approved/king-of-hearts-main.mp3"
-  },
-  "my-body-is-a-trust-main": {
-    "assetKey": "my-body-is-a-trust-main",
-    "provider": "EdgeTTS",
-    "providerVoiceId": "ar-EG-SalmaNeural",
-    "locale": "ar-EG",
-    "spokenText": "أنا طفلٌ ذكيٌّ، وأعرفُ أنَّ جسدي مميزٌ ولهُ خصوصيةٌ كبيرةٌ. عندما يحضنُني والدي أو ترفعُني والدتي عالياً، أشعرُ بالأمانِ والسعادةِ؛ وهذه هي اللمساتُ الطيبةُ التي يحبُّها قلبي. لكنني تعلّمتُ درساً مهماً جداً: إذا حاولَ أيُّ شخصٍ أن يلمسَني بطريقةٍ تجعلُني أشعرُ بالضيقِ أو الخوفِ، فهذهِ لمسةٌ غيرُ طيبةٍ. في تلكَ اللحظةِ، يجبُ أن أكونَ شجاعاً وأقولَ لهُ بصوتٍ واضحٍ: \"كُفَّ عن هذا!\". وأبتعدَ فوراً، وأسرعَ لأُخبرَ بابا وماما أو أيَّ شخصٍ بالغٍ أثقُ بهِ. البوحُ هو ما يحميني، والحديثُ عن هذا ليسَ خطئي أبداً، بل هو خطأُ من حاولَ إيذائي.",
-    "durationSeconds": 41.5,
-    "fileHash": "08db6734a7a25acd1c224815534896001a95690824c6b1ea8c2ac9a067b4caa3",
-    "generationVersion": "1.0.0",
-    "status": "APPROVED",
-    "filePath": "/audio/approved/my-body-is-a-trust-main.mp3"
   }
 }

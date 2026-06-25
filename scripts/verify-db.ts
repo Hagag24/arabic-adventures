@@ -30,13 +30,13 @@ async function verify() {
     throw new Error(`Expected exactly 2 active lessons, found ${journeyCount}`);
   }
 
-  const lesson1 = journeys.find(j => j.slug === "ancient-egyptian-teacher");
+  const lesson1 = journeys.find((j) => j.slug === "ancient-egyptian-teacher");
   if (!lesson1) {
     throw new Error("Lesson 1 (ancient-egyptian-teacher) not found.");
   }
   console.log(`✔ Lesson 1 found.`);
 
-  const lesson2 = journeys.find(j => j.slug === "magdi-yacoub");
+  const lesson2 = journeys.find((j) => j.slug === "magdi-yacoub");
   if (!lesson2) {
     throw new Error("Lesson 2 (magdi-yacoub) not found.");
   }
@@ -49,51 +49,69 @@ async function verify() {
   const totalActivityCount = activities.length;
   console.log(`Total Activities in DB: ${totalActivityCount}`);
   if (totalActivityCount !== 47) {
-    throw new Error(`Expected exactly 47 total activities, found ${totalActivityCount}`);
+    throw new Error(
+      `Expected exactly 47 total activities, found ${totalActivityCount}`,
+    );
   }
 
   const l1Count = lesson1.activities.length;
   console.log(`Lesson 1 activities: ${l1Count}`);
   if (l1Count !== 19) {
-    throw new Error(`Expected exactly 19 activities in Lesson 1, found ${l1Count}`);
+    throw new Error(
+      `Expected exactly 19 activities in Lesson 1, found ${l1Count}`,
+    );
   }
 
   const l2Count = lesson2.activities.length;
   console.log(`Lesson 2 activities: ${l2Count}`);
   if (l2Count !== 28) {
-    throw new Error(`Expected exactly 28 activities in Lesson 2, found ${l2Count}`);
+    throw new Error(
+      `Expected exactly 28 activities in Lesson 2, found ${l2Count}`,
+    );
   }
   console.log(`✔ Activity counts match requirements: 19 + 28 = 47.`);
 
   // Verify third lesson is completely absent
   const j3Count = await prisma.journey.count({
-    where: { slug: "my-body-is-a-trust" }
+    where: { slug: "my-body-is-a-trust" },
   });
   if (j3Count > 0) {
-    throw new Error("Found third lesson (my-body-is-a-trust) records in the database. Violates invariants!");
+    throw new Error(
+      "Found third lesson (my-body-is-a-trust) records in the database. Violates invariants!",
+    );
   }
   console.log(`✔ 0 active third-lesson database records in DB.`);
 
   // 3. Mappings Verification
   console.log(`\n--- Verification of Source Mappings ---`);
-  
-  const nullSourceKeys = activities.filter(a => !a.sourceKey);
+
+  const nullSourceKeys = activities.filter((a) => !a.sourceKey);
   if (nullSourceKeys.length > 0) {
-    throw new Error(`Found activities with null source keys: ${nullSourceKeys.map(a => a.slug).join(", ")}`);
+    throw new Error(
+      `Found activities with null source keys: ${nullSourceKeys.map((a) => a.slug).join(", ")}`,
+    );
   }
   console.log(`✔ Null source keys = 0`);
 
-  const sourceKeys = activities.map(a => a.sourceKey as string);
-  const duplicateSourceKeys = sourceKeys.filter((key, idx) => sourceKeys.indexOf(key) !== idx);
+  const sourceKeys = activities.map((a) => a.sourceKey as string);
+  const duplicateSourceKeys = sourceKeys.filter(
+    (key, idx) => sourceKeys.indexOf(key) !== idx,
+  );
   if (duplicateSourceKeys.length > 0) {
-    throw new Error(`Duplicate source keys found: ${duplicateSourceKeys.join(", ")}`);
+    throw new Error(
+      `Duplicate source keys found: ${duplicateSourceKeys.join(", ")}`,
+    );
   }
   console.log(`✔ Duplicate source keys = 0`);
 
-  const pairs = activities.map(a => `${a.sourceLessonNumber}-${a.sourceActivityNumber}`);
+  const pairs = activities.map(
+    (a) => `${a.sourceLessonNumber}-${a.sourceActivityNumber}`,
+  );
   const duplicatePairs = pairs.filter((p, idx) => pairs.indexOf(p) !== idx);
   if (duplicatePairs.length > 0) {
-    throw new Error(`Duplicate lesson/activity number pairs found: ${duplicatePairs.join(", ")}`);
+    throw new Error(
+      `Duplicate lesson/activity number pairs found: ${duplicatePairs.join(", ")}`,
+    );
   }
   console.log(`✔ Duplicate lesson/activity numbers = 0`);
 

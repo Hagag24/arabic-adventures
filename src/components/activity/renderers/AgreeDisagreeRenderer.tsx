@@ -21,11 +21,11 @@ export default function AgreeDisagreeRenderer({
 }: AgreeDisagreeRendererProps) {
   // Load previous selection: "agree" or "disagree"
   const [selected, setSelected] = useState<string | null>(
-    (activity.previousResponseData?.selectedOption as string) || null
+    (activity.previousResponseData?.selectedOption as string) || null,
   );
   // Load previous reason
   const [reason, setReason] = useState<string>(
-    (activity.previousResponseData?.reason as string) || ""
+    (activity.previousResponseData?.reason as string) || "",
   );
 
   const handleSelect = (optionKey: string) => {
@@ -61,11 +61,14 @@ export default function AgreeDisagreeRenderer({
       <div className="grid grid-cols-2 gap-4 mb-6">
         {activity.options.map((opt) => {
           const isSelected = selected === opt.optionKey;
-          const isAgree = opt.optionKey === "agree" || opt.label.includes("موافق") && !opt.label.includes("غير");
-          
-          let btnStyle = "border-teal-100 bg-white text-teal-900 hover:bg-teal-50/30";
+          const isAgree =
+            opt.optionKey === "agree" ||
+            (opt.label.includes("موافق") && !opt.label.includes("غير"));
+
+          let btnStyle =
+            "border-teal-100 bg-white text-teal-900 hover:bg-teal-50/30";
           if (isSelected) {
-            btnStyle = isAgree 
+            btnStyle = isAgree
               ? "bg-teal-600 border-teal-600 text-white font-bold ring-2 ring-teal-500/20"
               : "bg-amber-600 border-amber-600 text-white font-bold ring-2 ring-amber-500/20";
           }
@@ -123,4 +126,3 @@ export default function AgreeDisagreeRenderer({
     </form>
   );
 }
-

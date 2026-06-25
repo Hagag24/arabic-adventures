@@ -31,12 +31,14 @@ export default function MicrophoneButton({
   };
 
   let titleText = "تحدث للكتابة بالصوت 🎙️";
-  let buttonColor = "bg-teal-50 hover:bg-teal-100 text-teal-700 border-teal-200";
+  let buttonColor =
+    "bg-teal-50 hover:bg-teal-100 text-teal-700 border-teal-200";
   let icon = "🎙️";
 
   if (isListening) {
     titleText = "جاري الاستماع... اضغط للتوقف";
-    buttonColor = "bg-red-500 hover:bg-red-600 text-white border-red-600 animate-pulse";
+    buttonColor =
+      "bg-red-500 hover:bg-red-600 text-white border-red-600 animate-pulse";
     icon = "🛑";
   } else if (error === "permission-denied") {
     titleText = "تم رفض إذن الميكروفون";

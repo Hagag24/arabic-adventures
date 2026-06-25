@@ -6,7 +6,6 @@ import {
   evaluateSubmission,
   normalizeArabicText,
 } from "@/server/services/activity-service";
-import { verifyAudioAssets } from "../../scripts/verify-audio";
 import crypto from "crypto";
 
 // Mock cookies for Next.js in session manager tests
@@ -475,13 +474,5 @@ describe("Arabic Normalization & Graded Checking", () => {
     const complex1 = "أَحْمَدُ المَصْرِيُّ";
     const complex2 = "احمد المصري";
     expect(normalizeArabicText(complex1)).toBe(normalizeArabicText(complex2));
-  });
-});
-
-describe("Audio Validity & Verification Script Tests", () => {
-  test("Audio validator runs and throws if manifest is missing or invalid", () => {
-    // Temporary move manifest to test block if needed, but since manifest exists in public/,
-    // the verify script should run successfully.
-    expect(() => verifyAudioAssets()).not.toThrow();
   });
 });

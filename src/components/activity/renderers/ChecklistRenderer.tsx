@@ -20,7 +20,7 @@ export default function ChecklistRenderer({
   evaluationResult,
 }: ChecklistRendererProps) {
   const [selectedOptions, setSelectedOptions] = useState<string[]>(
-    (activity.previousResponseData?.selectedOptions as string[]) || []
+    (activity.previousResponseData?.selectedOptions as string[]) || [],
   );
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
 

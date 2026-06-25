@@ -320,7 +320,8 @@ export async function evaluateSubmission(
     } else if (activity.type === "multi_round") {
       const config = (activity.configuration as any) || {};
       const rounds = config.rounds || [];
-      const submittedRounds = (responseData?.rounds as Record<string, any>) || {};
+      const submittedRounds =
+        (responseData?.rounds as Record<string, any>) || {};
       let totalRounds = 0;
       let correctRounds = 0;
 
@@ -333,7 +334,11 @@ export async function evaluateSubmission(
           if (r.type === "ordering") {
             const subOrder = (roundData.order as string[]) || [];
             const corrOrder = (r.answerKey.answerData?.order as string[]) || [];
-            roundCorrect = subOrder.length === corrOrder.length && subOrder.every((val: string, idx: number) => val === corrOrder[idx]);
+            roundCorrect =
+              subOrder.length === corrOrder.length &&
+              subOrder.every(
+                (val: string, idx: number) => val === corrOrder[idx],
+              );
           } else if (r.type === "matching") {
             const subPairs = roundData.pairs || {};
             const corrPairs = r.answerKey.answerData?.pairs || {};

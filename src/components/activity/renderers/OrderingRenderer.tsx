@@ -23,7 +23,10 @@ export default function OrderingRenderer({
     const prevOrder = activity.previousResponseData?.order as string[];
     if (prevOrder && prevOrder.length === activity.options.length) {
       const sorted = [...activity.options];
-      sorted.sort((a, b) => prevOrder.indexOf(a.optionKey) - prevOrder.indexOf(b.optionKey));
+      sorted.sort(
+        (a, b) =>
+          prevOrder.indexOf(a.optionKey) - prevOrder.indexOf(b.optionKey),
+      );
       return sorted;
     }
     return activity.options;

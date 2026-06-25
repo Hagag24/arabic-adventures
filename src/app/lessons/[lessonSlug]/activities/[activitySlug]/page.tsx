@@ -20,7 +20,11 @@ export default async function ActivityPlayPage({
   const sessionId = await getPlayerSessionId();
 
   // Retrieve safe activity payload from service layer with session checks
-  const activityPayload = await getActivityPayload(lessonSlug, activitySlug, sessionId);
+  const activityPayload = await getActivityPayload(
+    lessonSlug,
+    activitySlug,
+    sessionId,
+  );
 
   if (!activityPayload) {
     notFound();
