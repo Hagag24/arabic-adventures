@@ -119,13 +119,6 @@ async function verify() {
   console.log(`\n--- Verification of Invariants ---`);
 
   // Check objective activities missing answer keys
-  const objectiveTypes = [
-    "single_choice",
-    "matching",
-    "ordering",
-    "fill_in_the_blank",
-    "word_bank",
-  ];
   const objectiveMissingAnswerKey = activities.filter(
     (a) => a.isGraded && !a.answerKey && a.type !== "multi_round",
   );

@@ -11,6 +11,11 @@ interface ChoiceRendererProps {
   onSubmit: (responseData: Record<string, unknown>) => void;
   isSubmitting: boolean;
   evaluationResult: SafeEvaluationResult | null;
+  value?: { selectedOption?: string; selectedOptions?: string[] } | null;
+  onChange?: (val: {
+    selectedOption?: string;
+    selectedOptions?: string[];
+  }) => void;
 }
 
 export default function ChoiceRenderer({

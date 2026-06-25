@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "pnpm audio:verify:architecture && next build",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
@@ -19,7 +19,14 @@
     "db:seed": "tsx prisma/seed.ts",
     "db:studio": "prisma studio",
     "db:verify": "tsx scripts/verify-db.ts",
-    "cleanup:verify": "tsx scripts/verify-cleanup.ts"
+    "cleanup:verify": "tsx scripts/verify-cleanup.ts",
+    "audio:inventory": "tsx scripts/audio/build-inventory.ts",
+    "audio:audition": "tsx scripts/audio/audition.ts",
+    "audio:generate": "tsx scripts/audio/generate.ts",
+    "audio:normalize": "tsx scripts/audio/normalize.ts",
+    "audio:verify:architecture": "tsx scripts/audio/verify.ts --mode architecture",
+    "audio:verify:published": "tsx scripts/audio/verify.ts --mode published",
+    "audio:publish": "tsx scripts/audio/publish.ts"
   },
   "dependencies": {
     "@prisma/adapter-better-sqlite3": "^7.8.0",

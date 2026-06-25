@@ -3,6 +3,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/db/prisma";
 import { getPlayerSessionId } from "@/lib/session/session-manager";
 import SessionInitializer from "@/components/session/SessionInitializer";
+import PublicHeader from "@/components/layout/PublicHeader";
 
 export const dynamic = "force-dynamic";
 
@@ -71,41 +72,38 @@ export default async function LandingPage() {
       <SessionInitializer />
 
       {/* Header */}
-      <header className="border-b border-teal-100 bg-white py-4 px-6 md:px-12 flex flex-col sm:flex-row justify-between items-center gap-3 shadow-sm">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center text-white font-extrabold text-lg shadow-md">
-            م
-          </div>
-          <span className="text-xl sm:text-2xl font-black text-teal-800">
-            مغامرات العربية
-          </span>
-        </div>
-        <div className="text-xs md:text-sm bg-teal-50 border border-teal-100 text-teal-700 font-bold px-4 py-2 rounded-full">
-          بوابة البطل الصغير 🚀
-        </div>
-      </header>
+      <PublicHeader title="مغامرات العربية" themeKey="white" />
 
-      {/* Hero Section */}
-      <main className="flex-1 flex flex-col items-center justify-center text-center px-6 py-12 md:py-20 max-w-5xl mx-auto">
-        <span className="text-amber-600 font-extrabold text-sm md:text-base mb-3 tracking-wide uppercase">
-          مرحباً بك يا بطل في عالم المعرفة والاستكشاف
-        </span>
-        <h1 className="text-4xl md:text-6xl font-black text-teal-900 leading-tight mb-6">
-          مغامرات مشوّقة لتعلم <br className="hidden md:inline" />
-          <span className="text-amber-500">اللغة العربية</span> بذكاء وأمان!
-        </h1>
-        <p className="text-base md:text-lg text-teal-900/80 mb-10 max-w-2xl leading-relaxed">
-          انضم إلينا في رحلة تفاعلية رائعة مصممة خصيصاً لمساعدتك على استكشاف
-          وفهم لغة الضاد الجميلة من خلال قصص ممتعة ومقاطع صوتية وتحديات شيقة.
-        </p>
+      {/* Main Content Area */}
+      <main className="w-full max-w-[1400px] mx-auto px-6 lg:px-10 pb-16 flex flex-col items-center">
+        {/* Hero Section */}
+        <div className="w-full flex flex-col items-center text-center pt-10 pb-6 md:pt-14 md:pb-10">
+          <span className="text-amber-600 font-extrabold text-sm md:text-base mb-3 tracking-wide uppercase max-w-[850px] block">
+            مرحباً بك يا بطل في عالم المعرفة والاستكشاف
+          </span>
+          <h1
+            className="font-black text-teal-900 leading-tight mb-6 max-w-[1100px]"
+            style={{
+              fontSize: "clamp(3.2rem, 5.3vw, 5.5rem)",
+              lineHeight: 1.05,
+            }}
+          >
+            مغامرات مشوّقة لتعلم <br className="hidden md:inline" />
+            <span className="text-amber-500">اللغة العربية</span> بذكاء وأمان!
+          </h1>
+          <p className="text-base md:text-lg text-teal-900/80 mb-0 max-w-[900px] leading-relaxed">
+            انضم إلينا في رحلة تفاعلية رائعة مصممة خصيصاً لمساعدتك على استكشاف
+            وفهم لغة الضاد الجميلة من خلال قصص ممتعة ومقاطع صوتية وتحديات شيقة.
+          </p>
+        </div>
 
         {/* Journey Previews */}
-        <div className="w-full mt-6">
-          <h2 className="text-xl md:text-2xl font-black text-teal-800 mb-8 border-r-4 border-amber-500 pr-3 text-right">
+        <div className="w-full mt-10 md:mt-12">
+          <h2 className="text-xl md:text-2xl font-black text-teal-800 mb-6 md:mb-8 border-r-4 border-amber-500 pr-3 text-right">
             اختر مغامرتك التعليمية لتبدأ الرحلة:
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {journeys.map((journey) => {
               const progress = progressMap[journey.id] || {
                 percent: 0,

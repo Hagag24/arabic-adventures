@@ -9,11 +9,12 @@ export interface UseSpeechDictationOptions {
 
 interface ISpeechRecognitionEvent {
   results: {
-    0: {
-      0: {
+    [index: number]: {
+      [index: number]: {
         transcript: string;
       };
     };
+    length: number;
   };
 }
 
@@ -26,7 +27,14 @@ export function useSpeechDictation({
   locale = "ar-EG",
 }: UseSpeechDictationOptions) {
   const [isListening, setIsListening] = useState(false);
-  const [isSupported, setIsSupported] = useState(false);
+  const [isSupported] = useState(() => {
+    if (typeof window === "undefined") return false;
+    const win = window as unknown as {
+      SpeechRecognition?: unknown;
+      webkitSpeechRecognition?: unknown;
+    };
+    return !!(win.SpeechRecognition || win.webkitSpeechRecognition);
+  });
   const [error, setError] = useState<string | null>(null);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -38,19 +46,14 @@ export function useSpeechDictation({
   }, [onTranscript]);
 
   useEffect(() => {
-    // Browser feature detection
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     const SpeechRecognitionClass =
       typeof window !== "undefined" &&
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ((window as any).SpeechRecognition ||
         (window as any).webkitSpeechRecognition);
+    /* eslint-enable @typescript-eslint/no-explicit-any */
 
     if (SpeechRecognitionClass) {
-      // Use set timeout to avoid calling setState synchronously inside effect body
-      setTimeout(() => {
-        setIsSupported(true);
-      }, 0);
-
       const rec = new SpeechRecognitionClass();
       rec.continuous = false;
       rec.interimResults = false;
@@ -70,8 +73,13 @@ export function useSpeechDictation({
 
       rec.onerror = (event: ISpeechRecognitionErrorEvent) => {
         console.error("Speech recognition error:", event.error);
-        if (event.error === "not-allowed") {
+        if (
+          event.error === "not-allowed" ||
+          event.error === "permission-denied"
+        ) {
           setError("permission-denied");
+        } else if (event.error === "no-speech") {
+          setError("no-speech");
         } else {
           setError(event.error);
         }
@@ -86,7 +94,6 @@ export function useSpeechDictation({
     }
 
     return () => {
-      // Cleanup on unmount
       if (recognitionRef.current) {
         try {
           recognitionRef.current.abort();

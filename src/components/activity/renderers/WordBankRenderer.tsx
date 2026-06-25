@@ -11,6 +11,8 @@ interface WordBankRendererProps {
   onSubmit: (responseData: Record<string, unknown>) => void;
   isSubmitting: boolean;
   evaluationResult: SafeEvaluationResult | null;
+  value?: { blanks: Record<string, string> } | null;
+  onChange?: (val: { blanks: Record<string, string> }) => void;
 }
 
 export default function WordBankRenderer({

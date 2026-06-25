@@ -5,12 +5,19 @@ import {
   StudentActivityPayload,
   SafeEvaluationResult,
 } from "@/server/services/activity-service";
+import DictatableTextField from "@/components/activity/DictatableTextField";
 
 interface ProblemSolutionRendererProps {
   activity: StudentActivityPayload;
   onSubmit: (responseData: Record<string, unknown>) => void;
   isSubmitting: boolean;
   evaluationResult: SafeEvaluationResult | null;
+  value?: { problem: string; solution1: string; solution2: string } | null;
+  onChange?: (val: {
+    problem: string;
+    solution1: string;
+    solution2: string;
+  }) => void;
 }
 
 export default function ProblemSolutionRenderer({
@@ -19,7 +26,6 @@ export default function ProblemSolutionRenderer({
   isSubmitting,
   evaluationResult,
 }: ProblemSolutionRendererProps) {
-  // If prompt already specifies the problem (e.g. Yacoub project), we can display it read-only
   const [problem, setProblem] = useState(
     (activity.previousResponseData?.problem as string) ||
       (activity.prompt && activity.prompt.includes("المشكلة:")
@@ -60,63 +66,46 @@ export default function ProblemSolutionRenderer({
       <div className="flex flex-col gap-5 mb-6">
         {/* Problem Description (If not fixed in prompt) */}
         {!activity.prompt && (
-          <div className="flex flex-col gap-2">
-            <label className="text-sm font-bold text-teal-900">
-              المشكلة التي لاحظتها:
-            </label>
-            <input
-              type="text"
+          <div className="mb-2">
+            <DictatableTextField
+              id="problem"
+              label="المشكلة التي لاحظتها:"
               value={problem}
-              onChange={(e) => !evaluationResult && setProblem(e.target.value)}
+              onChange={(val) => !evaluationResult && setProblem(val)}
               disabled={!!evaluationResult || isSubmitting}
               placeholder="صف المشكلة باختصار..."
-              className="w-full px-4 py-3 border border-teal-100 focus:border-teal-600 focus:ring-2 focus:ring-teal-500/20 rounded-2xl outline-none font-semibold text-teal-900 transition-all duration-200"
             />
           </div>
         )}
 
         {/* Solution 1 */}
-        <div className="flex flex-col gap-2">
-          <label className="text-sm font-bold text-teal-900">
-            المقترح أو الحل الأول:
-          </label>
-          <textarea
+        <div className="mb-2">
+          <DictatableTextField
+            id="solution1"
+            label="المقترح أو الحل الأول:"
             value={solution1}
-            onChange={(e) => !evaluationResult && setSolution1(e.target.value)}
+            onChange={(val) => !evaluationResult && setSolution1(val)}
             disabled={!!evaluationResult || isSubmitting}
             placeholder="اكتب الحل الأول بالتفصيل..."
+            multiline={true}
             rows={3}
-            className="w-full px-4 py-3 border border-teal-100 focus:border-teal-600 focus:ring-2 focus:ring-teal-500/20 rounded-2xl outline-none font-semibold text-teal-900 transition-all duration-200 resize-none"
           />
         </div>
 
         {/* Solution 2 */}
-        <div className="flex flex-col gap-2">
-          <label className="text-sm font-bold text-teal-900">
-            المقترح أو الحل الثاني البديل:
-          </label>
-          <textarea
+        <div className="mb-2">
+          <DictatableTextField
+            id="solution2"
+            label="المقترح أو الحل الثاني:"
             value={solution2}
-            onChange={(e) => !evaluationResult && setSolution2(e.target.value)}
+            onChange={(val) => !evaluationResult && setSolution2(val)}
             disabled={!!evaluationResult || isSubmitting}
-            placeholder="اكتب الحل الثاني البديل..."
+            placeholder="اكتب الحل الثاني بالتفصيل..."
+            multiline={true}
             rows={3}
-            className="w-full px-4 py-3 border border-teal-100 focus:border-teal-600 focus:ring-2 focus:ring-teal-500/20 rounded-2xl outline-none font-semibold text-teal-900 transition-all duration-200 resize-none"
           />
         </div>
       </div>
-
-      {/* Model Answer Display */}
-      {evaluationResult && evaluationResult.modelAnswer && (
-        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-6 text-right transition-all duration-300">
-          <span className="text-xs font-bold text-amber-800 block mb-2">
-            💡 نموذج للإجابة المقترحة للمقارنة:
-          </span>
-          <p className="text-amber-950 font-semibold text-sm md:text-base leading-relaxed whitespace-pre-line">
-            {evaluationResult.modelAnswer}
-          </p>
-        </div>
-      )}
 
       {!evaluationResult && (
         <button
@@ -124,7 +113,7 @@ export default function ProblemSolutionRenderer({
           disabled={isSubmitting || !isAllFilled}
           className="w-full py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold text-base md:text-lg rounded-2xl shadow-md transition-all duration-200 disabled:opacity-40 touch-target"
         >
-          {isSubmitting ? "جاري الإرسال..." : "إرسال الحلول المقترحة 🚀"}
+          {isSubmitting ? "جاري الإرسال..." : "إرسال الإجابة 🚀"}
         </button>
       )}
     </form>

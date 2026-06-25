@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
+const showNextDevtools = process.env.SHOW_NEXT_DEVTOOLS === "true";
+
 const nextConfig: NextConfig = {
+  devIndicators: showNextDevtools ? undefined : false,
   async redirects() {
     return [
       // Old journey redirects to new lesson roadmaps

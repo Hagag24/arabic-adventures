@@ -26,11 +26,14 @@ export interface ActivityDefinition {
     narrationKey?: string | null;
   }>;
   answerKey: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     answerData: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     acceptedAlternatives?: any;
     modelAnswer?: string | null;
     explanation?: string | null;
   } | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   configuration: any | null;
   instructionAudioKey: string;
   promptAudioKey: string | null;
@@ -52,7 +55,7 @@ export const lesson1Activities: ActivityDefinition[] = [
     skillTags: ["self_regulation"],
     isGraded: false,
     isSensitive: false,
-    storagePolicy: "COMPLETION_ONLY",
+    storagePolicy: "FULL_RESPONSE",
     options: [
       {
         optionKey: "happy",
@@ -97,7 +100,7 @@ export const lesson1Activities: ActivityDefinition[] = [
     skillTags: ["self_regulation"],
     isGraded: false,
     isSensitive: false,
-    storagePolicy: "COMPLETION_ONLY",
+    storagePolicy: "FULL_RESPONSE",
     options: [
       {
         optionKey: "happy",
@@ -974,7 +977,7 @@ export const lesson1Activities: ActivityDefinition[] = [
     skillTags: ["self_regulation"],
     isGraded: false,
     isSensitive: false,
-    storagePolicy: "COMPLETION_ONLY",
+    storagePolicy: "FULL_RESPONSE",
     options: [
       {
         optionKey: "vis1",
@@ -1020,7 +1023,7 @@ export const lesson1Activities: ActivityDefinition[] = [
     skillTags: ["self_regulation"],
     isGraded: false,
     isSensitive: false,
-    storagePolicy: "COMPLETION_ONLY",
+    storagePolicy: "FULL_RESPONSE",
     options: [
       {
         optionKey: "use_yes",
@@ -1062,7 +1065,7 @@ export const lesson1Activities: ActivityDefinition[] = [
     skillTags: ["self_regulation"],
     isGraded: false,
     isSensitive: false,
-    storagePolicy: "COMPLETION_ONLY",
+    storagePolicy: "FULL_RESPONSE",
     options: [
       {
         optionKey: "att1",
@@ -1112,7 +1115,7 @@ export const lesson2Activities: ActivityDefinition[] = [
     skillTags: ["motivation"],
     isGraded: false,
     isSensitive: false,
-    storagePolicy: "COMPLETION_ONLY",
+    storagePolicy: "FULL_RESPONSE",
     options: [
       {
         optionKey: "proud",
@@ -1154,7 +1157,7 @@ export const lesson2Activities: ActivityDefinition[] = [
     skillTags: ["motivation"],
     isGraded: false,
     isSensitive: false,
-    storagePolicy: "COMPLETION_ONLY",
+    storagePolicy: "FULL_RESPONSE",
     options: [
       {
         optionKey: "love",
@@ -1961,7 +1964,7 @@ export const lesson2Activities: ActivityDefinition[] = [
     skillTags: ["listening_skills"],
     isGraded: false,
     isSensitive: false,
-    storagePolicy: "COMPLETION_ONLY",
+    storagePolicy: "FULL_RESPONSE",
     options: [
       {
         optionKey: "focus",
@@ -2004,7 +2007,7 @@ export const lesson2Activities: ActivityDefinition[] = [
     skillTags: ["self_evaluation"],
     isGraded: false,
     isSensitive: false,
-    storagePolicy: "COMPLETION_ONLY",
+    storagePolicy: "FULL_RESPONSE",
     options: [
       {
         optionKey: "listening",
@@ -2050,7 +2053,7 @@ export const lesson2Activities: ActivityDefinition[] = [
     skillTags: ["motivation"],
     isGraded: false,
     isSensitive: false,
-    storagePolicy: "COMPLETION_ONLY",
+    storagePolicy: "FULL_RESPONSE",
     options: [
       {
         optionKey: "learn",
@@ -2097,7 +2100,7 @@ export const lesson2Activities: ActivityDefinition[] = [
     skillTags: ["social_support"],
     isGraded: false,
     isSensitive: false,
-    storagePolicy: "COMPLETION_ONLY",
+    storagePolicy: "FULL_RESPONSE",
     options: [
       {
         optionKey: "superb",

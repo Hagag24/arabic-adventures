@@ -204,9 +204,13 @@ async function main() {
     console.log("\n==================================================");
     console.log("✔ CLEANUP VERIFICATION PASSED SUCCESSFULLY!");
     console.log("==================================================\n");
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("\n❌ CLEANUP VERIFICATION FAILED:");
-    console.error(error.message);
+    if (error instanceof Error) {
+      console.error(error.message);
+    } else {
+      console.error(String(error));
+    }
     process.exit(1);
   } finally {
     await prisma.$disconnect();

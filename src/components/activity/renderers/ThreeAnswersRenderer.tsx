@@ -5,12 +5,15 @@ import {
   StudentActivityPayload,
   SafeEvaluationResult,
 } from "@/server/services/activity-service";
+import DictatableTextField from "@/components/activity/DictatableTextField";
 
 interface ThreeAnswersRendererProps {
   activity: StudentActivityPayload;
   onSubmit: (responseData: Record<string, unknown>) => void;
   isSubmitting: boolean;
   evaluationResult: SafeEvaluationResult | null;
+  value?: { answers: string[] } | null;
+  onChange?: (val: { answers: string[] }) => void;
 }
 
 export default function ThreeAnswersRenderer({
@@ -66,28 +69,26 @@ export default function ThreeAnswersRenderer({
 
       <div className="flex flex-col gap-4 mb-6">
         {[0, 1, 2].map((idx) => (
-          <div key={idx} className="flex flex-col gap-2">
-            <label className="text-xs font-bold text-teal-800/60">
-              {idx === 0
+          <DictatableTextField
+            key={idx}
+            id={`three-answer-${idx}`}
+            label={
+              idx === 0
                 ? "الإجابة الأولى:"
                 : idx === 1
                   ? "الإجابة الثانية:"
-                  : "الإجابة الثالثة:"}
-            </label>
-            <input
-              type="text"
-              value={answers[idx]}
-              onChange={(e) => handleInputChange(idx, e.target.value)}
-              disabled={!!evaluationResult || isSubmitting}
-              placeholder="اكتب هنا..."
-              className="w-full px-4 py-3 border border-teal-100 focus:border-teal-600 focus:ring-2 focus:ring-teal-500/20 rounded-2xl outline-none font-semibold text-teal-900 transition-all duration-200"
-            />
-          </div>
+                  : "الإجابة الثالثة:"
+            }
+            value={answers[idx]}
+            onChange={(val) => handleInputChange(idx, val)}
+            disabled={!!evaluationResult || isSubmitting}
+            placeholder="اكتب هنا..."
+          />
         ))}
       </div>
 
       {errorMsg && (
-        <p className="text-rose-600 text-sm font-bold mb-4 bg-rose-50 border border-rose-100 p-3 rounded-xl">
+        <p className="text-rose-600 text-sm font-bold mb-4 bg-rose-50 border border-rose-100 p-3 rounded-xl animate-fade-in">
           ⚠️ {errorMsg}
         </p>
       )}
@@ -98,7 +99,7 @@ export default function ThreeAnswersRenderer({
           disabled={isSubmitting || !isAllFilled}
           className="w-full py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold text-base md:text-lg rounded-2xl shadow-md transition-all duration-200 disabled:opacity-40 touch-target"
         >
-          {isSubmitting ? "جاري الإرسال..." : "إرسال الإجابات 🚀"}
+          {isSubmitting ? "جاري الإرسال..." : "إرسال الإجابة 🚀"}
         </button>
       )}
     </form>

@@ -2,6 +2,9 @@
 setlocal enabledelayedexpansion
 title Start Arabic Adventures
 
+:: Disable devtools in production
+set SHOW_NEXT_DEVTOOLS=false
+
 :: Change to script directory
 cd /d "%~dp0"
 echo Starting Arabic Adventures...
@@ -21,8 +24,8 @@ if %errorlevel% neq 0 (
 )
 
 :: Verify build output exists
-if not exist ".next" (
-    echo [ERROR] Production build (.next) is missing. Please run setup-app.bat first.
+if not exist ".next\BUILD_ID" (
+    echo [ERROR] لم يتم إنشاء نسخة التشغيل بعد. شغّل setup-app.bat أولًا.
     pause
     exit /b 1
 )
@@ -34,24 +37,25 @@ if not exist "data\arabic-adventures.db" (
     exit /b 1
 )
 
-:: Detect whether port 3000 is occupied
-netstat -ano | findstr "LISTENING" | findstr ":3000" >nul
-if %errorlevel% equ 0 (
-    echo [ERROR] Port 3000 is already occupied. Cannot start another instance of the server.
+:: Check and clean port 3001
+echo Checking port 3001...
+powershell -ExecutionPolicy Bypass -File scripts\ensure-project-port.ps1 -Port 3001
+if %errorlevel% neq 0 (
+    echo [ERROR] Port 3001 is occupied by an external application.
     pause
     exit /b 1
 )
 
 :: Start the production server in a new window to keep it visible
-echo Starting Next.js production server...
-start "Arabic Adventures Server" pnpm start
+echo Starting Next.js production server on port 3001...
+start "Arabic Adventures Server" pnpm start -- --hostname 127.0.0.1 --port 3001
 
 :: Poll /api/health with a maximum timeout
 echo Waiting for the server to become healthy...
 set "ready=0"
 for /L %%i in (1,1,30) do (
     if !ready! equ 0 (
-        powershell -Command "$resp = Invoke-RestMethod -Uri 'http://127.0.0.1:3000/api/health' -ErrorAction SilentlyContinue; if ($resp.status -eq 'ok') { exit 0 } else { exit 1 }" >nul 2>nul
+        powershell -Command "$resp = Invoke-RestMethod -Uri 'http://127.0.0.1:3001/api/health' -ErrorAction SilentlyContinue; if ($resp.status -eq 'ok') { exit 0 } else { exit 1 }" >nul 2>nul
         if !errorlevel! equ 0 (
             set "ready=1"
         ) else (
@@ -80,10 +84,10 @@ if exist "%ProgramFiles%\Google\Chrome\Application\chrome.exe" (
 
 if defined CHROME_PATH (
     echo Opening app in Google Chrome...
-    start "" "!CHROME_PATH!" "http://127.0.0.1:3000"
+    start "" "!CHROME_PATH!" "http://127.0.0.1:3001"
 ) else (
     echo Google Chrome not found. Opening in system default browser...
-    start "" "http://127.0.0.1:3000"
+    start "" "http://127.0.0.1:3001"
 )
 
 echo.

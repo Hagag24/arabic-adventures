@@ -18,7 +18,7 @@ export default function MicrophoneButton({
     });
 
   if (!isSupported) {
-    return null; // Don't show anything if browser doesn't support speech recognition
+    return null;
   }
 
   const handleToggle = (e: React.MouseEvent) => {
@@ -36,7 +36,7 @@ export default function MicrophoneButton({
   let icon = "🎙️";
 
   if (isListening) {
-    titleText = "جاري الاستماع... اضغط للتوقف";
+    titleText = "أوقف الإملاء";
     buttonColor =
       "bg-red-500 hover:bg-red-600 text-white border-red-600 animate-pulse";
     icon = "🛑";
@@ -50,12 +50,12 @@ export default function MicrophoneButton({
     <button
       onClick={handleToggle}
       disabled={error === "permission-denied"}
-      className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-bold transition-all shadow-sm active:scale-95 ${buttonColor} ${className}`}
+      className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-bold transition-all shadow-sm active:scale-95 touch-target ${buttonColor} ${className}`}
       title={titleText}
       type="button"
     >
       <span>{icon}</span>
-      <span>{isListening ? "جاري الاستماع..." : "إملاء صوّتي"}</span>
+      <span>{isListening ? "أوقف الإملاء" : "إملاء صوّتي"}</span>
     </button>
   );
 }

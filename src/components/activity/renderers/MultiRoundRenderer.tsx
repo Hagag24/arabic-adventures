@@ -5,7 +5,7 @@ import {
   StudentActivityPayload,
   SafeEvaluationResult,
 } from "@/server/services/activity-service";
-import MicrophoneButton from "@/components/activity/MicrophoneButton";
+import DictatableTextField from "@/components/activity/DictatableTextField";
 
 interface Round {
   id: string;
@@ -19,7 +19,7 @@ interface Round {
     secondaryText?: string | null;
     displayOrder: number;
   }>;
-  answerKey?: any;
+  answerKey?: unknown;
 }
 
 interface MultiRoundRendererProps {
@@ -27,6 +27,8 @@ interface MultiRoundRendererProps {
   onSubmit: (responseData: Record<string, unknown>) => void;
   isSubmitting: boolean;
   evaluationResult: SafeEvaluationResult | null;
+  value?: { rounds: Record<string, unknown> } | null;
+  onChange?: (val: { rounds: Record<string, unknown> }) => void;
 }
 
 export default function MultiRoundRenderer({
@@ -35,11 +37,21 @@ export default function MultiRoundRenderer({
   isSubmitting,
   evaluationResult,
 }: MultiRoundRendererProps) {
-  const config = (activity.configuration as any) || {};
+  const config = (activity.configuration as { rounds?: Round[] }) || {};
   const rounds: Round[] = config.rounds || [];
 
   const [currentRoundIdx, setCurrentRoundIdx] = useState(0);
-  const [roundResponses, setRoundResponses] = useState<Record<string, any>>({});
+  const [roundResponses, setRoundResponses] = useState<
+    Record<
+      string,
+      {
+        order?: string[];
+        pairs?: Record<string, string>;
+        selectedOption?: string;
+        text?: string;
+      }
+    >
+  >({});
 
   // States for matching round type
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
@@ -147,12 +159,6 @@ export default function MultiRoundRenderer({
         text,
       },
     }));
-  };
-
-  const handleSpeechTranscript = (transcript: string) => {
-    if (evaluationResult) return;
-    const currentText = responseForCurrent.text || "";
-    handleTextChange(currentText ? `${currentText} ${transcript}` : transcript);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -424,19 +430,17 @@ export default function MultiRoundRenderer({
     if (currentRound.type === "open_text") {
       const text = responseForCurrent.text || "";
       return (
-        <div className="flex flex-col gap-3">
-          <textarea
-            className="w-full h-32 p-4 border border-slate-200 rounded-2xl text-slate-800 text-sm font-semibold focus:border-teal-400 focus:outline-none leading-relaxed resize-none shadow-inner"
+        <div className="mb-2">
+          <DictatableTextField
+            id={`multi-round-open-${currentRound.id}`}
+            label="اكتب إجابتك هنا:"
             value={text}
-            onChange={(e) => handleTextChange(e.target.value)}
-            placeholder="اكتب إجابتك هنا..."
+            onChange={handleTextChange}
             disabled={!!evaluationResult}
+            placeholder="اكتب إجابتك هنا..."
+            multiline={true}
+            rows={3}
           />
-          {!evaluationResult && (
-            <div className="flex justify-start">
-              <MicrophoneButton onTranscript={handleSpeechTranscript} />
-            </div>
-          )}
         </div>
       );
     }

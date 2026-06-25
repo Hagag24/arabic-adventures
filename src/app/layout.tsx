@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_Arabic } from "next/font/google";
 import "./globals.css";
+import { AudioProvider } from "@/audio/runtime/AudioProvider";
 
 const notoArabic = Noto_Sans_Arabic({
   subsets: ["arabic"],
@@ -26,7 +27,7 @@ export default function RootLayout({
       className={`${notoArabic.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
-        {children}
+        <AudioProvider>{children}</AudioProvider>
       </body>
     </html>
   );

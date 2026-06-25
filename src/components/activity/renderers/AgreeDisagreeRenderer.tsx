@@ -5,12 +5,15 @@ import {
   StudentActivityPayload,
   SafeEvaluationResult,
 } from "@/server/services/activity-service";
+import DictatableTextField from "@/components/activity/DictatableTextField";
 
 interface AgreeDisagreeRendererProps {
   activity: StudentActivityPayload;
   onSubmit: (responseData: Record<string, unknown>) => void;
   isSubmitting: boolean;
   evaluationResult: SafeEvaluationResult | null;
+  value?: { selectedOption: string; reason: string } | null;
+  onChange?: (val: { selectedOption: string; reason: string }) => void;
 }
 
 export default function AgreeDisagreeRenderer({
@@ -88,31 +91,18 @@ export default function AgreeDisagreeRenderer({
       </div>
 
       {/* Write the Reason */}
-      <div className="flex flex-col gap-2 mb-6">
-        <label className="text-sm font-bold text-teal-900">
-          اكتب السبب ووجهة نظرك:
-        </label>
-        <textarea
+      <div className="mb-6">
+        <DictatableTextField
+          id="agree-disagree-reason"
+          label="اكتب السبب ووجهة نظرك:"
           value={reason}
-          onChange={(e) => !evaluationResult && setReason(e.target.value)}
+          onChange={(val) => !evaluationResult && setReason(val)}
           disabled={!!evaluationResult || isSubmitting}
-          placeholder="عبر عن رأيك بصدق ووضوح..."
-          rows={4}
-          className="w-full px-4 py-3 border border-teal-100 focus:border-teal-600 focus:ring-2 focus:ring-teal-500/20 rounded-2xl outline-none font-semibold text-teal-900 transition-all duration-200 resize-none text-sm md:text-base"
+          placeholder="اكتب تفاصيل رأيك بوضوح هنا..."
+          multiline={true}
+          rows={3}
         />
       </div>
-
-      {/* Model Answer / Feedback */}
-      {evaluationResult && evaluationResult.modelAnswer && (
-        <div className="bg-emerald-50/50 border border-emerald-100 rounded-2xl p-5 mb-6 text-right transition-all duration-300">
-          <span className="text-xs font-bold text-emerald-800 block mb-2">
-            🌟 إجابة جميلة ومميزة! إليك بعض الأفكار المقترحة:
-          </span>
-          <p className="text-emerald-950 font-semibold text-sm md:text-base leading-relaxed">
-            {evaluationResult.modelAnswer}
-          </p>
-        </div>
-      )}
 
       {!evaluationResult && (
         <button
@@ -120,7 +110,7 @@ export default function AgreeDisagreeRenderer({
           disabled={isSubmitting || !isValid}
           className="w-full py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold text-base md:text-lg rounded-2xl shadow-md transition-all duration-200 disabled:opacity-40 touch-target"
         >
-          {isSubmitting ? "جاري الإرسال..." : "إرسال الرأي 🚀"}
+          {isSubmitting ? "جاري الإرسال..." : "إرسال الإجابة 🚀"}
         </button>
       )}
     </form>

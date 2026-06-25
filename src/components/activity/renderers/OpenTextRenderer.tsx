@@ -5,12 +5,15 @@ import {
   StudentActivityPayload,
   SafeEvaluationResult,
 } from "@/server/services/activity-service";
+import DictatableTextField from "@/components/activity/DictatableTextField";
 
 interface OpenTextRendererProps {
   activity: StudentActivityPayload;
   onSubmit: (responseData: Record<string, unknown>) => void;
   isSubmitting: boolean;
   evaluationResult: SafeEvaluationResult | null;
+  value?: { text: string } | null;
+  onChange?: (val: { text: string }) => void;
 }
 
 export default function OpenTextRenderer({
@@ -37,17 +40,16 @@ export default function OpenTextRenderer({
         </p>
       )}
 
-      <div className="flex flex-col gap-2 mb-6">
-        <label className="text-xs font-bold text-teal-800/60">
-          اكتب إجابتك باللغة العربية الفصحى:
-        </label>
-        <textarea
+      <div className="mb-6">
+        <DictatableTextField
+          id="open-answer"
+          label="اكتب إجابتك باللغة العربية الفصحى:"
           value={text}
-          onChange={(e) => !evaluationResult && setText(e.target.value)}
+          onChange={(val) => !evaluationResult && setText(val)}
           disabled={!!evaluationResult || isSubmitting}
           placeholder="اكتب إجابتك وتفكيرك الرائع هنا..."
+          multiline={true}
           rows={5}
-          className="w-full px-4 py-3 border border-teal-100 focus:border-teal-600 focus:ring-2 focus:ring-teal-500/20 rounded-2xl outline-none font-semibold text-teal-900 transition-all duration-200 resize-none"
         />
       </div>
 

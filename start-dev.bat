@@ -2,6 +2,9 @@
 setlocal enabledelayedexpansion
 title Start Arabic Adventures (Development)
 
+:: Ensure development diagnostics are disabled by default
+set SHOW_NEXT_DEVTOOLS=false
+
 :: Change to script directory
 cd /d "%~dp0"
 echo Starting Arabic Adventures in Development Mode...
@@ -20,17 +23,18 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-:: Detect whether port 3000 is occupied
-netstat -ano | findstr "LISTENING" | findstr ":3000" >nul
-if %errorlevel% equ 0 (
-    echo [ERROR] Port 3000 is already occupied.
+:: Check and clean port 3000
+echo Checking port 3000...
+powershell -ExecutionPolicy Bypass -File scripts\ensure-project-port.ps1 -Port 3000
+if %errorlevel% neq 0 (
+    echo [ERROR] Port 3000 is occupied by an external application.
     pause
     exit /b 1
 )
 
 :: Start the dev server in a new window
-echo Starting Next.js dev server...
-start "Arabic Adventures Dev Server" pnpm dev
+echo Starting Next.js dev server on port 3000...
+start "Arabic Adventures Dev Server" pnpm.cmd exec next dev -H 127.0.0.1 -p 3000
 
 :: Poll /api/health with a maximum timeout
 echo Waiting for the dev server to become healthy...

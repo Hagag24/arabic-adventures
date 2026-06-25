@@ -11,6 +11,8 @@ interface ChecklistRendererProps {
   onSubmit: (responseData: Record<string, unknown>) => void;
   isSubmitting: boolean;
   evaluationResult: SafeEvaluationResult | null;
+  value?: { selectedOptions: string[] } | null;
+  onChange?: (val: { selectedOptions: string[] }) => void;
 }
 
 export default function ChecklistRenderer({

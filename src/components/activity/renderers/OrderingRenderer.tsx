@@ -11,6 +11,8 @@ interface OrderingRendererProps {
   onSubmit: (responseData: Record<string, unknown>) => void;
   isSubmitting: boolean;
   evaluationResult: SafeEvaluationResult | null;
+  value?: { order: string[] } | null;
+  onChange?: (val: { order: string[] }) => void;
 }
 
 export default function OrderingRenderer({

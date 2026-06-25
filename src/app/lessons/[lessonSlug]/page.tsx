@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db/prisma";
 import { getPlayerSessionId } from "@/lib/session/session-manager";
 import SessionInitializer from "@/components/session/SessionInitializer";
+import PublicHeader from "@/components/layout/PublicHeader";
 
 export const dynamic = "force-dynamic";
 
@@ -61,12 +62,10 @@ export default async function LessonRoadmapPage({
   );
 
   // Setup theme styling colors based on themeKey
-  let themeHeaderBg = "bg-teal-600 text-white";
   let themeAccent = "text-teal-600";
   let themeBadge = "bg-teal-50 text-teal-700 border-teal-100";
 
   if (lesson.themeKey === "humanity") {
-    themeHeaderBg = "bg-amber-600 text-white";
     themeAccent = "text-amber-600";
     themeBadge = "bg-amber-50 text-amber-700 border-amber-100";
   }
@@ -76,27 +75,12 @@ export default async function LessonRoadmapPage({
       <SessionInitializer />
 
       {/* Header */}
-      <header
-        className={`${themeHeaderBg} py-5 px-6 md:px-12 flex flex-col sm:flex-row justify-between items-center gap-3 shadow-md`}
-      >
-        <div className="flex items-center gap-3">
-          <Link
-            href="/"
-            className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white font-extrabold text-sm transition-all shadow-sm shrink-0"
-          >
-            ➔
-          </Link>
-          <h1 className="text-lg sm:text-xl md:text-2xl font-black text-center sm:text-right">
-            {lesson.title}
-          </h1>
-        </div>
-        <Link
-          href="/"
-          className="text-xs md:text-sm font-semibold bg-white/10 hover:bg-white/25 px-4 py-2 rounded-xl transition-all shrink-0"
-        >
-          الرئيسية
-        </Link>
-      </header>
+      <PublicHeader
+        title={lesson.title}
+        backUrl="/"
+        backLabel="الرئيسية"
+        themeKey={lesson.themeKey}
+      />
 
       {/* Main Roadmap */}
       <main className="flex-1 max-w-4xl w-full mx-auto px-6 py-10">
@@ -205,18 +189,7 @@ export default async function LessonRoadmapPage({
                   </p>
 
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-                    <div className="flex flex-wrap gap-1">
-                      {((act.skillTags as string[]) || []).map(
-                        (tag: string) => (
-                          <span
-                            key={tag}
-                            className="text-[10px] text-slate-400 bg-slate-50 px-2 py-0.5 rounded border border-slate-100"
-                          >
-                            #{tag}
-                          </span>
-                        ),
-                      )}
-                    </div>
+                    <div></div>
 
                     <div className="w-full sm:w-auto flex justify-end shrink-0">
                       {isUnlocked ? (

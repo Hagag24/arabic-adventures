@@ -11,6 +11,8 @@ interface MatchingRendererProps {
   onSubmit: (responseData: Record<string, unknown>) => void;
   isSubmitting: boolean;
   evaluationResult: SafeEvaluationResult | null;
+  value?: { pairs: Record<string, string> } | null;
+  onChange?: (val: { pairs: Record<string, string> }) => void;
 }
 
 export default function MatchingRenderer({
@@ -184,6 +186,7 @@ export default function MatchingRenderer({
                 const isCorrectPair =
                   evaluationResult.isCorrect ||
                   (evaluationResult.explanation === null &&
+                    evaluationResult.score !== null &&
                     evaluationResult.score > 0.8); // fallback
                 badgeStyle = isCorrectPair
                   ? "bg-emerald-100 border-emerald-200 text-emerald-900"

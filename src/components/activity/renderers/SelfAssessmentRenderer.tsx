@@ -1,59 +1,58 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
   StudentActivityPayload,
   SafeEvaluationResult,
 } from "@/server/services/activity-service";
+import { SelfAssessmentResponse } from "../ActivityPlayerClient";
 
 interface SelfAssessmentRendererProps {
   activity: StudentActivityPayload;
-  onSubmit: (responseData: Record<string, unknown>) => void;
+  value: SelfAssessmentResponse | null;
+  onChange: (value: SelfAssessmentResponse) => void;
   isSubmitting: boolean;
   evaluationResult: SafeEvaluationResult | null;
 }
 
 export default function SelfAssessmentRenderer({
   activity,
-  onSubmit,
+  value,
+  onChange,
   isSubmitting,
   evaluationResult,
 }: SelfAssessmentRendererProps) {
-  const [selected, setSelected] = useState<string | null>(
-    (activity.previousResponseData?.ratingKey as string) || null,
-  );
+  const selectedKey = value?.selectedKey ?? null;
 
   const handleSelect = (key: string) => {
     if (evaluationResult) return;
-    setSelected(key);
+    onChange({ selectedKey: key });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!selected) return;
-    onSubmit({ ratingKey: selected });
-  };
-
-  // If there are no options, display a default 5-star or 3-smiley rating
+  // If there are no options, display default options
   const options =
     activity.options && activity.options.length > 0
       ? activity.options
       : [
           {
             optionKey: "happy",
-            label: "ممتاز وسعيد للغاية 😊",
+            label: "أشعر بالحماس والرغبة في المعرفة والاستكشاف 😊",
             displayOrder: 1,
           },
-          { optionKey: "neutral", label: "جيد ومستفيد 😐", displayOrder: 2 },
           {
-            optionKey: "bored",
-            label: "يحتاج للتطوير والتحسين 🧐",
+            optionKey: "neutral",
+            label: "أشعر بالهدوء والتركيز المعتاد 😐",
+            displayOrder: 2,
+          },
+          {
+            optionKey: "calm",
+            label: "أشعر بالسكينة وأتطلع للقصة والمشاريع الجديدة 🧐",
             displayOrder: 3,
           },
         ];
 
   return (
-    <form onSubmit={handleSubmit} className="w-full text-right dir-rtl">
+    <div className="w-full text-right dir-rtl">
       {activity.prompt && (
         <p className="text-teal-950 font-bold text-base md:text-lg mb-6 leading-relaxed bg-teal-50/50 p-4 rounded-xl border border-teal-100/60">
           {activity.prompt}
@@ -62,12 +61,12 @@ export default function SelfAssessmentRenderer({
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         {options.map((opt) => {
-          const isSelected = selected === opt.optionKey;
+          const isSelected = selectedKey === opt.optionKey;
 
-          let cardStyle = "border-teal-100 bg-white hover:bg-teal-50/20";
+          let cardStyle = "border-slate-200 bg-white hover:border-slate-300";
           if (isSelected) {
             cardStyle =
-              "border-amber-500 bg-amber-50/30 ring-2 ring-amber-500/20";
+              "border-teal-600 bg-teal-50/50 ring-2 ring-teal-600/10 scale-[1.01] shadow-sm";
           }
           if (evaluationResult && isSelected) {
             cardStyle = "border-emerald-500 bg-emerald-50/30";
@@ -79,9 +78,16 @@ export default function SelfAssessmentRenderer({
               type="button"
               onClick={() => handleSelect(opt.optionKey)}
               disabled={!!evaluationResult || isSubmitting}
-              className={`p-6 rounded-3xl border flex flex-col items-center justify-center text-center transition-all duration-200 cursor-pointer touch-target ${cardStyle}`}
+              aria-pressed={isSelected}
+              className={`p-6 rounded-3xl border flex flex-col items-center justify-center text-center transition-all duration-200 cursor-pointer touch-target focus:outline-none focus:ring-2 focus:ring-teal-500 motion-safe:active:scale-95 disabled:cursor-not-allowed ${cardStyle}`}
             >
-              {/* Nice Big Emoji representation based on key */}
+              {isSelected && (
+                <span className="text-xs font-bold text-teal-700 bg-teal-100/60 px-2 py-0.5 rounded-full mb-3 flex items-center gap-1">
+                  ✓ تم الاختيار
+                </span>
+              )}
+
+              {/* Big Emoji representation based on key */}
               <span className="text-3xl mb-2">
                 {opt.optionKey === "happy" ||
                 opt.optionKey === "proud" ||
@@ -98,6 +104,7 @@ export default function SelfAssessmentRenderer({
                 {opt.optionKey === "bored" ||
                 opt.optionKey === "shy" ||
                 opt.optionKey === "low" ||
+                opt.optionKey === "calm" ||
                 opt.optionKey === "competition"
                   ? "🧐"
                   : ""}
@@ -113,6 +120,7 @@ export default function SelfAssessmentRenderer({
                   "bored",
                   "shy",
                   "low",
+                  "calm",
                   "competition",
                 ].includes(opt.optionKey) && "⭐"}
               </span>
@@ -123,16 +131,6 @@ export default function SelfAssessmentRenderer({
           );
         })}
       </div>
-
-      {!evaluationResult && (
-        <button
-          type="submit"
-          disabled={isSubmitting || !selected}
-          className="w-full py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold text-base md:text-lg rounded-2xl shadow-md transition-all duration-200 disabled:opacity-40 touch-target"
-        >
-          {isSubmitting ? "جاري الإرسال..." : "تأكيد تقييمي ذاتياً 🚀"}
-        </button>
-      )}
-    </form>
+    </div>
   );
 }

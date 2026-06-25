@@ -24,7 +24,7 @@ test.describe("Arabic Adventures Smoke Tests", () => {
     
     for (const route of oldRoutes) {
       await page.goto(route);
-      await page.waitForLoadState("networkidle");
+      await page.waitForLoadState("load");
       // Should redirect to home page
       await expect(page.locator("h1")).toContainText("اللغة العربية");
     }
@@ -33,20 +33,20 @@ test.describe("Arabic Adventures Smoke Tests", () => {
   test("Old journey routes redirect to new lesson routes", async ({ page }) => {
     // 1. Ancient Egyptian Teacher
     await page.goto("/journeys/ancient-egyptian-teacher");
-    await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("load");
     await expect(page).toHaveURL(/\/lessons\/ancient-egyptian-teacher$/);
     await expect(page.locator("h1")).toContainText("خبر عن المعلم المصري القديم");
 
     // 2. King of Hearts -> magdi-yacoub
     await page.goto("/journeys/king-of-hearts");
-    await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("load");
     await expect(page).toHaveURL(/\/lessons\/magdi-yacoub$/);
     await expect(page.locator("h1")).toContainText("حوار مع د. مجدي يعقوب");
   });
 
   test("Old play routes redirect to new play routes", async ({ page }) => {
     await page.goto("/journeys/ancient-egyptian-teacher/play/best-title-choice");
-    await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("load");
     await expect(page).toHaveURL(/\/lessons\/ancient-egyptian-teacher\/activities\/best-title-choice$/);
   });
 
@@ -83,7 +83,7 @@ test.describe("Arabic Adventures Smoke Tests", () => {
 
     for (const route of routes) {
       await page.goto(route);
-      await page.waitForLoadState("networkidle");
+      await page.waitForLoadState("load");
 
       const overflow = await page.evaluate(() => {
         const docWidth = document.documentElement.scrollWidth;

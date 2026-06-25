@@ -20,7 +20,7 @@ export interface StudentActivityPayload {
   title: string;
   instruction: string;
   prompt: string | null;
-  skillTags: string[];
+  skillTags?: string[];
   isGraded: boolean;
   isSensitive: boolean;
   storagePolicy: string;
@@ -35,21 +35,30 @@ export interface StudentActivityPayload {
     label: string;
     secondaryText: string | null;
     displayOrder: number;
+    narrationKey?: string | null;
   }[];
   activityNumber: number;
   totalActivities: number;
   previousActivitySlug: string | null;
   nextActivitySlug: string | null;
+  nextActivityTitle: string | null;
   isCompleted: boolean;
+  instructionAudioKey: string | null;
+  promptAudioKey: string | null;
+  correctFeedbackAudioKey: string | null;
+  incorrectFeedbackAudioKey: string | null;
+  completionFeedbackAudioKey: string | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   previousResponseData: any | null;
   modelAnswer?: string | null;
   explanation?: string | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   configuration: any | null;
 }
 
 export interface SafeEvaluationResult {
-  isCorrect: boolean;
-  score: number;
+  isCorrect: boolean | null;
+  score: number | null;
   storagePolicy: string;
   modelAnswer: string | null;
   explanation: string | null;
@@ -125,8 +134,13 @@ export async function getActivityPayload(
     currentIndex < journeyActivities.length - 1
       ? journeyActivities[currentIndex + 1].slug
       : null;
+  const nextActivityTitle =
+    currentIndex < journeyActivities.length - 1
+      ? journeyActivities[currentIndex + 1].title
+      : null;
 
   let isCompleted = false;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let previousResponseData: any = null;
 
   if (playerSessionId) {
@@ -142,7 +156,10 @@ export async function getActivityPayload(
       isCompleted = true;
     }
 
-    if (activity.storagePolicy === "FULL_RESPONSE") {
+    if (
+      activity.storagePolicy === "FULL_RESPONSE" ||
+      activity.type === "self_assessment"
+    ) {
       const lastAttempt = await prisma.activityAttempt.findFirst({
         where: {
           playerSessionId,
@@ -184,7 +201,6 @@ export async function getActivityPayload(
     title: activity.title,
     instruction: activity.instruction,
     prompt: activity.prompt,
-    skillTags: activity.skillTags as string[],
     isGraded: activity.isGraded,
     isSensitive: activity.isSensitive,
     storagePolicy: activity.storagePolicy,
@@ -201,12 +217,19 @@ export async function getActivityPayload(
       label: opt.label,
       secondaryText: opt.secondaryText,
       displayOrder: opt.displayOrder,
+      narrationKey: opt.narrationKey,
     })),
     activityNumber,
     totalActivities,
     previousActivitySlug,
     nextActivitySlug,
+    nextActivityTitle,
     isCompleted,
+    instructionAudioKey: activity.instructionNarrationKey,
+    promptAudioKey: activity.promptNarrationKey,
+    correctFeedbackAudioKey: activity.correctFeedbackNarrationKey,
+    incorrectFeedbackAudioKey: activity.incorrectFeedbackNarrationKey,
+    completionFeedbackAudioKey: activity.completionFeedbackNarrationKey,
     previousResponseData,
     configuration: activity.configuration,
   };
@@ -260,7 +283,7 @@ export async function evaluateSubmission(
     throw new Error("البيانات المرسلة غير صالحة للمعالجة");
   }
 
-  const normalizedResponseData = normalizeJsonValue(responseData);
+  let normalizedResponseData = normalizeJsonValue(responseData);
 
   // Retrieve activity and its answer key
   const activity = await prisma.activity.findUnique({
@@ -273,6 +296,16 @@ export async function evaluateSubmission(
 
   if (!activity) {
     throw new Error("النشاط المطلوب غير موجود");
+  }
+
+  if (activity.type === "self_assessment") {
+    const submittedObj = responseData as Record<string, unknown> | null;
+    const selectedKey = submittedObj?.selectedKey;
+    if (typeof selectedKey === "string") {
+      normalizedResponseData = { selectedKey };
+    } else {
+      throw new Error("بيانات التقييم الذاتي غير صالحة");
+    }
   }
 
   let isCorrect = true;
@@ -318,10 +351,29 @@ export async function evaluateSubmission(
       isCorrect = matchesAll;
       score = isCorrect ? 1.0 : 0.0;
     } else if (activity.type === "multi_round") {
-      const config = (activity.configuration as any) || {};
+      interface ConfigRound {
+        id: string;
+        type: string;
+        answerKey?: {
+          answerData?: {
+            order?: string[];
+            pairs?: Record<string, string>;
+            correctOption?: string;
+          } | null;
+        } | null;
+      }
+      const config =
+        (activity.configuration as { rounds?: ConfigRound[] }) || {};
       const rounds = config.rounds || [];
       const submittedRounds =
-        (responseData?.rounds as Record<string, any>) || {};
+        (responseData?.rounds as Record<
+          string,
+          {
+            order?: string[];
+            pairs?: Record<string, string>;
+            selectedOption?: string;
+          }
+        >) || {};
       let totalRounds = 0;
       let correctRounds = 0;
 
@@ -413,8 +465,8 @@ export async function evaluateSubmission(
     // 2. Create activity attempt record based on policy rules
     let savedResponseData: Prisma.InputJsonValue | null = null;
     let savedResponseHash: string | null = null;
-    let savedIsCorrect: boolean | null = isCorrect;
-    let savedScore: number | null = score;
+    let savedIsCorrect: boolean | null = activity.isGraded ? isCorrect : null;
+    let savedScore: number | null = activity.isGraded ? score : null;
 
     if (activity.storagePolicy === "FULL_RESPONSE") {
       savedResponseData = normalizedResponseData;
@@ -428,8 +480,8 @@ export async function evaluateSubmission(
     } else if (activity.storagePolicy === "OBJECTIVE_RESULT_ONLY") {
       savedResponseData = null; // Do not save sensitive textual answers
       savedResponseHash = null;
-      savedIsCorrect = isCorrect;
-      savedScore = score;
+      savedIsCorrect = activity.isGraded ? isCorrect : null;
+      savedScore = activity.isGraded ? score : null;
     } else if (activity.storagePolicy === "COMPLETION_ONLY") {
       savedResponseData = null;
       savedResponseHash = null;
@@ -453,10 +505,11 @@ export async function evaluateSubmission(
     }
 
     // 3. Update ActivityProgress
-    const newBestScore =
-      progress?.bestScore === null || progress?.bestScore === undefined
+    const newBestScore = activity.isGraded
+      ? progress?.bestScore === null || progress?.bestScore === undefined
         ? score
-        : Math.max(progress.bestScore, score);
+        : Math.max(progress.bestScore, score)
+      : null;
 
     progress = await tx.activityProgress.upsert({
       where: {
@@ -476,7 +529,7 @@ export async function evaluateSubmission(
         activityId,
         status: "COMPLETED",
         attemptsCount: 1,
-        bestScore: score,
+        bestScore: activity.isGraded ? score : null,
         completedAt: new Date(),
       },
     });
@@ -558,8 +611,8 @@ export async function evaluateSubmission(
   });
 
   return {
-    isCorrect,
-    score,
+    isCorrect: activity.isGraded ? isCorrect : null,
+    score: activity.isGraded ? score : null,
     storagePolicy: activity.storagePolicy,
     modelAnswer: activity.answerKey?.modelAnswer || null,
     explanation: activity.answerKey?.explanation || null,
