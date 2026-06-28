@@ -452,9 +452,9 @@ export const lesson1Activities: ActivityDefinition[] = [
     sourceActivityNumber: 10,
     slug: "synonym-matching",
     type: "matching",
-    title: "مترادفات الكلمات من النص",
-    instruction: "صل كل كلمة بمرادفها الصحيح.",
-    prompt: "طابق الكلمات مع معانيها المترادفة الواردة بالنص المسموع:",
+    title: "مرادفات الكلمات من النص",
+    instruction: "طابق كل كلمة مع مرادفها الصحيح:",
+    prompt: "اذكر مرادفات الكلمات التالية من النص:",
     skillTags: ["vocabulary_acquisition"],
     isGraded: true,
     isSensitive: false,
@@ -506,7 +506,12 @@ export const lesson1Activities: ActivityDefinition[] = [
         },
       },
     },
-    configuration: null,
+    configuration: {
+      matchingLabels: {
+        left: "الكلمة",
+        right: "مرادفها",
+      },
+    },
     instructionAudioKey:
       "ancient-egyptian-teacher-synonym-matching-instruction",
     promptAudioKey: "ancient-egyptian-teacher-synonym-matching-prompt",
@@ -522,9 +527,9 @@ export const lesson1Activities: ActivityDefinition[] = [
     sourceLessonNumber: 1,
     sourceActivityNumber: 11,
     slug: "antonyms-detailed",
-    type: "matching",
+    type: "multi_round",
     title: "مضاد الكلمات من النص",
-    instruction: "صل الكلمة بضدها الصحيح.",
+    instruction: "طابق كل كلمة مع ضدها الصحيح:",
     prompt: "طابق الكلمات التالية مع أضدادها المعاكسة في المعنى:",
     skillTags: ["vocabulary_acquisition"],
     isGraded: true,
@@ -551,19 +556,19 @@ export const lesson1Activities: ActivityDefinition[] = [
       },
       {
         optionKey: "w4",
-        label: "احترام",
+        label: "اهتمام",
         displayOrder: 4,
         narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-w4",
       },
       {
         optionKey: "w5",
-        label: "تقدير",
+        label: "احترام",
         displayOrder: 5,
         narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-w5",
       },
       {
         optionKey: "w6",
-        label: "عالِم",
+        label: "تقدير",
         displayOrder: 6,
         narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-w6",
       },
@@ -587,36 +592,155 @@ export const lesson1Activities: ActivityDefinition[] = [
       },
       {
         optionKey: "ant4",
-        label: "ازدراء",
+        label: "تجاهل",
         displayOrder: 10,
         narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-ant4",
       },
       {
         optionKey: "ant5",
-        label: "إهمال",
+        label: "ازدراء",
         displayOrder: 11,
         narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-ant5",
       },
       {
         optionKey: "ant6",
-        label: "جاهل",
+        label: "إهمال",
         displayOrder: 12,
         narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-ant6",
       },
     ],
     answerKey: {
       answerData: {
-        pairs: {
-          w1: "ant1",
-          w2: "ant2",
-          w3: "ant3",
-          w4: "ant4",
-          w5: "ant5",
-          w6: "ant6",
+        rounds: {
+          "round-primary": {
+            pairs: {
+              w1: "ant1",
+              w2: "ant2",
+              w3: "ant3",
+            },
+          },
+          "round-additional": {
+            pairs: {
+              w4: "ant4",
+              w5: "ant5",
+              w6: "ant6",
+            },
+          },
         },
       },
     },
-    configuration: null,
+    configuration: {
+      rounds: [
+        {
+          id: "round-primary",
+          type: "matching",
+          title: "مضاد الكلمات من النص",
+          instruction: "طابق كل كلمة مع ضدها الصحيح:",
+          prompt: "اذكر متضادات الكلمات التالية:",
+          options: [
+            {
+              optionKey: "w1",
+              label: "القديم",
+              displayOrder: 1,
+              narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-w1",
+            },
+            {
+              optionKey: "w2",
+              label: "العلم",
+              displayOrder: 2,
+              narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-w2",
+            },
+            {
+              optionKey: "w3",
+              label: "البداية",
+              displayOrder: 3,
+              narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-w3",
+            },
+            {
+              optionKey: "ant1",
+              label: "الحديث",
+              displayOrder: 4,
+              narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-ant1",
+            },
+            {
+              optionKey: "ant2",
+              label: "الجهل",
+              displayOrder: 5,
+              narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-ant2",
+            },
+            {
+              optionKey: "ant3",
+              label: "النهاية",
+              displayOrder: 6,
+              narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-ant3",
+            },
+          ],
+          answerKey: {
+            answerData: {
+              pairs: {
+                w1: "ant1",
+                w2: "ant2",
+                w3: "ant3",
+              },
+            },
+          },
+        },
+        {
+          id: "round-additional",
+          type: "matching",
+          title: "متضادات إضافية",
+          instruction: "طابق كل كلمة مع ضدها الصحيح:",
+          prompt: "طابق الكلمة مع ضدها الصحيح:",
+          options: [
+            {
+              optionKey: "w4",
+              label: "اهتمام",
+              displayOrder: 1,
+              narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-w4",
+            },
+            {
+              optionKey: "w5",
+              label: "احترام",
+              displayOrder: 2,
+              narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-w5",
+            },
+            {
+              optionKey: "w6",
+              label: "تقدير",
+              displayOrder: 3,
+              narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-w6",
+            },
+            {
+              optionKey: "ant4",
+              label: "تجاهل",
+              displayOrder: 4,
+              narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-ant4",
+            },
+            {
+              optionKey: "ant5",
+              label: "ازدراء",
+              displayOrder: 5,
+              narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-ant5",
+            },
+            {
+              optionKey: "ant6",
+              label: "إهمال",
+              displayOrder: 6,
+              narrationKey: "ancient-egyptian-teacher-antonyms-detailed-option-ant6",
+            },
+          ],
+          answerKey: {
+            answerData: {
+              pairs: {
+                w4: "ant4",
+                w5: "ant5",
+                w6: "ant6",
+              },
+            },
+          },
+        },
+      ],
+    },
     instructionAudioKey:
       "ancient-egyptian-teacher-antonyms-detailed-instruction",
     promptAudioKey: "ancient-egyptian-teacher-antonyms-detailed-prompt",

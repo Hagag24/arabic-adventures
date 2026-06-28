@@ -1,0 +1,57 @@
+{
+  "quarantinedFiles": [
+    "scripts/audio/audition-definition.ts",
+    "scripts/audio/audition-google.ts",
+    "scripts/audio/audition.ts",
+    "scripts/audio/build-inventory.ts",
+    "scripts/audio/prepare-spoken-text.ts",
+    "scripts/audio/analyze-audio.ts",
+    "scripts/audio/normalize.ts",
+    "scripts/audio/generate-sfx.ts",
+    "scripts/audio/quarantine/project-cleanup-20260627_152000/scripts/audio/approve.ts",
+    "scripts/audio/quarantine/project-cleanup-20260627_152000/scripts/audio/audit-candidates.ts",
+    "scripts/audio/quarantine/project-cleanup-20260627_152000/scripts/audio/build-review.ts",
+    "scripts/audio/quarantine/project-cleanup-20260627_152000/scripts/audio/generate-student.ts",
+    "scripts/audio/quarantine/project-cleanup-20260627_152000/scripts/audio/generate.ts",
+    "scripts/audio/quarantine/project-cleanup-20260627_152000/scripts/audio/publish.ts",
+    "scripts/audio/quarantine/project-cleanup-20260627_152000/scripts/audio/repair-candidates.ts",
+    "scripts/audio/quarantine/project-cleanup-20260627_152000/scripts/audio/review-server.ts",
+    "scripts/audio/quarantine/project-cleanup-20260627_152000/scripts/audio/transcribe-qa.ts",
+    "scripts/audio/quarantine/project-cleanup-20260627_152000/scripts/audio/verify-spoken-text.ts"
+  ],
+  "preservedFiles": [
+    "src/audio/generation/google-gemini-tts-provider.ts",
+    "scripts/audio/generate-audio-from-scripts.ts",
+    "scripts/audio/verify.ts",
+    "src/audio/runtime/AudioProvider.tsx",
+    "src/audio/runtime/audio-orchestrator.ts",
+    "src/audio/runtime/GlobalAudioToggle.tsx",
+    "src/audio/runtime/SemanticAudioButton.tsx",
+    "e2e/audio-orchestration.spec.ts",
+    "e2e/capture-button-states.spec.ts",
+    "e2e/capture-gate1-screenshots.spec.ts",
+    "e2e/smoke.spec.ts",
+    "e2e/visual-evidence.spec.ts",
+    "scripts/audio/audit-student-audio.ts",
+    "scripts/audio/generate-script-index.ts",
+    "scripts/audio/regenerate-key.ts",
+    "scripts/audio/sync-audio-scripts.ts",
+    "scripts/audio/validate-audio-scripts.ts"
+  ],
+  "removedPackageScripts": [
+    "audio:inventory",
+    "audio:prepare-text",
+    "audio:generate-sfx",
+    "audio:analyze",
+    "audio:generate:student"
+  ],
+  "activePackageScripts": [
+    "audio:audit:student",
+    "audio:regenerate:key",
+    "audio:scripts:sync",
+    "audio:scripts:validate",
+    "audio:generate:resume",
+    "audio:verify:architecture",
+    "audio:verify:published"
+  ]
+}

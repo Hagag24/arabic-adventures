@@ -20,6 +20,8 @@ import OpenTextRenderer from "./renderers/OpenTextRenderer";
 import AgreeDisagreeRenderer from "./renderers/AgreeDisagreeRenderer";
 import MultiRoundRenderer from "./renderers/MultiRoundRenderer";
 
+import { ActivityAudioContract } from "@/audio/runtime/activity-audio-contract";
+
 type ActivityType =
   | "single_choice"
   | "checklist"
@@ -41,11 +43,13 @@ type ActivityType =
 
 interface ActivityRendererProps {
   activity: StudentActivityPayload;
+  audioContract: ActivityAudioContract;
   onSubmit: (responseData: Record<string, unknown>) => void;
   isSubmitting: boolean;
   evaluationResult: SafeEvaluationResult | null;
   response: StudentResponse | null;
   onResponseChange: (response: StudentResponse) => void;
+  setActiveSubId?: (id: string) => void;
 }
 
 function assertNever(x: never): never {
@@ -54,11 +58,13 @@ function assertNever(x: never): never {
 
 export default function ActivityRenderer({
   activity,
+  audioContract,
   onSubmit,
   isSubmitting,
   evaluationResult,
   response,
   onResponseChange,
+  setActiveSubId,
 }: ActivityRendererProps) {
   const type = activity.type as ActivityType;
 
@@ -67,6 +73,7 @@ export default function ActivityRenderer({
       return (
         <ChoiceRenderer
           activity={activity}
+          audioContract={audioContract}
           onSubmit={onSubmit}
           isSubmitting={isSubmitting}
           evaluationResult={evaluationResult}
@@ -86,6 +93,7 @@ export default function ActivityRenderer({
       return (
         <ChecklistRenderer
           activity={activity}
+          audioContract={audioContract}
           onSubmit={onSubmit}
           isSubmitting={isSubmitting}
           evaluationResult={evaluationResult}
@@ -123,6 +131,7 @@ export default function ActivityRenderer({
       return (
         <MatchingRenderer
           activity={activity}
+          audioContract={audioContract}
           onSubmit={onSubmit}
           isSubmitting={isSubmitting}
           evaluationResult={evaluationResult}
@@ -139,6 +148,7 @@ export default function ActivityRenderer({
       return (
         <OrderingRenderer
           activity={activity}
+          audioContract={audioContract}
           onSubmit={onSubmit}
           isSubmitting={isSubmitting}
           evaluationResult={evaluationResult}
@@ -219,6 +229,7 @@ export default function ActivityRenderer({
       return (
         <SelfAssessmentRenderer
           activity={activity}
+          audioContract={audioContract}
           value={response?.type === "self_assessment" ? response.data : null}
           onChange={(data) =>
             onResponseChange({
@@ -264,6 +275,7 @@ export default function ActivityRenderer({
       return (
         <AgreeDisagreeRenderer
           activity={activity}
+          audioContract={audioContract}
           onSubmit={onSubmit}
           isSubmitting={isSubmitting}
           evaluationResult={evaluationResult}
@@ -280,6 +292,8 @@ export default function ActivityRenderer({
       return (
         <MultiRoundRenderer
           activity={activity}
+          audioContract={audioContract}
+          setActiveSubId={setActiveSubId || (() => {})}
           onSubmit={onSubmit}
           isSubmitting={isSubmitting}
           evaluationResult={evaluationResult}

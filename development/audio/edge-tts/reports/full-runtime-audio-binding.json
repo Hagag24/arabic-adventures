@@ -1,0 +1,1379 @@
+{
+  "totalScreens": 47,
+  "questionRequired": 47,
+  "questionBound": 47,
+  "answerRequired": 104,
+  "answerBound": 104,
+  "instructionRequired": 47,
+  "instructionBound": 47,
+  "feedbackRequired": 64,
+  "feedbackBound": 30,
+  "missingActivityKeys": 0,
+  "missingManifestEntries": 0,
+  "missingWavFiles": 0,
+  "unexplainedSpeechAssets": 0,
+  "bindingReport": [
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-18",
+      "slug": "arabic-feelings-j1",
+      "type": "self_assessment",
+      "bindings": {
+        "options": {
+          "happy": {
+            "key": "ancient-egyptian-teacher-arabic-feelings-j1-option-happy",
+            "status": "BOUND"
+          },
+          "neutral": {
+            "key": "ancient-egyptian-teacher-arabic-feelings-j1-option-neutral",
+            "status": "BOUND"
+          },
+          "calm": {
+            "key": "ancient-egyptian-teacher-arabic-feelings-j1-option-calm",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-arabic-feelings-j1-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-arabic-feelings-j1-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "ancient-egyptian-teacher-arabic-feelings-j1-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-19",
+      "slug": "arabic-self-assessment",
+      "type": "self_assessment",
+      "bindings": {
+        "options": {
+          "happy": {
+            "key": "ancient-egyptian-teacher-arabic-self-assessment-option-happy",
+            "status": "BOUND"
+          },
+          "neutral": {
+            "key": "ancient-egyptian-teacher-arabic-self-assessment-option-neutral",
+            "status": "BOUND"
+          },
+          "bored": {
+            "key": "ancient-egyptian-teacher-arabic-self-assessment-option-bored",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-arabic-self-assessment-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-arabic-self-assessment-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "ancient-egyptian-teacher-arabic-self-assessment-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-01",
+      "slug": "titles-generation",
+      "type": "three_answers",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "ancient-egyptian-teacher-titles-generation-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-titles-generation-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "ancient-egyptian-teacher-titles-generation-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-02",
+      "slug": "student-questions",
+      "type": "three_answers",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "ancient-egyptian-teacher-student-questions-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-student-questions-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "ancient-egyptian-teacher-student-questions-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-11",
+      "slug": "best-title-choice",
+      "type": "single_choice",
+      "bindings": {
+        "options": {
+          "opt1": {
+            "key": "ancient-egyptian-teacher-best-title-choice-option-opt1",
+            "status": "BOUND"
+          },
+          "opt2": {
+            "key": "ancient-egyptian-teacher-best-title-choice-option-opt2",
+            "status": "BOUND"
+          },
+          "opt3": {
+            "key": "ancient-egyptian-teacher-best-title-choice-option-opt3",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-best-title-choice-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-best-title-choice-prompt",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-03",
+      "slug": "main-idea-choice",
+      "type": "single_choice",
+      "bindings": {
+        "options": {
+          "opt1": {
+            "key": "ancient-egyptian-teacher-main-idea-choice-option-opt1",
+            "status": "BOUND"
+          },
+          "opt2": {
+            "key": "ancient-egyptian-teacher-main-idea-choice-option-opt2",
+            "status": "BOUND"
+          },
+          "opt3": {
+            "key": "ancient-egyptian-teacher-main-idea-choice-option-opt3",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-main-idea-choice-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-main-idea-choice-prompt",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-07",
+      "slug": "tomb-location",
+      "type": "single_choice",
+      "bindings": {
+        "options": {
+          "loc1": {
+            "key": "ancient-egyptian-teacher-tomb-location-option-loc1",
+            "status": "BOUND"
+          },
+          "loc2": {
+            "key": "ancient-egyptian-teacher-tomb-location-option-loc2",
+            "status": "BOUND"
+          },
+          "loc3": {
+            "key": "ancient-egyptian-teacher-tomb-location-option-loc3",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-tomb-location-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-tomb-location-prompt",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-08",
+      "slug": "tomb-importance",
+      "type": "single_choice",
+      "bindings": {
+        "options": {
+          "imp1": {
+            "key": "ancient-egyptian-teacher-tomb-importance-option-imp1",
+            "status": "BOUND"
+          },
+          "imp2": {
+            "key": "ancient-egyptian-teacher-tomb-importance-option-imp2",
+            "status": "BOUND"
+          },
+          "imp3": {
+            "key": "ancient-egyptian-teacher-tomb-importance-option-imp3",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-tomb-importance-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-tomb-importance-prompt",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-09",
+      "slug": "teacher-status-discovery",
+      "type": "single_choice",
+      "bindings": {
+        "options": {
+          "st1": {
+            "key": "ancient-egyptian-teacher-teacher-status-discovery-option-st1",
+            "status": "BOUND"
+          },
+          "st2": {
+            "key": "ancient-egyptian-teacher-teacher-status-discovery-option-st2",
+            "status": "BOUND"
+          },
+          "st3": {
+            "key": "ancient-egyptian-teacher-teacher-status-discovery-option-st3",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-teacher-status-discovery-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-teacher-status-discovery-prompt",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-13",
+      "slug": "synonym-matching",
+      "type": "matching",
+      "bindings": {
+        "options": {
+          "word1": {
+            "key": "ancient-egyptian-teacher-synonym-matching-option-word1",
+            "status": "BOUND"
+          },
+          "word2": {
+            "key": "ancient-egyptian-teacher-synonym-matching-option-word2",
+            "status": "BOUND"
+          },
+          "word3": {
+            "key": "ancient-egyptian-teacher-synonym-matching-option-word3",
+            "status": "BOUND"
+          },
+          "mean1": {
+            "key": "ancient-egyptian-teacher-synonym-matching-option-mean1",
+            "status": "BOUND"
+          },
+          "mean2": {
+            "key": "ancient-egyptian-teacher-synonym-matching-option-mean2",
+            "status": "BOUND"
+          },
+          "mean3": {
+            "key": "ancient-egyptian-teacher-synonym-matching-option-mean3",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-synonym-matching-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-synonym-matching-prompt",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-14",
+      "slug": "antonyms-detailed",
+      "type": "multi_round",
+      "bindings": {
+        "options": {
+          "w1": {
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-w1",
+            "status": "BOUND"
+          },
+          "w2": {
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-w2",
+            "status": "BOUND"
+          },
+          "w3": {
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-w3",
+            "status": "BOUND"
+          },
+          "ant1": {
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant1",
+            "status": "BOUND"
+          },
+          "ant2": {
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant2",
+            "status": "BOUND"
+          },
+          "ant3": {
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant3",
+            "status": "BOUND"
+          },
+          "w4": {
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-w4",
+            "status": "BOUND"
+          },
+          "w5": {
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-w5",
+            "status": "BOUND"
+          },
+          "w6": {
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-w6",
+            "status": "BOUND"
+          },
+          "ant4": {
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant4",
+            "status": "BOUND"
+          },
+          "ant5": {
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant5",
+            "status": "BOUND"
+          },
+          "ant6": {
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant6",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-antonyms-detailed-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-antonyms-detailed-prompt",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-04",
+      "slug": "event-meaning-matching",
+      "type": "matching",
+      "bindings": {
+        "options": {
+          "evt1": {
+            "key": "ancient-egyptian-teacher-event-meaning-matching-option-evt1",
+            "status": "BOUND"
+          },
+          "evt2": {
+            "key": "ancient-egyptian-teacher-event-meaning-matching-option-evt2",
+            "status": "BOUND"
+          },
+          "evt3": {
+            "key": "ancient-egyptian-teacher-event-meaning-matching-option-evt3",
+            "status": "BOUND"
+          },
+          "val1": {
+            "key": "ancient-egyptian-teacher-event-meaning-matching-option-val1",
+            "status": "BOUND"
+          },
+          "val2": {
+            "key": "ancient-egyptian-teacher-event-meaning-matching-option-val2",
+            "status": "BOUND"
+          },
+          "val3": {
+            "key": "ancient-egyptian-teacher-event-meaning-matching-option-val3",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-event-meaning-matching-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-event-meaning-matching-prompt",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-15",
+      "slug": "event-ordering",
+      "type": "multi_round",
+      "bindings": {
+        "options": {
+          "evt1": {
+            "key": "ancient-egyptian-teacher-event-ordering-option-evt1",
+            "status": "BOUND"
+          },
+          "evt2": {
+            "key": "ancient-egyptian-teacher-event-ordering-option-evt2",
+            "status": "BOUND"
+          },
+          "evt3": {
+            "key": "ancient-egyptian-teacher-event-ordering-option-evt3",
+            "status": "BOUND"
+          },
+          "evt4": {
+            "key": "ancient-egyptian-teacher-event-ordering-option-evt4",
+            "status": "BOUND"
+          },
+          "b1": {
+            "key": "ancient-egyptian-teacher-event-ordering-b-option-b1",
+            "status": "BOUND"
+          },
+          "b2": {
+            "key": "ancient-egyptian-teacher-event-ordering-b-option-b2",
+            "status": "BOUND"
+          },
+          "b3": {
+            "key": "ancient-egyptian-teacher-event-ordering-b-option-b3",
+            "status": "BOUND"
+          },
+          "b4": {
+            "key": "ancient-egyptian-teacher-event-ordering-b-option-b4",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-event-ordering-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-event-ordering-prompt",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-17",
+      "slug": "what-if-reflection",
+      "type": "long_text",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "ancient-egyptian-teacher-what-if-reflection-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-what-if-reflection-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "ancient-egyptian-teacher-what-if-reflection-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-10",
+      "slug": "discovery-results",
+      "type": "three_answers",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "ancient-egyptian-teacher-discovery-results-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-discovery-results-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "ancient-egyptian-teacher-discovery-results-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-05",
+      "slug": "character-event-identification",
+      "type": "matching",
+      "bindings": {
+        "options": {
+          "elm1": {
+            "key": "ancient-egyptian-teacher-character-event-identification-option-elm1",
+            "status": "BOUND"
+          },
+          "elm2": {
+            "key": "ancient-egyptian-teacher-character-event-identification-option-elm2",
+            "status": "BOUND"
+          },
+          "def1": {
+            "key": "ancient-egyptian-teacher-character-event-identification-option-def1",
+            "status": "BOUND"
+          },
+          "def2": {
+            "key": "ancient-egyptian-teacher-character-event-identification-option-def2",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-character-event-identification-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-character-event-identification-prompt",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-20",
+      "slug": "mental-visualization",
+      "type": "self_assessment",
+      "bindings": {
+        "options": {
+          "vis1": {
+            "key": "ancient-egyptian-teacher-mental-visualization-option-vis1",
+            "status": "BOUND"
+          },
+          "vis2": {
+            "key": "ancient-egyptian-teacher-mental-visualization-option-vis2",
+            "status": "BOUND"
+          },
+          "vis3": {
+            "key": "ancient-egyptian-teacher-mental-visualization-option-vis3",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-mental-visualization-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-mental-visualization-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "ancient-egyptian-teacher-mental-visualization-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-21",
+      "slug": "new-words-usage",
+      "type": "self_assessment",
+      "bindings": {
+        "options": {
+          "use_yes": {
+            "key": "ancient-egyptian-teacher-new-words-usage-option-use_yes",
+            "status": "BOUND"
+          },
+          "use_try": {
+            "key": "ancient-egyptian-teacher-new-words-usage-option-use_try",
+            "status": "BOUND"
+          },
+          "use_no": {
+            "key": "ancient-egyptian-teacher-new-words-usage-option-use_no",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-new-words-usage-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-new-words-usage-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "ancient-egyptian-teacher-new-words-usage-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "ancient-egyptian-teacher",
+      "activityId": "j1-22",
+      "slug": "classroom-attention",
+      "type": "self_assessment",
+      "bindings": {
+        "options": {
+          "att1": {
+            "key": "ancient-egyptian-teacher-classroom-attention-option-att1",
+            "status": "BOUND"
+          },
+          "att2": {
+            "key": "ancient-egyptian-teacher-classroom-attention-option-att2",
+            "status": "BOUND"
+          },
+          "att3": {
+            "key": "ancient-egyptian-teacher-classroom-attention-option-att3",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-classroom-attention-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "ancient-egyptian-teacher-classroom-attention-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "ancient-egyptian-teacher-classroom-attention-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-47",
+      "slug": "yacoub-praise-assessment",
+      "type": "self_assessment",
+      "bindings": {
+        "options": {
+          "proud": {
+            "key": "king-of-hearts-yacoub-praise-assessment-option-proud",
+            "status": "BOUND"
+          },
+          "happy": {
+            "key": "king-of-hearts-yacoub-praise-assessment-option-happy",
+            "status": "BOUND"
+          },
+          "shy": {
+            "key": "king-of-hearts-yacoub-praise-assessment-option-shy",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "king-of-hearts-yacoub-praise-assessment-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-praise-assessment-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-praise-assessment-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-48",
+      "slug": "yacoub-score-motivation",
+      "type": "self_assessment",
+      "bindings": {
+        "options": {
+          "love": {
+            "key": "king-of-hearts-yacoub-score-motivation-option-love",
+            "status": "BOUND"
+          },
+          "pleasing": {
+            "key": "king-of-hearts-yacoub-score-motivation-option-pleasing",
+            "status": "BOUND"
+          },
+          "competition": {
+            "key": "king-of-hearts-yacoub-score-motivation-option-competition",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "king-of-hearts-yacoub-score-motivation-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-score-motivation-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-score-motivation-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-24",
+      "slug": "yacoub-title-prediction",
+      "type": "short_text",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "king-of-hearts-yacoub-title-prediction-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-title-prediction-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-title-prediction-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-26",
+      "slug": "yacoub-stages-ordering",
+      "type": "ordering",
+      "bindings": {
+        "options": {
+          "st1": {
+            "key": "king-of-hearts-yacoub-stages-ordering-option-st1",
+            "status": "BOUND"
+          },
+          "st2": {
+            "key": "king-of-hearts-yacoub-stages-ordering-option-st2",
+            "status": "BOUND"
+          },
+          "st3": {
+            "key": "king-of-hearts-yacoub-stages-ordering-option-st3",
+            "status": "BOUND"
+          },
+          "st4": {
+            "key": "king-of-hearts-yacoub-stages-ordering-option-st4",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "king-of-hearts-yacoub-stages-ordering-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-stages-ordering-prompt",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-28",
+      "slug": "yacoub-return-year",
+      "type": "fill_in_the_blank",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "king-of-hearts-yacoub-return-year-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-return-year-prompt",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-30",
+      "slug": "yacoub-surgeon-calmness",
+      "type": "single_choice",
+      "bindings": {
+        "options": {
+          "ans1": {
+            "key": "king-of-hearts-yacoub-surgeon-calmness-option-ans1",
+            "status": "BOUND"
+          },
+          "ans2": {
+            "key": "king-of-hearts-yacoub-surgeon-calmness-option-ans2",
+            "status": "BOUND"
+          },
+          "ans3": {
+            "key": "king-of-hearts-yacoub-surgeon-calmness-option-ans3",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "king-of-hearts-yacoub-surgeon-calmness-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-surgeon-calmness-prompt",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-31",
+      "slug": "yacoub-alternative-solution",
+      "type": "single_choice",
+      "bindings": {
+        "options": {
+          "sol1": {
+            "key": "king-of-hearts-yacoub-alternative-solution-option-sol1",
+            "status": "BOUND"
+          },
+          "sol2": {
+            "key": "king-of-hearts-yacoub-alternative-solution-option-sol2",
+            "status": "BOUND"
+          },
+          "sol3": {
+            "key": "king-of-hearts-yacoub-alternative-solution-option-sol3",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "king-of-hearts-yacoub-alternative-solution-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-alternative-solution-prompt",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-38",
+      "slug": "yacoub-insist-reason-open",
+      "type": "long_text",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "king-of-hearts-yacoub-insist-reason-open-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-insist-reason-open-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-insist-reason-open-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-39",
+      "slug": "yacoub-biggest-challenge",
+      "type": "long_text",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "king-of-hearts-yacoub-biggest-challenge-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-biggest-challenge-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-biggest-challenge-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-44",
+      "slug": "yacoub-new-word",
+      "type": "short_text",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "king-of-hearts-yacoub-new-word-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-new-word-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-new-word-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-32",
+      "slug": "yacoub-arabic-practical-use",
+      "type": "single_choice",
+      "bindings": {
+        "options": {
+          "use1": {
+            "key": "king-of-hearts-yacoub-arabic-practical-use-option-use1",
+            "status": "BOUND"
+          },
+          "use2": {
+            "key": "king-of-hearts-yacoub-arabic-practical-use-option-use2",
+            "status": "BOUND"
+          },
+          "use3": {
+            "key": "king-of-hearts-yacoub-arabic-practical-use-option-use3",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "king-of-hearts-yacoub-arabic-practical-use-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-arabic-practical-use-prompt",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-27",
+      "slug": "yacoub-life-ordering",
+      "type": "ordering",
+      "bindings": {
+        "options": {
+          "mil1": {
+            "key": "king-of-hearts-yacoub-life-ordering-option-mil1",
+            "status": "BOUND"
+          },
+          "mil2": {
+            "key": "king-of-hearts-yacoub-life-ordering-option-mil2",
+            "status": "BOUND"
+          },
+          "mil3": {
+            "key": "king-of-hearts-yacoub-life-ordering-option-mil3",
+            "status": "BOUND"
+          },
+          "mil4": {
+            "key": "king-of-hearts-yacoub-life-ordering-option-mil4",
+            "status": "BOUND"
+          },
+          "mil5": {
+            "key": "king-of-hearts-yacoub-life-ordering-option-mil5",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "king-of-hearts-yacoub-life-ordering-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-life-ordering-prompt",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-33",
+      "slug": "yacoub-problem-solutions",
+      "type": "problem_solution",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "king-of-hearts-yacoub-problem-solutions-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-problem-solutions-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-problem-solutions-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-36",
+      "slug": "yacoub-funding-alternatives",
+      "type": "long_text",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "king-of-hearts-yacoub-funding-alternatives-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-funding-alternatives-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-funding-alternatives-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-34",
+      "slug": "yacoub-character-opinion",
+      "type": "long_text",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "king-of-hearts-yacoub-character-opinion-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-character-opinion-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-character-opinion-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-25",
+      "slug": "yacoub-interview-questions",
+      "type": "three_answers",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "king-of-hearts-yacoub-interview-questions-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-interview-questions-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-interview-questions-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-37",
+      "slug": "yacoub-story-retell",
+      "type": "retell_story",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "king-of-hearts-yacoub-story-retell-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-story-retell-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-story-retell-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-41",
+      "slug": "yacoub-humanitarian-project",
+      "type": "story_builder",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "king-of-hearts-yacoub-humanitarian-project-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-humanitarian-project-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-humanitarian-project-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-43",
+      "slug": "yacoub-student-problem",
+      "type": "problem_solution",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "king-of-hearts-yacoub-student-problem-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-student-problem-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-student-problem-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-23",
+      "slug": "yacoub-story-titles",
+      "type": "three_answers",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "king-of-hearts-yacoub-story-titles-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-story-titles-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-story-titles-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-29",
+      "slug": "yacoub-target-community",
+      "type": "fill_in_the_blank",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "king-of-hearts-yacoub-target-community-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-target-community-prompt",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-40",
+      "slug": "yacoub-alternative-ending",
+      "type": "long_text",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "king-of-hearts-yacoub-alternative-ending-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-alternative-ending-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-alternative-ending-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-42",
+      "slug": "yacoub-different-ending",
+      "type": "long_text",
+      "bindings": {
+        "options": {},
+        "instruction": {
+          "key": "king-of-hearts-yacoub-different-ending-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-different-ending-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-different-ending-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-45",
+      "slug": "yacoub-agree-disagree",
+      "type": "agree_disagree",
+      "bindings": {
+        "options": {
+          "agree": {
+            "key": "king-of-hearts-yacoub-agree-disagree-option-agree",
+            "status": "BOUND"
+          },
+          "disagree": {
+            "key": "king-of-hearts-yacoub-agree-disagree-option-disagree",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "king-of-hearts-yacoub-agree-disagree-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-agree-disagree-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-agree-disagree-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-49",
+      "slug": "yacoub-listening-behavior",
+      "type": "self_assessment",
+      "bindings": {
+        "options": {
+          "focus": {
+            "key": "king-of-hearts-yacoub-listening-behavior-option-focus",
+            "status": "BOUND"
+          },
+          "notes": {
+            "key": "king-of-hearts-yacoub-listening-behavior-option-notes",
+            "status": "BOUND"
+          },
+          "distracted": {
+            "key": "king-of-hearts-yacoub-listening-behavior-option-distracted",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "king-of-hearts-yacoub-listening-behavior-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-listening-behavior-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-listening-behavior-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-50",
+      "slug": "yacoub-improvement-checklist",
+      "type": "self_assessment",
+      "bindings": {
+        "options": {
+          "listening": {
+            "key": "king-of-hearts-yacoub-improvement-checklist-option-listening",
+            "status": "BOUND"
+          },
+          "reading": {
+            "key": "king-of-hearts-yacoub-improvement-checklist-option-reading",
+            "status": "BOUND"
+          },
+          "writing": {
+            "key": "king-of-hearts-yacoub-improvement-checklist-option-writing",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "king-of-hearts-yacoub-improvement-checklist-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-improvement-checklist-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-improvement-checklist-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-51",
+      "slug": "yacoub-competitions-assessment",
+      "type": "self_assessment",
+      "bindings": {
+        "options": {
+          "learn": {
+            "key": "king-of-hearts-yacoub-competitions-assessment-option-learn",
+            "status": "BOUND"
+          },
+          "team": {
+            "key": "king-of-hearts-yacoub-competitions-assessment-option-team",
+            "status": "BOUND"
+          },
+          "challenge": {
+            "key": "king-of-hearts-yacoub-competitions-assessment-option-challenge",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "king-of-hearts-yacoub-competitions-assessment-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-competitions-assessment-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-competitions-assessment-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    },
+    {
+      "lesson": "magdi-yacoub",
+      "activityId": "j2-52",
+      "slug": "yacoub-encouragement-assessment",
+      "type": "self_assessment",
+      "bindings": {
+        "options": {
+          "superb": {
+            "key": "king-of-hearts-yacoub-encouragement-assessment-option-superb",
+            "status": "BOUND"
+          },
+          "good": {
+            "key": "king-of-hearts-yacoub-encouragement-assessment-option-good",
+            "status": "BOUND"
+          },
+          "self": {
+            "key": "king-of-hearts-yacoub-encouragement-assessment-option-self",
+            "status": "BOUND"
+          }
+        },
+        "instruction": {
+          "key": "king-of-hearts-yacoub-encouragement-assessment-instruction",
+          "status": "BOUND"
+        },
+        "question": {
+          "key": "king-of-hearts-yacoub-encouragement-assessment-prompt",
+          "status": "BOUND"
+        },
+        "completionFeedback": {
+          "key": "king-of-hearts-yacoub-encouragement-assessment-completion-feedback",
+          "status": "BOUND"
+        }
+      }
+    }
+  ]
+}

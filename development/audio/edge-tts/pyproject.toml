@@ -1,0 +1,20 @@
+[project]
+name = "edge-audio-generator"
+version = "1.0.0"
+description = "Arabic Adventures Edge TTS generator"
+requires-python = ">=3.11"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+    "mypy",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true

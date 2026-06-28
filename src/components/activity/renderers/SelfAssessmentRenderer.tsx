@@ -6,9 +6,13 @@ import {
   SafeEvaluationResult,
 } from "@/server/services/activity-service";
 import { SelfAssessmentResponse } from "../ActivityPlayerClient";
+import { useAudio } from "@/audio/runtime/use-audio";
+
+import { ActivityAudioContract } from "@/audio/runtime/activity-audio-contract";
 
 interface SelfAssessmentRendererProps {
   activity: StudentActivityPayload;
+  audioContract: ActivityAudioContract;
   value: SelfAssessmentResponse | null;
   onChange: (value: SelfAssessmentResponse) => void;
   isSubmitting: boolean;
@@ -17,16 +21,24 @@ interface SelfAssessmentRendererProps {
 
 export default function SelfAssessmentRenderer({
   activity,
+  audioContract,
   value,
   onChange,
   isSubmitting,
   evaluationResult,
 }: SelfAssessmentRendererProps) {
+  const { playKey, stop } = useAudio();
   const selectedKey = value?.selectedKey ?? null;
 
-  const handleSelect = (key: string) => {
+  const handleSelect = (optionKey: string) => {
     if (evaluationResult) return;
-    onChange({ selectedKey: key });
+    const key = audioContract.answerKeys[optionKey];
+    if (key) {
+      stop();
+      playKey(key);
+    }
+
+    onChange({ selectedKey: optionKey });
   };
 
   // If there are no options, display default options
@@ -72,14 +84,19 @@ export default function SelfAssessmentRenderer({
             cardStyle = "border-emerald-500 bg-emerald-50/30";
           }
 
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const narrationKey = (opt as any).narrationKey || null;
           return (
             <button
               key={opt.optionKey}
               type="button"
               onClick={() => handleSelect(opt.optionKey)}
-              disabled={!!evaluationResult || isSubmitting}
-              aria-pressed={isSelected}
-              className={`p-6 rounded-3xl border flex flex-col items-center justify-center text-center transition-all duration-200 cursor-pointer touch-target focus:outline-none focus:ring-2 focus:ring-teal-500 motion-safe:active:scale-95 disabled:cursor-not-allowed ${cardStyle}`}
+              aria-pressed={isSelected ? "true" : "false"}
+              aria-disabled={!!evaluationResult || isSubmitting}
+              data-audio-key={narrationKey || ""}
+              className={`p-6 rounded-3xl border flex flex-col items-center justify-center text-center transition-all duration-200 cursor-pointer touch-target focus:outline-none focus:ring-2 focus:ring-teal-500 motion-safe:active:scale-95 ${cardStyle} ${
+                (!!evaluationResult || isSubmitting) ? "opacity-75 cursor-not-allowed" : ""
+              }`}
             >
               {isSelected && (
                 <span className="text-xs font-bold text-teal-700 bg-teal-100/60 px-2 py-0.5 rounded-full mb-3 flex items-center gap-1">
@@ -124,8 +141,24 @@ export default function SelfAssessmentRenderer({
                   "competition",
                 ].includes(opt.optionKey) && "⭐"}
               </span>
-              <span className="font-bold text-teal-900 text-sm md:text-base leading-relaxed">
+              <span className="font-bold text-teal-900 text-sm md:text-base leading-relaxed flex items-center justify-center gap-1">
                 {opt.label}
+                {audioContract.answerKeys[opt.optionKey] && (
+                  <span
+                    role="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      e.preventDefault();
+                      stop();
+                      playKey(audioContract.answerKeys[opt.optionKey]!);
+                    }}
+                    data-audio-key={audioContract.answerKeys[opt.optionKey]}
+                    className="p-1 rounded-full hover:bg-teal-100/50 text-teal-600 hover:text-teal-800 transition-colors shrink-0 touch-target select-none cursor-pointer z-10 relative"
+                    title="استمع"
+                  >
+                    🔊
+                  </span>
+                )}
               </span>
             </button>
           );

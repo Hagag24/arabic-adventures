@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  --font-arabic-system:
+    system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
   --background: #faf9f6;
   --foreground: #1a2a2b;
   --primary-teal: #0c5658;
@@ -10,7 +12,7 @@
 }
 
 @theme {
-  --font-sans: var(--font-noto-arabic), system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-arabic-system);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-teal-primary: var(--primary-teal);
@@ -53,5 +55,19 @@ button {
   .animate-shake {
     animation: none !important;
     transition: none !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .audio-toggle-btn {
+    width: 210px !important;
+    min-width: 210px !important;
+    max-width: 210px !important;
+  }
+}
+
+@media (max-width: 639px) {
+  .audio-toggle-btn {
+    min-width: 44px !important;
   }
 }

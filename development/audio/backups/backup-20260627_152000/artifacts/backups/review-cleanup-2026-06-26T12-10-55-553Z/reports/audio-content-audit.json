@@ -1,0 +1,25 @@
+{
+  "auditTimestamp": "2026-06-26T03:10:00Z",
+  "questions": {
+    "1_canary_text_source": "The previous greeting Canary text comes from the hardcoded constant CANARY_TEXT in scripts/audio/audition-google.ts (lines 14-15).",
+    "2_canary_text_hardcoded": true,
+    "3_canary_text_loaded_from_inventory": false,
+    "4_canary_ignores_semantic_key": true,
+    "5_exact_final_string_sent_to_gemini": "The final prompt sent to Gemini combines the performance instructions (EDUCATIONAL_PERFORMANCE or FEEDBACK_PERFORMANCE), the pace instructions (normal_educational or calm_slow), and the header 'TEXT TO SPEAK VERBATIM:\\n' followed by the Arabic text itself.",
+    "6_performance_directions_separated": true,
+    "7_model_accidentally_read_instructions": false,
+    "8_spoken_feedback_sfx_separate_keys": true,
+    "9_empty_inventory_entries": 0,
+    "10_duplicated_inventory_entries": 0,
+    "11_placeholder_strings": 0,
+    "12_file_paths_passed_as_text": 0,
+    "13_all_47_activity_screens_covered": true,
+    "14_question_options_included_when_playable": true,
+    "15_ungraded_self_assessment_treated_separately": true
+  },
+  "stats": {
+    "totalInventoryCount": 241,
+    "unmappedScreenCount": 0,
+    "coverageOf47Screens": "100%"
+  }
+}

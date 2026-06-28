@@ -4,10 +4,11 @@ import { notFound, redirect } from "next/navigation";
 import { prisma } from "@/lib/db/prisma";
 import { getPlayerSessionId } from "@/lib/session/session-manager";
 import PublicHeader from "@/components/layout/PublicHeader";
+import { LessonResultCelebration } from "@/components/audio/LessonResultCelebration";
 
 export const dynamic = "force-dynamic";
 
-interface LessonResultPageProps {
+interface LessonResultCelebrationProps {
   params: Promise<{
     lessonSlug: string;
   }>;
@@ -15,7 +16,7 @@ interface LessonResultPageProps {
 
 export default async function LessonResultPage({
   params,
-}: LessonResultPageProps) {
+}: LessonResultCelebrationProps) {
   const { lessonSlug } = await params;
   const sessionId = await getPlayerSessionId();
 
@@ -102,6 +103,8 @@ export default async function LessonResultPage({
             <strong className="text-slate-800">«{journey.title}»</strong> بكافة
             تحدياته ونلت هذا اللقب بجدارة لاستماعك وتفكيرك الذكي.
           </p>
+
+          <LessonResultCelebration lessonSlug={lessonSlug} />
 
           <div className="flex flex-col sm:flex-row gap-4 w-full">
             <Link

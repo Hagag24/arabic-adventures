@@ -1,11 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StudentActivityPayload,
   SafeEvaluationResult,
 } from "@/server/services/activity-service";
 import DictatableTextField from "@/components/activity/DictatableTextField";
+import { useAudio } from "@/audio/runtime/use-audio";
+
+import { ActivityAudioContract } from "@/audio/runtime/activity-audio-contract";
 
 interface Round {
   id: string;
@@ -24,6 +27,8 @@ interface Round {
 
 interface MultiRoundRendererProps {
   activity: StudentActivityPayload;
+  audioContract: ActivityAudioContract;
+  setActiveSubId: (id: string) => void;
   onSubmit: (responseData: Record<string, unknown>) => void;
   isSubmitting: boolean;
   evaluationResult: SafeEvaluationResult | null;
@@ -31,14 +36,68 @@ interface MultiRoundRendererProps {
   onChange?: (val: { rounds: Record<string, unknown> }) => void;
 }
 
+function deterministicShuffle<T>(array: T[], seed: string): T[] {
+  let h = 1779033703 ^ seed.length;
+  for (let i = 0; i < seed.length; i++) {
+    h = Math.imul(h ^ seed.charCodeAt(i), 3432918353);
+    h = (h << 13) | (h >>> 19);
+  }
+  const rng = () => {
+    h = Math.imul(h ^ (h >>> 16), 2246822507);
+    h = Math.imul(h ^ (h >>> 13), 3266489909);
+    return ((h ^= h >>> 16) >>> 0) / 4294967296;
+  };
+
+  const list = [...array];
+  for (let i = list.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    const temp = list[i];
+    list[i] = list[j];
+    list[j] = temp;
+  }
+  return list;
+}
+
 export default function MultiRoundRenderer({
   activity,
+  audioContract,
+  setActiveSubId,
   onSubmit,
   isSubmitting,
   evaluationResult,
 }: MultiRoundRendererProps) {
-  const config = (activity.configuration as { rounds?: Round[] }) || {};
-  const rounds: Round[] = config.rounds || [];
+  const { playKey, stop } = useAudio();
+
+  const rounds = React.useMemo(() => {
+    const config = (activity.configuration as { rounds?: Round[] }) || {};
+    return config.rounds || [];
+  }, [activity.configuration]);
+
+  const shuffledOptionsMap = React.useMemo(() => {
+    const map: Record<
+      string,
+      Array<{
+        optionKey: string;
+        label: string;
+        secondaryText?: string | null;
+        displayOrder: number;
+      }>
+    > = {};
+    for (const r of rounds) {
+      if (r.type === "matching") {
+        const left = r.options.filter(
+          (o) =>
+            o.optionKey.startsWith("word") ||
+            o.optionKey.startsWith("w") ||
+            o.optionKey.startsWith("evt") ||
+            o.optionKey.startsWith("elm")
+        );
+        const right = r.options.filter((o) => !left.includes(o));
+        map[r.id] = deterministicShuffle(right, r.id);
+      }
+    }
+    return map;
+  }, [rounds]);
 
   const [currentRoundIdx, setCurrentRoundIdx] = useState(0);
   const [roundResponses, setRoundResponses] = useState<
@@ -56,6 +115,16 @@ export default function MultiRoundRenderer({
   // States for matching round type
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
   const [selectedRight, setSelectedRight] = useState<string | null>(null);
+
+  // Synchronously update parent active entry ID on round change
+  useEffect(() => {
+    if (rounds.length > 0) {
+      const currentRound = rounds[currentRoundIdx];
+      if (currentRound) {
+        setActiveSubId(currentRound.id);
+      }
+    }
+  }, [currentRoundIdx, rounds, setActiveSubId]);
 
   if (rounds.length === 0) {
     return (
@@ -141,6 +210,13 @@ export default function MultiRoundRenderer({
 
   const handleSingleChoiceSelect = (optionKey: string) => {
     if (evaluationResult) return;
+
+    const key = audioContract.answerKeys[optionKey];
+    if (key) {
+      stop("item-selected");
+      playKey(key);
+    }
+
     setRoundResponses((prev) => ({
       ...prev,
       [currentRound.id]: {
@@ -179,6 +255,7 @@ export default function MultiRoundRenderer({
       const leftOptions = currentRound.options.filter(
         (o) =>
           o.optionKey.startsWith("word") ||
+          o.optionKey.startsWith("w") ||
           o.optionKey.startsWith("evt") ||
           o.optionKey.startsWith("elm"),
       );
@@ -202,6 +279,7 @@ export default function MultiRoundRenderer({
       const leftOptions = r.options.filter(
         (o) =>
           o.optionKey.startsWith("word") ||
+          o.optionKey.startsWith("w") ||
           o.optionKey.startsWith("evt") ||
           o.optionKey.startsWith("elm"),
       );
@@ -228,6 +306,12 @@ export default function MultiRoundRenderer({
         const [moved] = nextOrder.splice(fromIdx, 1);
         nextOrder.splice(toIdx, 0, moved);
         handleOrderingChange(nextOrder);
+
+        const key = audioContract.answerKeys[moved];
+        if (key) {
+          stop("item-selected");
+          playKey(key);
+        }
       };
 
       return (
@@ -246,8 +330,24 @@ export default function MultiRoundRenderer({
                   key={optKey}
                   className="flex items-center justify-between p-4 bg-white border border-slate-200 rounded-2xl shadow-sm hover:border-teal-300 transition-all"
                 >
-                  <span className="font-semibold text-slate-800 text-sm">
-                    {opt.label}
+                  <span className="font-semibold text-slate-800 text-sm flex items-center gap-2 select-none">
+                    <span>{opt.label}</span>
+                    {audioContract.answerKeys[optKey] && (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          e.preventDefault();
+                          stop("new-playback-request");
+                          playKey(audioContract.answerKeys[optKey]);
+                        }}
+                        data-audio-key={audioContract.answerKeys[optKey]}
+                        className="p-1 rounded-full hover:bg-teal-100/50 text-teal-600 hover:text-teal-800 transition-colors shrink-0 touch-target select-none cursor-pointer z-10 relative"
+                        title="استمع"
+                      >
+                        🔊
+                      </button>
+                    )}
                   </span>
                   <div className="flex items-center gap-2">
                     <button
@@ -279,6 +379,7 @@ export default function MultiRoundRenderer({
       const leftOptions = currentRound.options.filter(
         (o) =>
           o.optionKey.startsWith("word") ||
+          o.optionKey.startsWith("w") ||
           o.optionKey.startsWith("evt") ||
           o.optionKey.startsWith("elm"),
       );
@@ -287,15 +388,41 @@ export default function MultiRoundRenderer({
       );
       const pairs = responseForCurrent.pairs || {};
 
+      const shuffledRightOptions = shuffledOptionsMap[currentRound.id] || [];
+
+      let leftLabel = "الكلمة";
+      let rightLabel = "المعنى / المقابل";
+      if (currentRound.id.includes("synonym")) {
+        leftLabel = "الكلمة";
+        rightLabel = "مرادفها";
+      } else if (currentRound.id.includes("antonym")) {
+        leftLabel = "الكلمة";
+        rightLabel = "ضدها";
+      }
+
       const handleLeftClick = (key: string) => {
         if (evaluationResult) return;
         setSelectedLeft(key);
+        
+        const audioKey = audioContract.answerKeys[key];
+        if (audioKey) {
+          stop("item-selected");
+          playKey(audioKey);
+        }
+
         if (selectedRight) handleMatchingChange(key, selectedRight);
       };
 
       const handleRightClick = (key: string) => {
         if (evaluationResult) return;
         setSelectedRight(key);
+
+        const audioKey = audioContract.answerKeys[key];
+        if (audioKey) {
+          stop("item-selected");
+          playKey(audioKey);
+        }
+
         if (selectedLeft) handleMatchingChange(selectedLeft, key);
       };
 
@@ -307,6 +434,9 @@ export default function MultiRoundRenderer({
           <div className="grid grid-cols-2 gap-6">
             {/* Left Column */}
             <div className="flex flex-col gap-3">
+              <span className="text-xs font-bold text-teal-800/60 mb-1 block text-right">
+                {leftLabel}
+              </span>
               {leftOptions.map((opt) => {
                 const isPaired = !!pairs[opt.optionKey];
                 const isSelected = selectedLeft === opt.optionKey;
@@ -316,7 +446,7 @@ export default function MultiRoundRenderer({
                     type="button"
                     disabled={!!evaluationResult}
                     onClick={() => handleLeftClick(opt.optionKey)}
-                    className={`p-4 text-right rounded-2xl border text-sm font-bold transition-all shadow-sm ${
+                    className={`p-4 text-right rounded-2xl border text-sm font-bold transition-all shadow-sm flex items-center justify-between gap-2 ${
                       isSelected
                         ? "bg-teal-600 text-white border-teal-600"
                         : isPaired
@@ -324,14 +454,31 @@ export default function MultiRoundRenderer({
                           : "bg-white hover:border-teal-400 border-slate-200 text-slate-700"
                     }`}
                   >
-                    {opt.label}
+                    <span>{opt.label}</span>
+                    {audioContract.answerKeys[opt.optionKey] && (
+                      <span
+                        role="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          e.preventDefault();
+                          stop("new-playback-request");
+                          playKey(audioContract.answerKeys[opt.optionKey]);
+                        }}
+                        className="p-1 rounded-full hover:bg-teal-100/50 text-teal-600 hover:text-teal-800 transition-colors select-none cursor-pointer z-10 relative"
+                      >
+                        🔊
+                      </span>
+                    )}
                   </button>
                 );
               })}
             </div>
             {/* Right Column */}
             <div className="flex flex-col gap-3">
-              {rightOptions.map((opt) => {
+              <span className="text-xs font-bold text-teal-800/60 mb-1 block text-right">
+                {rightLabel}
+              </span>
+              {shuffledRightOptions.map((opt) => {
                 const isPaired = Object.values(pairs).includes(opt.optionKey);
                 const isSelected = selectedRight === opt.optionKey;
                 return (
@@ -340,7 +487,7 @@ export default function MultiRoundRenderer({
                     type="button"
                     disabled={!!evaluationResult}
                     onClick={() => handleRightClick(opt.optionKey)}
-                    className={`p-4 text-right rounded-2xl border text-sm font-bold transition-all shadow-sm ${
+                    className={`p-4 text-right rounded-2xl border text-sm font-bold transition-all shadow-sm flex items-center justify-between gap-2 ${
                       isSelected
                         ? "bg-teal-600 text-white border-teal-600"
                         : isPaired
@@ -348,7 +495,21 @@ export default function MultiRoundRenderer({
                           : "bg-white hover:border-teal-400 border-slate-200 text-slate-700"
                     }`}
                   >
-                    {opt.label}
+                    <span>{opt.label}</span>
+                    {audioContract.answerKeys[opt.optionKey] && (
+                      <span
+                        role="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          e.preventDefault();
+                          stop("new-playback-request");
+                          playKey(audioContract.answerKeys[opt.optionKey]);
+                        }}
+                        className="p-1 rounded-full hover:bg-teal-100/50 text-teal-600 hover:text-teal-800 transition-colors select-none cursor-pointer z-10 relative"
+                      >
+                        🔊
+                      </span>
+                    )}
                   </button>
                 );
               })}
@@ -413,13 +574,27 @@ export default function MultiRoundRenderer({
                 type="button"
                 disabled={!!evaluationResult}
                 onClick={() => handleSingleChoiceSelect(opt.optionKey)}
-                className={`w-full p-4 text-right rounded-2xl border text-sm font-bold transition-all shadow-sm ${
+                className={`w-full p-4 text-right rounded-2xl border text-sm font-bold transition-all shadow-sm flex items-center justify-between gap-2 ${
                   isSelected
                     ? "bg-teal-600 text-white border-teal-600"
                     : "bg-white hover:border-teal-400 border-slate-200 text-slate-700"
                 }`}
               >
-                {opt.label}
+                <span>{opt.label}</span>
+                {audioContract.answerKeys[opt.optionKey] && (
+                  <span
+                    role="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      e.preventDefault();
+                      stop("new-playback-request");
+                      playKey(audioContract.answerKeys[opt.optionKey]);
+                    }}
+                    className="p-1 rounded-full hover:bg-teal-100/50 text-teal-600 hover:text-teal-800 transition-colors select-none cursor-pointer z-10 relative"
+                  >
+                    🔊
+                  </span>
+                )}
               </button>
             );
           })}

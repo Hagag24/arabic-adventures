@@ -1,0 +1,231 @@
+{
+  "version": 1,
+  "assets": {
+    "global.welcome.01": {
+      "src": "/audio/v1/global/welcome/01.wav",
+      "scriptSrc": "/audio/v1/global/welcome/01.txt",
+      "category": "welcome",
+      "sha256": "40f87623bc6570df6450329520224e3514f3d8f9f9e9246cebdd0562cf8e5679",
+      "scriptSha256": "308353b89316b30b9b7b6b5794a4f91b359b2e971342d38f53e139f848a7ffbd",
+      "durationSeconds": 6.36
+    },
+    "global.feedback.correct.01": {
+      "src": "/audio/v1/global/feedback/correct/01.wav",
+      "scriptSrc": "/audio/v1/global/feedback/correct/01.txt",
+      "category": "correct_feedback",
+      "sha256": "882ba17c718fb8bbed5a0746b41bdcd060ac3927c72c649b3b6c49b850ab38da",
+      "scriptSha256": "cfc55f97fe8342c94d783eabf148cf8d576f65808b7132de7542e7a17fa7997d",
+      "durationSeconds": 3.4
+    },
+    "global.feedback.retry.01": {
+      "src": "/audio/v1/global/feedback/retry/01.wav",
+      "scriptSrc": "/audio/v1/global/feedback/retry/01.txt",
+      "category": "retry_feedback",
+      "sha256": "b785fd537532fc5fca23099f7c6d74148fe4b12e49aecc7ff4391fffc889fbca",
+      "scriptSha256": "85d410d003382816be9e934da3c1898bb259fed03bbee30fbae3c75b079fdd50",
+      "durationSeconds": 3.68
+    },
+    "global.feedback.completion.01": {
+      "src": "/audio/v1/global/feedback/completion/01.wav",
+      "scriptSrc": "/audio/v1/global/feedback/completion/01.txt",
+      "category": "completion_feedback",
+      "sha256": "bbf41195589d2c72dad5ef7feace65ee77f1dd76fd440130df162ff7a597ba4f",
+      "scriptSha256": "708bc9333857c0bdd718409eb6f3d865d3f292abac08cf5b010a3d6ed8a1c2a8",
+      "durationSeconds": 3.64
+    },
+    "global.feedback.participation.01": {
+      "src": "/audio/v1/global/feedback/participation/01.wav",
+      "scriptSrc": "/audio/v1/global/feedback/participation/01.txt",
+      "category": "participation_feedback",
+      "sha256": "f1746ad925184a7bc2476e4963987f1bf4262abc4bb47c6ca83b88c1649b85be",
+      "scriptSha256": "91d0fd4489cee8e67b0082fe98ef99a15f8426d46b7825b42b1d367f5aad8196",
+      "durationSeconds": 3.171
+    },
+    "lessons.ancient-egyptian-teacher.story": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/story.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/story.txt",
+      "category": "story",
+      "sha256": "d401627ac419cda751fed5900e6181cc685f72a8ccf89d027e644f9c88c7613c",
+      "scriptSha256": "e8eec32e65a244afbc8c610f401ff18b75b5ebf0c48603d627b0e355e4885d80",
+      "durationSeconds": 50.411
+    },
+    "lessons.magdi-yacoub.story": {
+      "src": "/audio/v1/lessons/magdi-yacoub/story.wav",
+      "scriptSrc": "/audio/v1/lessons/magdi-yacoub/story.txt",
+      "category": "story",
+      "sha256": "91f795ba40aad3c5de867f047403893548494a407c902dd68278a400ca5f99f8",
+      "scriptSha256": "b76734dbce5e02e2388f4ab41fd61ec9e0b4f973b58632eeb4bf87f759717dbd",
+      "durationSeconds": 58.491
+    },
+    "lessons.ancient-egyptian-teacher.result": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/result.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/result.txt",
+      "category": "result",
+      "sha256": "09ad7e2f6a573979afe0c1be0e6082f30afccd32c5c5c7526bd22fea252ba39d",
+      "scriptSha256": "b38e0e79f9de5f6238bd9d78dd78d3c6841c39f10ecd2f44d5d5a25c1746d040",
+      "durationSeconds": 9.24
+    },
+    "lessons.magdi-yacoub.result": {
+      "src": "/audio/v1/lessons/magdi-yacoub/result.wav",
+      "scriptSrc": "/audio/v1/lessons/magdi-yacoub/result.txt",
+      "category": "result",
+      "sha256": "490cc342f53aaa59d234bfb819db3268a6487fcf3ff877215fa86c0ae296e790",
+      "scriptSha256": "c4115f1443649300999e33420617a2418769af99a439f73eb81a54783435e6a5",
+      "durationSeconds": 11.84
+    },
+    "ancient-egyptian-teacher-arabic-feelings-j1-instruction": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/instruction.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/instruction.txt",
+      "category": "instruction",
+      "sha256": "fa855b1d48e5f7d706f5c4ac9ed34a1891acf6a914a27471619353bb3f03e15c",
+      "scriptSha256": "83a36532a822ea75de0b263ae4eb0c7daeff76f1c71417fee853178baca59041",
+      "durationSeconds": 3.88
+    },
+    "ancient-egyptian-teacher-arabic-feelings-j1-prompt": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/prompt.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/prompt.txt",
+      "category": "prompt",
+      "sha256": "317dfa86de45276eec10370aafd2b9755f754ed9fcc3fb1d357096f0aaa28b99",
+      "scriptSha256": "16f812973ee0901b3280a5038ce99eb577aa52bddc319d4696ef3fc0671fb5f6",
+      "durationSeconds": 6
+    },
+    "ancient-egyptian-teacher-arabic-feelings-j1-option-happy": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/option-happy.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/option-happy.txt",
+      "category": "option",
+      "sha256": "80c6ebe4d5c46b2a08f6c3a3cdd7af825c69091b950e181f6501c920e991efb0",
+      "scriptSha256": "d654034b0438e8cd0672ad3d3b122918285369a08552e1ddf23f4b1cdac0b499",
+      "durationSeconds": 5.16
+    },
+    "ancient-egyptian-teacher-arabic-feelings-j1-option-neutral": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/option-neutral.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/option-neutral.txt",
+      "category": "option",
+      "sha256": "6de0b8754cc22821beb2c680d9a3ff4e452639992b2f9f0517c32d7fde73ccd4",
+      "scriptSha256": "92a75302ff0cb7a41031275fc78a95ebdc6c35bb9f8d0f01a3a890f27cf3b971",
+      "durationSeconds": 3.88
+    },
+    "ancient-egyptian-teacher-arabic-feelings-j1-option-calm": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/option-calm.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/option-calm.txt",
+      "category": "option",
+      "sha256": "085780f8e44546fc64ed010dbbf43f5c8dc1f8e19b1a5f603748cb24aab9a428",
+      "scriptSha256": "7f7cba0fbef0c78e2744d3802e0cc357620121f30e89b4421b389ad476a79469",
+      "durationSeconds": 6.24
+    },
+    "ancient-egyptian-teacher-arabic-feelings-j1-completion-feedback": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/completion-feedback.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/completion-feedback.txt",
+      "category": "participation_feedback",
+      "sha256": "5e95f476a6d6e34ae2f130904821a8e1b1cc2409db4800879bf24423802d8ef7",
+      "scriptSha256": "91d0fd4489cee8e67b0082fe98ef99a15f8426d46b7825b42b1d367f5aad8196",
+      "durationSeconds": 3.4
+    },
+    "ancient-egyptian-teacher-arabic-self-assessment-instruction": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/instruction.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/instruction.txt",
+      "category": "instruction",
+      "sha256": "140108600d4815e1e184b8dc80616ca62bbe38ed96770d59bb02b1baa871ff95",
+      "scriptSha256": "87cf79c81823801dcaeff172017c6acef0201f9928e960fbbfd68d732bbeaff1",
+      "durationSeconds": 3.32
+    },
+    "ancient-egyptian-teacher-arabic-self-assessment-prompt": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/prompt.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/prompt.txt",
+      "category": "prompt",
+      "sha256": "631211c74a23ae50ed04c79dca6f446f36aa7803f59d4bf310669ae03b95c9f2",
+      "scriptSha256": "56927e9f32b63a22ff4b1fd1fb9f9d35cabb3f2d81183ad7af5b2c0cebabb792",
+      "durationSeconds": 7.28
+    },
+    "ancient-egyptian-teacher-arabic-self-assessment-option-happy": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/option-happy.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/option-happy.txt",
+      "category": "option",
+      "sha256": "a0667e9bcc03938bd608d8f6c69318aea496fb6d78c536de1fd4afe93b35b1ca",
+      "scriptSha256": "8405f4297b73a8a662e5d4d7af59492fc3a73e39ad5750bbb29f08df02bd0225",
+      "durationSeconds": 5
+    },
+    "ancient-egyptian-teacher-arabic-self-assessment-option-neutral": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/option-neutral.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/option-neutral.txt",
+      "category": "option",
+      "sha256": "14139236e0a40bd0d1105334059847f91c2f68ff607bf004f0d447af59959303",
+      "scriptSha256": "0096b97733fafe3e6cc3e8833e6db671b1bfc43aa3b93d06b180dd1b021d5c87",
+      "durationSeconds": 5.84
+    },
+    "ancient-egyptian-teacher-arabic-self-assessment-option-bored": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/option-bored.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/option-bored.txt",
+      "category": "option",
+      "sha256": "7bb2bc5b8e4dd89304f8540d30211147357a8a1d91a68365dfc49278096515d6",
+      "scriptSha256": "abf53f15dc0643f61a43cb28cb6f622fc334f7432a2566aa9c2847af61c5d792",
+      "durationSeconds": 4.6
+    },
+    "ancient-egyptian-teacher-arabic-self-assessment-completion-feedback": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/completion-feedback.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/completion-feedback.txt",
+      "category": "participation_feedback",
+      "sha256": "ad91104cf9db518de1890a61b207b58265235d5a721051fc10b352b08d836fc8",
+      "scriptSha256": "91d0fd4489cee8e67b0082fe98ef99a15f8426d46b7825b42b1d367f5aad8196",
+      "durationSeconds": 3.64
+    },
+    "ancient-egyptian-teacher-titles-generation-instruction": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/titles-generation/instruction.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/titles-generation/instruction.txt",
+      "category": "instruction",
+      "sha256": "6502031c9412a3b50c6e1e3a593bd91e12bfc7db2ed37f1ed485a38c47d8c0a6",
+      "scriptSha256": "882dc89224e7892592f02f07c8a71e128385800085f1b857ff7da0f2d452b53d",
+      "durationSeconds": 5.96
+    },
+    "ancient-egyptian-teacher-titles-generation-prompt": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/titles-generation/prompt.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/titles-generation/prompt.txt",
+      "category": "prompt",
+      "sha256": "e97da0a7ae660384ff39b90eb59e973dda634d01a0cc9105cdf902ab55e01634",
+      "scriptSha256": "66a9c4dd1fa9938646cb5394050207ff518f62f093249e026402193ac49a5fcb",
+      "durationSeconds": 7.48
+    },
+    "ancient-egyptian-teacher-tomb-location-option-loc1": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-location/option-loc1.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-location/option-loc1.txt",
+      "category": "option",
+      "sha256": "528112f05a73f4610a396e49c22f776e3d0b5fd8a73e9698fe477ba13e363d65",
+      "scriptSha256": "ce2515589b552b69a940eea23ffa78f3e884687b9a8243ae7e25ae789c678067",
+      "durationSeconds": 3.72
+    },
+    "ancient-egyptian-teacher-event-ordering-option-evt4": {
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-ordering/option-evt4.wav",
+      "scriptSrc": "/audio/v1/lessons/ancient-egyptian-teacher/event-ordering/option-evt4.txt",
+      "category": "option",
+      "sha256": "65f6cba40d8329f0e2e395a6688111425a7ef06c5f20b7dc7b50314816511521",
+      "scriptSha256": "3a52f647cfc1d03cf7a58b54abec10c4994dcece560d89f2ed1d2b548c97fbfc",
+      "durationSeconds": 2.84
+    },
+    "king-of-hearts-yacoub-praise-assessment-instruction": {
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-praise-assessment/instruction.wav",
+      "scriptSrc": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-praise-assessment/instruction.txt",
+      "category": "instruction",
+      "sha256": "e08a311d5622bc7538d76f961dd863d33203ce2ef032c7070d2323deb31d74c6",
+      "scriptSha256": "621e32ca8b2cffff9accd7ed29600c3e0bf29f029154b93b6ad1623a57be3450",
+      "durationSeconds": 4.52
+    },
+    "global.sfx.correct": {
+      "src": "/audio/v1/sfx/correct.wav",
+      "category": "sfx",
+      "sha256": "5e16f5291cf27e29db191aa91f2a79e66a778426fef8e4dd9e5227698b308393",
+      "durationSeconds": 0.4
+    },
+    "global.sfx.incorrect": {
+      "src": "/audio/v1/sfx/retry.wav",
+      "category": "sfx",
+      "sha256": "8fb6445eb4c62fcf7a8fce9efa948d696ab19e04d2d5913d09b8dc473a0a7c0f",
+      "durationSeconds": 0.3
+    },
+    "global.sfx.completion": {
+      "src": "/audio/v1/sfx/completion.wav",
+      "category": "sfx",
+      "sha256": "2a3a214e7ba5738ebae683809ed32aad82e8d1b74961e38502e72e59200498dd",
+      "durationSeconds": 0.45
+    }
+  }
+}

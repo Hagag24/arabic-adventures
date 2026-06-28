@@ -45,7 +45,7 @@ test.describe("Visual Evidence Collection", () => {
     // 4. Incorrect Choice selection screenshot
     await page.click("#opt-opt1");
     await page.click('button[type="submit"]');
-    await page.waitForSelector("text=محاولة جيدة");
+    await page.waitForSelector("text=وَلا يِهِمَّك");
     await page.screenshot({ path: path.join(ARTIFACTS_DIR, "journey1-choice-incorrect.png") });
 
     // 5. Correct Choice selection & submission screenshot

@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-06-27T21:56:09.624Z",
+  "valid": true,
+  "stats": {
+    "totalIndexedScripts": 250,
+    "errorsCount": 0,
+    "warningsCount": 5
+  },
+  "errors": [],
+  "warnings": [
+    "Orphan WAV file (no matching script in index): \"sfx/completion.wav\"",
+    "Orphan WAV file (no matching script in index): \"sfx/correct.wav\"",
+    "Orphan WAV file (no matching script in index): \"sfx/retry.wav\"",
+    "Orphan WAV file (no matching script in index): \"sfx/selection.wav\"",
+    "Orphan WAV file (no matching script in index): \"sfx/transition.wav\""
+  ]
+}

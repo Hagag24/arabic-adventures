@@ -5,9 +5,13 @@ import {
   StudentActivityPayload,
   SafeEvaluationResult,
 } from "@/server/services/activity-service";
+import { useAudio } from "@/audio/runtime/use-audio";
+
+import { ActivityAudioContract } from "@/audio/runtime/activity-audio-contract";
 
 interface MatchingRendererProps {
   activity: StudentActivityPayload;
+  audioContract: ActivityAudioContract;
   onSubmit: (responseData: Record<string, unknown>) => void;
   isSubmitting: boolean;
   evaluationResult: SafeEvaluationResult | null;
@@ -17,14 +21,17 @@ interface MatchingRendererProps {
 
 export default function MatchingRenderer({
   activity,
+  audioContract,
   onSubmit,
   isSubmitting,
   evaluationResult,
 }: MatchingRendererProps) {
+  const { playKey, stop } = useAudio();
   // Partition options into Left side and Right side
   const leftOptions = activity.options.filter(
     (opt) =>
       opt.optionKey.startsWith("word") ||
+      opt.optionKey.startsWith("w") ||
       opt.optionKey.startsWith("evt") ||
       opt.optionKey.startsWith("elm"),
   );
@@ -32,27 +39,60 @@ export default function MatchingRenderer({
     (opt) => !leftOptions.includes(opt),
   );
 
+  let leftLabel = "الكلمة / الحدث";
+  let rightLabel = "المعنى / المقابل";
+
+  const configLabels = (activity.configuration as { matchingLabels?: { left?: string; right?: string } } | null)?.matchingLabels;
+  if (configLabels?.left) {
+    leftLabel = configLabels.left;
+  }
+  if (configLabels?.right) {
+    rightLabel = configLabels.right;
+  }
+
+  if (activity.slug.includes("synonym")) {
+    leftLabel = "الكلمة";
+    rightLabel = "مرادفها";
+  } else if (activity.slug.includes("antonym")) {
+    leftLabel = "الكلمة";
+    rightLabel = "ضدها";
+  }
+
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
   const [selectedRight, setSelectedRight] = useState<string | null>(null);
   const [pairs, setPairs] = useState<Record<string, string>>(
     (activity.previousResponseData?.pairs as Record<string, string>) || {},
   );
 
-  const handleLeftClick = (key: string) => {
+  const handleLeftClick = (optionKey: string) => {
     if (evaluationResult) return;
-    setSelectedLeft(key);
+
+    const audioKey = audioContract.answerKeys[optionKey];
+    if (audioKey) {
+      stop();
+      playKey(audioKey);
+    }
+
+    setSelectedLeft(optionKey);
     // If a right item is already highlighted, pair them up
     if (selectedRight) {
-      makePair(key, selectedRight);
+      makePair(optionKey, selectedRight);
     }
   };
 
-  const handleRightClick = (key: string) => {
+  const handleRightClick = (optionKey: string) => {
     if (evaluationResult) return;
-    setSelectedRight(key);
+
+    const audioKey = audioContract.answerKeys[optionKey];
+    if (audioKey) {
+      stop();
+      playKey(audioKey);
+    }
+
+    setSelectedRight(optionKey);
     // If a left item is already highlighted, pair them up
     if (selectedLeft) {
-      makePair(selectedLeft, key);
+      makePair(selectedLeft, optionKey);
     }
   };
 
@@ -103,7 +143,7 @@ export default function MatchingRenderer({
         {/* Left Column */}
         <div className="flex flex-col gap-3">
           <span className="text-xs font-bold text-teal-800/60 mb-1 block">
-            الكلمة / الحدث
+            {leftLabel}
           </span>
           {leftOptions.map((opt) => {
             const isSelected = selectedLeft === opt.optionKey;
@@ -119,20 +159,44 @@ export default function MatchingRenderer({
             }
 
             return (
-              <button
+              <div
                 key={opt.optionKey}
-                type="button"
+                role="button"
+                tabIndex={0}
                 onClick={() => handleLeftClick(opt.optionKey)}
-                disabled={!!evaluationResult || isSubmitting}
-                className={`p-4 rounded-2xl border text-right font-semibold text-teal-900 transition-all duration-200 touch-target ${cardStyle}`}
+                aria-disabled={!!evaluationResult || isSubmitting}
+                data-audio-key={opt.narrationKey || ""}
+                className={`p-4 rounded-2xl border text-right font-semibold text-teal-900 transition-all duration-200 touch-target ${cardStyle} ${
+                  (!!evaluationResult || isSubmitting) ? "opacity-75 cursor-not-allowed" : ""
+                }`}
               >
-                {opt.label}
-                {isPaired && (
-                  <span className="text-xs text-teal-600 block mt-1 font-bold">
-                    ✓ تم التوصيل
-                  </span>
-                )}
-              </button>
+                <div className="flex justify-between items-center w-full">
+                  <div className="text-right">
+                    {opt.label}
+                    {isPaired && (
+                      <span className="text-xs text-teal-600 block mt-1 font-bold">
+                        ✓ تم التوصيل
+                      </span>
+                    )}
+                  </div>
+                  {audioContract.answerKeys[opt.optionKey] && (
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        stop();
+                        playKey(audioContract.answerKeys[opt.optionKey]!);
+                      }}
+                      data-audio-key={audioContract.answerKeys[opt.optionKey]}
+                      className="p-1.5 rounded-full hover:bg-teal-100/50 text-teal-600 hover:text-teal-800 transition-colors shrink-0 touch-target mr-2 select-none cursor-pointer z-10 relative"
+                      title="استمع"
+                    >
+                      🔊
+                    </button>
+                  )}
+                </div>
+              </div>
             );
           })}
         </div>
@@ -140,7 +204,7 @@ export default function MatchingRenderer({
         {/* Right Column */}
         <div className="flex flex-col gap-3">
           <span className="text-xs font-bold text-teal-800/60 mb-1 block">
-            المعنى / المقابل
+            {rightLabel}
           </span>
           {rightOptions.map((opt) => {
             const isSelected = selectedRight === opt.optionKey;
@@ -155,15 +219,37 @@ export default function MatchingRenderer({
             }
 
             return (
-              <button
+              <div
                 key={opt.optionKey}
-                type="button"
+                role="button"
+                tabIndex={0}
                 onClick={() => handleRightClick(opt.optionKey)}
-                disabled={!!evaluationResult || isSubmitting}
-                className={`p-4 rounded-2xl border text-right font-semibold text-teal-900 transition-all duration-200 touch-target ${cardStyle}`}
+                aria-disabled={!!evaluationResult || isSubmitting}
+                data-audio-key={opt.narrationKey || ""}
+                className={`p-4 rounded-2xl border text-right font-semibold text-teal-900 transition-all duration-200 touch-target ${cardStyle} ${
+                  (!!evaluationResult || isSubmitting) ? "opacity-75 cursor-not-allowed" : ""
+                }`}
               >
-                {opt.label}
-              </button>
+                <div className="flex justify-between items-center w-full">
+                  <span className="text-right">{opt.label}</span>
+                  {audioContract.answerKeys[opt.optionKey] && (
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        stop();
+                        playKey(audioContract.answerKeys[opt.optionKey]!);
+                      }}
+                      data-audio-key={audioContract.answerKeys[opt.optionKey]}
+                      className="p-1.5 rounded-full hover:bg-teal-100/50 text-teal-600 hover:text-teal-800 transition-colors shrink-0 touch-target mr-2 select-none cursor-pointer z-10 relative"
+                      title="استمع"
+                    >
+                      🔊
+                    </button>
+                  )}
+                </div>
+              </div>
             );
           })}
         </div>

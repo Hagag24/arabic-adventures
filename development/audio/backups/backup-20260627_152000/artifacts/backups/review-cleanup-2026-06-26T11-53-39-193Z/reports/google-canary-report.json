@@ -1,0 +1,20 @@
+{
+  "status": "SUCCESS",
+  "authenticationMode": "gemini_api_key",
+  "apiPath": "generate_content",
+  "requestSchema": "generateContent.generationConfig.responseModalities=AUDIO",
+  "model": "gemini-3.1-flash-tts-preview",
+  "primaryModel": "gemini-3.1-flash-tts-preview",
+  "fallbackModel": "gemini-2.5-flash-preview-tts",
+  "fallbackReason": null,
+  "voice": "Kore",
+  "text": "مَرْحَبًا يَا بَطَل، جَاهِزٌ لِنَبْدَأَ مُغَامَرَةً جَدِيدَةً؟",
+  "reviewStatus": "PENDING_HUMAN_REVIEW",
+  "wavPath": "D:\\arabic-adventures\\artifacts\\audio\\.staging\\canary\\canary.wav",
+  "fileSizeBytes": 249644,
+  "sha256": "ad31d2f3ea743c60d51a2cc17078b256e832841f615e98db1613f76a670a2b62",
+  "durationSeconds": "5.200000",
+  "codec": "pcm_s16le",
+  "sampleRate": "24000",
+  "channels": 1
+}

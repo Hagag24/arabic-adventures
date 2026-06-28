@@ -76,6 +76,11 @@ describe("SelfAssessment Integration Tests", () => {
               modelAnswer: null,
               explanation: null,
               journeyStatus: "IN_PROGRESS",
+              feedback: {
+                status: "participation",
+                displayText: "شكرًا لمشاركتك 🌟",
+                audioKey: "global.feedback.participation.01",
+              },
             },
           }),
       } as Response),
@@ -91,7 +96,7 @@ describe("SelfAssessment Integration Tests", () => {
     const optButtons = screen
       .getAllByRole("button")
       .filter(
-        (btn) => btn !== submitBtn && btn.getAttribute("type") === "button",
+        (btn) => btn.hasAttribute("aria-pressed") && !btn.hasAttribute("aria-label"),
       );
     expect(optButtons).toHaveLength(3);
     optButtons.forEach((btn) => {
@@ -163,9 +168,7 @@ describe("SelfAssessment Integration Tests", () => {
     const optButtons = screen
       .getAllByRole("button")
       .filter(
-        (btn) =>
-          btn.getAttribute("type") === "button" &&
-          !btn.textContent?.includes("تأكيد"),
+        (btn) => btn.hasAttribute("aria-pressed") && !btn.hasAttribute("aria-label"),
       );
 
     // Click/Space triggers selection
@@ -184,9 +187,7 @@ describe("SelfAssessment Integration Tests", () => {
     const optButtons = screen
       .getAllByRole("button")
       .filter(
-        (btn) =>
-          btn.getAttribute("type") === "button" &&
-          !btn.textContent?.includes("تأكيد"),
+        (btn) => btn.hasAttribute("aria-pressed") && !btn.hasAttribute("aria-label"),
       );
 
     expect(optButtons[0]).toHaveAttribute("aria-pressed", "false");

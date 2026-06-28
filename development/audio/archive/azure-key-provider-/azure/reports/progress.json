@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-06-27T19:59:57.302276Z",
+  "total": 250,
+  "counts": {
+    "GENERATED": 0,
+    "SCRIPT_READY": 250,
+    "FAILED_RATE_LIMIT": 0,
+    "FAILED_AUTH": 0,
+    "FAILED_TRANSIENT": 0,
+    "FAILED_PERMANENT": 0,
+    "REGENERATION_REQUIRED": 0,
+    "GENERATING": 0
+  }
+}

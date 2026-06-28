@@ -5,9 +5,13 @@ import {
   StudentActivityPayload,
   SafeEvaluationResult,
 } from "@/server/services/activity-service";
+import { useAudio } from "@/audio/runtime/use-audio";
+
+import { ActivityAudioContract } from "@/audio/runtime/activity-audio-contract";
 
 interface OrderingRendererProps {
   activity: StudentActivityPayload;
+  audioContract: ActivityAudioContract;
   onSubmit: (responseData: Record<string, unknown>) => void;
   isSubmitting: boolean;
   evaluationResult: SafeEvaluationResult | null;
@@ -17,10 +21,12 @@ interface OrderingRendererProps {
 
 export default function OrderingRenderer({
   activity,
+  audioContract,
   onSubmit,
   isSubmitting,
   evaluationResult,
 }: OrderingRendererProps) {
+  const { playKey, stop } = useAudio();
   const [items, setItems] = useState(() => {
     const prevOrder = activity.previousResponseData?.order as string[];
     if (prevOrder && prevOrder.length === activity.options.length) {
@@ -36,6 +42,14 @@ export default function OrderingRenderer({
 
   const handleMoveUp = (index: number) => {
     if (evaluationResult || index === 0) return;
+
+    const item = items[index];
+    const key = audioContract.answerKeys[item.optionKey];
+    if (key) {
+      stop();
+      playKey(key);
+    }
+
     setItems((prev) => {
       const next = [...prev];
       const temp = next[index];
@@ -47,6 +61,14 @@ export default function OrderingRenderer({
 
   const handleMoveDown = (index: number) => {
     if (evaluationResult || index === items.length - 1) return;
+
+    const item = items[index];
+    const key = audioContract.answerKeys[item.optionKey];
+    if (key) {
+      stop();
+      playKey(key);
+    }
+
     setItems((prev) => {
       const next = [...prev];
       const temp = next[index];
@@ -84,13 +106,32 @@ export default function OrderingRenderer({
               className={`flex items-center justify-between p-4 rounded-2xl border transition-all duration-200 ${cardStyle}`}
             >
               {/* Position Badge & Text */}
-              <div className="flex items-center gap-3">
+              <div
+                className="flex items-center gap-3"
+                data-audio-key={audioContract.answerKeys[item.optionKey] || ""}
+              >
                 <span className="w-8 h-8 rounded-full bg-teal-600/10 text-teal-800 font-bold flex items-center justify-center text-sm">
                   {index + 1}
                 </span>
                 <span className="font-semibold text-teal-900 text-sm md:text-base">
                   {item.label}
                 </span>
+                {audioContract.answerKeys[item.optionKey] && (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      e.preventDefault();
+                      stop();
+                      playKey(audioContract.answerKeys[item.optionKey]!);
+                    }}
+                    data-audio-key={audioContract.answerKeys[item.optionKey]}
+                    className="p-1.5 rounded-full hover:bg-teal-100/50 text-teal-600 hover:text-teal-800 transition-colors shrink-0 touch-target mr-2 select-none cursor-pointer z-10 relative"
+                    title="استمع"
+                  >
+                    🔊
+                  </button>
+                )}
               </div>
 
               {/* Move Buttons */}

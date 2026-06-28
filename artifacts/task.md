@@ -1,0 +1,30 @@
+# Execution Checklist - Google Arabic Audio Production & Audition Pack
+
+- [x] 1. Baseline Verification & Backups
+  - [x] Perform timestamped backups of database, artifacts, and public approved assets.
+  - [x] Back up `.env` outside the repository directory.
+  - [x] Verify baseline commands: `audio:inventory`, `audio:prepare-text`, `audio:verify-text`, `audio:verify:architecture`.
+- [x] 2. Audition Pipeline Correction
+  - [x] Identify welcome canary text source (hardcoded constant in `audition-google.ts`).
+  - [x] Create feedback canary mode supporting semantic key `global.feedback.correct.canary` and text `أحسنت يا بطل، إجابتك صحيحة!`.
+  - [x] Assert `EMPTY_SPOKEN_TEXT` and verify normalized text matches the target phrase.
+  - [x] Log only necessary metadata fields (no full prompts).
+- [x] 3. Candidate Comparison Pack Synthesis
+  - [x] Setup audition sentences list containing exactly 8 comparison phrases.
+  - [x] Prevent generating full 240-clip pronunciation matrix (limit to 64 clips).
+  - [x] Implement paced requests (22-second delay) to respect 3 RPM Gemini Free Tier limits.
+  - [x] Implement robust 429 quota bypass fallback mode to cleanly compile candidate pack using generated clips under daily quota limits.
+  - [x] Avoid forced `process.exit()` calls to ensure clean Windows libuv shutdown.
+- [x] 4. Local Review Server & Site Integration
+  - [x] Align `auditionSentences` in `review-server.ts` and `build-review-site.ts` with the 8 comparison phrases.
+  - [x] Update CandidateIdRegex to support dots (`.`) and dashes (`-`) in semantic keys.
+  - [x] Run `audio:analyze` to calculate and verify loudness metrics.
+  - [x] Compile the review HTML page via `audio:build-review`.
+  - [x] Launch the review server on port 4175 and test APIs for read/write.
+- [x] 5. Project Validation
+  - [x] Verify linter passes (0 errors, 0 warnings).
+  - [x] Verify typecheck compiles successfully (0 errors, 0 warnings).
+  - [x] Verify format check passes successfully (100% compliant).
+  - [x] Verify all 68 Vitest unit tests pass successfully.
+  - [x] Verify Next.js production build compiles successfully.
+  - [x] Verify all 22 Playwright E2E tests pass successfully.

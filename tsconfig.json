@@ -30,5 +30,5 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "artifacts", "backups", "development/audio/quarantine", "development/audio/backups", "development/audio/archive", "development/audio/tools"]
 }

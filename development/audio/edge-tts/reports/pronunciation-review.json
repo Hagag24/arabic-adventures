@@ -1,0 +1,32 @@
+{
+  "reviewedKeys": [
+    {
+      "key": "lessons.magdi-yacoub.story",
+      "text": "مَجْدِي يَعْقُوب",
+      "classification": "WRONG_PRONUNCIATION",
+      "notes": "Stress on proper name Yacoub needs manual override.",
+      "suggestedOverride": "مَجْدِي يَعْقُوبَ"
+    },
+    {
+      "key": "king-of-hearts-yacoub-return-year-prompt",
+      "text": "عام 2009",
+      "classification": "WRONG_PRONUNCIATION",
+      "notes": "Year 2009 should be spelled out in classical Arabic for consistent neural reading.",
+      "suggestedOverride": "عَامَ أَلْفَيْنِ وَتِسْعَةٍ"
+    },
+    {
+      "key": "global.feedback.retry.01",
+      "text": "وَلا يِهِمَّك، فَكِّر شُوَيَّة وَجَرِّب تاني.",
+      "classification": "TOO_FAST",
+      "notes": "End of phrase is slightly rushed.",
+      "suggestedOverride": "وَلا يِهِمَّك، فَكِّر شُوَيَّة... وَجَرِّب تَانِي."
+    },
+    {
+      "key": "king-of-hearts-yacoub-stages-ordering-option-st4",
+      "text": "بِأَسْوَانَ",
+      "classification": "WRONG_PRONUNCIATION",
+      "notes": "Proper noun Aswan needs explicit vocalization.",
+      "suggestedOverride": "بِأَسْوَانَ"
+    }
+  ]
+}

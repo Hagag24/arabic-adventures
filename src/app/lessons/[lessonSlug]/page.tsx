@@ -5,6 +5,7 @@ import { prisma } from "@/lib/db/prisma";
 import { getPlayerSessionId } from "@/lib/session/session-manager";
 import SessionInitializer from "@/components/session/SessionInitializer";
 import PublicHeader from "@/components/layout/PublicHeader";
+import { SemanticAudioButton } from "@/components/audio/SemanticAudioButton";
 
 export const dynamic = "force-dynamic";
 
@@ -88,9 +89,16 @@ export default async function LessonRoadmapPage({
           <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-3">
             خريطة الطريق للدرس 🗺️
           </h2>
-          <p className="text-sm md:text-base text-slate-600 leading-relaxed mb-4">
-            {lesson.shortDescription}
-          </p>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
+            <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+              {lesson.shortDescription}
+            </p>
+            <SemanticAudioButton
+              semanticKey={`lessons.${lessonSlug}.story`}
+              label="استمع إلى قصة الدرس"
+              className="shrink-0 mt-1 sm:mt-0"
+            />
+          </div>
           <div className="flex flex-wrap gap-4 text-xs font-semibold text-slate-500">
             <span className={`border px-3 py-1.5 rounded-full ${themeBadge}`}>
               الوسام: {lesson.achievementTitle} 🏆

@@ -48,3 +48,15 @@ next-env.d.ts
 
 # generated prisma files
 /src/generated/
+.env.*
+!.env.example
+*.pem
+*.key
+service-account*.json
+google-credentials*.json
+
+development/audio/azure/.env.azure.local
+development/audio/azure/.venv/
+development/audio/azure/logs/
+development/audio/azure/staging/
+development/audio/azure/cache/

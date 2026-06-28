@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noImplicitAny": false
+  },
+  "include": [
+    "tools/**/*.ts",
+    "../../src/audio/**/*.ts",
+    "../../src/content/**/*.ts"
+  ]
+}

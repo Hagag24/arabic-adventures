@@ -1,0 +1,106 @@
+{
+  "repository_baseline": {
+    "modified_files": [
+      "src/audio/runtime/AudioProvider.tsx",
+      "src/components/activity/ActivityPlayerClient.tsx",
+      "src/components/activity/ActivityRenderer.tsx",
+      "src/components/activity/renderers/ChecklistRenderer.tsx",
+      "src/components/activity/renderers/ChoiceRenderer.tsx",
+      "src/components/activity/renderers/MatchingRenderer.tsx",
+      "src/components/activity/renderers/OrderingRenderer.tsx",
+      "src/components/activity/renderers/SelfAssessmentRenderer.tsx",
+      "src/server/services/activity-service.ts"
+    ],
+    "new_untracked_files": [
+      "src/audio/runtime/activity-audio-contract.ts",
+      "scripts/audit-all-runtime-audio.ts",
+      "scripts/generate-analysis-json.ts",
+      "scripts/verify-audio-playback.ts",
+      "scripts/verify-remaining-audio.ts"
+    ]
+  },
+  "content_statistics": {
+    "total_lessons": 2,
+    "total_activities": 47,
+    "lesson_1_activities": 19,
+    "lesson_2_activities": 28,
+    "activity_renderers": {
+      "self_assessment": 11,
+      "single_choice": 8,
+      "matching": 4,
+      "ordering": 2,
+      "multi_round": 1,
+      "agree_disagree": 1,
+      "long_text": 7,
+      "short_text": 2,
+      "three_answers": 5,
+      "fill_in_the_blank": 4,
+      "problem_solution": 4,
+      "retell_story": 1,
+      "story_builder": 1
+    }
+  },
+  "coverage_states": {
+    "physically_present": 253,
+    "statically_bound": 253,
+    "browser_verified": 247,
+    "disconnected_speech_assets": [
+      "king-of-hearts-yacoub-agree-disagree-option-agree",
+      "king-of-hearts-yacoub-agree-disagree-option-disagree",
+      "ancient-egyptian-teacher-event-ordering-option-evt1",
+      "ancient-egyptian-teacher-event-ordering-option-evt2",
+      "ancient-egyptian-teacher-event-ordering-option-evt3",
+      "ancient-egyptian-teacher-event-ordering-option-evt4"
+    ],
+    "missing_audio_assets": [
+      "ancient-egyptian-teacher-event-ordering-b-option-b1",
+      "ancient-egyptian-teacher-event-ordering-b-option-b2",
+      "ancient-egyptian-teacher-event-ordering-b-option-b3",
+      "ancient-egyptian-teacher-event-ordering-b-option-b4"
+    ]
+  },
+  "confirmed_defects": [
+    {
+      "id": "DEFECT_01",
+      "symptom": "Autoplay does not work for subsequent activities.",
+      "root_cause": "Autoplay effect in ActivityPlayerClient was originally bound to activity.promptAudioKey which was missing in later activities. (Partially corrected by previous agents to use resolveActivityAudioContract but needs sweep verification).",
+      "severity": "CRITICAL",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "id": "DEFECT_02",
+      "symptom": "Speaker buttons and option clicks do not play audio in later activities.",
+      "root_cause": "Renderers were hardcoded to look for option.narrationKey which was undefined for later activities. No fallback or contract resolver was used. (Partially corrected by previous agents but missing in AgreeDisagreeRenderer and MultiRoundRenderer).",
+      "severity": "CRITICAL",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "id": "DEFECT_03",
+      "symptom": "Spoken feedback does not play; only SFX plays.",
+      "root_cause": "ActivityPlayerClient only played the SFX from the evaluation result and did not sequence or trigger the spoken feedback WAV. (Partially corrected by previous agents).",
+      "severity": "HIGH",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "id": "DEFECT_04",
+      "symptom": "MultiRoundRenderer has no audio playback capabilities for ordering options.",
+      "root_cause": "MultiRoundRenderer does not receive audioContract, nor does it render speaker buttons or invoke playKey on interaction. Also, resolveActivityAudioContract does not traverse configuration.rounds, leaving sub-round option keys unresolved.",
+      "severity": "HIGH",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "id": "DEFECT_05",
+      "symptom": "AgreeDisagreeRenderer option buttons do not play option audio when clicked.",
+      "root_cause": "AgreeDisagreeRenderer does not receive the audioContract prop, and the options (agree/disagree) are not bound to click/play handlers.",
+      "severity": "MEDIUM",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "id": "DEFECT_06",
+      "symptom": "MultiRound event-ordering Round B options have no generated audio WAV files or manifest entries.",
+      "root_cause": "The audio generation script index compiler generate-script-index.ts failed to traverse activity.configuration.rounds to extract option narration keys, so Round B options were skipped during TTS generation.",
+      "severity": "HIGH",
+      "confidence": "CONFIRMED"
+    }
+  ]
+}

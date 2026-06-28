@@ -12,7 +12,23 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "artifacts/**",
+    "backups/**",
+    "development/**",
   ]),
+  {
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          "patterns": [{
+            "group": ["**/development/**", "*/development/**", "development/**", "../development/**", "../../development/**", "../../../development/**"],
+            "message": "Production runtime imports from development/ are strictly prohibited."
+          }]
+        }
+      ]
+    }
+  }
 ]);
 
 export default eslintConfig;

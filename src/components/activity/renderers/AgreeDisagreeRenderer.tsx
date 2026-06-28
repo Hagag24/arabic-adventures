@@ -6,9 +6,12 @@ import {
   SafeEvaluationResult,
 } from "@/server/services/activity-service";
 import DictatableTextField from "@/components/activity/DictatableTextField";
+import { useAudio } from "@/audio/runtime/use-audio";
+import { ActivityAudioContract } from "@/audio/runtime/activity-audio-contract";
 
 interface AgreeDisagreeRendererProps {
   activity: StudentActivityPayload;
+  audioContract: ActivityAudioContract;
   onSubmit: (responseData: Record<string, unknown>) => void;
   isSubmitting: boolean;
   evaluationResult: SafeEvaluationResult | null;
@@ -18,10 +21,13 @@ interface AgreeDisagreeRendererProps {
 
 export default function AgreeDisagreeRenderer({
   activity,
+  audioContract,
   onSubmit,
   isSubmitting,
   evaluationResult,
 }: AgreeDisagreeRendererProps) {
+  const { playKey, stop } = useAudio();
+
   // Load previous selection: "agree" or "disagree"
   const [selected, setSelected] = useState<string | null>(
     (activity.previousResponseData?.selectedOption as string) || null,
@@ -34,6 +40,12 @@ export default function AgreeDisagreeRenderer({
   const handleSelect = (optionKey: string) => {
     if (evaluationResult) return;
     setSelected(optionKey);
+
+    const key = audioContract.answerKeys[optionKey];
+    if (key) {
+      stop();
+      playKey(key);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -76,16 +88,39 @@ export default function AgreeDisagreeRenderer({
               : "bg-amber-600 border-amber-600 text-white font-bold ring-2 ring-amber-500/20";
           }
 
+          const audioKey = audioContract.answerKeys[opt.optionKey];
+
           return (
-            <button
-              key={opt.optionKey}
-              type="button"
-              onClick={() => handleSelect(opt.optionKey)}
-              disabled={!!evaluationResult || isSubmitting}
-              className={`p-4 rounded-2xl border text-center transition-all duration-200 cursor-pointer font-bold text-sm md:text-base touch-target ${btnStyle}`}
-            >
-              {opt.label} {isAgree ? "👍" : "👎"}
-            </button>
+            <div key={opt.optionKey} className="relative">
+              <button
+                type="button"
+                onClick={() => handleSelect(opt.optionKey)}
+                disabled={!!evaluationResult || isSubmitting}
+                className={`w-full p-4 rounded-2xl border text-center transition-all duration-200 cursor-pointer font-bold text-sm md:text-base touch-target ${btnStyle}`}
+              >
+                {opt.label} {isAgree ? "👍" : "👎"}
+              </button>
+              {audioKey && (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    stop();
+                    playKey(audioKey);
+                  }}
+                  data-audio-key={audioKey}
+                  className={`absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full transition-colors duration-150 touch-target z-10 select-none ${
+                    isSelected
+                      ? "text-teal-100 hover:bg-white/10"
+                      : "text-teal-600 hover:bg-teal-50"
+                  }`}
+                  title="استمع"
+                >
+                  🔊
+                </button>
+              )}
+            </div>
           );
         })}
       </div>

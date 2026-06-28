@@ -37,6 +37,12 @@ test.describe("Gate 1 Audio & Dictation Screenshot Capture", () => {
         body: JSON.stringify({
           version: "1.0",
           assets: {
+            "global.welcome.01": {
+              url: "/audio/v1/welcome.mp3",
+              sha256: "dummy-hash-welcome",
+              durationMs: 1500,
+              purpose: "welcome",
+            },
             "dummy-key": {
               url: "/audio/v1/dummy.mp3",
               sha256: "dummy-hash",

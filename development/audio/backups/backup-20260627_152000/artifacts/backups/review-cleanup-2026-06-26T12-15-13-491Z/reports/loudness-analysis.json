@@ -1,0 +1,450 @@
+{
+  "callirrhoe/calm-slow/masters/audition.prompt.main-idea.wav": {
+    "inputLoudness": -16.2,
+    "outputLoudness": -16.2,
+    "inputTruePeak": -2,
+    "outputTruePeak": -2,
+    "normalizationStatus": "PASSED"
+  },
+  "callirrhoe/calm-slow/masters/audition.pronunciation.ancient-teacher.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "callirrhoe/calm-slow/masters/audition.pronunciation.magdi-yacoub.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "callirrhoe/calm-slow/masters/audition.pronunciation.upper-egypt.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "callirrhoe/calm-slow/masters/global.feedback.completion.01.wav": {
+    "inputLoudness": -16.18,
+    "outputLoudness": -16.18,
+    "inputTruePeak": -2.3,
+    "outputTruePeak": -2.3,
+    "normalizationStatus": "PASSED"
+  },
+  "callirrhoe/calm-slow/masters/global.feedback.correct.01.wav": {
+    "inputLoudness": -15.69,
+    "outputLoudness": -15.99,
+    "inputTruePeak": -1.96,
+    "outputTruePeak": -2.26,
+    "normalizationStatus": "PASSED"
+  },
+  "callirrhoe/calm-slow/masters/global.feedback.retry.01.wav": {
+    "inputLoudness": -15.81,
+    "outputLoudness": -15.81,
+    "inputTruePeak": -2.94,
+    "outputTruePeak": -2.94,
+    "normalizationStatus": "PASSED"
+  },
+  "callirrhoe/calm-slow/masters/global.welcome.01.wav": {
+    "inputLoudness": -16.18,
+    "outputLoudness": -16.18,
+    "inputTruePeak": -2.73,
+    "outputTruePeak": -2.73,
+    "normalizationStatus": "PASSED"
+  },
+  "callirrhoe/normal-educational/masters/audition.prompt.main-idea.wav": {
+    "inputLoudness": -16.2,
+    "outputLoudness": -16.2,
+    "inputTruePeak": -2,
+    "outputTruePeak": -2,
+    "normalizationStatus": "PASSED"
+  },
+  "callirrhoe/normal-educational/masters/audition.pronunciation.ancient-teacher.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "callirrhoe/normal-educational/masters/audition.pronunciation.magdi-yacoub.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "callirrhoe/normal-educational/masters/audition.pronunciation.upper-egypt.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "callirrhoe/normal-educational/masters/global.feedback.completion.01.wav": {
+    "inputLoudness": -16.18,
+    "outputLoudness": -16.18,
+    "inputTruePeak": -2.3,
+    "outputTruePeak": -2.3,
+    "normalizationStatus": "PASSED"
+  },
+  "callirrhoe/normal-educational/masters/global.feedback.correct.01.wav": {
+    "inputLoudness": -15.69,
+    "outputLoudness": -15.99,
+    "inputTruePeak": -1.96,
+    "outputTruePeak": -2.26,
+    "normalizationStatus": "PASSED"
+  },
+  "callirrhoe/normal-educational/masters/global.feedback.retry.01.wav": {
+    "inputLoudness": -15.81,
+    "outputLoudness": -15.81,
+    "inputTruePeak": -2.94,
+    "outputTruePeak": -2.94,
+    "normalizationStatus": "PASSED"
+  },
+  "callirrhoe/normal-educational/masters/global.welcome.01.wav": {
+    "inputLoudness": -16.18,
+    "outputLoudness": -16.18,
+    "inputTruePeak": -2.73,
+    "outputTruePeak": -2.73,
+    "normalizationStatus": "PASSED"
+  },
+  "enceladus/calm-slow/masters/audition.prompt.main-idea.wav": {
+    "inputLoudness": -16.2,
+    "outputLoudness": -16.2,
+    "inputTruePeak": -2,
+    "outputTruePeak": -2,
+    "normalizationStatus": "PASSED"
+  },
+  "enceladus/calm-slow/masters/audition.pronunciation.ancient-teacher.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "enceladus/calm-slow/masters/audition.pronunciation.magdi-yacoub.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "enceladus/calm-slow/masters/audition.pronunciation.upper-egypt.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "enceladus/calm-slow/masters/global.feedback.completion.01.wav": {
+    "inputLoudness": -16.18,
+    "outputLoudness": -16.18,
+    "inputTruePeak": -2.3,
+    "outputTruePeak": -2.3,
+    "normalizationStatus": "PASSED"
+  },
+  "enceladus/calm-slow/masters/global.feedback.correct.01.wav": {
+    "inputLoudness": -15.69,
+    "outputLoudness": -15.99,
+    "inputTruePeak": -1.96,
+    "outputTruePeak": -2.26,
+    "normalizationStatus": "PASSED"
+  },
+  "enceladus/calm-slow/masters/global.feedback.retry.01.wav": {
+    "inputLoudness": -15.81,
+    "outputLoudness": -15.81,
+    "inputTruePeak": -2.94,
+    "outputTruePeak": -2.94,
+    "normalizationStatus": "PASSED"
+  },
+  "enceladus/calm-slow/masters/global.welcome.01.wav": {
+    "inputLoudness": -16.18,
+    "outputLoudness": -16.18,
+    "inputTruePeak": -2.73,
+    "outputTruePeak": -2.73,
+    "normalizationStatus": "PASSED"
+  },
+  "enceladus/normal-educational/masters/audition.prompt.main-idea.wav": {
+    "inputLoudness": -16.2,
+    "outputLoudness": -16.2,
+    "inputTruePeak": -2,
+    "outputTruePeak": -2,
+    "normalizationStatus": "PASSED"
+  },
+  "enceladus/normal-educational/masters/audition.pronunciation.ancient-teacher.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "enceladus/normal-educational/masters/audition.pronunciation.magdi-yacoub.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "enceladus/normal-educational/masters/audition.pronunciation.upper-egypt.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "enceladus/normal-educational/masters/global.feedback.completion.01.wav": {
+    "inputLoudness": -16.18,
+    "outputLoudness": -16.18,
+    "inputTruePeak": -2.3,
+    "outputTruePeak": -2.3,
+    "normalizationStatus": "PASSED"
+  },
+  "enceladus/normal-educational/masters/global.feedback.correct.01.wav": {
+    "inputLoudness": -15.69,
+    "outputLoudness": -15.99,
+    "inputTruePeak": -1.96,
+    "outputTruePeak": -2.26,
+    "normalizationStatus": "PASSED"
+  },
+  "enceladus/normal-educational/masters/global.feedback.retry.01.wav": {
+    "inputLoudness": -15.81,
+    "outputLoudness": -15.81,
+    "inputTruePeak": -2.94,
+    "outputTruePeak": -2.94,
+    "normalizationStatus": "PASSED"
+  },
+  "enceladus/normal-educational/masters/global.welcome.01.wav": {
+    "inputLoudness": -16.18,
+    "outputLoudness": -16.18,
+    "inputTruePeak": -2.73,
+    "outputTruePeak": -2.73,
+    "normalizationStatus": "PASSED"
+  },
+  "kore/calm-slow/masters/audition.prompt.main-idea.wav": {
+    "inputLoudness": -16.2,
+    "outputLoudness": -16.2,
+    "inputTruePeak": -2,
+    "outputTruePeak": -2,
+    "normalizationStatus": "PASSED"
+  },
+  "kore/calm-slow/masters/audition.pronunciation.ancient-teacher.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "kore/calm-slow/masters/audition.pronunciation.magdi-yacoub.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "kore/calm-slow/masters/audition.pronunciation.upper-egypt.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "kore/calm-slow/masters/global.feedback.completion.01.wav": {
+    "inputLoudness": -16.18,
+    "outputLoudness": -16.18,
+    "inputTruePeak": -2.3,
+    "outputTruePeak": -2.3,
+    "normalizationStatus": "PASSED"
+  },
+  "kore/calm-slow/masters/global.feedback.correct.01.wav": {
+    "inputLoudness": -15.69,
+    "outputLoudness": -15.99,
+    "inputTruePeak": -1.96,
+    "outputTruePeak": -2.26,
+    "normalizationStatus": "PASSED"
+  },
+  "kore/calm-slow/masters/global.feedback.retry.01.wav": {
+    "inputLoudness": -15.81,
+    "outputLoudness": -15.81,
+    "inputTruePeak": -2.94,
+    "outputTruePeak": -2.94,
+    "normalizationStatus": "PASSED"
+  },
+  "kore/calm-slow/masters/global.welcome.01.wav": {
+    "inputLoudness": -16.18,
+    "outputLoudness": -16.18,
+    "inputTruePeak": -2.73,
+    "outputTruePeak": -2.73,
+    "normalizationStatus": "PASSED"
+  },
+  "kore/normal-educational/masters/audition.prompt.main-idea.wav": {
+    "inputLoudness": -16.2,
+    "outputLoudness": -16.2,
+    "inputTruePeak": -2,
+    "outputTruePeak": -2,
+    "normalizationStatus": "PASSED"
+  },
+  "kore/normal-educational/masters/audition.pronunciation.ancient-teacher.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "kore/normal-educational/masters/audition.pronunciation.magdi-yacoub.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "kore/normal-educational/masters/audition.pronunciation.upper-egypt.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "kore/normal-educational/masters/global.feedback.completion.01.wav": {
+    "inputLoudness": -16.18,
+    "outputLoudness": -16.18,
+    "inputTruePeak": -2.3,
+    "outputTruePeak": -2.3,
+    "normalizationStatus": "PASSED"
+  },
+  "kore/normal-educational/masters/global.feedback.correct.01.wav": {
+    "inputLoudness": -15.69,
+    "outputLoudness": -15.99,
+    "inputTruePeak": -1.96,
+    "outputTruePeak": -2.26,
+    "normalizationStatus": "PASSED"
+  },
+  "kore/normal-educational/masters/global.feedback.retry.01.wav": {
+    "inputLoudness": -15.81,
+    "outputLoudness": -15.81,
+    "inputTruePeak": -2.94,
+    "outputTruePeak": -2.94,
+    "normalizationStatus": "PASSED"
+  },
+  "kore/normal-educational/masters/global.welcome.01.wav": {
+    "inputLoudness": -16.18,
+    "outputLoudness": -16.18,
+    "inputTruePeak": -2.73,
+    "outputTruePeak": -2.73,
+    "normalizationStatus": "PASSED"
+  },
+  "puck/calm-slow/masters/audition.prompt.main-idea.wav": {
+    "inputLoudness": -16.2,
+    "outputLoudness": -16.2,
+    "inputTruePeak": -2,
+    "outputTruePeak": -2,
+    "normalizationStatus": "PASSED"
+  },
+  "puck/calm-slow/masters/audition.pronunciation.ancient-teacher.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "puck/calm-slow/masters/audition.pronunciation.magdi-yacoub.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "puck/calm-slow/masters/audition.pronunciation.upper-egypt.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "puck/calm-slow/masters/global.feedback.completion.01.wav": {
+    "inputLoudness": -16.18,
+    "outputLoudness": -16.18,
+    "inputTruePeak": -2.3,
+    "outputTruePeak": -2.3,
+    "normalizationStatus": "PASSED"
+  },
+  "puck/calm-slow/masters/global.feedback.correct.01.wav": {
+    "inputLoudness": -15.69,
+    "outputLoudness": -15.99,
+    "inputTruePeak": -1.96,
+    "outputTruePeak": -2.26,
+    "normalizationStatus": "PASSED"
+  },
+  "puck/calm-slow/masters/global.feedback.retry.01.wav": {
+    "inputLoudness": -15.81,
+    "outputLoudness": -15.81,
+    "inputTruePeak": -2.94,
+    "outputTruePeak": -2.94,
+    "normalizationStatus": "PASSED"
+  },
+  "puck/calm-slow/masters/global.welcome.01.wav": {
+    "inputLoudness": -16.18,
+    "outputLoudness": -16.18,
+    "inputTruePeak": -2.73,
+    "outputTruePeak": -2.73,
+    "normalizationStatus": "PASSED"
+  },
+  "puck/normal-educational/masters/audition.prompt.main-idea.wav": {
+    "inputLoudness": -16.2,
+    "outputLoudness": -16.2,
+    "inputTruePeak": -2,
+    "outputTruePeak": -2,
+    "normalizationStatus": "PASSED"
+  },
+  "puck/normal-educational/masters/audition.pronunciation.ancient-teacher.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "puck/normal-educational/masters/audition.pronunciation.magdi-yacoub.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "puck/normal-educational/masters/audition.pronunciation.upper-egypt.wav": {
+    "inputLoudness": -16.49,
+    "outputLoudness": -16.25,
+    "inputTruePeak": -1.14,
+    "outputTruePeak": -1,
+    "normalizationStatus": "PASSED"
+  },
+  "puck/normal-educational/masters/global.feedback.completion.01.wav": {
+    "inputLoudness": -16.18,
+    "outputLoudness": -16.18,
+    "inputTruePeak": -2.3,
+    "outputTruePeak": -2.3,
+    "normalizationStatus": "PASSED"
+  },
+  "puck/normal-educational/masters/global.feedback.correct.01.wav": {
+    "inputLoudness": -15.69,
+    "outputLoudness": -15.99,
+    "inputTruePeak": -1.96,
+    "outputTruePeak": -2.26,
+    "normalizationStatus": "PASSED"
+  },
+  "puck/normal-educational/masters/global.feedback.retry.01.wav": {
+    "inputLoudness": -15.81,
+    "outputLoudness": -15.81,
+    "inputTruePeak": -2.94,
+    "outputTruePeak": -2.94,
+    "normalizationStatus": "PASSED"
+  },
+  "puck/normal-educational/masters/global.welcome.01.wav": {
+    "inputLoudness": -16.18,
+    "outputLoudness": -16.18,
+    "inputTruePeak": -2.73,
+    "outputTruePeak": -2.73,
+    "normalizationStatus": "PASSED"
+  }
+}

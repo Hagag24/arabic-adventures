@@ -4,6 +4,7 @@ import { prisma } from "@/lib/db/prisma";
 import { getPlayerSessionId } from "@/lib/session/session-manager";
 import SessionInitializer from "@/components/session/SessionInitializer";
 import PublicHeader from "@/components/layout/PublicHeader";
+import { SemanticAudioButton } from "@/components/audio/SemanticAudioButton";
 
 export const dynamic = "force-dynamic";
 
@@ -91,10 +92,15 @@ export default async function LandingPage() {
             مغامرات مشوّقة لتعلم <br className="hidden md:inline" />
             <span className="text-amber-500">اللغة العربية</span> بذكاء وأمان!
           </h1>
-          <p className="text-base md:text-lg text-teal-900/80 mb-0 max-w-[900px] leading-relaxed">
+          <p className="text-base md:text-lg text-teal-900/80 mb-6 max-w-[900px] leading-relaxed">
             انضم إلينا في رحلة تفاعلية رائعة مصممة خصيصاً لمساعدتك على استكشاف
             وفهم لغة الضاد الجميلة من خلال قصص ممتعة ومقاطع صوتية وتحديات شيقة.
           </p>
+          <SemanticAudioButton
+            semanticKey="global.welcome.01"
+            label="استمع إلى الترحيب"
+            className="mt-2"
+          />
         </div>
 
         {/* Journey Previews */}

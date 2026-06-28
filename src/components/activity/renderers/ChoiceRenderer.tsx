@@ -5,9 +5,13 @@ import {
   StudentActivityPayload,
   SafeEvaluationResult,
 } from "@/server/services/activity-service";
+import { useAudio } from "@/audio/runtime/use-audio";
+
+import { ActivityAudioContract } from "@/audio/runtime/activity-audio-contract";
 
 interface ChoiceRendererProps {
   activity: StudentActivityPayload;
+  audioContract: ActivityAudioContract;
   onSubmit: (responseData: Record<string, unknown>) => void;
   isSubmitting: boolean;
   evaluationResult: SafeEvaluationResult | null;
@@ -20,10 +24,12 @@ interface ChoiceRendererProps {
 
 export default function ChoiceRenderer({
   activity,
+  audioContract,
   onSubmit,
   isSubmitting,
   evaluationResult,
 }: ChoiceRendererProps) {
+  const { playKey, stop } = useAudio();
   const isMultiple = activity.type === "checklist";
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
   const [selectedSingle, setSelectedSingle] = useState<string | null>(
@@ -35,6 +41,12 @@ export default function ChoiceRenderer({
 
   const handleCardClick = (optionKey: string) => {
     if (evaluationResult) return; // Read-only after evaluation
+
+    const key = audioContract.answerKeys[optionKey];
+    if (key) {
+      stop();
+      playKey(key);
+    }
 
     if (isMultiple) {
       setSelectedMultiple((prev) =>
@@ -136,16 +148,20 @@ export default function ChoiceRenderer({
           }
 
           return (
-            <button
+            <div
               key={option.optionKey}
               id={`opt-${option.optionKey}`}
-              type="button"
+              role="button"
+              tabIndex={0}
               onClick={() => handleCardClick(option.optionKey)}
               onFocus={() => setFocusedIndex(index)}
               onBlur={() => setFocusedIndex(null)}
               onKeyDown={(e) => handleKeyDown(e, index, option.optionKey)}
-              disabled={!!evaluationResult || isSubmitting}
-              className={`flex items-center p-4 rounded-2xl border text-right transition-all duration-200 cursor-pointer focus:outline-none ${cardBorderColor} ${cardBgColor} touch-target`}
+              aria-disabled={!!evaluationResult || isSubmitting}
+              data-audio-key={option.narrationKey || ""}
+              className={`flex items-center p-4 rounded-2xl border text-right transition-all duration-200 cursor-pointer focus:outline-none ${cardBorderColor} ${cardBgColor} touch-target ${
+                (!!evaluationResult || isSubmitting) ? "opacity-75 cursor-not-allowed" : ""
+              }`}
             >
               {/* Checkbox / Radio Circle */}
               <div
@@ -157,17 +173,35 @@ export default function ChoiceRenderer({
               >
                 {isSelected && (isMultiple ? "✓" : "●")}
               </div>
-              <div className="flex-1">
-                <span className="block font-bold text-teal-900 text-sm md:text-base">
-                  {option.label}
-                </span>
-                {option.secondaryText && (
-                  <span className="block text-xs text-teal-800/60 mt-1">
-                    {option.secondaryText}
+              <div className="flex-1 flex justify-between items-center">
+                <div className="text-right">
+                  <span className="block font-bold text-teal-900 text-sm md:text-base">
+                    {option.label}
                   </span>
+                  {option.secondaryText && (
+                    <span className="block text-xs text-teal-800/60 mt-1">
+                      {option.secondaryText}
+                    </span>
+                  )}
+                </div>
+                {audioContract.answerKeys[option.optionKey] && (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      e.preventDefault();
+                      stop();
+                      playKey(audioContract.answerKeys[option.optionKey]!);
+                    }}
+                    data-audio-key={audioContract.answerKeys[option.optionKey]}
+                    className="p-2 rounded-full hover:bg-teal-100/50 text-teal-600 hover:text-teal-800 transition-colors shrink-0 touch-target mr-2 select-none z-10 relative"
+                    title="استمع"
+                  >
+                    🔊
+                  </button>
                 )}
               </div>
-            </button>
+            </div>
           );
         })}
       </div>

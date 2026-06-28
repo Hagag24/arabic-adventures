@@ -56,6 +56,12 @@ export interface StudentActivityPayload {
   configuration: any | null;
 }
 
+export type ActivityFeedback = {
+  status: "correct" | "incorrect" | "completed" | "participation";
+  displayText: string;
+  audioKey: string;
+};
+
 export interface SafeEvaluationResult {
   isCorrect: boolean | null;
   score: number | null;
@@ -63,6 +69,7 @@ export interface SafeEvaluationResult {
   modelAnswer: string | null;
   explanation: string | null;
   journeyStatus: string; // "IN_PROGRESS" | "COMPLETED"
+  feedback?: ActivityFeedback;
 }
 
 // Arabic Text Normalization Helper for Graded Fill-in-the-Blanks
@@ -610,6 +617,32 @@ export async function evaluateSubmission(
     return { journeyStatus };
   });
 
+  let feedbackStatus: "correct" | "incorrect" | "completed" | "participation";
+  let displayText = "";
+  let audioKey = "";
+
+  if (activity.isGraded) {
+    if (isCorrect) {
+      feedbackStatus = "correct";
+      displayText = "أَحْسَنْت يا بَطَل، إِجابَتُك صَحيحَة!";
+      audioKey = activity.correctFeedbackNarrationKey || "global.feedback.correct.01";
+    } else {
+      feedbackStatus = "incorrect";
+      displayText = "وَلا يِهِمَّك، فَكِّر شُوَيَّة وَجَرِّب تاني.";
+      audioKey = activity.incorrectFeedbackNarrationKey || "global.feedback.retry.01";
+    }
+  } else {
+    if (activity.type === "self_assessment") {
+      feedbackStatus = "participation";
+      displayText = "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.";
+      audioKey = activity.completionFeedbackNarrationKey || "global.feedback.participation.01";
+    } else {
+      feedbackStatus = "completed";
+      displayText = "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.";
+      audioKey = activity.completionFeedbackNarrationKey || "global.feedback.completion.01";
+    }
+  }
+
   return {
     isCorrect: activity.isGraded ? isCorrect : null,
     score: activity.isGraded ? score : null,
@@ -617,5 +650,10 @@ export async function evaluateSubmission(
     modelAnswer: activity.answerKey?.modelAnswer || null,
     explanation: activity.answerKey?.explanation || null,
     journeyStatus: result.journeyStatus,
+    feedback: {
+      status: feedbackStatus,
+      displayText,
+      audioKey,
+    },
   };
 }

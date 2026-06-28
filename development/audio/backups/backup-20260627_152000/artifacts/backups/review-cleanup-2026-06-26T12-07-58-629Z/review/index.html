@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>تقييم أصوات المرشحين - مغامرات العربية</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #fafaf9;
+      color: #1c1917;
+      margin: 0;
+      padding: 40px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    header {
+      margin-bottom: 30px;
+      border-bottom: 2px solid #e7e5e4;
+      padding-bottom: 20px;
+    }
+    h1 {
+      color: #0f766e;
+      margin: 0 0 10px 0;
+    }
+    .filters {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      background: #f5f5f4;
+      padding: 15px;
+      border-radius: 12px;
+    }
+    select, button {
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid #d6d3d1;
+      background: white;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    button.primary {
+      background: #0f766e;
+      color: white;
+      border-color: #0f766e;
+    }
+    .audition-grid {
+      display: grid;
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #e7e5e4;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .voice-badge {
+      background: #ccfbf1;
+      color: #0f766e;
+      font-weight: bold;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 12px;
+    }
+    .style-badge {
+      background: #fef3c7;
+      color: #b45309;
+      font-weight: bold;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 12px;
+    }
+    audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+    .feedback-form {
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    textarea {
+      width: 100%;
+      height: 60px;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #d6d3d1;
+      resize: none;
+      box-sizing: border-box;
+    }
+    .vote-btns {
+      display: flex;
+      gap: 10px;
+    }
+    .vote-btn {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #d6d3d1;
+      font-weight: bold;
+    }
+    .vote-btn.approve {
+      background: #dcfce7;
+      color: #15803d;
+      border-color: #bbf7d0;
+    }
+    .vote-btn.reject {
+      background: #fee2e2;
+      color: #b91c1c;
+      border-color: #fecaca;
+    }
+    .comparison-section {
+      margin-top: 40px;
+      background: #f0fdfa;
+      border: 1px solid #ccfbf1;
+      border-radius: 20px;
+      padding: 24px;
+    }
+    .comparison-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #0f766e;
+      margin-bottom: 15px;
+    }
+    .sfx-section {
+      margin-top: 40px;
+      background: #fafaf9;
+      border: 1px solid #e7e5e4;
+      border-radius: 20px;
+      padding: 24px;
+    }
+    .sfx-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #0f766e;
+      margin-bottom: 15px;
+    }
+    .sfx-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    .sfx-card {
+      background: white;
+      border: 1px solid #e7e5e4;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>بوابة تقييم الأصوات المرشحة والمؤثرات - مغامرات العربية 🎙️</h1>
+      <p>استمع وقارن بين النطق والأداء للوصول للقرار النهائي للمدرب الصوتي البطل.</p>
+    </header>
+
+    <div class="filters">
+      <select id="voiceFilter">
+        <option value="">كل الأصوات</option>
+        <option value="Callirrhoe">Callirrhoe (أنثى)</option>
+        <option value="Kore">Kore (أنثى)</option>
+        <option value="Enceladus">Enceladus (ذكر)</option>
+        <option value="Puck">Puck (ذكر)</option>
+      </select>
+
+      <select id="styleFilter">
+        <option value="">كل الأساليب</option>
+        <option value="normal-educational">عادي تعليمي</option>
+        <option value="calm-slow">هادئ بطيء</option>
+      </select>
+      <button id="saveAllBtn" class="primary">حفظ جميع التقييمات 💾</button>
+    </div>
+
+    <div class="audition-grid" id="cardsGrid">
+      <p style="text-align: center; color: #78716c;">لا توجد أصوات مرشحة حالياً. يرجى إعداد المفاتيح credentials وتوليد العينات أولاً.</p>
+    </div>
+
+    <div class="comparison-section">
+      <div class="comparison-title">مقارنة التشكيل الجزئي بالكامل (Sentence Comparison)</div>
+      <p>قارن بين العبارات الصعبة لاختيار التشكيل الأنسب.</p>
+      <div id="comparisonList">
+        <p style="color: #78716c;">اختر صوتاً وأسلوباً لمقارنة التشكيل.</p>
+      </div>
+    </div>
+
+    <div class="sfx-section">
+      <div class="sfx-title">المؤثرات الصوتية الأصلية (Sound Effects) 🎵</div>
+      <p>استمع للمؤثرات الصوتية الأصلية المضافة للتطبيق.</p>
+      <div class="sfx-grid" id="sfxGrid">
+        <p style="text-align: center; color: #78716c; grid-column: 1/-1;">لا توجد مؤثرات صوتية منشأة حالياً.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let candidatesList = [];
+    let reviewData = {};
+    let sfxList = [];
+
+    async function loadData() {
+      try {
+        const res = await fetch("/api/candidates");
+        candidatesList = await res.json();
+        const reviewsRes = await fetch("/api/reviews");
+        reviewData = await reviewsRes.json();
+        
+        try {
+          const sfxRes = await fetch("/api/sfx");
+          sfxList = await sfxRes.json();
+        } catch(e) {
+          console.warn("SFX endpoint failed", e);
+        }
+
+        renderGrid();
+        renderSfx();
+        renderComparisons();
+      } catch (err) {
+        console.error("Failed to load review data", err);
+      }
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById("cardsGrid");
+      const voice = document.getElementById("voiceFilter").value;
+      const style = document.getElementById("styleFilter").value;
+
+      const filtered = candidatesList.filter(c => {
+        if (voice && c.voice !== voice) return false;
+        if (style && c.style !== style) return false;
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<p style="text-align: center; color: #78716c;">لا توجد أصوات مطابقة للفلتر المحدد.</p>';
+        return;
+      }
+
+      grid.innerHTML = filtered.map(c => {
+        const review = reviewData[c.id] || { status: "PENDING", notes: "" };
+        const isApproved = review.status === "APPROVED";
+        const isRejected = review.status === "REJECTED";
+
+        return `
+          <div class="card" id="card-${c.id}">
+            <div class="card-header">
+              <div>
+                <span class="voice-badge">${c.voice}</span>
+                <span class="style-badge">${c.style}</span>
+              </div>
+              <span style="font-weight: bold; font-size: 13px; color: #78716c;">${c.sentenceKey}</span>
+            </div>
+            <p style="font-size: 16px; margin: 10px 0; line-height: 1.6;">${c.text}</p>
+            <audio controls src="${c.audioUrl}"></audio>
+            
+            <div class="feedback-form">
+              <div class="vote-btns">
+                <button class="vote-btn approve" onclick="setReview('${c.id}', 'APPROVED')" style="opacity: ${isApproved ? '1' : '0.4'}">قبول 👍</button>
+                <button class="vote-btn reject" onclick="setReview('${c.id}', 'REJECTED')" style="opacity: ${isRejected ? '1' : '0.4'}">رفض 👎</button>
+              </div>
+              <textarea placeholder="ملاحظات حول النطق أو اللهجة..." onchange="setNotes('${c.id}', this.value)">${review.notes || ''}</textarea>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderSfx() {
+      const sfxGrid = document.getElementById("sfxGrid");
+      if (sfxList.length === 0) {
+        sfxGrid.innerHTML = '<p style="text-align: center; color: #78716c; grid-column: 1/-1;">لا توجد مؤثرات صوتية منشأة حالياً.</p>';
+        return;
+      }
+      sfxGrid.innerHTML = sfxList.map(s => `
+        <div class="sfx-card">
+          <div style="font-weight: bold; margin-bottom: 10px; color: #0f766e;">${s.key}</div>
+          <audio controls src="${s.audioUrl}"></audio>
+        </div>
+      `).join("");
+    }
+
+    function renderComparisons() {
+      const compList = document.getElementById("comparisonList");
+      const voice = document.getElementById("voiceFilter").value || "Callirrhoe";
+      const style = document.getElementById("styleFilter").value || "normal-educational";
+
+      // Group comparison sentences (normal-educational vs calm-slow)
+      const comparisonPairs = [
+        {
+          title: "العبارة الأولى: أحسنت يا بطل، إجابتك صحيحة!",
+          key: "global.feedback.correct.01"
+        },
+        {
+          title: "العبارة الثانية: ولا يهمّك، فكّر شوية وجرّب تاني.",
+          key: "global.feedback.retry.01"
+        },
+        {
+          title: "العبارة الثالثة: عاد الدكتور مجدي يعقوب إلى مصر في عام 2009.",
+          key: "audition.pronunciation.magdi-yacoub"
+        }
+      ];
+
+      compList.innerHTML = comparisonPairs.map(pair => {
+        const normalItem = candidatesList.find(c => c.voice === voice && c.style === "normal-educational" && c.sentenceKey === pair.key);
+        const calmItem = candidatesList.find(c => c.voice === voice && c.style === "calm-slow" && c.sentenceKey === pair.key);
+
+        if (!normalItem || !calmItem) {
+          return `<div style="margin-bottom: 15px; padding: 10px; border-bottom: 1px solid #e7e5e4;">
+            <strong>${pair.title}</strong>
+            <p style="color: #78716c; font-size: 13px;">تنبيه: العينات الخاصة بالصوت ${voice} غير متوفرة بعد للمقارنة.</p>
+          </div>`;
+        }
+
+        return `
+          <div style="margin-bottom: 20px; padding: 15px; border: 1px solid #e2e8f0; border-radius: 12px; background: white;">
+            <strong style="display: block; margin-bottom: 10px; color: #1e293b;">${pair.title}</strong>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+              <div style="flex: 1; min-width: 280px;">
+                <div style="font-size: 13px; font-weight: bold; color: #475569;">تعليمي عادي (Normal Educational)</div>
+                <p style="font-size: 15px; margin: 5px 0;">${normalItem.text}</p>
+                <audio controls src="${normalItem.audioUrl}"></audio>
+              </div>
+              <div style="flex: 1; min-width: 280px;">
+                <div style="font-size: 13px; font-weight: bold; color: #475569;">تعليمي هادئ وبطيء (Calm Slow)</div>
+                <p style="font-size: 15px; margin: 5px 0;">${calmItem.text}</p>
+                <audio controls src="${calmItem.audioUrl}"></audio>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function setReview(id, status) {
+      if (!reviewData[id]) reviewData[id] = {};
+      reviewData[id].status = status;
+      renderGrid();
+    }
+
+    function setNotes(id, notes) {
+      if (!reviewData[id]) reviewData[id] = {};
+      reviewData[id].notes = notes;
+    }
+
+    document.getElementById("voiceFilter").addEventListener("change", () => {
+      renderGrid();
+      renderComparisons();
+    });
+    document.getElementById("styleFilter").addEventListener("change", () => {
+      renderGrid();
+      renderComparisons();
+    });
+
+    document.getElementById("saveAllBtn").addEventListener("click", async () => {
+      try {
+        const res = await fetch("/api/reviews", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(reviewData)
+        });
+        if (res.ok) {
+          alert("تم حفظ التقييمات بنجاح! 🎉");
+        } else {
+          alert("فشل حفظ التقييمات.");
+        }
+      } catch (err) {
+        alert("حدث خطأ أثناء حفظ التقييمات.");
+      }
+    });
+
+    window.addEventListener("load", loadData);
+  </script>
+</body>
+</html>

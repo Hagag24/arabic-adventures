@@ -1,0 +1,2516 @@
+{
+  "paths": {
+    "production_audio": "public/audio/v1/",
+    "generation_tooling": "development/audio/edge-tts/",
+    "legacy_archive": "development/audio/archive/",
+    "runtime_service": "src/audio/",
+    "components": "src/components/audio/",
+    "activity_components": "src/components/activity/",
+    "activity_renderers": "src/components/activity/renderers/",
+    "backend_services": "src/server/services/",
+    "content_definitions": "src/content/",
+    "scripts": "scripts/",
+    "package_json": "package.json"
+  },
+  "manifest_metadata": {
+    "version": "1",
+    "total_assets": 253,
+    "speech_entries": 250,
+    "sfx_entries": 3
+  },
+  "detected_defects": [
+    {
+      "id": "DEFECT_01",
+      "symptom": "Autoplay does not work for subsequent activities.",
+      "affected_activities": "All activities after the first one.",
+      "root_cause": "Autoplay effect in ActivityPlayerClient was bound to activity.promptAudioKey which was missing in later activities, and did not trigger correctly on screen transitions.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "DEFECT_02",
+      "symptom": "Speaker buttons and option clicks do not play audio in later activities.",
+      "affected_activities": "All Matching, Ordering, Checklist, and later Choice activities.",
+      "root_cause": "Renderers were hardcoded to look for option.narrationKey which was undefined for later activities. No fallback or contract resolver was used at runtime.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "DEFECT_03",
+      "symptom": "Spoken feedback does not play; only SFX plays.",
+      "affected_activities": "All activities.",
+      "root_cause": "ActivityPlayerClient only played the SFX from the evaluation result and did not sequence or trigger the spoken feedback WAV.",
+      "severity": "HIGH"
+    }
+  ],
+  "speech_assets": {
+    "global.welcome.01": {
+      "classification": "welcome",
+      "lesson": "global",
+      "references": [
+        "Global Welcome Screen"
+      ],
+      "runtimeEvent": "App load / Welcome page",
+      "src": "/audio/v1/global/welcome/01.wav",
+      "reachability": "REACHABLE"
+    },
+    "lessons.ancient-egyptian-teacher.story": {
+      "classification": "story",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher Story"
+      ],
+      "runtimeEvent": "Story presentation",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/story.wav",
+      "reachability": "REACHABLE"
+    },
+    "lessons.magdi-yacoub.story": {
+      "classification": "story",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub Story"
+      ],
+      "runtimeEvent": "Story presentation",
+      "src": "/audio/v1/lessons/magdi-yacoub/story.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-arabic-feelings-j1-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:arabic-feelings-j1"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-arabic-feelings-j1-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:arabic-feelings-j1"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-arabic-feelings-j1-option-happy": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:arabic-feelings-j1 (option: happy)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/option-happy.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-arabic-feelings-j1-option-neutral": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:arabic-feelings-j1 (option: neutral)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/option-neutral.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-arabic-feelings-j1-option-calm": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:arabic-feelings-j1 (option: calm)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/option-calm.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-arabic-feelings-j1-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:arabic-feelings-j1"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-arabic-self-assessment-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:arabic-self-assessment"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-arabic-self-assessment-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:arabic-self-assessment"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-arabic-self-assessment-option-happy": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:arabic-self-assessment (option: happy)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/option-happy.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-arabic-self-assessment-option-neutral": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:arabic-self-assessment (option: neutral)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/option-neutral.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-arabic-self-assessment-option-bored": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:arabic-self-assessment (option: bored)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/option-bored.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-arabic-self-assessment-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:arabic-self-assessment"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-titles-generation-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:titles-generation"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/titles-generation/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-titles-generation-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:titles-generation"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/titles-generation/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-titles-generation-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:titles-generation"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/titles-generation/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-student-questions-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:student-questions"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/student-questions/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-student-questions-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:student-questions"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/student-questions/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-student-questions-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:student-questions"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/student-questions/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-best-title-choice-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:best-title-choice"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/best-title-choice/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-best-title-choice-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:best-title-choice"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/best-title-choice/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-best-title-choice-option-opt1": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:best-title-choice (option: opt1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/best-title-choice/option-opt1.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-best-title-choice-option-opt2": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:best-title-choice (option: opt2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/best-title-choice/option-opt2.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-best-title-choice-option-opt3": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:best-title-choice (option: opt3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/best-title-choice/option-opt3.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-best-title-choice-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:best-title-choice"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/best-title-choice/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-main-idea-choice-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:main-idea-choice"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/main-idea-choice/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-main-idea-choice-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:main-idea-choice"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/main-idea-choice/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-main-idea-choice-option-opt1": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:main-idea-choice (option: opt1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/main-idea-choice/option-opt1.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-main-idea-choice-option-opt2": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:main-idea-choice (option: opt2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/main-idea-choice/option-opt2.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-main-idea-choice-option-opt3": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:main-idea-choice (option: opt3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/main-idea-choice/option-opt3.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-main-idea-choice-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:main-idea-choice"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/main-idea-choice/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-tomb-location-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:tomb-location"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-location/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-tomb-location-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:tomb-location"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-location/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-tomb-location-option-loc1": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:tomb-location (option: loc1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-location/option-loc1.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-tomb-location-option-loc2": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:tomb-location (option: loc2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-location/option-loc2.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-tomb-location-option-loc3": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:tomb-location (option: loc3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-location/option-loc3.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-tomb-location-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:tomb-location"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-location/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-tomb-importance-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:tomb-importance"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-importance/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-tomb-importance-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:tomb-importance"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-importance/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-tomb-importance-option-imp1": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:tomb-importance (option: imp1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-importance/option-imp1.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-tomb-importance-option-imp2": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:tomb-importance (option: imp2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-importance/option-imp2.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-tomb-importance-option-imp3": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:tomb-importance (option: imp3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-importance/option-imp3.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-tomb-importance-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:tomb-importance"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-importance/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-teacher-status-discovery-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:teacher-status-discovery"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/teacher-status-discovery/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-teacher-status-discovery-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:teacher-status-discovery"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/teacher-status-discovery/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-teacher-status-discovery-option-st1": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:teacher-status-discovery (option: st1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/teacher-status-discovery/option-st1.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-teacher-status-discovery-option-st2": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:teacher-status-discovery (option: st2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/teacher-status-discovery/option-st2.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-teacher-status-discovery-option-st3": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:teacher-status-discovery (option: st3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/teacher-status-discovery/option-st3.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-teacher-status-discovery-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:teacher-status-discovery"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/teacher-status-discovery/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-synonym-matching-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:synonym-matching"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-synonym-matching-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:synonym-matching"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-synonym-matching-option-word1": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:synonym-matching (option: word1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/option-word1.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-synonym-matching-option-word2": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:synonym-matching (option: word2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/option-word2.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-synonym-matching-option-word3": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:synonym-matching (option: word3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/option-word3.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-synonym-matching-option-mean1": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:synonym-matching (option: mean1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/option-mean1.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-synonym-matching-option-mean2": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:synonym-matching (option: mean2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/option-mean2.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-synonym-matching-option-mean3": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:synonym-matching (option: mean3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/option-mean3.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-synonym-matching-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:synonym-matching"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-antonyms-detailed-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:antonyms-detailed"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-antonyms-detailed-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:antonyms-detailed"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-antonyms-detailed-option-w1": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:antonyms-detailed (option: w1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-w1.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-antonyms-detailed-option-w2": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:antonyms-detailed (option: w2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-w2.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-antonyms-detailed-option-w3": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:antonyms-detailed (option: w3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-w3.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-antonyms-detailed-option-w4": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:antonyms-detailed (option: w4)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-w4.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-antonyms-detailed-option-w5": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:antonyms-detailed (option: w5)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-w5.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-antonyms-detailed-option-w6": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:antonyms-detailed (option: w6)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-w6.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-antonyms-detailed-option-ant1": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:antonyms-detailed (option: ant1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-ant1.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-antonyms-detailed-option-ant2": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:antonyms-detailed (option: ant2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-ant2.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-antonyms-detailed-option-ant3": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:antonyms-detailed (option: ant3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-ant3.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-antonyms-detailed-option-ant4": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:antonyms-detailed (option: ant4)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-ant4.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-antonyms-detailed-option-ant5": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:antonyms-detailed (option: ant5)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-ant5.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-antonyms-detailed-option-ant6": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:antonyms-detailed (option: ant6)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-ant6.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-antonyms-detailed-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:antonyms-detailed"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-event-meaning-matching-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:event-meaning-matching"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-event-meaning-matching-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:event-meaning-matching"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-event-meaning-matching-option-evt1": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:event-meaning-matching (option: evt1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/option-evt1.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-event-meaning-matching-option-evt2": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:event-meaning-matching (option: evt2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/option-evt2.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-event-meaning-matching-option-evt3": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:event-meaning-matching (option: evt3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/option-evt3.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-event-meaning-matching-option-val1": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:event-meaning-matching (option: val1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/option-val1.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-event-meaning-matching-option-val2": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:event-meaning-matching (option: val2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/option-val2.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-event-meaning-matching-option-val3": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:event-meaning-matching (option: val3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/option-val3.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-event-meaning-matching-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:event-meaning-matching"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-event-ordering-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:event-ordering"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-ordering/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-event-ordering-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:event-ordering"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-ordering/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-event-ordering-option-evt1": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:event-ordering (option: evt1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-ordering/option-evt1.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-event-ordering-option-evt2": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:event-ordering (option: evt2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-ordering/option-evt2.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-event-ordering-option-evt3": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:event-ordering (option: evt3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-ordering/option-evt3.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-event-ordering-option-evt4": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:event-ordering (option: evt4)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-ordering/option-evt4.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-event-ordering-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:event-ordering"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-ordering/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-what-if-reflection-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:what-if-reflection"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/what-if-reflection/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-what-if-reflection-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:what-if-reflection"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/what-if-reflection/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-what-if-reflection-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:what-if-reflection"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/what-if-reflection/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-discovery-results-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:discovery-results"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/discovery-results/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-discovery-results-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:discovery-results"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/discovery-results/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-discovery-results-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:discovery-results"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/discovery-results/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-character-event-identification-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:character-event-identification"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/character-event-identification/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-character-event-identification-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:character-event-identification"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/character-event-identification/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-character-event-identification-option-elm1": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:character-event-identification (option: elm1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/character-event-identification/option-elm1.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-character-event-identification-option-elm2": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:character-event-identification (option: elm2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/character-event-identification/option-elm2.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-character-event-identification-option-def1": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:character-event-identification (option: def1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/character-event-identification/option-def1.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-character-event-identification-option-def2": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:character-event-identification (option: def2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/character-event-identification/option-def2.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-character-event-identification-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:character-event-identification"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/character-event-identification/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-mental-visualization-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:mental-visualization"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/mental-visualization/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-mental-visualization-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:mental-visualization"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/mental-visualization/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-mental-visualization-option-vis1": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:mental-visualization (option: vis1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/mental-visualization/option-vis1.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-mental-visualization-option-vis2": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:mental-visualization (option: vis2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/mental-visualization/option-vis2.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-mental-visualization-option-vis3": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:mental-visualization (option: vis3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/mental-visualization/option-vis3.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-mental-visualization-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:mental-visualization"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/mental-visualization/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-new-words-usage-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:new-words-usage"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/new-words-usage/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-new-words-usage-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:new-words-usage"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/new-words-usage/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-new-words-usage-option-use_yes": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:new-words-usage (option: use_yes)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/new-words-usage/option-use_yes.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-new-words-usage-option-use_try": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:new-words-usage (option: use_try)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/new-words-usage/option-use_try.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-new-words-usage-option-use_no": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:new-words-usage (option: use_no)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/new-words-usage/option-use_no.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-new-words-usage-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:new-words-usage"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/new-words-usage/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-classroom-attention-prompt": {
+      "classification": "question",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:classroom-attention"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/classroom-attention/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-classroom-attention-instruction": {
+      "classification": "instruction",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:classroom-attention"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/classroom-attention/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-classroom-attention-option-att1": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:classroom-attention (option: att1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/classroom-attention/option-att1.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-classroom-attention-option-att2": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:classroom-attention (option: att2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/classroom-attention/option-att2.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-classroom-attention-option-att3": {
+      "classification": "answer",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:classroom-attention (option: att3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/classroom-attention/option-att3.wav",
+      "reachability": "REACHABLE"
+    },
+    "ancient-egyptian-teacher-classroom-attention-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "ancient-egyptian-teacher",
+      "references": [
+        "ancient-egyptian-teacher:classroom-attention"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/ancient-egyptian-teacher/classroom-attention/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-praise-assessment-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-praise-assessment"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-praise-assessment/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-praise-assessment-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-praise-assessment"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-praise-assessment/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-praise-assessment-option-proud": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-praise-assessment (option: proud)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-praise-assessment/option-proud.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-praise-assessment-option-happy": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-praise-assessment (option: happy)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-praise-assessment/option-happy.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-praise-assessment-option-shy": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-praise-assessment (option: shy)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-praise-assessment/option-shy.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-praise-assessment-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-praise-assessment"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-praise-assessment/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-score-motivation-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-score-motivation"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-score-motivation/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-score-motivation-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-score-motivation"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-score-motivation/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-score-motivation-option-love": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-score-motivation (option: love)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-score-motivation/option-love.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-score-motivation-option-pleasing": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-score-motivation (option: pleasing)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-score-motivation/option-pleasing.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-score-motivation-option-competition": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-score-motivation (option: competition)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-score-motivation/option-competition.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-score-motivation-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-score-motivation"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-score-motivation/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-title-prediction-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-title-prediction"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-title-prediction/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-title-prediction-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-title-prediction"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-title-prediction/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-title-prediction-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-title-prediction"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-title-prediction/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-stages-ordering-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-stages-ordering"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-stages-ordering/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-stages-ordering-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-stages-ordering"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-stages-ordering/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-stages-ordering-option-st1": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-stages-ordering (option: st1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-stages-ordering/option-st1.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-stages-ordering-option-st2": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-stages-ordering (option: st2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-stages-ordering/option-st2.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-stages-ordering-option-st3": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-stages-ordering (option: st3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-stages-ordering/option-st3.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-stages-ordering-option-st4": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-stages-ordering (option: st4)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-stages-ordering/option-st4.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-stages-ordering-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-stages-ordering"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-stages-ordering/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-return-year-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-return-year"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-return-year/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-return-year-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-return-year"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-return-year/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-return-year-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-return-year"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-return-year/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-surgeon-calmness-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-surgeon-calmness"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-surgeon-calmness/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-surgeon-calmness-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-surgeon-calmness"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-surgeon-calmness/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-surgeon-calmness-option-ans1": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-surgeon-calmness (option: ans1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-surgeon-calmness/option-ans1.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-surgeon-calmness-option-ans2": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-surgeon-calmness (option: ans2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-surgeon-calmness/option-ans2.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-surgeon-calmness-option-ans3": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-surgeon-calmness (option: ans3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-surgeon-calmness/option-ans3.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-surgeon-calmness-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-surgeon-calmness"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-surgeon-calmness/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-alternative-solution-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-alternative-solution"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-alternative-solution/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-alternative-solution-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-alternative-solution"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-alternative-solution/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-alternative-solution-option-sol1": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-alternative-solution (option: sol1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-alternative-solution/option-sol1.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-alternative-solution-option-sol2": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-alternative-solution (option: sol2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-alternative-solution/option-sol2.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-alternative-solution-option-sol3": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-alternative-solution (option: sol3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-alternative-solution/option-sol3.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-alternative-solution-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-alternative-solution"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-alternative-solution/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-insist-reason-open-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-insist-reason-open"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-insist-reason-open/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-insist-reason-open-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-insist-reason-open"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-insist-reason-open/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-insist-reason-open-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-insist-reason-open"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-insist-reason-open/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-biggest-challenge-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-biggest-challenge"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-biggest-challenge/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-biggest-challenge-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-biggest-challenge"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-biggest-challenge/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-biggest-challenge-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-biggest-challenge"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-biggest-challenge/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-new-word-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-new-word"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-new-word/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-new-word-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-new-word"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-new-word/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-new-word-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-new-word"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-new-word/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-arabic-practical-use-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-arabic-practical-use"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-arabic-practical-use/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-arabic-practical-use-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-arabic-practical-use"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-arabic-practical-use/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-arabic-practical-use-option-use1": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-arabic-practical-use (option: use1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-arabic-practical-use/option-use1.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-arabic-practical-use-option-use2": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-arabic-practical-use (option: use2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-arabic-practical-use/option-use2.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-arabic-practical-use-option-use3": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-arabic-practical-use (option: use3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-arabic-practical-use/option-use3.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-arabic-practical-use-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-arabic-practical-use"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-arabic-practical-use/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-life-ordering-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-life-ordering"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-life-ordering/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-life-ordering-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-life-ordering"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-life-ordering/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-life-ordering-option-mil1": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-life-ordering (option: mil1)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-life-ordering/option-mil1.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-life-ordering-option-mil2": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-life-ordering (option: mil2)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-life-ordering/option-mil2.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-life-ordering-option-mil3": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-life-ordering (option: mil3)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-life-ordering/option-mil3.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-life-ordering-option-mil4": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-life-ordering (option: mil4)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-life-ordering/option-mil4.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-life-ordering-option-mil5": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-life-ordering (option: mil5)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-life-ordering/option-mil5.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-life-ordering-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-life-ordering"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-life-ordering/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-problem-solutions-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-problem-solutions"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-problem-solutions/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-problem-solutions-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-problem-solutions"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-problem-solutions/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-problem-solutions-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-problem-solutions"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-problem-solutions/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-funding-alternatives-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-funding-alternatives"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-funding-alternatives/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-funding-alternatives-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-funding-alternatives"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-funding-alternatives/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-funding-alternatives-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-funding-alternatives"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-funding-alternatives/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-character-opinion-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-character-opinion"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-character-opinion/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-character-opinion-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-character-opinion"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-character-opinion/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-character-opinion-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-character-opinion"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-character-opinion/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-interview-questions-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-interview-questions"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-interview-questions/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-interview-questions-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-interview-questions"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-interview-questions/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-interview-questions-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-interview-questions"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-interview-questions/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-story-retell-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-story-retell"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-story-retell/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-story-retell-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-story-retell"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-story-retell/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-story-retell-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-story-retell"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-story-retell/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-humanitarian-project-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-humanitarian-project"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-humanitarian-project/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-humanitarian-project-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-humanitarian-project"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-humanitarian-project/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-humanitarian-project-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-humanitarian-project"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-humanitarian-project/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-student-problem-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-student-problem"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-student-problem/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-student-problem-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-student-problem"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-student-problem/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-student-problem-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-student-problem"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-student-problem/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-story-titles-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-story-titles"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-story-titles/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-story-titles-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-story-titles"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-story-titles/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-story-titles-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-story-titles"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-story-titles/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-target-community-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-target-community"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-target-community/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-target-community-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-target-community"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-target-community/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-target-community-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-target-community"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-target-community/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-alternative-ending-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-alternative-ending"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-alternative-ending/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-alternative-ending-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-alternative-ending"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-alternative-ending/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-alternative-ending-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-alternative-ending"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-alternative-ending/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-different-ending-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-different-ending"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-different-ending/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-different-ending-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-different-ending"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-different-ending/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-different-ending-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-different-ending"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-different-ending/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-agree-disagree-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-agree-disagree"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-agree-disagree/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-agree-disagree-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-agree-disagree"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-agree-disagree/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-agree-disagree-option-agree": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-agree-disagree (option: agree)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-agree-disagree/option-agree.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-agree-disagree-option-disagree": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-agree-disagree (option: disagree)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-agree-disagree/option-disagree.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-agree-disagree-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-agree-disagree"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-agree-disagree/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-listening-behavior-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-listening-behavior"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-listening-behavior/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-listening-behavior-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-listening-behavior"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-listening-behavior/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-listening-behavior-option-focus": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-listening-behavior (option: focus)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-listening-behavior/option-focus.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-listening-behavior-option-notes": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-listening-behavior (option: notes)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-listening-behavior/option-notes.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-listening-behavior-option-distracted": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-listening-behavior (option: distracted)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-listening-behavior/option-distracted.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-listening-behavior-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-listening-behavior"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-listening-behavior/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-improvement-checklist-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-improvement-checklist"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-improvement-checklist/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-improvement-checklist-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-improvement-checklist"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-improvement-checklist/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-improvement-checklist-option-listening": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-improvement-checklist (option: listening)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-improvement-checklist/option-listening.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-improvement-checklist-option-reading": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-improvement-checklist (option: reading)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-improvement-checklist/option-reading.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-improvement-checklist-option-writing": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-improvement-checklist (option: writing)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-improvement-checklist/option-writing.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-improvement-checklist-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-improvement-checklist"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-improvement-checklist/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-competitions-assessment-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-competitions-assessment"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-competitions-assessment/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-competitions-assessment-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-competitions-assessment"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-competitions-assessment/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-competitions-assessment-option-learn": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-competitions-assessment (option: learn)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-competitions-assessment/option-learn.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-competitions-assessment-option-team": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-competitions-assessment (option: team)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-competitions-assessment/option-team.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-competitions-assessment-option-challenge": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-competitions-assessment (option: challenge)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-competitions-assessment/option-challenge.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-competitions-assessment-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-competitions-assessment"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-competitions-assessment/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-encouragement-assessment-prompt": {
+      "classification": "question",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-encouragement-assessment"
+      ],
+      "runtimeEvent": "Screen entry (autoplay)",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-encouragement-assessment/prompt.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-encouragement-assessment-instruction": {
+      "classification": "instruction",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-encouragement-assessment"
+      ],
+      "runtimeEvent": "Instruction click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-encouragement-assessment/instruction.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-encouragement-assessment-option-superb": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-encouragement-assessment (option: superb)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-encouragement-assessment/option-superb.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-encouragement-assessment-option-good": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-encouragement-assessment (option: good)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-encouragement-assessment/option-good.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-encouragement-assessment-option-self": {
+      "classification": "answer",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-encouragement-assessment (option: self)"
+      ],
+      "runtimeEvent": "Option click",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-encouragement-assessment/option-self.wav",
+      "reachability": "REACHABLE"
+    },
+    "king-of-hearts-yacoub-encouragement-assessment-completion-feedback": {
+      "classification": "completion feedback",
+      "lesson": "magdi-yacoub",
+      "references": [
+        "magdi-yacoub:yacoub-encouragement-assessment"
+      ],
+      "runtimeEvent": "Submission feedback",
+      "src": "/audio/v1/lessons/magdi-yacoub/king-of-hearts-yacoub-encouragement-assessment/completion-feedback.wav",
+      "reachability": "REACHABLE"
+    },
+    "global.sfx.correct": {
+      "classification": "sfx",
+      "lesson": "global",
+      "references": [
+        "Any graded activity submission"
+      ],
+      "runtimeEvent": "Submission SFX",
+      "src": "/audio/v1/sfx/correct.wav",
+      "reachability": "REACHABLE"
+    },
+    "global.sfx.incorrect": {
+      "classification": "sfx",
+      "lesson": "global",
+      "references": [
+        "Any graded activity submission"
+      ],
+      "runtimeEvent": "Submission SFX",
+      "src": "/audio/v1/sfx/incorrect.wav",
+      "reachability": "REACHABLE"
+    },
+    "global.sfx.completion": {
+      "classification": "sfx",
+      "lesson": "global",
+      "references": [
+        "Any graded activity submission"
+      ],
+      "runtimeEvent": "Submission SFX",
+      "src": "/audio/v1/sfx/completion.wav",
+      "reachability": "REACHABLE"
+    }
+  }
+}

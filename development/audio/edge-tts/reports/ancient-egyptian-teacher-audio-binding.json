@@ -1,0 +1,1114 @@
+{
+  "lessonSlug": "ancient-egyptian-teacher",
+  "totalActivities": 19,
+  "totalScreens": 19,
+  "stats": {
+    "questionKeysRequired": 19,
+    "questionKeysBound": 19,
+    "answerKeysRequired": 62,
+    "answerKeysBound": 62,
+    "instructionKeysRequired": 19,
+    "instructionKeysBound": 19,
+    "feedbackKeysRequired": 14,
+    "feedbackKeysBound": 14,
+    "missingManifestEntries": 0,
+    "missingWavFiles": 0
+  },
+  "screens": [
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-18",
+      "screenId": "j1-18",
+      "rendererType": "self_assessment",
+      "visibleQuestion": "اختر ما يعبر بصدق عن مشاعرك الداخلية قبل بدء الدرس:",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-arabic-feelings-j1-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-arabic-feelings-j1-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/instruction.wav"
+        },
+        "answers": [
+          {
+            "optionKey": "happy",
+            "label": "أشعر بالحماس والرغبة في المعرفة والاستكشاف",
+            "key": "ancient-egyptian-teacher-arabic-feelings-j1-option-happy",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/option-happy.wav"
+          },
+          {
+            "optionKey": "neutral",
+            "label": "أشعر بالهدوء والتركيز المعتاد",
+            "key": "ancient-egyptian-teacher-arabic-feelings-j1-option-neutral",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/option-neutral.wav"
+          },
+          {
+            "optionKey": "calm",
+            "label": "أشعر بالسكينة وأتطلع للقصة والمشاريع الجديدة",
+            "key": "ancient-egyptian-teacher-arabic-feelings-j1-option-calm",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/option-calm.wav"
+          }
+        ],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-arabic-feelings-j1-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-arabic-feelings-j1-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-feelings-j1/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-19",
+      "screenId": "j1-19",
+      "rendererType": "self_assessment",
+      "visibleQuestion": "حدد مدى اهتمامك بقراءة كتب أو قصص أو تصفح مواقع بالعربية:",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-arabic-self-assessment-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-arabic-self-assessment-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/instruction.wav"
+        },
+        "answers": [
+          {
+            "optionKey": "happy",
+            "label": "أشعر بالسعادة والشغف وأقرا باستمرار",
+            "key": "ancient-egyptian-teacher-arabic-self-assessment-option-happy",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/option-happy.wav"
+          },
+          {
+            "optionKey": "neutral",
+            "label": "أشعر بالهدوء والاعتياد وأقرأ عند الضرورة",
+            "key": "ancient-egyptian-teacher-arabic-self-assessment-option-neutral",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/option-neutral.wav"
+          },
+          {
+            "optionKey": "bored",
+            "label": "أشعر بالملل أحياناً وأحاول التحسن",
+            "key": "ancient-egyptian-teacher-arabic-self-assessment-option-bored",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/option-bored.wav"
+          }
+        ],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-arabic-self-assessment-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-arabic-self-assessment-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/arabic-self-assessment/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-01",
+      "screenId": "j1-01",
+      "rendererType": "three_answers",
+      "visibleQuestion": "اقترح 3 عناوين تعبر عن دور الكاتب والمعلم المصري القديم:",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-titles-generation-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/titles-generation/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-titles-generation-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/titles-generation/instruction.wav"
+        },
+        "answers": [],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-titles-generation-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/titles-generation/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-titles-generation-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/titles-generation/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-02",
+      "screenId": "j1-02",
+      "rendererType": "three_answers",
+      "visibleQuestion": "اكتب 3 أسئلة تثير فضولك حول مقبرة الكاتب المصري القديم:",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-student-questions-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/student-questions/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-student-questions-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/student-questions/instruction.wav"
+        },
+        "answers": [],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-student-questions-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/student-questions/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-student-questions-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/student-questions/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-11",
+      "screenId": "j1-11",
+      "rendererType": "single_choice",
+      "visibleQuestion": "ما هو العنوان الأكثر دقة وشمولاً للنص الذي استمعت إليه؟",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-best-title-choice-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/best-title-choice/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-best-title-choice-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/best-title-choice/instruction.wav"
+        },
+        "answers": [
+          {
+            "optionKey": "opt1",
+            "label": "أدوات الكتابة الخشبية",
+            "key": "ancient-egyptian-teacher-best-title-choice-option-opt1",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/best-title-choice/option-opt1.wav"
+          },
+          {
+            "optionKey": "opt2",
+            "label": "المعلم المصري القديم ودوره في الحضارة",
+            "key": "ancient-egyptian-teacher-best-title-choice-option-opt2",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/best-title-choice/option-opt2.wav"
+          },
+          {
+            "optionKey": "opt3",
+            "label": "المتاحف وتطوير القاعات القديمة",
+            "key": "ancient-egyptian-teacher-best-title-choice-option-opt3",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/best-title-choice/option-opt3.wav"
+          }
+        ],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-best-title-choice-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/best-title-choice/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-best-title-choice-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/best-title-choice/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-03",
+      "screenId": "j1-03",
+      "rendererType": "single_choice",
+      "visibleQuestion": "ما هي الفكرة الرئيسة التي يدور حولها الخبر؟",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-main-idea-choice-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/main-idea-choice/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-main-idea-choice-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/main-idea-choice/instruction.wav"
+        },
+        "answers": [
+          {
+            "optionKey": "opt1",
+            "label": "احترام المعلم المصري القديم ودوره في نشر العلم",
+            "key": "ancient-egyptian-teacher-main-idea-choice-option-opt1",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/main-idea-choice/option-opt1.wav"
+          },
+          {
+            "optionKey": "opt2",
+            "label": "طريقة صناعة أوراق البردي في المقابر",
+            "key": "ancient-egyptian-teacher-main-idea-choice-option-opt2",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/main-idea-choice/option-opt2.wav"
+          },
+          {
+            "optionKey": "opt3",
+            "label": "أهمية تزيين جدران المقابر بالرسومات",
+            "key": "ancient-egyptian-teacher-main-idea-choice-option-opt3",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/main-idea-choice/option-opt3.wav"
+          }
+        ],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-main-idea-choice-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/main-idea-choice/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-main-idea-choice-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/main-idea-choice/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-07",
+      "screenId": "j1-07",
+      "rendererType": "single_choice",
+      "visibleQuestion": "حدد مكان المقبرة التاريخية التي عثر عليها العلماء:",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-tomb-location-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-location/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-tomb-location-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-location/instruction.wav"
+        },
+        "answers": [
+          {
+            "optionKey": "loc1",
+            "label": "في مقابر العلماء بسقارة",
+            "key": "ancient-egyptian-teacher-tomb-location-option-loc1",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-location/option-loc1.wav"
+          },
+          {
+            "optionKey": "loc2",
+            "label": "في مقابر وادي الملوك بالأقصر",
+            "key": "ancient-egyptian-teacher-tomb-location-option-loc2",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-location/option-loc2.wav"
+          },
+          {
+            "optionKey": "loc3",
+            "label": "بجوار أهرامات الجيزة",
+            "key": "ancient-egyptian-teacher-tomb-location-option-loc3",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-location/option-loc3.wav"
+          }
+        ],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-tomb-location-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-location/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-tomb-location-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-location/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-08",
+      "screenId": "j1-08",
+      "rendererType": "single_choice",
+      "visibleQuestion": "ما الذي جعل هذا الاكتشاف الأثري فريداً ومهماً للغاية؟",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-tomb-importance-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-importance/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-tomb-importance-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-importance/instruction.wav"
+        },
+        "answers": [
+          {
+            "optionKey": "imp1",
+            "label": "لأنها تخص كاتب قديم مدفون مع أدوات كتابته الخشبية وبرديات",
+            "key": "ancient-egyptian-teacher-tomb-importance-option-imp1",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-importance/option-imp1.wav"
+          },
+          {
+            "optionKey": "imp2",
+            "label": "لأنها تحتوي على كميات هائلة من الذهب والكنوز الملكية",
+            "key": "ancient-egyptian-teacher-tomb-importance-option-imp2",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-importance/option-imp2.wav"
+          },
+          {
+            "optionKey": "imp3",
+            "label": "لأنها تثبت أسرار بناء الأهرامات الثلاثة بالتفصيل",
+            "key": "ancient-egyptian-teacher-tomb-importance-option-imp3",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-importance/option-imp3.wav"
+          }
+        ],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-tomb-importance-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-importance/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-tomb-importance-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/tomb-importance/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-09",
+      "screenId": "j1-09",
+      "rendererType": "single_choice",
+      "visibleQuestion": "بماذا يوحي دفن أدوات الكتابة مع الكاتب في مقبرته؟",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-teacher-status-discovery-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/teacher-status-discovery/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-teacher-status-discovery-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/teacher-status-discovery/instruction.wav"
+        },
+        "answers": [
+          {
+            "optionKey": "st1",
+            "label": "يدل على التقدير الهائل والاحترام للتعليم والمعلم بمصر القديمة",
+            "key": "ancient-egyptian-teacher-teacher-status-discovery-option-st1",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/teacher-status-discovery/option-st1.wav"
+          },
+          {
+            "optionKey": "st2",
+            "label": "يدل على أن التعليم كان يقتصر فقط على الكهنة والملوك",
+            "key": "ancient-egyptian-teacher-teacher-status-discovery-option-st2",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/teacher-status-discovery/option-st2.wav"
+          },
+          {
+            "optionKey": "st3",
+            "label": "يدل على رغبة الكاتب في مواصلة الدراسة بمفرده",
+            "key": "ancient-egyptian-teacher-teacher-status-discovery-option-st3",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/teacher-status-discovery/option-st3.wav"
+          }
+        ],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-teacher-status-discovery-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/teacher-status-discovery/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-teacher-status-discovery-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/teacher-status-discovery/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-13",
+      "screenId": "j1-13",
+      "rendererType": "matching",
+      "visibleQuestion": "طابق الكلمات مع معانيها المترادفة الواردة بالنص المسموع:",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-synonym-matching-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-synonym-matching-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/instruction.wav"
+        },
+        "answers": [
+          {
+            "optionKey": "word1",
+            "label": "عالم",
+            "key": "ancient-egyptian-teacher-synonym-matching-option-word1",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/option-word1.wav"
+          },
+          {
+            "optionKey": "word2",
+            "label": "مقبرة",
+            "key": "ancient-egyptian-teacher-synonym-matching-option-word2",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/option-word2.wav"
+          },
+          {
+            "optionKey": "word3",
+            "label": "مهنة",
+            "key": "ancient-egyptian-teacher-synonym-matching-option-word3",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/option-word3.wav"
+          },
+          {
+            "optionKey": "mean1",
+            "label": "باحث",
+            "key": "ancient-egyptian-teacher-synonym-matching-option-mean1",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/option-mean1.wav"
+          },
+          {
+            "optionKey": "mean2",
+            "label": "مدفن",
+            "key": "ancient-egyptian-teacher-synonym-matching-option-mean2",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/option-mean2.wav"
+          },
+          {
+            "optionKey": "mean3",
+            "label": "حرفة",
+            "key": "ancient-egyptian-teacher-synonym-matching-option-mean3",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/option-mean3.wav"
+          }
+        ],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-synonym-matching-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-synonym-matching-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/synonym-matching/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-14",
+      "screenId": "j1-14",
+      "rendererType": "matching",
+      "visibleQuestion": "طابق الكلمات التالية مع أضدادها المعاكسة في المعنى:",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-antonyms-detailed-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-antonyms-detailed-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/instruction.wav"
+        },
+        "answers": [
+          {
+            "optionKey": "w1",
+            "label": "القديم",
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-w1",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-w1.wav"
+          },
+          {
+            "optionKey": "w2",
+            "label": "العلم",
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-w2",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-w2.wav"
+          },
+          {
+            "optionKey": "w3",
+            "label": "البداية",
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-w3",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-w3.wav"
+          },
+          {
+            "optionKey": "w4",
+            "label": "احترام",
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-w4",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-w4.wav"
+          },
+          {
+            "optionKey": "w5",
+            "label": "تقدير",
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-w5",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-w5.wav"
+          },
+          {
+            "optionKey": "w6",
+            "label": "عالِم",
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-w6",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-w6.wav"
+          },
+          {
+            "optionKey": "ant1",
+            "label": "الحديث",
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant1",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-ant1.wav"
+          },
+          {
+            "optionKey": "ant2",
+            "label": "الجهل",
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant2",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-ant2.wav"
+          },
+          {
+            "optionKey": "ant3",
+            "label": "النهاية",
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant3",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-ant3.wav"
+          },
+          {
+            "optionKey": "ant4",
+            "label": "ازدراء",
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant4",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-ant4.wav"
+          },
+          {
+            "optionKey": "ant5",
+            "label": "إهمال",
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant5",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-ant5.wav"
+          },
+          {
+            "optionKey": "ant6",
+            "label": "جاهل",
+            "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant6",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/option-ant6.wav"
+          }
+        ],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-antonyms-detailed-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-antonyms-detailed-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/antonyms-detailed/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-04",
+      "screenId": "j1-04",
+      "rendererType": "matching",
+      "visibleQuestion": "طابق الحدث مع المعنى المعبر عنه:",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-event-meaning-matching-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-event-meaning-matching-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/instruction.wav"
+        },
+        "answers": [
+          {
+            "optionKey": "evt1",
+            "label": "تطوير قاعة الكتابة والتعليم بالمتحف",
+            "key": "ancient-egyptian-teacher-event-meaning-matching-option-evt1",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/option-evt1.wav"
+          },
+          {
+            "optionKey": "evt2",
+            "label": "العثور على البرديات بمقابر العلماء",
+            "key": "ancient-egyptian-teacher-event-meaning-matching-option-evt2",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/option-evt2.wav"
+          },
+          {
+            "optionKey": "evt3",
+            "label": "جلوس الكاتب بوقار على وسادة",
+            "key": "ancient-egyptian-teacher-event-meaning-matching-option-evt3",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/option-evt3.wav"
+          },
+          {
+            "optionKey": "val1",
+            "label": "الاهتمام بنشر الوعي بتاريخ التعليم",
+            "key": "ancient-egyptian-teacher-event-meaning-matching-option-val1",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/option-val1.wav"
+          },
+          {
+            "optionKey": "val2",
+            "label": "تأكيد فكرة تخليد العلم وتقدير المعرفة",
+            "key": "ancient-egyptian-teacher-event-meaning-matching-option-val2",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/option-val2.wav"
+          },
+          {
+            "optionKey": "val3",
+            "label": "الهيبة والاحترام التي كان يحظى بها الكاتب",
+            "key": "ancient-egyptian-teacher-event-meaning-matching-option-val3",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/option-val3.wav"
+          }
+        ],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-event-meaning-matching-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-event-meaning-matching-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-meaning-matching/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-15",
+      "screenId": "j1-15",
+      "rendererType": "multi_round",
+      "visibleQuestion": "رتب الجمل التالية زمنياً:",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-event-ordering-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-ordering/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-event-ordering-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-ordering/instruction.wav"
+        },
+        "answers": [
+          {
+            "optionKey": "evt1",
+            "label": "بدأ المتحف المصري مشروع تطوير القاعة",
+            "key": "ancient-egyptian-teacher-event-ordering-option-evt1",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-ordering/option-evt1.wav"
+          },
+          {
+            "optionKey": "evt2",
+            "label": "عرض المتحف دور المعلم",
+            "key": "ancient-egyptian-teacher-event-ordering-option-evt2",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-ordering/option-evt2.wav"
+          },
+          {
+            "optionKey": "evt3",
+            "label": "استخدم المعلم القديم البردية",
+            "key": "ancient-egyptian-teacher-event-ordering-option-evt3",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-ordering/option-evt3.wav"
+          },
+          {
+            "optionKey": "evt4",
+            "label": "أعجب الزوار بالعرض",
+            "key": "ancient-egyptian-teacher-event-ordering-option-evt4",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-ordering/option-evt4.wav"
+          }
+        ],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-event-ordering-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-ordering/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-event-ordering-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/event-ordering/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-17",
+      "screenId": "j1-17",
+      "rendererType": "long_text",
+      "visibleQuestion": "عبر بأسلوبك عن رأيك في مدى أهمية هذا الاكتشاف المعرفي والتاريخي لبلدنا الحبيب:",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-what-if-reflection-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/what-if-reflection/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-what-if-reflection-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/what-if-reflection/instruction.wav"
+        },
+        "answers": [],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-what-if-reflection-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/what-if-reflection/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-what-if-reflection-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/what-if-reflection/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-10",
+      "screenId": "j1-10",
+      "rendererType": "three_answers",
+      "visibleQuestion": "اكتب نتيجتين تاريخيتين أو علميتين ترتبتا على العثور على المقبرة:",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-discovery-results-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/discovery-results/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-discovery-results-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/discovery-results/instruction.wav"
+        },
+        "answers": [],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-discovery-results-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/discovery-results/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-discovery-results-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/discovery-results/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-05",
+      "screenId": "j1-05",
+      "rendererType": "matching",
+      "visibleQuestion": "طابق العناصر بالتعريف الأنسب:",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-character-event-identification-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/character-event-identification/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-character-event-identification-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/character-event-identification/instruction.wav"
+        },
+        "answers": [
+          {
+            "optionKey": "elm1",
+            "label": "الشخصية الأهم بالخبر",
+            "key": "ancient-egyptian-teacher-character-event-identification-option-elm1",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/character-event-identification/option-elm1.wav"
+          },
+          {
+            "optionKey": "elm2",
+            "label": "الحدث الأهم بالنص",
+            "key": "ancient-egyptian-teacher-character-event-identification-option-elm2",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/character-event-identification/option-elm2.wav"
+          },
+          {
+            "optionKey": "def1",
+            "label": "الكاتب / المعلم المصري القديم",
+            "key": "ancient-egyptian-teacher-character-event-identification-option-def1",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/character-event-identification/option-def1.wav"
+          },
+          {
+            "optionKey": "def2",
+            "label": "اكتشاف مقبرة كاتب قديم وبدء تطوير القاعة بالمتحف",
+            "key": "ancient-egyptian-teacher-character-event-identification-option-def2",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/character-event-identification/option-def2.wav"
+          }
+        ],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-character-event-identification-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/character-event-identification/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-character-event-identification-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/character-event-identification/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-20",
+      "screenId": "j1-20",
+      "rendererType": "self_assessment",
+      "visibleQuestion": "اختر ما يصف سلوكك الذهني عند الاستماع للخبر المسموع:",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-mental-visualization-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/mental-visualization/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-mental-visualization-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/mental-visualization/instruction.wav"
+        },
+        "answers": [
+          {
+            "optionKey": "vis1",
+            "label": "نعم، أرسم صوراً ملونة للمشاهد والشخصيات في مخيلتي",
+            "key": "ancient-egyptian-teacher-mental-visualization-option-vis1",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/mental-visualization/option-vis1.wav"
+          },
+          {
+            "optionKey": "vis2",
+            "label": "أحياناً أتخيل التفاصيل الهامة فقط",
+            "key": "ancient-egyptian-teacher-mental-visualization-option-vis2",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/mental-visualization/option-vis2.wav"
+          },
+          {
+            "optionKey": "vis3",
+            "label": "أركز على الكلمات والعبارات ولا أتخيل صوراً",
+            "key": "ancient-egyptian-teacher-mental-visualization-option-vis3",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/mental-visualization/option-vis3.wav"
+          }
+        ],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-mental-visualization-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/mental-visualization/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-mental-visualization-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/mental-visualization/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-21",
+      "screenId": "j1-21",
+      "rendererType": "self_assessment",
+      "visibleQuestion": "اختر مدى حرصك على تطبيق المفردات الجديدة التي تكتشفها في حديثك:",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-new-words-usage-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/new-words-usage/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-new-words-usage-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/new-words-usage/instruction.wav"
+        },
+        "answers": [
+          {
+            "optionKey": "use_yes",
+            "label": "نعم، أحب استخدام الكلمات الفصيحة أمام والدي وزملائي",
+            "key": "ancient-egyptian-teacher-new-words-usage-option-use_yes",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/new-words-usage/option-use_yes.wav"
+          },
+          {
+            "optionKey": "use_try",
+            "label": "أحاول استخدامها عندما تكون مناسبة للموضوع",
+            "key": "ancient-egyptian-teacher-new-words-usage-option-use_try",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/new-words-usage/option-use_try.wav"
+          },
+          {
+            "optionKey": "use_no",
+            "label": "أنسى الكلمات الجديدة سريعاً ولا أستخدمها",
+            "key": "ancient-egyptian-teacher-new-words-usage-option-use_no",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/new-words-usage/option-use_no.wav"
+          }
+        ],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-new-words-usage-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/new-words-usage/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-new-words-usage-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/new-words-usage/completion-feedback.wav"
+          }
+        }
+      }
+    },
+    {
+      "lessonSlug": "ancient-egyptian-teacher",
+      "activityId": "j1-22",
+      "screenId": "j1-22",
+      "rendererType": "self_assessment",
+      "visibleQuestion": "ما هو الخيار الذي يصف بصدق سلوكك الصفي عند شرح دروس العربية؟",
+      "bindings": {
+        "question": {
+          "key": "ancient-egyptian-teacher-classroom-attention-prompt",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/classroom-attention/prompt.wav"
+        },
+        "instruction": {
+          "key": "ancient-egyptian-teacher-classroom-attention-instruction",
+          "status": "READY_TO_BIND",
+          "src": "/audio/v1/lessons/ancient-egyptian-teacher/classroom-attention/instruction.wav"
+        },
+        "answers": [
+          {
+            "optionKey": "att1",
+            "label": "أنصت بكل جوارحي وأدون التلاحظات الهامة",
+            "key": "ancient-egyptian-teacher-classroom-attention-option-att1",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/classroom-attention/option-att1.wav"
+          },
+          {
+            "optionKey": "att2",
+            "label": "أشارك بفعالية في الإجابة عن التحديات الموجهة",
+            "key": "ancient-egyptian-teacher-classroom-attention-option-att2",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/classroom-attention/option-att2.wav"
+          },
+          {
+            "optionKey": "att3",
+            "label": "قد أتشتت أحياناً ولكني سرعان ما أعود للانتباه",
+            "key": "ancient-egyptian-teacher-classroom-attention-option-att3",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/classroom-attention/option-att3.wav"
+          }
+        ],
+        "feedback": {
+          "correct": null,
+          "retry": null,
+          "participation": {
+            "key": "ancient-egyptian-teacher-classroom-attention-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/classroom-attention/completion-feedback.wav"
+          },
+          "completion": {
+            "key": "ancient-egyptian-teacher-classroom-attention-completion-feedback",
+            "status": "READY_TO_BIND",
+            "src": "/audio/v1/lessons/ancient-egyptian-teacher/classroom-attention/completion-feedback.wav"
+          }
+        }
+      }
+    }
+  ]
+}

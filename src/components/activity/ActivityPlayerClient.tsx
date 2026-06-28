@@ -9,6 +9,16 @@ import {
 import ActivityRenderer from "@/components/activity/ActivityRenderer";
 import PublicHeader from "@/components/layout/PublicHeader";
 import { useAudio } from "@/audio/runtime/use-audio";
+import { resolveActivityAudioContract } from "@/audio/runtime/activity-audio-contract";
+
+function normalizeArabicText(text: string): string {
+  if (!text) return "";
+  return text
+    .replace(/[\u064B-\u065F]/g, "") // Remove diacritics
+    .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()؟?]/g, "") // Remove punctuation
+    .replace(/\s+/g, "") // Remove whitespace
+    .trim();
+}
 
 export type SelfAssessmentResponse = {
   selectedKey: string;
@@ -51,20 +61,20 @@ export default function ActivityPlayerClient({
   const {
     playKey,
     playFeedbackSequence,
+    playSequence,
     stop,
     pauseVoice,
     isMuted,
     toggleState,
-    isNarrating,
-    dictationActive,
+    isKeyPlayable,
     setActivityScope,
+    dictationActive,
+    isNarrating,
+    unlock,
+    setEntryIdentity,
+    requestEntryNarration,
   } = useAudio();
 
-  const [narrationTriggered, setNarrationTriggered] = useState<string | null>(
-    null,
-  );
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [response, setResponse] = useState<StudentResponse | null>(() => {
     if (activity.previousResponseData) {
       const data = activity.previousResponseData as Record<string, unknown>;
@@ -81,10 +91,22 @@ export default function ActivityPlayerClient({
     return null;
   });
 
+  const [activeSubId, setActiveSubId] = useState<string>(() => {
+    if (activity.type === "multi_round" && activity.configuration?.rounds?.[0]) {
+      return activity.configuration.rounds[0].id;
+    }
+    return "";
+  });
+
   const [prevActivityId, setPrevActivityId] = useState(activity.id);
   if (activity.id !== prevActivityId) {
     setPrevActivityId(activity.id);
-    setNarrationTriggered(null);
+    setActiveSubId(
+      activity.type === "multi_round" && activity.configuration?.rounds?.[0]
+        ? activity.configuration.rounds[0].id
+        : ""
+    );
+
     if (activity.previousResponseData && activity.type === "self_assessment") {
       const data = activity.previousResponseData as Record<string, unknown>;
       if (typeof data.selectedKey === "string") {
@@ -99,6 +121,15 @@ export default function ActivityPlayerClient({
       setResponse(null);
     }
   }
+
+  const contract = React.useMemo(() => {
+    return resolveActivityAudioContract(activity, {
+      hasKey: isKeyPlayable,
+      roundId: activeSubId,
+    });
+  }, [activity, isKeyPlayable, activeSubId]);
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [evaluationResult, setEvaluationResult] =
     useState<SafeEvaluationResult | null>(
@@ -116,60 +147,139 @@ export default function ActivityPlayerClient({
 
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [shake, setShake] = useState(false);
+  const [blockedSequence, setBlockedSequence] = useState<string[] | null>(null);
+
+  const clientIdRef = React.useRef("unknown");
+  useEffect(() => {
+    clientIdRef.current = Math.random().toString(36).substring(7);
+  }, []);
 
   // Setup activity scope to cancel previous playbacks
+  const currentActivityIdRef = React.useRef(activity.id);
+
   useEffect(() => {
     setActivityScope(activity.id);
+    
+    if (currentActivityIdRef.current !== activity.id) {
+      stop("activity-scope-changed");
+      currentActivityIdRef.current = activity.id;
+    }
+
     return () => {
-      stop();
+      stop("activity-player-unmounted", activity.id);
     };
   }, [activity.id, setActivityScope, stop]);
 
   // Autoplay trigger logic
-  useEffect(() => {
-    if (narrationTriggered === activity.id) return;
+  const lastNarratedScreenEntryId = React.useRef("");
+  const approvedManifestLoaded =
+    toggleState !== "no_assets" && toggleState !== "initializing";
 
+  useEffect(() => {
+    if (approvedManifestLoaded) {
+      const fullContract = resolveActivityAudioContract(activity, {
+        hasKey: isKeyPlayable,
+        roundId: activeSubId,
+      });
+      if (fullContract.questionKey && !isKeyPlayable(fullContract.questionKey)) {
+        console.error(
+          `[AUDIO_BINDING_ERROR]\nlesson=${activity.journeySlug}\nactivity=${activity.slug}\nscreen=${activity.id}\nevent=question\nkey=${fullContract.questionKey}\nreason=missing-manifest-entry`
+        );
+      }
+      for (const key of Object.values(fullContract.answerKeys) as string[]) {
+        if (key && !isKeyPlayable(key)) {
+          console.error(
+            `[AUDIO_BINDING_ERROR]\nlesson=${activity.journeySlug}\nactivity=${activity.slug}\nscreen=${activity.id}\nevent=answer\nkey=${key}\nreason=missing-manifest-entry`
+          );
+        }
+      }
+    }
+  }, [activity, activeSubId, approvedManifestLoaded, isKeyPlayable]);
+
+  const entryId = `${activity.journeySlug}:${activity.slug}:${activeSubId || activity.id}`;
+
+  useEffect(() => {
+    if (setEntryIdentity) {
+      setEntryIdentity(entryId);
+    }
+  }, [entryId, setEntryIdentity]);
+
+  useEffect(() => {
     const audioEnabled = !isMuted;
-    const autoRead = true;
-    const approvedManifestLoaded =
-      toggleState !== "unavailable" && toggleState !== "loading";
 
     if (
       audioEnabled &&
-      autoRead &&
+      approvedManifestLoaded &&
       !dictationActive &&
-      approvedManifestLoaded
+      blockedSequence === null &&
+      entryId !== lastNarratedScreenEntryId.current
     ) {
-      setTimeout(() => {
-        setNarrationTriggered(activity.id);
-      }, 0);
+      const round = (activity.configuration?.rounds as Array<{ id: string; prompt?: string }>)?.find((r) => r.id === activeSubId);
+      const questionText = round?.prompt || activity.prompt || "";
+      const instructionText = activity.instruction || "";
 
-      const triggerAutoplay = async () => {
-        if (activity.instructionAudioKey) {
-          await playKey(activity.instructionAudioKey);
-        }
-        await new Promise((resolve) => setTimeout(resolve, 800));
-        if (activity.promptAudioKey) {
-          await playKey(activity.promptAudioKey);
-        }
-      };
+      const normInstruction = normalizeArabicText(instructionText);
+      const normQuestion = normalizeArabicText(questionText);
 
-      triggerAutoplay();
+      const instructionKey = contract.instructionKey || null;
+      let questionKey = contract.questionKey || null;
+      if (
+        questionKey &&
+        (questionKey === instructionKey || normQuestion === normInstruction)
+      ) {
+        questionKey = null;
+      }
+
+      const keys = [instructionKey, questionKey].filter(Boolean) as string[];
+
+      const ownerId = activity.id;
+      const windowObj = (typeof window !== "undefined" ? window : null) as { __audioSessionId?: string } | null;
+      const sessionVal = windowObj ? windowObj.__audioSessionId || (windowObj.__audioSessionId = Math.random().toString(36).substring(7)) : "server";
+      console.log(`[AUDIO_LOG] autoplay-attempt | sessionId=${sessionVal} | clientId=${clientIdRef.current} | entryId=${entryId} | instructionKey=${instructionKey} | questionKey=${questionKey} | timestamp=${Date.now()}`);
+
+      requestEntryNarration({
+        ownerId,
+        entryId,
+        instructionKey,
+        questionKey,
+        onPlaybackStart: () => {
+          lastNarratedScreenEntryId.current = entryId;
+        }
+      }).then((result) => {
+        console.log(`[AUDIO_LOG] autoplay-result | sessionId=${sessionVal} | clientId=${clientIdRef.current} | entryId=${entryId} | status=${result.status} | timestamp=${Date.now()}`);
+        if (result.status === "blocked") {
+          lastNarratedScreenEntryId.current = "";
+          setBlockedSequence(keys);
+        } else {
+          setBlockedSequence(null);
+          if (result.status === "completed") {
+            lastNarratedScreenEntryId.current = entryId;
+          }
+        }
+      });
     }
   }, [
-    activity.id,
-    activity.instructionAudioKey,
-    activity.promptAudioKey,
+    entryId,
+    contract,
     isMuted,
-    toggleState,
+    approvedManifestLoaded,
     dictationActive,
-    narrationTriggered,
-    playKey,
+    toggleState,
+    requestEntryNarration,
+    blockedSequence,
+    clientIdRef,
+    activity.id,
+    activity.instruction,
+    activity.prompt,
+    activity.configuration?.rounds,
+    activeSubId,
   ]);
 
   const handleSubmitResponse = async (
     responseData: Record<string, unknown>,
   ) => {
+    stop("answer-selected"); // Stop any currently playing audio on submit
+
     setIsSubmitting(true);
     setErrorMsg(null);
 
@@ -190,25 +300,56 @@ export default function ActivityPlayerClient({
         setEvaluationResult(data.result);
 
         // Trigger feedback sounds
-        if (activity.isGraded) {
-          if (data.result.isCorrect) {
-            playFeedbackSequence(
-              "global.sfx.correct",
-              activity.correctFeedbackAudioKey,
-            );
+        const feedback = data.result.feedback;
+        if (feedback) {
+          let sfxKey = "";
+          let audioKey = "";
+
+          if (feedback.status === "correct") {
+            sfxKey = "global.sfx.correct";
+            audioKey = "global.feedback.correct.01";
+          } else if (feedback.status === "incorrect") {
+            sfxKey = "global.sfx.incorrect";
+            audioKey = "global.feedback.retry.01";
+          } else if (feedback.status === "participation") {
+            sfxKey = "";
+            audioKey = "global.feedback.participation.01";
           } else {
-            playFeedbackSequence(
-              "global.sfx.incorrect",
-              activity.incorrectFeedbackAudioKey,
-            );
+            sfxKey = "global.sfx.completion";
+            audioKey = "global.feedback.completion.01";
+          }
+
+          // Lesson completion (Section 8)
+          const isNewlyCompleted = data.result.journeyStatus === "COMPLETED" && !activity.isCompleted;
+
+          if (isNewlyCompleted) {
+            if (typeof window !== "undefined") {
+              sessionStorage.setItem(`arabic-adventures:should-celebrate:${activity.journeySlug}`, "true");
+              // Preload celebration assets
+              const preloadAudio = (url: string) => {
+                try {
+                  const audio = new Audio();
+                  audio.src = url;
+                  audio.preload = "auto";
+                } catch (e) {
+                  console.warn("Preload failed:", e);
+                }
+              };
+              preloadAudio("/audio/v1/sfx/lesson-complete.01.wav");
+              preloadAudio(`/audio/v1/lessons/${activity.journeySlug}/result.wav`);
+            }
+          }
+
+          if (sfxKey) {
+            playFeedbackSequence(sfxKey, audioKey || null);
+          } else if (audioKey) {
+            playKey(audioKey);
+          }
+          
+          if (feedback.status === "incorrect") {
             setShake(true);
             setTimeout(() => setShake(false), 500);
           }
-        } else {
-          playFeedbackSequence(
-            "global.sfx.completion",
-            activity.completionFeedbackAudioKey,
-          );
         }
       } else {
         setErrorMsg(data.error || "فشل إرسال الإجابة. يرجى المحاولة مرة أخرى.");
@@ -233,20 +374,32 @@ export default function ActivityPlayerClient({
     ? `/lessons/${activity.journeySlug}/activities/${activity.nextActivitySlug}`
     : `/lessons/${activity.journeySlug}/result`;
 
-  const handleManualPlay = () => {
-    if (activity.instructionAudioKey) {
-      playKey(activity.instructionAudioKey);
-    }
-  };
-
   const handleManualReplay = async () => {
-    stop();
-    if (activity.instructionAudioKey) {
-      await playKey(activity.instructionAudioKey);
+    setBlockedSequence(null);
+    lastNarratedScreenEntryId.current = entryId;
+
+    const configObj = activity.configuration as { rounds?: { id: string; prompt?: string }[] } | null;
+    const round = configObj?.rounds?.find((r) => r.id === activeSubId);
+    const questionText = round?.prompt || activity.prompt || "";
+    const instructionText = activity.instruction || "";
+
+    const normInstruction = normalizeArabicText(instructionText);
+    const normQuestion = normalizeArabicText(questionText);
+
+    const keys: string[] = [];
+    if (contract.instructionKey) {
+      keys.push(contract.instructionKey);
     }
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    if (activity.promptAudioKey) {
-      await playKey(activity.promptAudioKey);
+    if (
+      contract.questionKey &&
+      contract.questionKey !== contract.instructionKey &&
+      normQuestion !== normInstruction
+    ) {
+      keys.push(contract.questionKey);
+    }
+
+    if (keys.length > 0) {
+      await playSequence(keys);
     }
   };
 
@@ -265,6 +418,55 @@ export default function ActivityPlayerClient({
 
       {/* Main Gameplay content */}
       <main className="flex-1 max-w-2xl w-full mx-auto px-6 py-8">
+        {/* Child-friendly Activation Control when audio is locked */}
+        {(toggleState === "unlock_required" || blockedSequence !== null) && (
+          <div className="bg-amber-50 border-2 border-dashed border-amber-300 rounded-3xl p-6 text-center shadow-sm mb-6 animate-pulse select-none">
+            <button
+              type="button"
+              onClick={async () => {
+                const sessionVal = typeof window !== "undefined" ? (window as unknown as { __audioSessionId?: string }).__audioSessionId : "unknown";
+                console.log(`[AUDIO_LOG] user-unlock-clicked | sessionId=${sessionVal} | clientId=${clientIdRef.current} | entryId=${entryId} | timestamp=${Date.now()}`);
+                await unlock();
+                
+                const configObj2 = activity.configuration as { rounds?: { id: string; prompt?: string }[] } | null;
+                const round = configObj2?.rounds?.find((r) => r.id === activeSubId);
+                const questionText = round?.prompt || activity.prompt || "";
+                const instructionText = activity.instruction || "";
+
+                const normInstruction = normalizeArabicText(instructionText);
+                const normQuestion = normalizeArabicText(questionText);
+
+                const keys = blockedSequence || (() => {
+                  const k: string[] = [];
+                  if (contract.instructionKey) k.push(contract.instructionKey);
+                  if (
+                    contract.questionKey &&
+                    contract.questionKey !== contract.instructionKey &&
+                    normQuestion !== normInstruction
+                  ) {
+                    k.push(contract.questionKey);
+                  }
+                  return k;
+                })();
+
+                if (keys.length > 0) {
+                  lastNarratedScreenEntryId.current = entryId;
+                  const result = await playSequence(keys);
+                  console.log(`[AUDIO_LOG] unlock-play-result | sessionId=${sessionVal} | clientId=${clientIdRef.current} | status=${result.status} | timestamp=${Date.now()}`);
+                  if (result.status === "completed") {
+                    setBlockedSequence(null);
+                  }
+                } else {
+                  setBlockedSequence(null);
+                }
+              }}
+              className="px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold text-lg md:text-xl rounded-2xl shadow-md transition-all duration-200 flex items-center justify-center gap-2 mx-auto touch-target cursor-pointer"
+            >
+              <span>🔊</span>
+              <span>اضغط لتفعيل الصوت</span>
+            </button>
+          </div>
+        )}
         {/* Instructions Card */}
         <div className="bg-white p-5 md:p-6 rounded-3xl border border-slate-100 shadow-sm mb-6">
           <div className="flex justify-between items-center mb-3">
@@ -273,7 +475,7 @@ export default function ActivityPlayerClient({
             </span>
 
             {/* Manual Audio Widget */}
-            {toggleState !== "unavailable" && toggleState !== "loading" && (
+            {toggleState !== "no_assets" && toggleState !== "initializing" && (
               <div className="flex gap-2">
                 {isNarrating ? (
                   <button
@@ -283,21 +485,14 @@ export default function ActivityPlayerClient({
                     ⏸️ إيقاف مؤقت
                   </button>
                 ) : (
-                  <div className="flex gap-1">
-                    <button
-                      onClick={handleManualPlay}
-                      className="px-3 py-1 rounded-xl bg-teal-50 hover:bg-teal-100 text-teal-700 border border-teal-100 text-[10px] md:text-xs font-bold transition-all touch-target"
-                    >
-                      🔊 استمع إلى السؤال
-                    </button>
-                    <button
-                      onClick={handleManualReplay}
-                      className="px-2.5 py-1 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-500 border border-slate-200 text-[10px] md:text-xs font-bold transition-all touch-target"
-                      title="إعادة الاستماع"
-                    >
-                      🔄 إعادة
-                    </button>
-                  </div>
+                  <button
+                    type="button"
+                    onClick={handleManualReplay}
+                    data-audio-key={activity.instructionAudioKey || ""}
+                    className="px-3 py-1 rounded-xl bg-teal-50 hover:bg-teal-100 text-teal-700 border border-teal-100 text-[10px] md:text-xs font-bold transition-all touch-target"
+                  >
+                    🔊 استمع إلى السؤال
+                  </button>
                 )}
               </div>
             )}
@@ -315,6 +510,7 @@ export default function ActivityPlayerClient({
         <div className={`${shake ? "animate-shake" : ""}`}>
           <ActivityRenderer
             activity={activity}
+            audioContract={contract}
             onSubmit={handleSubmitResponse}
             isSubmitting={isSubmitting}
             evaluationResult={evaluationResult}
@@ -360,14 +556,14 @@ export default function ActivityPlayerClient({
         )}
 
         {/* Feedback Card after evaluation */}
-        {evaluationResult && (
+        {evaluationResult && evaluationResult.feedback && (
           <div className="mt-8 bg-white p-6 rounded-3xl border border-slate-100 shadow-sm animate-fade-in text-right">
-            {!activity.isGraded ? (
+            {evaluationResult.feedback.status === "participation" || evaluationResult.feedback.status === "completed" ? (
               <>
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-2xl">🌟</span>
                   <h3 className="text-base md:text-lg font-bold text-slate-800">
-                    شكرًا لمشاركتك 🌟
+                    {evaluationResult.feedback.displayText}
                   </h3>
                 </div>
                 <p className="text-xs md:text-sm text-slate-600 font-medium leading-relaxed">
@@ -378,12 +574,10 @@ export default function ActivityPlayerClient({
               <>
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-2xl">
-                    {evaluationResult.isCorrect ? "🎉" : "💡"}
+                    {evaluationResult.feedback.status === "correct" ? "🎉" : "💡"}
                   </span>
                   <h3 className="text-base md:text-lg font-bold text-slate-800">
-                    {evaluationResult.isCorrect
-                      ? "أحسنت! إجابة صحيحة"
-                      : "محاولة جيدة!"}
+                    {evaluationResult.feedback.displayText}
                   </h3>
                 </div>
 
