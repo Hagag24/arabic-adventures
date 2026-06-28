@@ -1,4 +1,3 @@
-import os
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent.parent.parent
@@ -8,10 +7,11 @@ EDGE_ROOT = PROJECT_ROOT / "development" / "audio" / "edge-tts"
 PROVIDER = "microsoft-edge-online-tts"
 LOCALE = "ar-EG"
 VOICE = "ar-EG-SalmaNeural"
-RATE = "-5%"
+RATE = "-15%"
 VOLUME = "+0%"
 PITCH = "+0Hz"
 OUTPUT_FORMAT_STR = "PCM 16-bit, 24000 Hz, mono"
+
 
 # Directories
 STAGING_DIR = EDGE_ROOT / "staging"

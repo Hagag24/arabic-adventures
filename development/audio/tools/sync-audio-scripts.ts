@@ -14,7 +14,7 @@ function findTextFor(key: string, category: string): string | null {
     return "أَحْسَنْتَ يا بَطَل! الإِجَابَةُ صَحِيحَة.";
   }
   if (key === "global.feedback.retry.01") {
-    return "وَلا يِهِمَّك، فَكِّر شُوَيَّة وَجَرِّب تاني.";
+    return "وَلا يِهِمَّك يا بَطَل، الحَلّ مِش صَحّ. فَكِّر بِهُدوء وَجَرِّب تاني.";
   }
   if (key === "global.feedback.completion.01") {
     return "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.";

@@ -1,11 +1,1780 @@
 {
-  "lessons.ancient-egyptian-teacher.discovery-results.prompt": "اُكْتُبْ نتيجتين تاريخيتين أو علميتين ترتبتا على العثور على المقبرة:",
-  "lessons.ancient-egyptian-teacher.student-questions.prompt": "اُكْتُبْ 3 أسئلة تثير فضولك حول مقبرة الكاتب المصري القديم:",
-  "lessons.ancient-egyptian-teacher.titles-generation.instruction": "اُكْتُبْ ثلاثة عناوين جديدة مناسبة للخبر المسموع.",
-  "lessons.magdi-yacoub.king-of-hearts-yacoub-alternative-ending.prompt": "اُكْتُبْ نهاية بديلة تتخيلها لزيارة أحد الأطفال المتعافين للمركز بعد سنوات طويلة من العلاج:",
-  "lessons.magdi-yacoub.king-of-hearts-yacoub-humanitarian-project.prompt": "اُكْتُبْ خطة إبداعية لمشروع ترغب في بنائه مستقبلاً لخدمة زملائك أو مجتمعك:",
-  "lessons.magdi-yacoub.king-of-hearts-yacoub-interview-questions.instruction": "اُكْتُبْ ثلاثة أسئلة تود طرحها على د. مجدي يعقوب.",
-  "lessons.magdi-yacoub.king-of-hearts-yacoub-new-word.prompt": "اُكْتُبْ كلمة فصيحة أعجبتك في نص الطبيب الإنساني وصيغها في جملة تامة التعبير:",
-  "lessons.magdi-yacoub.king-of-hearts-yacoub-story-titles.instruction": "اُكْتُبْ ثلاثة عناوين مناسبة لحكاية مجدي يعقوب.",
-  "lessons.magdi-yacoub.king-of-hearts-yacoub-title-prediction.prompt": "اُكْتُبْ توقعك الخاص عن موضوع القصة قبل سماعها بالكامل:"
+  "global.welcome.01": {
+    "displayText": "أَهْلًا بِكَ يا بَطَل! هَلْ أَنْتَ جاهِزٌ لِنَبْدَأَ رِحْلَتَنا في اللُّغَةِ العَرَبِيَّة؟ هَيَّا بِنَا!",
+    "spokenText": "أَهْلًا بِكَ يَا بَطَلْ! هَلْ أَنْتَ جَاهِزٌ لِنَبْدَأَ رِحْلَتَنَا فِي اللُّغَةِ العَرَبِيَّهْ؟ هَيَّا بِنَا!",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "global.feedback.correct.01": {
+    "displayText": "أَحْسَنْتَ يا بَطَل! الإِجَابَةُ صَحِيحَة.",
+    "spokenText": "أَحْسَنْتَ يَا بَطَلْ! الإِجَابَةُ صَحِيحَهْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "global.feedback.retry.01": {
+    "displayText": "وَلا يِهِمَّك يا بَطَل، الحَلّ مِش صَحّ. فَكِّر بِهُدوء وَجَرِّب تاني.",
+    "spokenText": "وَلَا يِهِمَّكْ يَا بَطَلْ، الحَلّ مِشْ صَحّْ. فَكِّرْ بِهُدُوءْ وَجَرِّبْ تَانِي.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "global.feedback.completion.01": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "global.feedback.participation.01": {
+    "displayText": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "spokenText": "شُكْرًا لِمُشَارَكَتِكْ، تَمَّ حِفْظُ إِجَابَتِكْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "lessons.ancient-egyptian-teacher.story": {
+    "displayText": "بدأَ المتحفُ المصريُّ مشروعاً كبيراً لتطويرِ القاعةِ التي تعرضُ تاريخَ التعليمِ والكتابةِ في مصرَ القديمةِ. وفي هذا العرضِ، يظهرُ دورُ المعلّمِ المصريِّ القديمِ، الذي كان يُسمّى \"الكاتب\". كان هذا الكاتبُ يجلسُ في وقارٍ على وسادةٍ، ويحملُ بيدِهِ لوحةً خشبيةً وأدواتِ الكِتابةِ المصنوعةِ من الخشبِ والريشِ. وكان الكُتّابُ يدوّنون علومَهُم وأفكارَهُم على أوراقِ البرديِّ التي عُثِرَ عليها لاحقاً in مقابرِ العلماءِ. لقد حظِيَ الكاتبُ بمكانةٍ عظيمةٍ في مجتمعِهِ، لأنَّهُ كان ينشرُ العِلمَ والمعرفةَ ويُسهمُ في بناءِ الحضارةِ وتدوينِ التاريخِ.",
+    "spokenText": "بَدَأَ المَتْحَفُ المِصْرِيُّ مَشْرُوعًا كَبِيرًا لِتَطْوِيرِ القَاعَةِ الَّتِي تَعْرِضُ تَارِيخَ التَّعْلِيمِ وَالكِتَابَةِ فِي مِصْرَ القَدِيمَهْ. وَفِي هَذَا العَرْضْ، يَظْهَرُ دَوْرُ المُعَلِّمِ المِصْرِيِّ القَدِيمْ، الَّذِي كَانَ يُسَمَّى \"الكَاتِبْ\". كَانَ هَذَا الكَاتِبُ يَجْلِسُ فِي وَقَارٍ عَلَى وِسَادَهْ، وَيَحْمِلُ بِيَدِهِ لَوْحَةً خَشَبِيَّةً وَأَدَوَاتِ الكِتَابَةِ مَصْنُوعَةِ مِنَ الخَشَبِ وَالرِّيشْ. وَكَانَ الكُتَّابُ يُدَوِّنُونَ عُلُومَهُمْ وَأَفْكَارَهُمْ عَلَى أَوْرَاقِ البَرْدِيِّ الَّتِي عُثِرَ عَلَيْهَا لَاحِقًا فِي مَقَابِرِ العُلَمَاءْ. لَقَدْ حَظِيَ الكَاتِبُ بِمَكَانَةٍ عَظِيمَةٍ فِي مُجْتَمَعِهْ، لِأَنَّهُ كَانَ يَنْشُرُ العِلْمَ وَالمَعْرِفَةَ وَيُسْهِمُ فِي بِنَاءِ الحَضَارَةِ وَتَدْوِينِ التَّارِيخْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "lessons.magdi-yacoub.story": {
+    "displayText": "ولدَ الدكتور مجدي يعقوب في مصرَ، وكان والدُهُ طبيباً جراحاً ناجحاً. تعلّمَ مجدي من والدِهِ حبَّ مساعدةِ الناسِ والتعاطفَ مع المرضى، فقررَ أن يصبحَ طبيباً ليعالجَ قلوبَ الأطفالِ والكِبارِ. سافرَ الطبيبُ الشابُّ إلى بريطانيا ليتعلمَ ويكتسبَ الخبرةَ العالميةَ. واجتهدَ لسنواتٍ طويلةٍ حتى أصبحَ من أشهرِ جراحي القلبِ في العالمِ، وحصلَ على لقبِ \"سير\" تكريماً لجهودِهِ الإنسانيةِ. ورغم شهرتِهِ الكبيرةِ، قررَ العودةَ إلى مصرَ في عامِ ألفينِ وتسعةٍ. واختارَ مدينةَ أسوانَ الهادئةَ ليبني فيها مركزاً عالمياً لجراحاتِ القلبِ، لعلاجِ المرضى بالمليونِ وبالمجّانِ، ورسمِ البسمةِ على وجوهِ المرضى وأطفالِ مصرَ الطيبين.",
+    "spokenText": "وُلِدَ الدُّكْتُور مَجْدِي يَعْقُوب فِي مِصْرْ، وَكَانَ وَالِدُهُ طَبِيبًا جَرَّاحًا نَاجِحًا. تَعَلَّمَ مَجْدِي مِنْ وَالِدِهِ حُبَّ مُسَاعَدَةِ النَّاسِ وَالتَّعَاطُفَ مَعَ المَرْضَى، فَقَرَّرَ أَنْ يُصْبِحَ طَبِيبًا لِيُعَالِجَ قُلُوبَ الأَطْفَالِ وَالكِبَارْ. سَافَرَ الطَّبِيبُ الشَّابُّ إِلَى بِرِيطَانِيَا لِيَتَعَلَّمَ وَيَكْتَسِبَ الخِبْرَةَ العَالَمِيَّهْ. وَاجْتَهَدَ لِسَنَوَاتٍ طَوِيلَةٍ حَتَّى أَصْبَحَ مِنْ أَشْهَرِ جَرَّاحِي القَلْبِ فِي العَالَمْ، وَحَصَلَ عَلَى لَقَبِ \"سِيرْ\" تَكْرِيمًا لِجُهُودِهِ الإِنْسَانِيَّهْ. وَرَغْمَ شُهْرَتِهِ الكَبِيرَهْ، قَرَّرَ العَوْدَةَ إِلَى مِصْرَ فِي عَامِ أَلْفَيْنِ وَتِسْعَهْ. وَاخْتَارَ مَدِينَةَ أَسْوَانَ الهَادِئَةَ لِيَبْنِيَ فِيهَا مَرْكَزًا عَالَمِيًّا لِجِرَاحَاتِ القَلْبْ، لِعِلَاجِ المَرْضَى بِالمَلْيُونِ وَبِالمَجَّانْ، وَرَسْمِ البَسْمَةِ عَلَى وُجُوهِ مََرْضَى وَأَطْفَالِ مِصْرَ الطَّيِّبِينْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "lessons.ancient-egyptian-teacher.result": {
+    "displayText": "لقد أنهيتَ دَرْسَ المعلّمِ المصريِّ القديمِ بالكاملِ بنجاحٍ وحصلتَ على وسامِ مُستكشِفِ الحضارَةِ!",
+    "spokenText": "لَقَدْ أَنْهَيْتَ دَرْسَ المُعَلِّمِ المِصْرِيِّ القَدِيمِ بِالكَامِلِ بِنَجَاحٍ وَحَصَلْتَ عَلَى وِسَامِ مُسْتَكْشِفِ الحَضَارَهْ!",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "lessons.magdi-yacoub.result": {
+    "displayText": "لقد أنهيتَ دَرْسَ حِوارٍ مع الدكتور مجدي يعقوب بالكاملِ بنجاحٍ وحصلتَ على وسامِ صانِعِ الأملِ!",
+    "spokenText": "لَقَدْ أَنْهَيْتَ دَرْسَ حِوَارٍ مَعَ الدُّكْتُور مَجْدِي يَعْقُوب بِالكَامِلِ بِنَجَاحٍ وَحَصَلْتَ عَلَى وِسَامِ صَانِعِ الأَمَلْ!",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-arabic-feelings-j1-instruction": {
+    "displayText": "ما شعورك قبل حصة اللغة العربية؟",
+    "spokenText": "مَا شُعُورُكَ قَبْلَ حِصَّةِ اللُّغَةِ العَرَبِيَّهْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-arabic-feelings-j1-prompt": {
+    "displayText": "اختر ما يعبر بصدق عن مشاعرك الداخلية قبل بدء الدرس:",
+    "spokenText": "اِخْتَرِ مَا يُعَبِّرُ بِصِدْقٍ عَنْ مَشَاعِرِكَ الدَّاخِلِيَّةِ قَبْلَ بَدْءِ الدَّرْسْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-arabic-feelings-j1-option-happy": {
+    "displayText": "أشعر بالحماس والرغبة في المعرفة والاستكشاف",
+    "spokenText": "أَشْعُرُ بِالحَمَاسِ وَالرَّغْبَةِ في مَعْرِفَةِ وَالاِسْتِكْشَافْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-arabic-feelings-j1-option-neutral": {
+    "displayText": "أشعر بالهدوء والتركيز المعتاد",
+    "spokenText": "أَشْعُرُ بِالهُدُوءِ وَالتَّرْكِيزِ المُعْتَادْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-arabic-feelings-j1-option-calm": {
+    "displayText": "أشعر بالسكينة وأتطلع للقصة والمشاريع الجديدة",
+    "spokenText": "أَشْعُرُ بِالسَّكِينَةِ وَأَتَطَلَّعُ لِلْقِصَّةِ وَالْمَشَارِيعِ الجَدِيدَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-arabic-feelings-j1-completion-feedback": {
+    "displayText": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "spokenText": "شُكْرًا لِمُشَارَكَتِكْ، تَمَّ حِفْظُ إِجَابَتِكْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-arabic-self-assessment-instruction": {
+    "displayText": "هل تقرأ العربية خارج المدرسة؟",
+    "spokenText": "هَلْ تَقْرَأُ العَرَبِيَّةِ خَارِجَ مَدْرَسَهْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-arabic-self-assessment-prompt": {
+    "displayText": "حدد مدى اهتمامك بقراءة كتب أو قصص أو تصفح مواقع بالعربية:",
+    "spokenText": "حَدِّدْ مَدَى اهْتِمَامِكَ بِقِرَاءَةِ كُتُبٍ أَوْ قِصَصٍ أَوْ تَصَفُّحِ مَوَاقِعَ بِالعَرَبِيَّهْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-arabic-self-assessment-option-happy": {
+    "displayText": "أشعر بالسعادة والشغف وأقرا باستمرار",
+    "spokenText": "أَشْعُرُ بِالسَّعَادَةِ وَالشَّغَفِ وَأَقْرَأُ بِاسْتِمْرَارْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-arabic-self-assessment-option-neutral": {
+    "displayText": "أشعر بالهدوء والاعتياد وأقرأ عند الضرورة",
+    "spokenText": "أَشْعُرُ بِالهُدُوءِ وَالاِعْتِيَادِ وَأَقْرَأُ عِنْدَ الضَّرُورَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-arabic-self-assessment-option-bored": {
+    "displayText": "أشعر بالملل أحياناً وأحاول التحسن",
+    "spokenText": "أَشْعُرُ بِالمَلَلِ أَحْيَانًا وَأُحَاوِلُ التَّحَسُّنْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-arabic-self-assessment-completion-feedback": {
+    "displayText": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "spokenText": "شُكْرًا لِمُشَارَكَتِكْ، تَمَّ حِفْظُ إِجَابَتِكْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-titles-generation-instruction": {
+    "displayText": "اكتب ثلاثة عناوين جديدة مناسبة للخبر المسموع.",
+    "spokenText": "اُكْتُبْ ثَلَاثَةَ عَنَاوِينَ جَدِيدَةٍ مُنَاسِبَةٍ لِلْخَبَرِ مَسْمُوعْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-titles-generation-prompt": {
+    "displayText": "اقترح 3 عناوين تعبر عن دور الكاتب والمعلم المصري القديم:",
+    "spokenText": "اقْتَرِحْ 3 عَنَاوِينَ تُعَبِّرُ عَنْ دَوْرِ كَاتِبِ وَالْمُعَلِّمِ مِصْرِيُّ القَدِيمْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-titles-generation-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-student-questions-instruction": {
+    "displayText": "دون ثلاثة أسئلة تتمنى أن تسألها عند سماع النص.",
+    "spokenText": "دُونَ ثَلَاثَةَ أَسْئِلَةٍ تَتَمَنَّى أَنْ تَسْأَلُهَا عِنْدَ سَمَاعِ النَّصّْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-student-questions-prompt": {
+    "displayText": "اكتب 3 أسئلة تثير فضولك حول مقبرة الكاتب المصري القديم:",
+    "spokenText": "اُكْتُبْ 3 أَسْئِلَةٍ تُثِيرُ فُضُولَكَ حَوْلَ مَقْبَرَةِ كَاتِبِ مِصْرِيُّ القَدِيمْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-student-questions-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-best-title-choice-instruction": {
+    "displayText": "أختر العنوان الأنسب للنص المسموع.",
+    "spokenText": "اِخْتَرِ العُنْوَانَ الأَنْسَبَ لِلنَّصِّ مَسْمُوعْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-best-title-choice-prompt": {
+    "displayText": "ما هو العنوان الأكثر دقة وشمولاً للنص الذي استمعت إليه؟",
+    "spokenText": "مَا هُوَ العُنْوَانَ الأَكْثَرُ دِقَّةِ وشمولاً لِلنَّصِّ الَّذِي اسْتَمَعْتَ إِلَيْهْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-best-title-choice-option-opt1": {
+    "displayText": "أدوات الكتابة الخشبية",
+    "spokenText": "أَدَوَاتِ الكِتَابَةِ الخَشَبِيَّهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-best-title-choice-option-opt2": {
+    "displayText": "المعلم المصري القديم ودوره في الحضارة",
+    "spokenText": "المُعَلِّمِ مِصْرِيُّ القَدِيمِ وَدَوْرِهِ في الحَضَارَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-best-title-choice-option-opt3": {
+    "displayText": "المتاحف وتطوير القاعات القديمة",
+    "spokenText": "مَتَاحِفِ وَتَطْوِيرِ القَاعَاتِ القَدِيمَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-best-title-choice-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-main-idea-choice-instruction": {
+    "displayText": "اختر الفكرة الرئيسة للخبر المسموع.",
+    "spokenText": "اِخْتَرِ الفِكْرَةَ الرَّئِيسَةَ لِلْخَبَرِ مَسْمُوعْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-main-idea-choice-prompt": {
+    "displayText": "ما هي الفكرة الرئيسة التي يدور حولها الخبر؟",
+    "spokenText": "مَا هِيَ الفِكْرَةَ الرَّئِيسَةَ الَّتِي يَدُورُ حَوْلَهَا الخَبَرْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-main-idea-choice-option-opt1": {
+    "displayText": "احترام المعلم المصري القديم ودوره في نشر العلم",
+    "spokenText": "احْتِرَامِ المُعَلِّمِ مِصْرِيُّ القَدِيمِ وَدَوْرِهِ في نَشْرِ العِلْمْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-main-idea-choice-option-opt2": {
+    "displayText": "طريقة صناعة أوراق البردي في المقابر",
+    "spokenText": "طَرِيقَةِ صِنَاعَةِ أَوْرَاقِ بَرْدِيِّ في المَقَابِرْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-main-idea-choice-option-opt3": {
+    "displayText": "أهمية تزيين جدران المقابر بالرسومات",
+    "spokenText": "أَهَمِّيَّةُ تَزْيِينِ جُدْرَانِ المَقَابِرِ بِالرُّسُومَاتْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-main-idea-choice-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-tomb-location-instruction": {
+    "displayText": "أين عُثر على مقبرة الكاتب؟",
+    "spokenText": "أَيْنَ عَثَرَ على مَقْبَرَةِ كَاتِبْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-tomb-location-prompt": {
+    "displayText": "حدد مكان المقبرة التاريخية التي عثر عليها العلماء:",
+    "spokenText": "حَدِّدْ مَكَانِ المَقْبَرَةِ التَّارِيخِيَّةَ الَّتِي عَثَرَ عَلَيْهَا عُلَمَاءْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-tomb-location-option-loc1": {
+    "displayText": "في مقابر العلماء بسقارة",
+    "spokenText": "في مَقَابِرِ عُلَمَاءُ Bِسَقَّارَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-tomb-location-option-loc2": {
+    "displayText": "في مقابر وادي الملوك بالأقصر",
+    "spokenText": "في مَقَابِرِ وَادِي ملُوكِ بِالأُقْصُرْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-tomb-location-option-loc3": {
+    "displayText": "بجوار أهرامات الجيزة",
+    "spokenText": "Bِجِوَارِ أَهْرَامَاتِ الجِيزَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-tomb-location-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-tomb-importance-instruction": {
+    "displayText": "لماذا كانت المقبرة مهمة؟",
+    "spokenText": "لِمَاذَا كَانَتْ المَقْبَرَةِ مُهِمَّهْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-tomb-importance-prompt": {
+    "displayText": "ما الذي جعل هذا الاكتشاف الأثري فريداً ومهماً للغاية؟",
+    "spokenText": "مَا الَّذِي جَعْلِ هَذَا الاِكْتِشَافُ الأَثَرِيُّ فريداً ومهماً لِلْغَايَهْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-tomb-importance-option-imp1": {
+    "displayText": "لأنها تخص كاتب قديم مدفون مع أدوات كتابته الخشبية وبرديات",
+    "spokenText": "لِأَنَّهَا تَخُصُّ كَاتِبٍ قَدِيمٍ مَدْفُونٍ مع أَدَوَاتِ كِتَابَتِهِ الخَشَبِيَّةِ وَبَرْدِيَّاتْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-tomb-importance-option-imp2": {
+    "displayText": "لأنها تحتوي على كميات هائلة من الذهب والكنوز الملكية",
+    "spokenText": "لِأَنَّهَا تَحْتَوِي على كَمِّيَّاتٍ هَائِلَةٍ مَنِ ذَهَبِ وَالكُنُوزِ مَلَكِيَّهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-tomb-importance-option-imp3": {
+    "displayText": "لأنها تثبت أسرار بناء الأهرامات الثلاثة بالتفصيل",
+    "spokenText": "لِأَنَّهَا تُثْبِتُ أَسْرَارِ Bِنَاءِ الأَهْرَامَاتِ الثَّلَاثَةِ بِالتَّفْصِيلْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-tomb-importance-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-teacher-status-discovery-instruction": {
+    "displayText": "ماذا يدل الاكتشاف على مكانة المعلم؟",
+    "spokenText": "مَاذَا يَدُلُّ الاِكْتِشَافُ على مَكَانَةِ المُعَلِّمْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-teacher-status-discovery-prompt": {
+    "displayText": "بماذا يوحي دفن أدوات الكتابة مع الكاتب في مقبرته؟",
+    "spokenText": "Bِمَاذَا يُوحِي دَفْنِ أَدَوَاتِ الكِتَابَةِ مع كَاتِبِ في مَقْبَرَتِهْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-teacher-status-discovery-option-st1": {
+    "displayText": "يدل على التقدير الهائل والاحترام للتعليم والمعلم بمصر القديمة",
+    "spokenText": "يَدُلُّ على التَّقْدِيرِ الهَائِلِ وَالاِعْتِرَامِ لِلتَّعْلِيمِ وَالْمُعَلِّمِ بِمِصْرَ القَدِيمَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-teacher-status-discovery-option-st2": {
+    "displayText": "يدل على أن التعليم كان يقتصر فقط على الكهنة والملوك",
+    "spokenText": "يَدُلُّ على أَنْ التَّعْلِيمِ كَانَ يَقْتَصِرُ فَقَطْ على كَهَنَةِ وَالْمُلُوكْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-teacher-status-discovery-option-st3": {
+    "displayText": "يدل على رغبة الكاتب في مواصلة الدراسة بمفرده",
+    "spokenText": "يَدُلُّ على رَغْبَةِ كَاتِبِ في مُوَاصَلَةِ الدِّرَاسَةِ بِمُفْرَدِهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-teacher-status-discovery-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-synonym-matching-instruction": {
+    "displayText": "طابق كل كلمة مع مرادفها الصحيح:",
+    "spokenText": "طَابِقْ كُلَّ كَلِمَةٍ مع مُرَادِفُهَا الصَّحِيحْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-synonym-matching-prompt": {
+    "displayText": "اذكر مرادفات الكلمات التالية من النص:",
+    "spokenText": "اُذْكُرْ مُرَادِفَاتِ الكَلِمَاتِ التَّالِيَةَ مَنِ النَّصّْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-synonym-matching-option-word1": {
+    "displayText": "عالم",
+    "spokenText": "عَالِمْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-synonym-matching-option-word2": {
+    "displayText": "مقبرة",
+    "spokenText": "مَقْبَرَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-synonym-matching-option-word3": {
+    "displayText": "مهنة",
+    "spokenText": "مِهْنَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-synonym-matching-option-mean1": {
+    "displayText": "باحث",
+    "spokenText": "بَاحِثْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-synonym-matching-option-mean2": {
+    "displayText": "مدفن",
+    "spokenText": "مَدْفَنْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-synonym-matching-option-mean3": {
+    "displayText": "حرفة",
+    "spokenText": "حِرْفَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-synonym-matching-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-antonyms-detailed-instruction": {
+    "displayText": "طابق كل كلمة مع ضدها الصحيح:",
+    "spokenText": "طَابِقْ كُلَّ كَلِمَةٍ مع ضِدَّهَا الصَّحِيحْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-antonyms-detailed-prompt": {
+    "displayText": "طابق الكلمات التالية مع أضدادها المعاكسة في المعنى:",
+    "spokenText": "طَابِقْ الكَلِمَاتِ التَّالِيَةَ مع أَضْدَادِهَا المُعَاكِسَةِ في المَعْنَى:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-antonyms-detailed-option-w1": {
+    "displayText": "القديم",
+    "spokenText": "القَدِيمْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-antonyms-detailed-option-w2": {
+    "displayText": "العلم",
+    "spokenText": "العِلْمْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-antonyms-detailed-option-w3": {
+    "displayText": "البداية",
+    "spokenText": "البِدَايَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-antonyms-detailed-option-w4": {
+    "displayText": "اهتمام",
+    "spokenText": "اهْتِمَامْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-antonyms-detailed-option-w5": {
+    "displayText": "احترام",
+    "spokenText": "احْتِرَامْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-antonyms-detailed-option-w6": {
+    "displayText": "تقدير",
+    "spokenText": "تَقْدِيرْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-antonyms-detailed-option-ant1": {
+    "displayText": "الحديث",
+    "spokenText": "الحَدِيثْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-antonyms-detailed-option-ant2": {
+    "displayText": "الجهل",
+    "spokenText": "الجَهْلْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-antonyms-detailed-option-ant3": {
+    "displayText": "النهاية",
+    "spokenText": "النِّهَايَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-antonyms-detailed-option-ant4": {
+    "displayText": "تجاهل",
+    "spokenText": "تَجَاهُلْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-antonyms-detailed-option-ant5": {
+    "displayText": "ازدراء",
+    "spokenText": "ازْدِرَاءْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-antonyms-detailed-option-ant6": {
+    "displayText": "إهمال",
+    "spokenText": "إِهْمَالْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-antonyms-detailed-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-meaning-matching-instruction": {
+    "displayText": "صل بين الحدث ومعناه الصحيح.",
+    "spokenText": "صِلْ بَيْنَ الحَدَثِ وَمَعْنَاهُ الصَّحِيحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-meaning-matching-prompt": {
+    "displayText": "طابق الحدث مع المعنى المعبر عنه:",
+    "spokenText": "طَابِقْ الحَدَثِ مع المَعْنَى المُعَبِّرِ عَنْهْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-meaning-matching-option-evt1": {
+    "displayText": "تطوير قاعة الكتابة والتعليم بالمتحف",
+    "spokenText": "تَطْوِيرِ قَاعَةِ الكِتَابَةِ وَالتَّعْلِيمِ بِالْمَتْحَفْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-meaning-matching-option-evt2": {
+    "displayText": "العثور على البرديات بمقابر العلماء",
+    "spokenText": "عُثُورِ على البَرْدِيَّاتِ Bِمَقَابِرِ عُلَمَاءْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-meaning-matching-option-evt3": {
+    "displayText": "جلوس الكاتب بوقار على وسادة",
+    "spokenText": "جُلُوسِ كَاتِبِ Bِوَقَارٍ على وِسَادَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-meaning-matching-option-val1": {
+    "displayText": "الاهتمام بنشر الوعي بتاريخ التعليم",
+    "spokenText": "الاِهْتِمَامِ Bِنَشْرِ الوَعْيِ Bِتَارِيخِ التَّعْلِيمْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-meaning-matching-option-val2": {
+    "displayText": "تأكيد فكرة تخليد العلم وتقدير المعرفة",
+    "spokenText": "تَأْكِيدٌ فِكْرَةِ تَخْلِيدِ العِلْمِ وَتَقْدِيرِ مَعْرِفَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-meaning-matching-option-val3": {
+    "displayText": "الهيبة والاحترام التي كان يحظى بها الكاتب",
+    "spokenText": "الهَيْبَةِ وَالاِعْتِرَامِ الَّتِي كَانَ يَحْظَى Bِهَا كَاتِبْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-meaning-matching-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-ordering-instruction": {
+    "displayText": "رتب الأحداث التالية حسب تسلسلها في الخبر.",
+    "spokenText": "رَتِّبْ الأَحْدَاثِ التَّالِيَةَ حَسَبَ تَسَلْسُلِهَا في الخَبَرْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-ordering-prompt": {
+    "displayText": "رتب الجمل التالية زمنياً:",
+    "spokenText": "رَتِّبْ الجُمَلَ التَّالِيَةَ زَمَنِيًّا:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-ordering-option-evt1": {
+    "displayText": "بدأ المتحف المصري مشروع تطوير القاعة",
+    "spokenText": "Bَدَأَ مَتْحَفُ مِصْرِيُّ مَشْرُوعُ تَطْوِيرِ قَاعَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-ordering-option-evt2": {
+    "displayText": "عرض المتحف دور المعلم",
+    "spokenText": "عَرْضِ مَتْحَفُ دَوْرِ المُعَلِّمْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-ordering-option-evt3": {
+    "displayText": "استخدم المعلم القديم البردية",
+    "spokenText": "اسْتَخْدِمْ المُعَلِّمِ القَدِيمِ البَرْدِيَّهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-ordering-option-evt4": {
+    "displayText": "أعجب الزوار بالعرض",
+    "spokenText": "أَعْجَبَ الزُّوَّارِ بِالْعَرْضْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-ordering-b-option-b1": {
+    "displayText": "وجود الكاتب في المجتمع",
+    "spokenText": "وُجُودِ كَاتِبِ في مُجْتَمَعْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-ordering-b-option-b2": {
+    "displayText": "وفاته ودفنه",
+    "spokenText": "وَفَاتِهِ وَدَفْنِهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-ordering-b-option-b3": {
+    "displayText": "اكتشاف المقبرة",
+    "spokenText": "اكْتِشَافِ المَقْبَرَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-ordering-b-option-b4": {
+    "displayText": "معرفة أهميته",
+    "spokenText": "مَعْرِفَةِ أَهَمِّيَّتِهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-event-ordering-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-what-if-reflection-instruction": {
+    "displayText": "ماذا لو لم تُكتشف مقبرة الكاتب المصري القديم؟",
+    "spokenText": "مَاذَا لَوْ لَمْ تُكتشف مَقْبَرَةِ كَاتِبِ مِصْرِيُّ القَدِيمْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-what-if-reflection-prompt": {
+    "displayText": "عبر بأسلوبك عن رأيك في مدى أهمية هذا الاكتشاف المعرفي والتاريخي لبلدنا الحبيب:",
+    "spokenText": "عَبْرَ بِأُسْلُوبِكَ عَنْ رَأْيِكَ في مَدَى أَهَمِّيَّةُ هَذَا الاِكْتِشَافُ المَعْرِفِيِّ وَالتَّارِيخِيِّ لِبَلَدِنَا الحَبِيبْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-what-if-reflection-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-discovery-results-instruction": {
+    "displayText": "استخرج نتيجتين ترتبتا على هذا الاكتشاف.",
+    "spokenText": "اسْتَخْرِجْ نَتِيجَتَيْنِ تَرَتَّبَتَا على هَذَا الاِكْتِشَافْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-discovery-results-prompt": {
+    "displayText": "اكتب نتيجتين تاريخيتين أو علميتين ترتبتا على العثور على المقبرة:",
+    "spokenText": "اُكْتُبْ نَتِيجَتَيْنِ تَارِيخِيَّتَيْنِ أَوْ عِلْمِيَّتَيْنِ تَرَتَّبَتَا على عُثُورِ على المَقْبَرَهْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-discovery-results-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-character-event-identification-instruction": {
+    "displayText": "صل بين العنصر وتوصيفه المناسب.",
+    "spokenText": "صِلْ بَيْنَ العُنْصُرِ وَتَوْصِيفِهِ المُنَاسِبْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-character-event-identification-prompt": {
+    "displayText": "طابق العناصر بالتعريف الأنسب:",
+    "spokenText": "طَابِقْ العَنَاصِرِ بِالتَّعْرِيفِ الأَنْسَبْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-character-event-identification-option-elm1": {
+    "displayText": "الشخصية الأهم بالخبر",
+    "spokenText": "شَّخْصِيَّةِ الأَهَمُّ بِالْخَبَرْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-character-event-identification-option-elm2": {
+    "displayText": "الحدث الأهم بالنص",
+    "spokenText": "الحَدَثِ الأَهَمُّ Bِالنَّصّْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-character-event-identification-option-def1": {
+    "displayText": "الكاتب / المعلم المصري القديم",
+    "spokenText": "كَاتِبِ / المُعَلِّمِ مِصْرِيُّ القَدِيمْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-character-event-identification-option-def2": {
+    "displayText": "اكتشاف مقبرة كاتب قديم وبدء تطوير القاعة بالمتحف",
+    "spokenText": "اكْتِشَافِ مَقْبَرَةِ كَاتِبٍ قَدِيمٍ وَبَدْءِ تَطْوِيرِ قَاعَةِ بِالْمَتْحَفْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-character-event-identification-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-mental-visualization-instruction": {
+    "displayText": "هل تتخيل المشاهد أثناء الاستماع؟",
+    "spokenText": "هَلْ تَتَخَيَّلُ المُشَاهِدِ أَثْنَاءَ الاِسْتِمَاعْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-mental-visualization-prompt": {
+    "displayText": "اختر ما يصف سلوكك الذهني عند الاستماع للخبر المسموع:",
+    "spokenText": "اِخْتَرِ مَا يَصِفُ سُلُوكِكَ الذِّهْنِيِّ عِنْدَ الاِسْتِمَاعِ لِلْخَبَرِ مَسْمُوعْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-mental-visualization-option-vis1": {
+    "displayText": "نعم، أرسم صوراً ملونة للمشاهد والشخصيات في مخيلتي",
+    "spokenText": "نَعَمْ، أَرْسُمُ صُوَرًا مُلَوَّنَةٍ لِلْمُشَاهِدِ وَالشَّخْصِيَّاتِ في مُخَيَّلَتِي",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-mental-visualization-option-vis2": {
+    "displayText": "أحياناً أتخيل التفاصيل الهامة فقط",
+    "spokenText": "أَحْيَانًا أَتَخَيَّلُ التَّفَاصِيلِ الهَامَّةِ فَقَطْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-mental-visualization-option-vis3": {
+    "displayText": "أركز على الكلمات والعبارات ولا أتخيل صوراً",
+    "spokenText": "أُرَكِّزُ على الكَلِمَاتِ وَالْعِبَارَاتِ وَلَا أَتَخَيَّلُ صُوَرًا",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-mental-visualization-completion-feedback": {
+    "displayText": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "spokenText": "شُكْرًا لِمُشَارَكَتِكْ، تَمَّ حِفْظُ إِجَابَتِكْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-new-words-usage-instruction": {
+    "displayText": "هل تستخدم كلمات عربية جديدة في حياتك اليومية؟",
+    "spokenText": "هَلْ تَسْتَخْدِمُ كَلِمَاتِ عَرَبِيَّةٍ جَدِيدَةٍ في حَيَاتِكَ اليَوْمِيَّهْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-new-words-usage-prompt": {
+    "displayText": "اختر مدى حرصك على تطبيق المفردات الجديدة التي تكتشفها في حديثك:",
+    "spokenText": "اِخْتَرِ مَدَى حِرْصِكَ على تَطْبِيقِ المُفْرَدَاتِ الجَدِيدَةِ الَّتِي تَكْتَشِفُهَا في حَدِيثِكْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-new-words-usage-option-use_yes": {
+    "displayText": "نعم، أحب استخدام الكلمات الفصيحة أمام والدي وزملائي",
+    "spokenText": "نَعَمْ، أُحِبُّ اسْتِخْدَامِ الكَلِمَاتِ الفَصِيحَةِ أَمَامَ وَالِدِي وَزُمَلَائِي",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-new-words-usage-option-use_try": {
+    "displayText": "أحاول استخدامها عندما تكون مناسبة للموضوع",
+    "spokenText": "أُحَاوِلُ اسْتِخْدَامِهَا عِنْدَمَا تَكُونُ مُنَاسِبَةٍ لِلْمَوْضُوعْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-new-words-usage-option-use_no": {
+    "displayText": "أنسى الكلمات الجديدة سريعاً ولا أستخدمها",
+    "spokenText": "أَنْسَى الكَلِمَاتِ الجَدِيدَةِ سَرِيعًا وَلَا أَسْتَخْدِمُهَا",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-new-words-usage-completion-feedback": {
+    "displayText": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "spokenText": "شُكْرًا لِمُشَارَكَتِكْ، تَمَّ حِفْظُ إِجَابَتِكْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-classroom-attention-instruction": {
+    "displayText": "كيف تتصرف أثناء شرح المعلم؟",
+    "spokenText": "كَيْفَ تَتَصَرَّفُ أَثْنَاءَ شَرْحِ المُعَلِّمْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-classroom-attention-prompt": {
+    "displayText": "ما هو الخيار الذي يصف بصدق سلوكك الصفي عند شرح دروس العربية؟",
+    "spokenText": "مَا هُوَ الخِيَارَ الَّذِي يَصِفُ بِصِدْقٍ سُلُوكِكَ الصَّفِّيِّ عِنْدَ شَرْحِ دُرُوسِ العَرَبِيَّهْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-classroom-attention-option-att1": {
+    "displayText": "أنصت بكل جوارحي وأدون التلاحظات الهامة",
+    "spokenText": "أُنْصِتُ Bِكُلِّ جَوَارِحِي وَأُدَوِّنُ التَّلَاحُظَاتِ الهَامَّهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-classroom-attention-option-att2": {
+    "displayText": "أشارك بفعالية في الإجابة عن التحديات الموجهة",
+    "spokenText": "أُشَارِكُ Bِفَعَالِيَّةٍ في الإِجَابَةَ عَنْ التَّحَدِّيَاتِ المُوَجَّهَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-classroom-attention-option-att3": {
+    "displayText": "قد أتشتت أحياناً ولكني سرعان ما أعود للانتباه",
+    "spokenText": "قَدْ أَتَشَتَّتُ أَحْيَانًا وَلَكِنِّي سُرْعَانَ مَا أَعُودُ لِلاِنْتِبَاهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "ancient-egyptian-teacher-classroom-attention-completion-feedback": {
+    "displayText": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "spokenText": "شُكْرًا لِمُشَارَكَتِكْ، تَمَّ حِفْظُ إِجَابَتِكْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-praise-assessment-instruction": {
+    "displayText": "بماذا تشعر عند تلقي المديح من معلمك؟",
+    "spokenText": "Bِمَاذَا تَشْعُرُ عِنْدَ تَلَقِّي المَدِيحِ مَنِ مُعَلِّمِكْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-praise-assessment-prompt": {
+    "displayText": "اختر بطاقة تعبر عن رد فعلك الداخلي عند ثناء معلم اللغة العربية عليك:",
+    "spokenText": "اِخْتَرِ Bِطَاقَةِ تُعَبِّرُ عَنْ رَدِّ فِعْلِكَ الدَّاخِلِيِّ عِنْدَ ثَنَاءِ مُعَلِّمٌ اللُّغَةِ العَرَبِيَّةِ عَلَيْكْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-praise-assessment-option-proud": {
+    "displayText": "الفخر الشديد والرغبة في مضاعفة الاجتهاد والعمل المتميز",
+    "spokenText": "الفَخْرِ شَّدِيدُ وَالرَّغْبَةِ في مُضَاعَفَةِ الاِجْتِهَادِ وَالعَمَلِ مُتَمَيِّزْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-praise-assessment-option-happy": {
+    "displayText": "السعادة العارمة والارتياح والبهجة الداخلية",
+    "spokenText": "السَّعَادَةِ العَارِمَةِ وَالاِرْتِيَاحِ وَالبَهْجَةِ الدَّاخِلِيَّهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-praise-assessment-option-shy": {
+    "displayText": "الخجل والتردد قليلاً مع الابتسام والشكر",
+    "spokenText": "الخَجَلِ وَالتَّرَدُّدِ قليلاً مع الاِبْتِسَامِ وَالشُّكْرْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-praise-assessment-completion-feedback": {
+    "displayText": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "spokenText": "شُكْرًا لِمُشَارَكَتِكْ، تَمَّ حِفْظُ إِجَابَتِكْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-score-motivation-instruction": {
+    "displayText": "اختر سبب حرصك على التفوق في اللغة العربية.",
+    "spokenText": "اِخْتَرِ سَبَبِ حِرْصِكَ على التَّفَوُّقِ في اللُّغَةِ العَرَبِيَّهْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-score-motivation-prompt": {
+    "displayText": "ما هو المحرك الأساسي وراء رغبتك في نيل أعلى الدرجات والتقييمات؟",
+    "spokenText": "مَا هُوَ المُحَرِّكِ الأَسَاسِيِّ وَرَاءِ رَغْبَتِكَ في نَيْلِ أَعْلَى الدَّرَجَاتِ وَالتَّقْيِيمَاتْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-score-motivation-option-love": {
+    "displayText": "لحبي الشديد والعميق للغة العربية وجمال ألفاظها وقصصها",
+    "spokenText": "لِحُبِّي شَّدِيدُ وَالْعَمِيقِ لِلُّغَةِ العَرَبِيَّةِ وَجَمَالِ أَلْفَاظِهَا وَقِصَصِهَا",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-score-motivation-option-pleasing": {
+    "displayText": "لإدخال الفرحة على قلوب والدي المخلصين وتقديراً لمعلمي",
+    "spokenText": "لِإِدْخَالِ الفَرَحَةِ على قُلُوبِ وَالِدِي المُخْلِصِينَ وتقديراً لِمُعَلِِّمِي",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-score-motivation-option-competition": {
+    "displayText": "لأكون دائماً في مقدمة المتفوقين علمياً ومعرفياً",
+    "spokenText": "لِأَكُونَ دائماً في مُقَدِّمَةِ المُتَفَوِّقِينَ علمياً وَمَعْرِفِيًّا",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-score-motivation-completion-feedback": {
+    "displayText": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "spokenText": "شُكْرًا لِمُشَارَكَتِكْ، تَمَّ حِفْظُ إِجَابَتِكْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-title-prediction-instruction": {
+    "displayText": "ماذا تتوقع أن يكون عنوان للنص المسموع؟",
+    "spokenText": "مَاذَا تَتَوَقَّعُ أَنْ يَكُونُ عُنْوَانِ لِلنَّصِّ مَسْمُوعْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-title-prediction-prompt": {
+    "displayText": "اكتب توقعك الخاص عن موضوع القصة قبل سماعها بالكامل:",
+    "spokenText": "اُكْتُبْ تَوَقُّعُكَ خَاصِّ عَنْ مَوْضُوعِ القِصَّةِ قَبْلَ سَمَاعِهَا بِالْكَامِلْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-title-prediction-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-stages-ordering-instruction": {
+    "displayText": "رتب الأحداث التالية حسب ورودها وسياقها في القصة.",
+    "spokenText": "رَتِّبْ الأَحْدَاثِ التَّالِيَةَ حَسَبَ وُرُودِهَا وَسِيَاقِهَا في القِصَّهْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-stages-ordering-prompt": {
+    "displayText": "رتب مسيرة عطاء الطبيب مجدي يعقوب:",
+    "spokenText": "رَتِّبْ مَسِيرَةُ عَطَاءِ طَّبِيبِ مَجْدِي يَعْقُوبْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-stages-ordering-option-st1": {
+    "displayText": "سفر مجدي يعقوب للخارج",
+    "spokenText": "سَفَرِ مَجْدِي يَعْقُوب لِلْخَارِجْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-stages-ordering-option-st2": {
+    "displayText": "اكتسابه الخبرة العالمية",
+    "spokenText": "اكْتِسَابِهِ الخِبْرَةِ عَالَمِيَّهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-stages-ordering-option-st3": {
+    "displayText": "عودته إلى وطنه العزيز مصر",
+    "spokenText": "عَوْدَتِهِ إلى وَطَنِهِ العَزِيزِ مِصْرْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-stages-ordering-option-st4": {
+    "displayText": "إنشاء مركز القلب بأسوان لعلاج الأطفال بالمجان",
+    "spokenText": "إِنْشَاءِ مَرْكِزِ قَلْبِ بِأَسْوَانَ لِعِلَاجِ أَطْفَالِ بِالمَجَّانْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-stages-ordering-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-return-year-instruction": {
+    "displayText": "أكمل: عاد د. مجدي يعقوب إلى مصر في عام.",
+    "spokenText": "أَكْمِلْ: عَادَ دْ. مَجْدِي يَعْقُوب إلى مِصْرَ في عَامْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-return-year-prompt": {
+    "displayText": "عاد الدكتور مجدي يعقوب إلى مصر في عام [blank1] لخدمة أهالي وطنه.",
+    "spokenText": "عَادَ دُّكْتُور مَجْدِي يَعْقُوب إلى مِصْرَ في عَامٍ [blank1] لِخِدْمَةِ أَهَالِي وَطَنِهْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-return-year-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-surgeon-calmness-instruction": {
+    "displayText": "اختر صفة الجراح الهادئ كما يراها د. مجدي.",
+    "spokenText": "اِخْتَرِ صِفَةُ الجَرَّاحِ الهَادِئِ كَمَا يَرَاهَا دْ. مَجْدِي.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-surgeon-calmness-prompt": {
+    "displayText": "لماذا يرى د. مجدي يعقوب أن الجراح الهادئ يكون أقدر على تحقيق النجاح؟",
+    "spokenText": "لِمَاذَا يَرَى دْ. مَجْدِي يَعْقُوب أَنْ الجَرَّاحِ الهَادِئِ يَكُونُ أُقَدِّرُ على تَحْقِيقِ النَّجَاحْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-surgeon-calmness-option-ans1": {
+    "displayText": "لأن الهدوء يمنحه القدرة على التفكير بتركيز وتجنب الأخطاء الطبية",
+    "spokenText": "لِأَنَّ هُدُوءُ يَمْنَحُهُ القُدْرَةِ على التَّفْكِيرِ Bِتَرْكِيزِ وَتَجَنُّبِ الأَخْطَاءِ الطِّبِّيَّهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-surgeon-calmness-option-ans2": {
+    "displayText": "لأنه يجعله سريع الحركة للانتهاء من العمليات سريعاً",
+    "spokenText": "لِأَنَّهُ يَجْعَلُهُ سَرِيعٍ الحَرَكَةِ لِلاِنْتِهَاءِ مَنِ عَمَلِيَّاتِ سَرِيعًا",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-surgeon-calmness-option-ans3": {
+    "displayText": "لأنه يمنع المرضى والزملاء في الغرفة من القلق",
+    "spokenText": "لِأَنَّهُ يَمْنَعُ مَرْضَى وَالزُّمَلَاءِ في الغُرْفَةِ مَنِ القَلَقْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-surgeon-calmness-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-alternative-solution-instruction": {
+    "displayText": "اختر حلًا بديلًا مقترحًا لخدمة أهالي الصعيد.",
+    "spokenText": "اِخْتَرِ حلًا بديلًا مقترحًا لِخِدْمَةِ أَهَالِي الصَّعِيدْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-alternative-solution-prompt": {
+    "displayText": "ما هو الحل البديل المناسب إذا لم تتوفر إمكانية السفر للقاهرة لمرضى القلب الصغار؟",
+    "spokenText": "مَا هُوَ الحَلُّ البَدِيلَ المُنَاسِبِ إِذَا لَمْ تَتَوَفَّرُ إِمْكَانِيَّةِ السَّفَرَ لِلْقَاهِرَةِ لِمَرْضَى قَلْبِ الصِّغَارْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-alternative-solution-option-sol1": {
+    "displayText": "تدريب أطباء محليين وتسيير قوافل طبية متخصصة ومجهزة للصعيد",
+    "spokenText": "تَدْرِيبِ أَطِبَّاءَ مَحَلِّيِّينَ وَتَسْيِيرُ قَوَافِلَ طِبِّيَّةٍ مُتَخَصِّصَةٍ وَمُجَهَّزَةٍ لِلصَّعِيدْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-alternative-solution-option-sol2": {
+    "displayText": "إرسال جميع الأطفال المرضى للعلاج خارج جمهورية مصر العربية",
+    "spokenText": "إِرْسَالُ جَمِيعِ أَطْفَالِ مَرْضَى لِلْعِلَاجِ خَارِجَ جُمْهُورِيَّةِ مِصْرَ العَرَبِيَّهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-alternative-solution-option-sol3": {
+    "displayText": "الاعتماد بالكامل على المستشفيات الخاصة بالمدن الكبرى",
+    "spokenText": "الاِعْتِمَادِ بِالْكَامِلِ على مُسْتَشْفَيَاتِ الخَاصَّةِ بِالْمُدُنِ الكُبْرَى",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-alternative-solution-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-insist-reason-open-instruction": {
+    "displayText": "لماذا صمم الطبيب على إنشاء المركز؟",
+    "spokenText": "لِمَاذَا صَمِّمْ طَّبِيبِ على إِنْشَاءِ مَرْكِزْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-insist-reason-open-prompt": {
+    "displayText": "اشرح بأسلوبك الدوافع الإنسانية والوطنية وراء تمسك الطبيب بهذا المشروع المتميز في أسوان:",
+    "spokenText": "اشْرَحْ بِأُسْلُوبِكَ الدَّوَافِعِ إِنْسَانِيَّةِ وَالْوَطَنِيَّةِ وَرَاءِ تَمَسُّكِ طَّبِيبِ Bِهَذَا المَشْرُوعِ مُتَمَيِّزِ في أَسْوَانْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-insist-reason-open-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-biggest-challenge-instruction": {
+    "displayText": "ما العقبة الأساسية التي واجهت الطبيب؟",
+    "spokenText": "مَا العَقَبَةِ الأَسَاسِيَّةِ الَّتِي وَاجَهْتُ طَّبِيبْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-biggest-challenge-prompt": {
+    "displayText": "ما هي التحديات أو المخاوف التي قد تواجه مبادرة وطنية ضخمة مثل تأسيس مركز القلب بالمجان؟",
+    "spokenText": "مَا هِيَ التَّحَدِّيَاتِ أَوْ المَخَاوِفِ الَّتِي قَدْ تُوَاجِهُ مُبَادَرَةِ وَطَنِيَّةٍ ضَخْمَةٍ مِثْلِ تَأْسِيسِ مَرْكِزِ قَلْبِ بِالمَجَّانْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-biggest-challenge-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-new-word-instruction": {
+    "displayText": "اختر كلمة أعجبتك وضعها في جملة مفيدة.",
+    "spokenText": "اِخْتَرِ كَلِمَةٍ أَعْجَبَتْكَ وَضْعِهَا في جُمْلَةٍ مُفِيدَهْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-new-word-prompt": {
+    "displayText": "اكتب كلمة فصيحة أعجبتك في نص الطبيب الإنساني وصيغها في جملة تامة التعبير:",
+    "spokenText": "اُكْتُبْ كَلِمَةٍ فَصِيحَةً أَعْجَبَتْكَ في نَصِّ طَّبِيبِ إِنْسَانِيُّ وَصِيغْهَا في جُمْلَةٍ تَامَّةِ تَّعْبِيرْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-new-word-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-arabic-practical-use-instruction": {
+    "displayText": "اختر الفائدة العملية للغة العربية المذكورة بالعبارات.",
+    "spokenText": "اِخْتَرِ الفَائِدَةِ العَمَلِيَّةِ لِلُّغَةِ العَرَبِيَّةِ المَذْكُورَةِ بِالْعِبَارَاتْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-arabic-practical-use-prompt": {
+    "displayText": "كيف تسهم مهارات اللغة العربية الفصحى في مسيرة الطبيب البطل؟",
+    "spokenText": "كَيْفَ تُسْهِمُ مَهَارَاتِ اللُّغَةِ العَرَبِيَّةِ الفُصْحَى في مَسِيرَةُ طَّبِيبِ البَطَلْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-arabic-practical-use-option-use1": {
+    "displayText": "تساعد في الفهم الدقيق للمفاهيم الطبية والبحثية والتواصل الإنساني ببلده",
+    "spokenText": "تُسَاعِدُ في الفَهْمِ الدَّقِيقِ لِلْمَفَاهِيمِ الطِّبِّيَّةِ وَالبَحْثِيَّةِ وَالتَّوَاصُلُ إِنْسَانِيُّ بِبَلَدِهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-arabic-practical-use-option-use2": {
+    "displayText": "تقتصر فقط على قراءة الكتب والقصص الخيالية القديمة",
+    "spokenText": "تَقْتَصِرُ فَقَطْ على قِرَاءَةِ الكُتُبِ وَالْقِصَصِ الخِيَالِيَّةِ القَدِيمَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-arabic-practical-use-option-use3": {
+    "displayText": "تحسن من مهارات كتابة التقارير والخط العربي التجميلي",
+    "spokenText": "تَحَسُّنٍ مَنِ مَهَارَاتِ كِتَابَةِ التَّقَارِيرِ وَالْخَطِّ العَرَبِيِّ التَّجْمِيلِيّْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-arabic-practical-use-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-life-ordering-instruction": {
+    "displayText": "رتب مراحل حياة الدكتور مجدي يعقوب.",
+    "spokenText": "رَتِّبْ مَرَاحِلَ حَيَاةِ دُّكْتُور مَجْدِي يَعْقُوبْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-life-ordering-prompt": {
+    "displayText": "رتب التطور التاريخي لمسيرة الطبيب مجدي يعقوب:",
+    "spokenText": "رَتِّبْ التَّطَوُّرِ التَّارِيخِيِّ لِمَسِيرَةِ طَّبِيبِ مَجْدِي يَعْقُوبْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-life-ordering-option-mil1": {
+    "displayText": "نشأة مجدي يعقوب ببلده مصر",
+    "spokenText": "نَشْأَةِ مَجْدِي يَعْقُوب بِبَلَدِهِ مِصْرْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-life-ordering-option-mil2": {
+    "displayText": "حبه الشديد لمهنة الطب وتفوقه الدراسي",
+    "spokenText": "حُبِّهِ شَّدِيدُ لِمِهْنَةِ الطِّبِّ وَتَفَوُّقِهِ الدِّرَاسِيّْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-life-ordering-option-mil3": {
+    "displayText": "رحلته العلمية والمهنية الطويلة في بريطانيا",
+    "spokenText": "رِحْلَتِهِ العِلْمِيَّةِ وَالْمِهْنِيَّةِ الطَّوِيلَةِ في بِرِيطَانِيَا",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-life-ordering-option-mil4": {
+    "displayText": "جهوده الإنسانية لإنقاذ حياة المرضى الفقراء",
+    "spokenText": "جُهُودِهِ إِنْسَانِيَّةِ لِإِنْقَاذِ حَيَاةِ مَرْضَى الفُقَرَاءْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-life-ordering-option-mil5": {
+    "displayText": "أثره الباقي وتكريمه العالمي والوطني",
+    "spokenText": "أَثَرِهِ البَاقِي وَتَكْرِيمِهِ العَالَمِيِّ وَالْوَطَنِيّْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-life-ordering-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-problem-solutions-instruction": {
+    "displayText": "حدد مشكلة من النص واقترح حلين لها.",
+    "spokenText": "حَدِّدْ مُشْكِلَةِ مَنِ النَّصُّ وَاقْتَرِحْ حَلَّيْنِ لَهَا.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-problem-solutions-prompt": {
+    "displayText": "المشكلة: بعد مركز القلب بأسوان عن العاصمة وصعوبة سفر المرضى الفقراء.",
+    "spokenText": "المُشْكِلَهْ: بَعْدَ مَرْكِزِ قَلْبِ بِأَسْوَانَ عَنْ العَاصِمَةِ وَصُعُوبَةِ سَفَرِ مَرْضَى الفُقَرَاءْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-problem-solutions-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-funding-alternatives-instruction": {
+    "displayText": "اقترح حلولًا بديلة في حال عدم توفر تمويل للمركز.",
+    "spokenText": "اقْتَرِحْ حلولًا بَدِيلَةً في حَالِ عَدَمِ تُوَفِّرُ تَمْوِيلِ لِلْمَرْكِزْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-funding-alternatives-prompt": {
+    "displayText": "لو لم تتوافر الإمكانات لإنشاء مركز جراحات قلب كبير ثابت بأسوان، كيف يمكن مساعدة الأطفال المرضى؟",
+    "spokenText": "لَوْ لَمْ تَتَوَافَرُ الإِمْكَانَاتِ لِإِنْشَاءِ مَرْكِزِ جِرَاحَاتِ قَلْبٍ كَبِيرٍ ثَابِتٍ بِأَسْوَانْ، كَيْفَ يُمْكِنُ مُسَاعَدَةِ أَطْفَالِ مَرْضَى؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-funding-alternatives-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-character-opinion-instruction": {
+    "displayText": "ما رأيك في شخصية الطبيب مجدي يعقوب وهل تراه قدوة؟ ولماذا؟",
+    "spokenText": "مَا رَأْيِكَ في شَخْصِيَّةٍ طَّبِيبِ مَجْدِي يَعْقُوب وَهَلْ تَرَاهُ قُدْوَهْ؟ وَلِمَاذَا؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-character-opinion-prompt": {
+    "displayText": "عبر بصدق عن تقييمك لشخصية ملك القلوب ودوره الوطني والإنساني:",
+    "spokenText": "عَبْرَ بِصِدْقٍ عَنْ تَقْيِيمِكَ لِشَخْصِيَّةِ مَلِكُ قُلُوبِ وَدَوْرِهِ الوَطَنِيِّ وَالإِنْسَانِيّْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-character-opinion-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-interview-questions-instruction": {
+    "displayText": "اكتب ثلاثة أسئلة تود طرحها على د. مجدي يعقوب.",
+    "spokenText": "اُكْتُبْ ثَلَاثَةَ أَسْئِلَةٍ تَوَدُّ طَرْحَهَا على دْ. مَجْدِي يَعْقُوبْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-interview-questions-prompt": {
+    "displayText": "لو أتيحت لك فرصة إجراء مقابلة مع طبيب القلوب، ما هي أسئلتك الثلاثة؟",
+    "spokenText": "لَوْ أُتِيحَتْ لَكَ فُرْصَةِ إِجْرَاءَ مُقَابَلَةِ مع طَبِيبٍ قُلُوبْ، مَا هِيَ أَسْئِلَتِكَ الثَّلَاثَهْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-interview-questions-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-story-retell-instruction": {
+    "displayText": "لخص قصة الدكتور مجدي يعقوب بأسلوبك.",
+    "spokenText": "لَخِّصْ قِصَّةِ دُّكْتُور مَجْدِي يَعْقُوب بِأُسْلُوبِكْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-story-retell-prompt": {
+    "displayText": "أعد كتابة سيرة الدكتور كقصة قصيرة تعبر عن العطاء وحب الوطن:",
+    "spokenText": "أَعِدْ كِتَابَةِ سِيرَةَ دُّكْتُور كَقِصَّةِ قَصِيرَةٍ تُعَبِّرُ عَنْ العَطَاءِ وَحُبِّ وَطَنْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-story-retell-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-humanitarian-project-instruction": {
+    "displayText": "تخيل مشروعك الإنساني وحدد المشكلة والحل والنهاية.",
+    "spokenText": "تَخَيَّلْ مَشْرُوعِكَ إِنْسَانِيُّ وَحَدِّدْ المُشْكِلَةِ وَالْحَلِّ وَالنِّهَايَهْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-humanitarian-project-prompt": {
+    "displayText": "اكتب خطة إبداعية لمشروع ترغب في بنائه مستقبلاً لخدمة زملائك أو مجتمعك:",
+    "spokenText": "اُكْتُبْ خُطَّةً إِبْدَاعِيَّةً لِمَشْرُوعِ تَرْغَبُ في بِنَائِهِ مُسْتَقْبَلًا لِخِدْمَةِ زُمَلَائِكَ أَوْ مُجْتَمَعِكْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-humanitarian-project-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-student-problem-instruction": {
+    "displayText": "اقترح مشكلة دراسية وحلها على غرار النص.",
+    "spokenText": "اقْتَرِحْ مُشْكِلَةِ دِرَاسِيَّةٍ وَحَلِّهَا على غِرَارِ النَّصّْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-student-problem-prompt": {
+    "displayText": "المشكلة: صعوبة فهم القواعد النحوية وكثرة الخوف من الامتحانات الدراسية.",
+    "spokenText": "المُشْكِلَهْ: صُعُوبَةُ فَهْمِ القَوَاعِدِ النَّحْوِيَّةِ وَكَثْرَةِ الخَوْفِ مَنِ الاِمْتِحَانَاتِ الدِّرَاسِيَّهْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-student-problem-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-story-titles-instruction": {
+    "displayText": "اكتب ثلاثة عناوين مناسبة لحكاية مجدي يعقوب.",
+    "spokenText": "اُكْتُبْ ثَلَاثَةَ عَنَاوِينَ مُنَاسِبَةٍ لِحِكَايَةِ مَجْدِي يَعْقُوبْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-story-titles-prompt": {
+    "displayText": "اقترح 3 عناوين تعبر عن الطبيب الإنساني ورحلة عطائه:",
+    "spokenText": "اقْتَرِحْ 3 عَنَاوِينَ تُعَبِّرُ عَنْ طَّبِيبِ إِنْسَانِيُّ وَرِحْلَةِ عَطَائِهْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-story-titles-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-target-community-instruction": {
+    "displayText": "أكمل: أُنشئ مركز القلب لخدمة.",
+    "spokenText": "أَكْمِلْ: أُنشئ مَرْكِزِ قَلْبِ لِخِدْمَهْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-target-community-prompt": {
+    "displayText": "أُنشئ مركز جراحة القلب في مدينة أسوان لخدمة [blank1] والفقراء بالمجان.",
+    "spokenText": "أُنشئ مَرْكِزِ جِرَاحَةِ قَلْبِ في مَدِينَةِ أَسْوَانَ لِخِدْمَةِ [blank1] وَالْفُقَرَاءِ بِالمَجَّانْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-target-community-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-alternative-ending-instruction": {
+    "displayText": "اقترح نهاية أخرى مناسبة ومطمئنة لقصة الطبيب مجدي يعقوب.",
+    "spokenText": "اقْتَرِحْ نِهَايَةً أُخْرَى مُنَاسِبَةٍ وَمُطْمَئِنَّةٍ لِقِصَّةِ طَّبِيبِ مَجْدِي يَعْقُوبْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-alternative-ending-prompt": {
+    "displayText": "اكتب نهاية بديلة تتخيلها لزيارة أحد الأطفال المتعافين للمركز بعد سنوات طويلة من العلاج:",
+    "spokenText": "اُكْتُبْ نِهَايَةً بَدِيلَةً تَتَخَيَّلُهَا لِزِيَارَةِ أَحَدِ أَطْفَالِ مُتَعَافِينَ لِلْمَرْكِزِ بَعْدَ سَنَوَاتٍ طَوِيلَةٍ مَنِ عِلَاجْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-alternative-ending-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-different-ending-instruction": {
+    "displayText": "صمم نهاية مختلفة تعبر عن انتشار فكرة العطاء في مجتمعك.",
+    "spokenText": "صَمِّمْ نِهَايَةً مُخْتَلِفَةٍ تُعَبِّرُ عَنْ انْتِشَارِ فِكْرَةِ العَطَاءِ في مُجْتَمَعِكْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-different-ending-prompt": {
+    "displayText": "تخيل تأثر زملاء الطبيب بعودته وخطواتهم اللاحقة لمساندته:",
+    "spokenText": "تَخَيَّلْ تَأثَّرَ زُمَلَاءِ طَّبِيبِ Bِعَوْدَتِهِ وَخُطُوَاتِهِمْ الَّاحِقَةِ لِمُسَانَدَتِهْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-different-ending-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-agree-disagree-instruction": {
+    "displayText": "حدد موقفك (موافق/غير موافق) من العبارات وعبر عن رأيك بصدق.",
+    "spokenText": "حَدِّدْ مَوْقِفَكَ (موافق/غير مُوَافِقْ) مَنِ العِبَارَاتِ وَعَبْرَ عَنْ رَأْيِكَ بِصِدْقْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-agree-disagree-prompt": {
+    "displayText": "العمل الإنساني ومساعدة المحتاجين هو أهم بكثير من نيل الشهرة والجوائز الفردية.",
+    "spokenText": "عَمَلِ إِنْسَانِيُّ وَمُسَاعَدَةٌ المُحْتَاجِينَ هُوَ أَهَمُّ Bِكَثِيرٍ مَنِ نَيْلِ شُّهْرَةُ وَالْجَوَائِزِ الفَرْدِيَّهْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-agree-disagree-option-agree": {
+    "displayText": "موافق",
+    "spokenText": "مُوَافِقْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-agree-disagree-option-disagree": {
+    "displayText": "غير موافق",
+    "spokenText": "غَيْرِ مُوَافِقْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-agree-disagree-completion-feedback": {
+    "displayText": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "spokenText": "بَرَافُو يَا بَطَلْ! خَلَّصْتَ النَّشَاطَ بِنَجَاحْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-listening-behavior-instruction": {
+    "displayText": "أجب بصراحة عن سلوكياتك أثناء استماع المعلم أو المقطع الصوتي.",
+    "spokenText": "أَجِبْ Bِصَرَاحَةٍ عَنْ سُلُوكِيَّاتِكَ أَثْنَاءَ اسْتِمَاعِ المُعَلِّمِ أَوْ المَقْطَعِ الصَّوْتِيّْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-listening-behavior-prompt": {
+    "displayText": "ما الذي تحرص على فعله لتكون مستمعاً متميزاً للقصص والخبر المسموع؟",
+    "spokenText": "مَا الَّذِي تَحْرِصُ على فِعْلِهِ لِتَكُونَ مستمعاً متميزاً لِلْقِصَصِ وَالْخَبَرِ مَسْمُوعْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-listening-behavior-option-focus": {
+    "displayText": "أنصت بكل حواسي وأتجنب أي تشتت جانبي",
+    "spokenText": "أُنْصِتُ Bِكُلِّ حَوَاسِّي وَأَتَجَنَّبُ أَيُّ تَشَتُّتٍ جَانِبِيّْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-listening-behavior-option-notes": {
+    "displayText": "أدون الأفكار الرائعة أو الكلمات الجديدة التي تعجبني",
+    "spokenText": "أُدَوِّنُ الأَفْكَارِ الرَّائِعَةِ أَوْ الكَلِمَاتِ الجَدِيدَةِ الَّتِي تُعْجِبُنِي",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-listening-behavior-option-distracted": {
+    "displayText": "قد أنشغل أحياناً ولكني سرعان ما أستعيد التركيز",
+    "spokenText": "قَدْ أَنْشَغِلُ أَحْيَانًا وَلَكِنِّي سُرْعَانَ مَا أَسْتَعِيدُ التَّرْكِيزْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-listening-behavior-completion-feedback": {
+    "displayText": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "spokenText": "شُكْرًا لِمُشَارَكَتِكْ، تَمَّ حِفْظُ إِجَابَتِكْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-improvement-checklist-instruction": {
+    "displayText": "حدد المهارات التي تشعر أنك تحسنت فيها باللغة العربية.",
+    "spokenText": "حَدِّدْ المَهَارَاتِ الَّتِي تَشْعُرُ أَنَّكَ تَحَسَّنَتْ فِيهَا بِاللُّغَةِ العَرَبِيَّهْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-improvement-checklist-prompt": {
+    "displayText": "اختر المهارات اللغوية التي تلاحظ تطورك الإيجابي والملحوظ فيها:",
+    "spokenText": "اِخْتَرِ المَهَارَاتِ اللُّغَوِيَّةِ الَّتِي تُلَاحِظُ تَطَوُّرِكَ الإِيجَابِيِّ وَالْمَلْحُوظِ فِيهَا:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-improvement-checklist-option-listening": {
+    "displayText": "الاستماع بتركيز وفهم أدق تفاصيل النصوص",
+    "spokenText": "الاِسْتِمَاعِ Bِتَرْكِيزِ وَفَهْمِ أَدَقِّ تَفَاصِيلِ النُّصُوصْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-improvement-checklist-option-reading": {
+    "displayText": "قراءة النصوص المتنوعة بطلاقة وسرعة ودون تعثر",
+    "spokenText": "قِرَاءَةِ النُّصُوصِ المُتَنَوِّعَةِ Bِطَلَاقَةٍ وَسُرْعَةِ وَدُونَ تَعَثُّرْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-improvement-checklist-option-writing": {
+    "displayText": "كتابة الجمل والتعبير عن آرائي وأفكاري بوضوح تام",
+    "spokenText": "كِتَابَةِ الجُمَلَ وَالتَّعْبِيرِ عَنْ آرَائِي وَأَفْكَارِي Bِوُضُوحٍ تَامّْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-improvement-checklist-completion-feedback": {
+    "displayText": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "spokenText": "شُكْرًا لِمُشَارَكَتِكْ، تَمَّ حِفْظُ إِجَابَتِكْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-competitions-assessment-instruction": {
+    "displayText": "لماذا تحب المشاركة في المسابقات اللغوية والثقافية؟",
+    "spokenText": "لِمَاذَا تُحِبُّ المُشَارَكَةِ في المُسَابَقَاتِ اللُّغَوِيَّةِ وَالثَّقَافِيَّهْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-competitions-assessment-prompt": {
+    "displayText": "اختر الدوافع التي تجعلك متطلعاً للأنشطة والمسابقات بصفك الدراسي:",
+    "spokenText": "اِخْتَرِ الدَّوَافِعِ الَّتِي تَجْعَلُكَ متطلعاً لِلْأَنْشِطَةِ وَالْمُسَابَقَاتِ Bِصَفِّكَ الدِّرَاسِيّْ:",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-competitions-assessment-option-learn": {
+    "displayText": "لأنها تزيد من مخزوني المعرفي واللغوي بأسلوب ممتع وشيق",
+    "spokenText": "لِأَنَّهَا تَزِيدُ مَنِ مَخْزُونِي المَعْرِفِيِّ وَاللُّغَوِيِّ بِأُسْلُوبِ مُمْتِعٍ وَشَيِّقْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-competitions-assessment-option-team": {
+    "displayText": "لأني أحب التعاون والعمل الجماعي مع زملائي الأبطال",
+    "spokenText": "لِأَنِّي أُحِبُّ التَّعَاوُنِ وَالعَمَلِ الجَمَاعِيِّ مع زُمَلَائِي الأَبْطَالْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-competitions-assessment-option-challenge": {
+    "displayText": "لأنني أحب خوض التحديات وإثبات كفاءتي وتفوقي الصفي",
+    "spokenText": "لِأَنَّنِي أُحِبُّ خَوْضِ التَّحَدِّيَاتِ وَإِثْبَاتِ كَفَاءَتِي وَتَفَوُّقِي الصَّفِّيّْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-competitions-assessment-completion-feedback": {
+    "displayText": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "spokenText": "شُكْرًا لِمُشَارَكَتِكْ، تَمَّ حِفْظُ إِجَابَتِكْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-encouragement-assessment-instruction": {
+    "displayText": "قيم مدى تشجيع والديك ومعلمك وتفاعلك معهم.",
+    "spokenText": "قِيَمِ مَدَى تَشْجِيعٍ وَالِدَيْكَ وَمُعَلِّمِكَ وَتَفَاعُلِكَ مَعَهُمْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-encouragement-assessment-prompt": {
+    "displayText": "كيف تصف الدعم والتشجيع الذي تتلقاه باستمرار لمواصلة تطورك التعليمي؟",
+    "spokenText": "كَيْفَ تَصِفُ الدَّعْمِ وَالتَّشْجِيعِ الَّذِي تَتَلَقَّاهُ بِاسْتِمْرَارٍ لِمُوَاصَلَةِ تَطَوُّرِكَ التَّعْلِيمِيّْ؟",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-encouragement-assessment-option-superb": {
+    "displayText": "تشجيع دائم وحث قوي ودعم بالجوائز ومتابعة يومية مخلصة",
+    "spokenText": "تَشْجِيعٍ دَائِمٍ وَحَثِّ قَوِيٍّ وَدَعْمِ بِالْجَوَائِزِ وَمُتَابَعَةِ يَوْمِيَّةٍ مُخْلِصَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-encouragement-assessment-option-good": {
+    "displayText": "دعم كافٍ ومساندة ومساعدة فعالة عند التعثر أو الحاجة",
+    "spokenText": "دَعْمٍ كَافٍ وَمُسَانَدَةٌ وَمُسَاعَدَةٌ فَعَّالَةٌ عِنْدَ تَّعُثُّرِ أَوْ الحَاجَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-encouragement-assessment-option-self": {
+    "displayText": "أعتمد بالكامل على تحفيزي الذاتي وشغفي الخاص بالتعلم والمثابرة",
+    "spokenText": "أَعْتَمِدُ بِالْكَامِلِ على تَحْفِيزِي ذَّاتِيِّ وَشَغَفِي خَاصِّ بِالتَّعَلُّمِ وَالمُثَابَرَهْ",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  },
+  "king-of-hearts-yacoub-encouragement-assessment-completion-feedback": {
+    "displayText": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "spokenText": "شُكْرًا لِمُشَارَكَتِكْ، تَمَّ حِفْظُ إِجَابَتِكْ.",
+    "voice": "ar-EG-SalmaNeural",
+    "rate": "-15%",
+    "reviewStatus": "script-reviewed"
+  }
 }

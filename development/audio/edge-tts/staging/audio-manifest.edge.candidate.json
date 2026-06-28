@@ -4,37 +4,37 @@
       "src": "/audio/v1/global/welcome/01.wav",
       "scriptSrc": "/audio/v1/global/welcome/01.txt",
       "category": "welcome",
-      "sha256": "ed5ac47c189611fda22fb7dd9907d036f4c5510c200e82da6773d2ef0427e817",
-      "scriptSha256": "308353b89316b30b9b7b6b5794a4f91b359b2e971342d38f53e139f848a7ffbd",
-      "durationSeconds": 7.392,
+      "sha256": "23b7fe304be5887207c03c5cf9dc0d7d281bcecb8e92d49cceb73450ae85e725",
+      "scriptSha256": "d84d8f2aea518d041a09edb1a824509401495f1f002f5d66cb74f335ba30fe81",
+      "durationSeconds": 8.61275,
       "provider": "microsoft-edge-online-tts",
       "voice": "ar-EG-SalmaNeural",
       "locale": "ar-EG",
-      "generationConfigHash": "39ebc75f7d93c53cdd808f28dc06685a64f1adf8e39dde6b09d6ce2477546953"
+      "generationConfigHash": "04f9d05c556cd8fb648fa1cbfbd9bca7a4f235e8dfb74dd4dcefc3714a265b9c"
     },
     "global.feedback.correct.01": {
       "src": "/audio/v1/global/feedback/correct/01.wav",
       "scriptSrc": "/audio/v1/global/feedback/correct/01.txt",
       "category": "correct_feedback",
-      "sha256": "f42a1df19c9feb34a158ddf5bf022246c68a138861a1700411304110bb47e9fb",
-      "scriptSha256": "03ab98f2bf1d5dd1fbd06c5384f02dd18506537b5889a1d7045b84f554e7eb30",
-      "durationSeconds": 9.624,
+      "sha256": "b07ca069b12b459cf26001d069d10ff715b50cef44dcd0c8345b5b16f6fe7804",
+      "scriptSha256": "e20eafee957ad633a14eee58d1139546fb14a5d5918d526c6a28bc75ea4f7e69",
+      "durationSeconds": 4.2575,
       "provider": "microsoft-edge-online-tts",
       "voice": "ar-EG-SalmaNeural",
       "locale": "ar-EG",
-      "generationConfigHash": "a9b06965725444af31beed6b40fe02e5dbbc0493f27a003c0a0e4436e63fe7db"
+      "generationConfigHash": "2422c822a0b68e839513592f066f0f58c73caa810cbe64d2e3d1f738a9915349"
     },
     "global.feedback.retry.01": {
       "src": "/audio/v1/global/feedback/retry/01.wav",
       "scriptSrc": "/audio/v1/global/feedback/retry/01.txt",
       "category": "retry_feedback",
-      "sha256": "ef30659b14f3c97b22afb1339c67990190cc1665fb9e32b5f0d42f2827a1def4",
-      "scriptSha256": "85d410d003382816be9e934da3c1898bb259fed03bbee30fbae3c75b079fdd50",
-      "durationSeconds": 4.656,
+      "sha256": "037843696af0214548fe9960e2ec16abd8a1d27bca4df2b86046a214853157ba",
+      "scriptSha256": "7df7518eb66b9f31a084f8d6ba272398947b40fb6298af4a4b2b5fc4e041e5ce",
+      "durationSeconds": 7.10925,
       "provider": "microsoft-edge-online-tts",
       "voice": "ar-EG-SalmaNeural",
       "locale": "ar-EG",
-      "generationConfigHash": "c510bc43508283cf230b15625cdec5fba160bbd61f766ff641bfc1cdec444a3a"
+      "generationConfigHash": "fe863e2a9e2efb0e6c5b5035a5855426afee20003a07d5d51925558eafcb21d4"
     },
     "global.feedback.completion.01": {
       "src": "/audio/v1/global/feedback/completion/01.wav",

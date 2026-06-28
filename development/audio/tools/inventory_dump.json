@@ -1,0 +1,1272 @@
+[
+  {
+    "key": "global.welcome.01",
+    "text": "أَهْلًا بِكَ يا بَطَل! هَلْ أَنْتَ جاهِزٌ لِنَبْدَأَ رِحْلَتَنا في اللُّغَةِ العَرَبِيَّة؟ هَيَّا بِنَا!",
+    "category": "welcome"
+  },
+  {
+    "key": "global.feedback.correct.01",
+    "text": "أَحْسَنْتَ يا بَطَل! الإِجَابَةُ صَحِيحَة.",
+    "category": "correct_feedback"
+  },
+  {
+    "key": "global.feedback.retry.01",
+    "text": "وَلا يِهِمَّك يا بَطَل، الحَلّ مِش صَحّ. فَكِّر بِهُدوء وَجَرِّب تاني.",
+    "category": "retry_feedback"
+  },
+  {
+    "key": "global.feedback.completion.01",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "global.feedback.participation.01",
+    "text": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "category": "participation_feedback"
+  },
+  {
+    "key": "lessons.ancient-egyptian-teacher.story",
+    "text": "بدأَ المتحفُ المصريُّ مشروعاً كبيراً لتطويرِ القاعةِ التي تعرضُ تاريخَ التعليمِ والكتابةِ في مصرَ القديمةِ. وفي هذا العرضِ، يظهرُ دورُ المعلّمِ المصريِّ القديمِ، الذي كان يُسمّى \"الكاتب\". كان هذا الكاتبُ يجلسُ في وقارٍ على وسادةٍ، ويحملُ بيدِهِ لوحةً خشبيةً وأدواتِ الكِتابةِ المصنوعةِ من الخشبِ والريشِ. وكان الكُتّابُ يدوّنون علومَهُم وأفكارَهُم على أوراقِ البرديِّ التي عُثِرَ عليها لاحقاً in مقابرِ العلماءِ. لقد حظِيَ الكاتبُ بمكانةٍ عظيمةٍ في مجتمعِهِ، لأنَّهُ كان ينشرُ العِلمَ والمعرفةَ ويُسهمُ في بناءِ الحضارةِ وتدوينِ التاريخِ.",
+    "category": "story"
+  },
+  {
+    "key": "lessons.magdi-yacoub.story",
+    "text": "ولدَ الدكتور مجدي يعقوب في مصرَ، وكان والدُهُ طبيباً جراحاً ناجحاً. تعلّمَ مجدي من والدِهِ حبَّ مساعدةِ الناسِ والتعاطفَ مع المرضى، فقررَ أن يصبحَ طبيباً ليعالجَ قلوبَ الأطفالِ والكِبارِ. سافرَ الطبيبُ الشابُّ إلى بريطانيا ليتعلمَ ويكتسبَ الخبرةَ العالميةَ. واجتهدَ لسنواتٍ طويلةٍ حتى أصبحَ من أشهرِ جراحي القلبِ في العالمِ، وحصلَ على لقبِ \"سير\" تكريماً لجهودِهِ الإنسانيةِ. ورغم شهرتِهِ الكبيرةِ، قررَ العودةَ إلى مصرَ في عامِ ألفينِ وتسعةٍ. واختارَ مدينةَ أسوانَ الهادئةَ ليبني فيها مركزاً عالمياً لجراحاتِ القلبِ، لعلاجِ المرضى بالمليونِ وبالمجّانِ، ورسمِ البسمةِ على وجوهِ المرضى وأطفالِ مصرَ الطيبين.",
+    "category": "story"
+  },
+  {
+    "key": "lessons.ancient-egyptian-teacher.result",
+    "text": "لقد أنهيتَ دَرْسَ المعلّمِ المصريِّ القديمِ بالكاملِ بنجاحٍ وحصلتَ على وسامِ مُستكشِفِ الحضارَةِ!",
+    "category": "result"
+  },
+  {
+    "key": "lessons.magdi-yacoub.result",
+    "text": "لقد أنهيتَ دَرْسَ حِوارٍ مع الدكتور مجدي يعقوب بالكاملِ بنجاحٍ وحصلتَ على وسامِ صانِعِ الأملِ!",
+    "category": "result"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-feelings-j1-instruction",
+    "text": "ما شعورك قبل حصة اللغة العربية؟",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-feelings-j1-prompt",
+    "text": "اختر ما يعبر بصدق عن مشاعرك الداخلية قبل بدء الدرس:",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-feelings-j1-option-happy",
+    "text": "أشعر بالحماس والرغبة في المعرفة والاستكشاف",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-feelings-j1-option-neutral",
+    "text": "أشعر بالهدوء والتركيز المعتاد",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-feelings-j1-option-calm",
+    "text": "أشعر بالسكينة وأتطلع للقصة والمشاريع الجديدة",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-feelings-j1-completion-feedback",
+    "text": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "category": "participation_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-self-assessment-instruction",
+    "text": "هل تقرأ العربية خارج المدرسة؟",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-self-assessment-prompt",
+    "text": "حدد مدى اهتمامك بقراءة كتب أو قصص أو تصفح مواقع بالعربية:",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-self-assessment-option-happy",
+    "text": "أشعر بالسعادة والشغف وأقرا باستمرار",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-self-assessment-option-neutral",
+    "text": "أشعر بالهدوء والاعتياد وأقرأ عند الضرورة",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-self-assessment-option-bored",
+    "text": "أشعر بالملل أحياناً وأحاول التحسن",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-self-assessment-completion-feedback",
+    "text": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "category": "participation_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-titles-generation-instruction",
+    "text": "اكتب ثلاثة عناوين جديدة مناسبة للخبر المسموع.",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-titles-generation-prompt",
+    "text": "اقترح 3 عناوين تعبر عن دور الكاتب والمعلم المصري القديم:",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-titles-generation-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-student-questions-instruction",
+    "text": "دون ثلاثة أسئلة تتمنى أن تسألها عند سماع النص.",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-student-questions-prompt",
+    "text": "اكتب 3 أسئلة تثير فضولك حول مقبرة الكاتب المصري القديم:",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-student-questions-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-best-title-choice-instruction",
+    "text": "أختر العنوان الأنسب للنص المسموع.",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-best-title-choice-prompt",
+    "text": "ما هو العنوان الأكثر دقة وشمولاً للنص الذي استمعت إليه؟",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-best-title-choice-option-opt1",
+    "text": "أدوات الكتابة الخشبية",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-best-title-choice-option-opt2",
+    "text": "المعلم المصري القديم ودوره في الحضارة",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-best-title-choice-option-opt3",
+    "text": "المتاحف وتطوير القاعات القديمة",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-best-title-choice-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-main-idea-choice-instruction",
+    "text": "اختر الفكرة الرئيسة للخبر المسموع.",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-main-idea-choice-prompt",
+    "text": "ما هي الفكرة الرئيسة التي يدور حولها الخبر؟",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-main-idea-choice-option-opt1",
+    "text": "احترام المعلم المصري القديم ودوره في نشر العلم",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-main-idea-choice-option-opt2",
+    "text": "طريقة صناعة أوراق البردي في المقابر",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-main-idea-choice-option-opt3",
+    "text": "أهمية تزيين جدران المقابر بالرسومات",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-main-idea-choice-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-location-instruction",
+    "text": "أين عُثر على مقبرة الكاتب؟",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-location-prompt",
+    "text": "حدد مكان المقبرة التاريخية التي عثر عليها العلماء:",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-location-option-loc1",
+    "text": "في مقابر العلماء بسقارة",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-location-option-loc2",
+    "text": "في مقابر وادي الملوك بالأقصر",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-location-option-loc3",
+    "text": "بجوار أهرامات الجيزة",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-location-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-importance-instruction",
+    "text": "لماذا كانت المقبرة مهمة؟",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-importance-prompt",
+    "text": "ما الذي جعل هذا الاكتشاف الأثري فريداً ومهماً للغاية؟",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-importance-option-imp1",
+    "text": "لأنها تخص كاتب قديم مدفون مع أدوات كتابته الخشبية وبرديات",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-importance-option-imp2",
+    "text": "لأنها تحتوي على كميات هائلة من الذهب والكنوز الملكية",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-importance-option-imp3",
+    "text": "لأنها تثبت أسرار بناء الأهرامات الثلاثة بالتفصيل",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-importance-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-teacher-status-discovery-instruction",
+    "text": "ماذا يدل الاكتشاف على مكانة المعلم؟",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-teacher-status-discovery-prompt",
+    "text": "بماذا يوحي دفن أدوات الكتابة مع الكاتب في مقبرته؟",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-teacher-status-discovery-option-st1",
+    "text": "يدل على التقدير الهائل والاحترام للتعليم والمعلم بمصر القديمة",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-teacher-status-discovery-option-st2",
+    "text": "يدل على أن التعليم كان يقتصر فقط على الكهنة والملوك",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-teacher-status-discovery-option-st3",
+    "text": "يدل على رغبة الكاتب في مواصلة الدراسة بمفرده",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-teacher-status-discovery-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-synonym-matching-instruction",
+    "text": "طابق كل كلمة مع مرادفها الصحيح:",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-synonym-matching-prompt",
+    "text": "اذكر مرادفات الكلمات التالية من النص:",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-synonym-matching-option-word1",
+    "text": "عالم",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-synonym-matching-option-word2",
+    "text": "مقبرة",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-synonym-matching-option-word3",
+    "text": "مهنة",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-synonym-matching-option-mean1",
+    "text": "باحث",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-synonym-matching-option-mean2",
+    "text": "مدفن",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-synonym-matching-option-mean3",
+    "text": "حرفة",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-synonym-matching-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-instruction",
+    "text": "طابق كل كلمة مع ضدها الصحيح:",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-prompt",
+    "text": "طابق الكلمات التالية مع أضدادها المعاكسة في المعنى:",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-w1",
+    "text": "القديم",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-w2",
+    "text": "العلم",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-w3",
+    "text": "البداية",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-w4",
+    "text": "اهتمام",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-w5",
+    "text": "احترام",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-w6",
+    "text": "تقدير",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant1",
+    "text": "الحديث",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant2",
+    "text": "الجهل",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant3",
+    "text": "النهاية",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant4",
+    "text": "تجاهل",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant5",
+    "text": "ازدراء",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant6",
+    "text": "إهمال",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-meaning-matching-instruction",
+    "text": "صل بين الحدث ومعناه الصحيح.",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-meaning-matching-prompt",
+    "text": "طابق الحدث مع المعنى المعبر عنه:",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-meaning-matching-option-evt1",
+    "text": "تطوير قاعة الكتابة والتعليم بالمتحف",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-meaning-matching-option-evt2",
+    "text": "العثور على البرديات بمقابر العلماء",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-meaning-matching-option-evt3",
+    "text": "جلوس الكاتب بوقار على وسادة",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-meaning-matching-option-val1",
+    "text": "الاهتمام بنشر الوعي بتاريخ التعليم",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-meaning-matching-option-val2",
+    "text": "تأكيد فكرة تخليد العلم وتقدير المعرفة",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-meaning-matching-option-val3",
+    "text": "الهيبة والاحترام التي كان يحظى بها الكاتب",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-meaning-matching-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-ordering-instruction",
+    "text": "رتب الأحداث التالية حسب تسلسلها في الخبر.",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-ordering-prompt",
+    "text": "رتب الجمل التالية زمنياً:",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-ordering-option-evt1",
+    "text": "بدأ المتحف المصري مشروع تطوير القاعة",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-ordering-option-evt2",
+    "text": "عرض المتحف دور المعلم",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-ordering-option-evt3",
+    "text": "استخدم المعلم القديم البردية",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-ordering-option-evt4",
+    "text": "أعجب الزوار بالعرض",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-ordering-b-option-b1",
+    "text": "وجود الكاتب في المجتمع",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-ordering-b-option-b2",
+    "text": "وفاته ودفنه",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-ordering-b-option-b3",
+    "text": "اكتشاف المقبرة",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-ordering-b-option-b4",
+    "text": "معرفة أهميته",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-ordering-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-what-if-reflection-instruction",
+    "text": "ماذا لو لم تُكتشف مقبرة الكاتب المصري القديم؟",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-what-if-reflection-prompt",
+    "text": "عبر بأسلوبك عن رأيك في مدى أهمية هذا الاكتشاف المعرفي والتاريخي لبلدنا الحبيب:",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-what-if-reflection-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-discovery-results-instruction",
+    "text": "استخرج نتيجتين ترتبتا على هذا الاكتشاف.",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-discovery-results-prompt",
+    "text": "اكتب نتيجتين تاريخيتين أو علميتين ترتبتا على العثور على المقبرة:",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-discovery-results-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-character-event-identification-instruction",
+    "text": "صل بين العنصر وتوصيفه المناسب.",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-character-event-identification-prompt",
+    "text": "طابق العناصر بالتعريف الأنسب:",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-character-event-identification-option-elm1",
+    "text": "الشخصية الأهم بالخبر",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-character-event-identification-option-elm2",
+    "text": "الحدث الأهم بالنص",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-character-event-identification-option-def1",
+    "text": "الكاتب / المعلم المصري القديم",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-character-event-identification-option-def2",
+    "text": "اكتشاف مقبرة كاتب قديم وبدء تطوير القاعة بالمتحف",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-character-event-identification-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-mental-visualization-instruction",
+    "text": "هل تتخيل المشاهد أثناء الاستماع؟",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-mental-visualization-prompt",
+    "text": "اختر ما يصف سلوكك الذهني عند الاستماع للخبر المسموع:",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-mental-visualization-option-vis1",
+    "text": "نعم، أرسم صوراً ملونة للمشاهد والشخصيات في مخيلتي",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-mental-visualization-option-vis2",
+    "text": "أحياناً أتخيل التفاصيل الهامة فقط",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-mental-visualization-option-vis3",
+    "text": "أركز على الكلمات والعبارات ولا أتخيل صوراً",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-mental-visualization-completion-feedback",
+    "text": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "category": "participation_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-new-words-usage-instruction",
+    "text": "هل تستخدم كلمات عربية جديدة في حياتك اليومية؟",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-new-words-usage-prompt",
+    "text": "اختر مدى حرصك على تطبيق المفردات الجديدة التي تكتشفها في حديثك:",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-new-words-usage-option-use_yes",
+    "text": "نعم، أحب استخدام الكلمات الفصيحة أمام والدي وزملائي",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-new-words-usage-option-use_try",
+    "text": "أحاول استخدامها عندما تكون مناسبة للموضوع",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-new-words-usage-option-use_no",
+    "text": "أنسى الكلمات الجديدة سريعاً ولا أستخدمها",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-new-words-usage-completion-feedback",
+    "text": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "category": "participation_feedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-classroom-attention-instruction",
+    "text": "كيف تتصرف أثناء شرح المعلم؟",
+    "category": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-classroom-attention-prompt",
+    "text": "ما هو الخيار الذي يصف بصدق سلوكك الصفي عند شرح دروس العربية؟",
+    "category": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-classroom-attention-option-att1",
+    "text": "أنصت بكل جوارحي وأدون التلاحظات الهامة",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-classroom-attention-option-att2",
+    "text": "أشارك بفعالية في الإجابة عن التحديات الموجهة",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-classroom-attention-option-att3",
+    "text": "قد أتشتت أحياناً ولكني سرعان ما أعود للانتباه",
+    "category": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-classroom-attention-completion-feedback",
+    "text": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "category": "participation_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-praise-assessment-instruction",
+    "text": "بماذا تشعر عند تلقي المديح من معلمك؟",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-praise-assessment-prompt",
+    "text": "اختر بطاقة تعبر عن رد فعلك الداخلي عند ثناء معلم اللغة العربية عليك:",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-praise-assessment-option-proud",
+    "text": "الفخر الشديد والرغبة في مضاعفة الاجتهاد والعمل المتميز",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-praise-assessment-option-happy",
+    "text": "السعادة العارمة والارتياح والبهجة الداخلية",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-praise-assessment-option-shy",
+    "text": "الخجل والتردد قليلاً مع الابتسام والشكر",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-praise-assessment-completion-feedback",
+    "text": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "category": "participation_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-score-motivation-instruction",
+    "text": "اختر سبب حرصك على التفوق في اللغة العربية.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-score-motivation-prompt",
+    "text": "ما هو المحرك الأساسي وراء رغبتك في نيل أعلى الدرجات والتقييمات؟",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-score-motivation-option-love",
+    "text": "لحبي الشديد والعميق للغة العربية وجمال ألفاظها وقصصها",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-score-motivation-option-pleasing",
+    "text": "لإدخال الفرحة على قلوب والدي المخلصين وتقديراً لمعلمي",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-score-motivation-option-competition",
+    "text": "لأكون دائماً في مقدمة المتفوقين علمياً ومعرفياً",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-score-motivation-completion-feedback",
+    "text": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "category": "participation_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-title-prediction-instruction",
+    "text": "ماذا تتوقع أن يكون عنوان للنص المسموع؟",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-title-prediction-prompt",
+    "text": "اكتب توقعك الخاص عن موضوع القصة قبل سماعها بالكامل:",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-title-prediction-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-stages-ordering-instruction",
+    "text": "رتب الأحداث التالية حسب ورودها وسياقها في القصة.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-stages-ordering-prompt",
+    "text": "رتب مسيرة عطاء الطبيب مجدي يعقوب:",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-stages-ordering-option-st1",
+    "text": "سفر مجدي يعقوب للخارج",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-stages-ordering-option-st2",
+    "text": "اكتسابه الخبرة العالمية",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-stages-ordering-option-st3",
+    "text": "عودته إلى وطنه العزيز مصر",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-stages-ordering-option-st4",
+    "text": "إنشاء مركز القلب بأسوان لعلاج الأطفال بالمجان",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-stages-ordering-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-return-year-instruction",
+    "text": "أكمل: عاد د. مجدي يعقوب إلى مصر في عام.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-return-year-prompt",
+    "text": "عاد الدكتور مجدي يعقوب إلى مصر في عام [blank1] لخدمة أهالي وطنه.",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-return-year-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-surgeon-calmness-instruction",
+    "text": "اختر صفة الجراح الهادئ كما يراها د. مجدي.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-surgeon-calmness-prompt",
+    "text": "لماذا يرى د. مجدي يعقوب أن الجراح الهادئ يكون أقدر على تحقيق النجاح؟",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-surgeon-calmness-option-ans1",
+    "text": "لأن الهدوء يمنحه القدرة على التفكير بتركيز وتجنب الأخطاء الطبية",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-surgeon-calmness-option-ans2",
+    "text": "لأنه يجعله سريع الحركة للانتهاء من العمليات سريعاً",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-surgeon-calmness-option-ans3",
+    "text": "لأنه يمنع المرضى والزملاء في الغرفة من القلق",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-surgeon-calmness-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-alternative-solution-instruction",
+    "text": "اختر حلًا بديلًا مقترحًا لخدمة أهالي الصعيد.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-alternative-solution-prompt",
+    "text": "ما هو الحل البديل المناسب إذا لم تتوفر إمكانية السفر للقاهرة لمرضى القلب الصغار؟",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-alternative-solution-option-sol1",
+    "text": "تدريب أطباء محليين وتسيير قوافل طبية متخصصة ومجهزة للصعيد",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-alternative-solution-option-sol2",
+    "text": "إرسال جميع الأطفال المرضى للعلاج خارج جمهورية مصر العربية",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-alternative-solution-option-sol3",
+    "text": "الاعتماد بالكامل على المستشفيات الخاصة بالمدن الكبرى",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-alternative-solution-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-insist-reason-open-instruction",
+    "text": "لماذا صمم الطبيب على إنشاء المركز؟",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-insist-reason-open-prompt",
+    "text": "اشرح بأسلوبك الدوافع الإنسانية والوطنية وراء تمسك الطبيب بهذا المشروع المتميز في أسوان:",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-insist-reason-open-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-biggest-challenge-instruction",
+    "text": "ما العقبة الأساسية التي واجهت الطبيب؟",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-biggest-challenge-prompt",
+    "text": "ما هي التحديات أو المخاوف التي قد تواجه مبادرة وطنية ضخمة مثل تأسيس مركز القلب بالمجان؟",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-biggest-challenge-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-new-word-instruction",
+    "text": "اختر كلمة أعجبتك وضعها في جملة مفيدة.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-new-word-prompt",
+    "text": "اكتب كلمة فصيحة أعجبتك في نص الطبيب الإنساني وصيغها في جملة تامة التعبير:",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-new-word-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-arabic-practical-use-instruction",
+    "text": "اختر الفائدة العملية للغة العربية المذكورة بالعبارات.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-arabic-practical-use-prompt",
+    "text": "كيف تسهم مهارات اللغة العربية الفصحى في مسيرة الطبيب البطل؟",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-arabic-practical-use-option-use1",
+    "text": "تساعد في الفهم الدقيق للمفاهيم الطبية والبحثية والتواصل الإنساني ببلده",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-arabic-practical-use-option-use2",
+    "text": "تقتصر فقط على قراءة الكتب والقصص الخيالية القديمة",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-arabic-practical-use-option-use3",
+    "text": "تحسن من مهارات كتابة التقارير والخط العربي التجميلي",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-arabic-practical-use-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-life-ordering-instruction",
+    "text": "رتب مراحل حياة الدكتور مجدي يعقوب.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-life-ordering-prompt",
+    "text": "رتب التطور التاريخي لمسيرة الطبيب مجدي يعقوب:",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-life-ordering-option-mil1",
+    "text": "نشأة مجدي يعقوب ببلده مصر",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-life-ordering-option-mil2",
+    "text": "حبه الشديد لمهنة الطب وتفوقه الدراسي",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-life-ordering-option-mil3",
+    "text": "رحلته العلمية والمهنية الطويلة في بريطانيا",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-life-ordering-option-mil4",
+    "text": "جهوده الإنسانية لإنقاذ حياة المرضى الفقراء",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-life-ordering-option-mil5",
+    "text": "أثره الباقي وتكريمه العالمي والوطني",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-life-ordering-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-problem-solutions-instruction",
+    "text": "حدد مشكلة من النص واقترح حلين لها.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-problem-solutions-prompt",
+    "text": "المشكلة: بعد مركز القلب بأسوان عن العاصمة وصعوبة سفر المرضى الفقراء.",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-problem-solutions-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-funding-alternatives-instruction",
+    "text": "اقترح حلولًا بديلة في حال عدم توفر تمويل للمركز.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-funding-alternatives-prompt",
+    "text": "لو لم تتوافر الإمكانات لإنشاء مركز جراحات قلب كبير ثابت بأسوان، كيف يمكن مساعدة الأطفال المرضى؟",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-funding-alternatives-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-character-opinion-instruction",
+    "text": "ما رأيك في شخصية الطبيب مجدي يعقوب وهل تراه قدوة؟ ولماذا؟",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-character-opinion-prompt",
+    "text": "عبر بصدق عن تقييمك لشخصية ملك القلوب ودوره الوطني والإنساني:",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-character-opinion-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-interview-questions-instruction",
+    "text": "اكتب ثلاثة أسئلة تود طرحها على د. مجدي يعقوب.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-interview-questions-prompt",
+    "text": "لو أتيحت لك فرصة إجراء مقابلة مع طبيب القلوب، ما هي أسئلتك الثلاثة؟",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-interview-questions-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-story-retell-instruction",
+    "text": "لخص قصة الدكتور مجدي يعقوب بأسلوبك.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-story-retell-prompt",
+    "text": "أعد كتابة سيرة الدكتور كقصة قصيرة تعبر عن العطاء وحب الوطن:",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-story-retell-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-humanitarian-project-instruction",
+    "text": "تخيل مشروعك الإنساني وحدد المشكلة والحل والنهاية.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-humanitarian-project-prompt",
+    "text": "اكتب خطة إبداعية لمشروع ترغب في بنائه مستقبلاً لخدمة زملائك أو مجتمعك:",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-humanitarian-project-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-student-problem-instruction",
+    "text": "اقترح مشكلة دراسية وحلها على غرار النص.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-student-problem-prompt",
+    "text": "المشكلة: صعوبة فهم القواعد النحوية وكثرة الخوف من الامتحانات الدراسية.",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-student-problem-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-story-titles-instruction",
+    "text": "اكتب ثلاثة عناوين مناسبة لحكاية مجدي يعقوب.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-story-titles-prompt",
+    "text": "اقترح 3 عناوين تعبر عن الطبيب الإنساني ورحلة عطائه:",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-story-titles-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-target-community-instruction",
+    "text": "أكمل: أُنشئ مركز القلب لخدمة.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-target-community-prompt",
+    "text": "أُنشئ مركز جراحة القلب في مدينة أسوان لخدمة [blank1] والفقراء بالمجان.",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-target-community-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-alternative-ending-instruction",
+    "text": "اقترح نهاية أخرى مناسبة ومطمئنة لقصة الطبيب مجدي يعقوب.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-alternative-ending-prompt",
+    "text": "اكتب نهاية بديلة تتخيلها لزيارة أحد الأطفال المتعافين للمركز بعد سنوات طويلة من العلاج:",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-alternative-ending-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-different-ending-instruction",
+    "text": "صمم نهاية مختلفة تعبر عن انتشار فكرة العطاء في مجتمعك.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-different-ending-prompt",
+    "text": "تخيل تأثر زملاء الطبيب بعودته وخطواتهم اللاحقة لمساندته:",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-different-ending-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-agree-disagree-instruction",
+    "text": "حدد موقفك (موافق/غير موافق) من العبارات وعبر عن رأيك بصدق.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-agree-disagree-prompt",
+    "text": "العمل الإنساني ومساعدة المحتاجين هو أهم بكثير من نيل الشهرة والجوائز الفردية.",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-agree-disagree-option-agree",
+    "text": "موافق",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-agree-disagree-option-disagree",
+    "text": "غير موافق",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-agree-disagree-completion-feedback",
+    "text": "بَرافو يا بَطَل! خَلَّصْت النَّشاط بِنَجاح.",
+    "category": "completion_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-listening-behavior-instruction",
+    "text": "أجب بصراحة عن سلوكياتك أثناء استماع المعلم أو المقطع الصوتي.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-listening-behavior-prompt",
+    "text": "ما الذي تحرص على فعله لتكون مستمعاً متميزاً للقصص والخبر المسموع؟",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-listening-behavior-option-focus",
+    "text": "أنصت بكل حواسي وأتجنب أي تشتت جانبي",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-listening-behavior-option-notes",
+    "text": "أدون الأفكار الرائعة أو الكلمات الجديدة التي تعجبني",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-listening-behavior-option-distracted",
+    "text": "قد أنشغل أحياناً ولكني سرعان ما أستعيد التركيز",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-listening-behavior-completion-feedback",
+    "text": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "category": "participation_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-improvement-checklist-instruction",
+    "text": "حدد المهارات التي تشعر أنك تحسنت فيها باللغة العربية.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-improvement-checklist-prompt",
+    "text": "اختر المهارات اللغوية التي تلاحظ تطورك الإيجابي والملحوظ فيها:",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-improvement-checklist-option-listening",
+    "text": "الاستماع بتركيز وفهم أدق تفاصيل النصوص",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-improvement-checklist-option-reading",
+    "text": "قراءة النصوص المتنوعة بطلاقة وسرعة ودون تعثر",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-improvement-checklist-option-writing",
+    "text": "كتابة الجمل والتعبير عن آرائي وأفكاري بوضوح تام",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-improvement-checklist-completion-feedback",
+    "text": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "category": "participation_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-competitions-assessment-instruction",
+    "text": "لماذا تحب المشاركة في المسابقات اللغوية والثقافية؟",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-competitions-assessment-prompt",
+    "text": "اختر الدوافع التي تجعلك متطلعاً للأنشطة والمسابقات بصفك الدراسي:",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-competitions-assessment-option-learn",
+    "text": "لأنها تزيد من مخزوني المعرفي واللغوي بأسلوب ممتع وشيق",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-competitions-assessment-option-team",
+    "text": "لأني أحب التعاون والعمل الجماعي مع زملائي الأبطال",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-competitions-assessment-option-challenge",
+    "text": "لأنني أحب خوض التحديات وإثبات كفاءتي وتفوقي الصفي",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-competitions-assessment-completion-feedback",
+    "text": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "category": "participation_feedback"
+  },
+  {
+    "key": "king-of-hearts-yacoub-encouragement-assessment-instruction",
+    "text": "قيم مدى تشجيع والديك ومعلمك وتفاعلك معهم.",
+    "category": "instruction"
+  },
+  {
+    "key": "king-of-hearts-yacoub-encouragement-assessment-prompt",
+    "text": "كيف تصف الدعم والتشجيع الذي تتلقاه باستمرار لمواصلة تطورك التعليمي؟",
+    "category": "prompt"
+  },
+  {
+    "key": "king-of-hearts-yacoub-encouragement-assessment-option-superb",
+    "text": "تشجيع دائم وحث قوي ودعم بالجوائز ومتابعة يومية مخلصة",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-encouragement-assessment-option-good",
+    "text": "دعم كافٍ ومساندة ومساعدة فعالة عند التعثر أو الحاجة",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-encouragement-assessment-option-self",
+    "text": "أعتمد بالكامل على تحفيزي الذاتي وشغفي الخاص بالتعلم والمثابرة",
+    "category": "option"
+  },
+  {
+    "key": "king-of-hearts-yacoub-encouragement-assessment-completion-feedback",
+    "text": "شُكْرًا لِمُشارَكَتَك، تَمّ حِفْظ إِجابَتَك.",
+    "category": "participation_feedback"
+  }
+]

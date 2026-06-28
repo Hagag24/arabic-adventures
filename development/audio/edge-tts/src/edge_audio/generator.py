@@ -12,8 +12,10 @@ from . import state
 from . import manifest
 from . import reports
 from . import file_utils
+from .pronunciation import prepare_arabic_speech_text
 
-CHUNK_VERSION = "1.0"
+
+CHUNK_VERSION = "1.1"
 EDGE_TTS_VERSION = "7.2.8"
 
 
@@ -111,7 +113,14 @@ def generate_catalog(only_key: str | None = None, stop_after_one: bool = False, 
         item_state["status"] = "GENERATING"
         state.save_state(st)
 
-        chunks = text_chunking.split_arabic_text(arabic_text)
+        # Prepare pronunciation-optimized text for TTS. If it's an override, use it verbatim.
+        if key in overrides:
+            tts_text = arabic_text
+        else:
+            tts_text = prepare_arabic_speech_text(arabic_text)
+
+        chunks = text_chunking.split_arabic_text(tts_text)
+
         chunk_wavs = []
         overall_success = True
         error_msg = ""
@@ -197,6 +206,10 @@ def generate_catalog(only_key: str | None = None, stop_after_one: bool = False, 
                 item_state["lastError"] = "WAV Concatenation failed"
                 state.save_state(st)
                 continue
+
+        # Post-process (Trim silence and normalize volume)
+        audio_conversion.trim_silence(target_wav)
+        audio_conversion.normalize_wav_volume(target_wav, target_peak_db=-1.0)
 
         # Validate
         is_valid, val_err, duration = wav_validation.validate_wav(target_wav)
