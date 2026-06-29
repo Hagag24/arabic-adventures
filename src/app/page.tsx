@@ -1,71 +1,32 @@
 import React from "react";
 import Link from "next/link";
-import { prisma } from "@/lib/db/prisma";
-import { getPlayerSessionId } from "@/lib/session/session-manager";
 import SessionInitializer from "@/components/session/SessionInitializer";
 import PublicHeader from "@/components/layout/PublicHeader";
-import { SemanticAudioButton } from "@/components/audio/SemanticAudioButton";
 
 export const dynamic = "force-dynamic";
 
 export default async function LandingPage() {
-  const sessionId = await getPlayerSessionId();
-
-  // Fetch all published journeys
-  const journeys = await prisma.journey.findMany({
-    where: { status: "PUBLISHED" },
-    orderBy: { displayOrder: "asc" },
-    include: {
-      stages: {
-        include: {
-          activities: {
-            where: { isPublished: true },
-          },
-        },
-      },
+  // Static demo data for Vercel deployment
+  const journeys = [
+    {
+      id: "1",
+      slug: "ancient-egyptian-teacher",
+      title: "المعلم المصري القديم",
+      shortDescription: "انضم إلى رحلة عبر الزمن لاستكشاف حضارة مصر القديمة وتعلم أسرار الكتابة الهيروغليفية.",
+      themeKey: "ancient-egypt",
+      estimatedMinutes: 25,
     },
-  });
+    {
+      id: "2", 
+      slug: "magdi-yacoub",
+      title: "الدكتور مجدي يعقوب",
+      shortDescription: "تعرف على قصة الدكتور مجدي يعقوب وإنجازاته في مجال جراحة القلب.",
+      themeKey: "humanity",
+      estimatedMinutes: 20,
+    },
+  ];
 
-  // Fetch journey progress for current player session if available
-  const progressMap: Record<string, { percent: number; completed: boolean }> =
-    {};
-
-  if (sessionId) {
-    const progresses = await prisma.journeyProgress.findMany({
-      where: { playerSessionId: sessionId },
-    });
-
-    for (const prog of progresses) {
-      // Calculate real completion percentage based on completed activities vs total activities
-      const journey = journeys.find((j) => j.id === prog.journeyId);
-      if (journey) {
-        const totalActivities = journey.stages.reduce(
-          (acc, stage) => acc + stage.activities.length,
-          0,
-        );
-
-        // Fetch completed activities count for this journey
-        const completedCount = await prisma.activityProgress.count({
-          where: {
-            playerSessionId: sessionId,
-            activity: {
-              journeyId: journey.id,
-            },
-            status: "COMPLETED",
-          },
-        });
-
-        const percent =
-          totalActivities > 0
-            ? Math.round((completedCount / totalActivities) * 100)
-            : 0;
-        progressMap[journey.id] = {
-          percent,
-          completed: prog.status === "COMPLETED",
-        };
-      }
-    }
-  }
+  const progressMap: Record<string, { percent: number; completed: boolean }> = {};
 
   return (
     <div className="flex flex-col min-h-screen bg-teal-50/20 text-right dir-rtl">
@@ -96,11 +57,9 @@ export default async function LandingPage() {
             انضم إلينا في رحلة تفاعلية رائعة مصممة خصيصاً لمساعدتك على استكشاف
             وفهم لغة الضاد الجميلة من خلال قصص ممتعة ومقاطع صوتية وتحديات شيقة.
           </p>
-          <SemanticAudioButton
-            semanticKey="global.welcome.01"
-            label="استمع إلى الترحيب"
-            className="mt-2"
-          />
+          <div className="mt-4 text-sm text-teal-600">
+            🎯 استمتع بتجربة تعليمية تفاعلية
+          </div>
         </div>
 
         {/* Journey Previews */}
