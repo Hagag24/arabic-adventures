@@ -3,5 +3,9 @@
   "devCommand": "pnpm dev",
   "installCommand": "pnpm install",
   "framework": "nextjs",
-  "regions": ["iad1"]
+  "regions": ["iad1"],
+  "env": {
+    "DATABASE_URL": "file:./data/arabic-adventures.db",
+    "SHOW_NEXT_DEVTOOLS": "false"
+  }
 }
