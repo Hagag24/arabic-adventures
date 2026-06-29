@@ -1,0 +1,527 @@
+[
+  {
+    "key": "ancient-egyptian-teacher-arabic-feelings-j1-instruction",
+    "text": "ما شعورك قبل حصة اللغة العربية؟",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-feelings-j1-prompt",
+    "text": "اختر ما يعبر بصدق عن مشاعرك الداخلية قبل بدء الدرس:",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-feelings-j1-completion-feedback",
+    "text": "شكرًا لمشاركتك وتقييمك الرائع! يمكنك الانتقال إلى النشاط التالي.",
+    "purpose": "completionFeedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-feelings-j1-option-happy",
+    "text": "أشعر بالحماس والرغبة في المعرفة والاستكشاف",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-feelings-j1-option-neutral",
+    "text": "أشعر بالهدوء والتركيز المعتاد",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-feelings-j1-option-calm",
+    "text": "أشعر بالسكينة وأتطلع للقصة والمشاريع الجديدة",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-self-assessment-instruction",
+    "text": "هل تقرأ العربية خارج المدرسة؟",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-self-assessment-prompt",
+    "text": "حدد مدى اهتمامك بقراءة كتب أو قصص أو تصفح مواقع بالعربية:",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-self-assessment-completion-feedback",
+    "text": "شكرًا لمشاركتك وتقييمك الرائع! يمكنك الانتقال إلى النشاط التالي.",
+    "purpose": "completionFeedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-self-assessment-option-happy",
+    "text": "أشعر بالسعادة والشغف وأقرا باستمرار",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-self-assessment-option-neutral",
+    "text": "أشعر بالهدوء والاعتياد وأقرأ عند الضرورة",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-arabic-self-assessment-option-bored",
+    "text": "أشعر بالملل أحياناً وأحاول التحسن",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-titles-generation-instruction",
+    "text": "اكتب ثلاثة عناوين جديدة مناسبة للخبر المسموع.",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-titles-generation-prompt",
+    "text": "اقترح 3 عناوين تعبر عن دور الكاتب والمعلم المصري القديم:",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-student-questions-instruction",
+    "text": "دون ثلاثة أسئلة تتمنى أن تسألها عند سماع النص.",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-student-questions-prompt",
+    "text": "اكتب 3 أسئلة تثير فضولك حول مقبرة الكاتب المصري القديم:",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-best-title-choice-instruction",
+    "text": "أختر العنوان الأنسب للنص المسموع.",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-best-title-choice-prompt",
+    "text": "ما هو العنوان الأكثر دقة وشمولاً للنص الذي استمعت إليه؟",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-best-title-choice-option-opt1",
+    "text": "أدوات الكتابة الخشبية",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-best-title-choice-option-opt2",
+    "text": "المعلم المصري القديم ودوره في الحضارة",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-best-title-choice-option-opt3",
+    "text": "المتاحف وتطوير القاعات القديمة",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-main-idea-choice-instruction",
+    "text": "اختر الفكرة الرئيسة للخبر المسموع.",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-main-idea-choice-prompt",
+    "text": "ما هي الفكرة الرئيسة التي يدور حولها الخبر؟",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-main-idea-choice-option-opt1",
+    "text": "احترام المعلم المصري القديم ودوره في نشر العلم",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-main-idea-choice-option-opt2",
+    "text": "طريقة صناعة أوراق البردي في المقابر",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-main-idea-choice-option-opt3",
+    "text": "أهمية تزيين جدران المقابر بالرسومات",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-location-instruction",
+    "text": "أين عُثر على مقبرة الكاتب؟",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-location-prompt",
+    "text": "حدد مكان المقبرة التاريخية التي عثر عليها العلماء:",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-location-option-loc1",
+    "text": "في مقابر العلماء بسقارة",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-location-option-loc2",
+    "text": "في مقابر وادي الملوك بالأقصر",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-location-option-loc3",
+    "text": "بجوار أهرامات الجيزة",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-importance-instruction",
+    "text": "لماذا كانت المقبرة مهمة؟",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-importance-prompt",
+    "text": "ما الذي جعل هذا الاكتشاف الأثري فريداً ومهماً للغاية؟",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-importance-option-imp1",
+    "text": "لأنها تخص كاتب قديم مدفون مع أدوات كتابته الخشبية وبرديات",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-importance-option-imp2",
+    "text": "لأنها تحتوي على كميات هائلة من الذهب والكنوز الملكية",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-tomb-importance-option-imp3",
+    "text": "لأنها تثبت أسرار بناء الأهرامات الثلاثة بالتفصيل",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-teacher-status-discovery-instruction",
+    "text": "ماذا يدل الاكتشاف على مكانة المعلم؟",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-teacher-status-discovery-prompt",
+    "text": "بماذا يوحي دفن أدوات الكتابة مع الكاتب في مقبرته؟",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-teacher-status-discovery-option-st1",
+    "text": "يدل على التقدير الهائل والاحترام للتعليم والمعلم بمصر القديمة",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-teacher-status-discovery-option-st2",
+    "text": "يدل على أن التعليم كان يقتصر فقط على الكهنة والملوك",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-teacher-status-discovery-option-st3",
+    "text": "يدل على رغبة الكاتب في مواصلة الدراسة بمفرده",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-synonym-matching-instruction",
+    "text": "صل كل كلمة بمرادفها الصحيح.",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-synonym-matching-prompt",
+    "text": "طابق الكلمات مع معانيها المترادفة الواردة بالنص المسموع:",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-synonym-matching-option-word1",
+    "text": "عالم",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-synonym-matching-option-word2",
+    "text": "مقبرة",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-synonym-matching-option-word3",
+    "text": "مهنة",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-synonym-matching-option-mean1",
+    "text": "باحث",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-synonym-matching-option-mean2",
+    "text": "مدفن",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-synonym-matching-option-mean3",
+    "text": "حرفة",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-instruction",
+    "text": "صل الكلمة بضدها الصحيح.",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-prompt",
+    "text": "طابق الكلمات التالية مع أضدادها المعاكسة في المعنى:",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-w1",
+    "text": "القديم",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-w2",
+    "text": "العلم",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-w3",
+    "text": "البداية",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-w4",
+    "text": "احترام",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-w5",
+    "text": "تقدير",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-w6",
+    "text": "عالِم",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant1",
+    "text": "الحديث",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant2",
+    "text": "الجهل",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant3",
+    "text": "النهاية",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant4",
+    "text": "ازدراء",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant5",
+    "text": "إهمال",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-antonyms-detailed-option-ant6",
+    "text": "جاهل",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-meaning-matching-instruction",
+    "text": "صل بين الحدث ومعناه الصحيح.",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-meaning-matching-prompt",
+    "text": "طابق الحدث مع المعنى المعبر عنه:",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-meaning-matching-option-evt1",
+    "text": "تطوير قاعة الكتابة والتعليم بالمتحف",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-meaning-matching-option-evt2",
+    "text": "العثور على البرديات بمقابر العلماء",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-meaning-matching-option-evt3",
+    "text": "جلوس الكاتب بوقار على وسادة",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-meaning-matching-option-val1",
+    "text": "الاهتمام بنشر الوعي بتاريخ التعليم",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-meaning-matching-option-val2",
+    "text": "تأكيد فكرة تخليد العلم وتقدير المعرفة",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-meaning-matching-option-val3",
+    "text": "الهيبة والاحترام التي كان يحظى بها الكاتب",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-ordering-instruction",
+    "text": "رتب الأحداث التالية حسب تسلسلها في الخبر.",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-ordering-prompt",
+    "text": "رتب الجمل التالية زمنياً:",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-ordering-option-evt1",
+    "text": "بدأ المتحف المصري مشروع تطوير القاعة",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-ordering-option-evt2",
+    "text": "عرض المتحف دور المعلم",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-ordering-option-evt3",
+    "text": "استخدم المعلم القديم البردية",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-event-ordering-option-evt4",
+    "text": "أعجب الزوار بالعرض",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-what-if-reflection-instruction",
+    "text": "ماذا لو لم تُكتشف مقبرة الكاتب المصري القديم؟",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-what-if-reflection-prompt",
+    "text": "عبر بأسلوبك عن رأيك في مدى أهمية هذا الاكتشاف المعرفي والتاريخي لبلدنا الحبيب:",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-discovery-results-instruction",
+    "text": "استخرج نتيجتين ترتبتا على هذا الاكتشاف.",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-discovery-results-prompt",
+    "text": "اكتب نتيجتين تاريخيتين أو علميتين ترتبتا على العثور على المقبرة:",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-character-event-identification-instruction",
+    "text": "صل بين العنصر وتوصيفه المناسب.",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-character-event-identification-prompt",
+    "text": "طابق العناصر بالتعريف الأنسب:",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-character-event-identification-option-elm1",
+    "text": "الشخصية الأهم بالخبر",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-character-event-identification-option-elm2",
+    "text": "الحدث الأهم بالنص",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-character-event-identification-option-def1",
+    "text": "الكاتب / المعلم المصري القديم",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-character-event-identification-option-def2",
+    "text": "اكتشاف مقبرة كاتب قديم وبدء تطوير القاعة بالمتحف",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-mental-visualization-instruction",
+    "text": "هل تتخيل المشاهد أثناء الاستماع؟",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-mental-visualization-prompt",
+    "text": "اختر ما يصف سلوكك الذهني عند الاستماع للخبر المسموع:",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-mental-visualization-completion-feedback",
+    "text": "شكرًا لمشاركتك وتقييمك الرائع! يمكنك الانتقال إلى النشاط التالي.",
+    "purpose": "completionFeedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-mental-visualization-option-vis1",
+    "text": "نعم، أرسم صوراً ملونة للمشاهد والشخصيات في مخيلتي",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-mental-visualization-option-vis2",
+    "text": "أحياناً أتخيل التفاصيل الهامة فقط",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-mental-visualization-option-vis3",
+    "text": "أركز على الكلمات والعبارات ولا أتخيل صوراً",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-new-words-usage-instruction",
+    "text": "هل تستخدم كلمات عربية جديدة في حياتك اليومية؟",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-new-words-usage-prompt",
+    "text": "اختر مدى حرصك على تطبيق المفردات الجديدة التي تكتشفها في حديثك:",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-new-words-usage-completion-feedback",
+    "text": "شكرًا لمشاركتك وتقييمك الرائع! يمكنك الانتقال إلى النشاط التالي.",
+    "purpose": "completionFeedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-new-words-usage-option-use_yes",
+    "text": "نعم، أحب استخدام الكلمات الفصيحة أمام والدي وزملائي",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-new-words-usage-option-use_try",
+    "text": "أحاول استخدامها عندما تكون مناسبة للموضوع",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-new-words-usage-option-use_no",
+    "text": "أنسى الكلمات الجديدة سريعاً ولا أستخدمها",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-classroom-attention-instruction",
+    "text": "كيف تتصرف أثناء شرح المعلم؟",
+    "purpose": "instruction"
+  },
+  {
+    "key": "ancient-egyptian-teacher-classroom-attention-prompt",
+    "text": "ما هو الخيار الذي يصف بصدق سلوكك الصفي عند شرح دروس العربية؟",
+    "purpose": "prompt"
+  },
+  {
+    "key": "ancient-egyptian-teacher-classroom-attention-completion-feedback",
+    "text": "شكرًا لمشاركتك وتقييمك الرائع! يمكنك الانتقال إلى النشاط التالي.",
+    "purpose": "completionFeedback"
+  },
+  {
+    "key": "ancient-egyptian-teacher-classroom-attention-option-att1",
+    "text": "أنصت بكل جوارحي وأدون التلاحظات الهامة",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-classroom-attention-option-att2",
+    "text": "أشارك بفعالية في الإجابة عن التحديات الموجهة",
+    "purpose": "option"
+  },
+  {
+    "key": "ancient-egyptian-teacher-classroom-attention-option-att3",
+    "text": "قد أتشتت أحياناً ولكني سرعان ما أعود للانتباه",
+    "purpose": "option"
+  }
+]

@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Arabic Adventures
 
-## Getting Started
+مغامرات تعليمية باللغة العربية - مشروع تعليمي تفاعلي
 
-First, run the development server:
+## المتطلبات
+
+- Node.js (مثبت مسبقاً)
+- pnpm (مثبت مسبقاً)
+
+## التشغيل السريع
+
+1. انقر مرتين على ملف `run.bat` في جذر المشروع
+2. سيقوم الملف تلقائياً بـ:
+   - تثبيت التبعيات (إذا لم تكن مثبتة)
+   - إعداد قاعدة البيانات
+   - بناء المشروع
+   - تشغيل التطبيق على المنفذ 3001
+
+3. افتح المتصفح على: http://127.0.0.1:3001
+
+## التشغيل اليدوي
+
+إذا كنت ت prefer التشغيل اليدوي:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# تثبيت التبعيات
+pnpm install
+
+# إعداد قاعدة البيانات
+pnpm db:generate
+pnpm db:migrate:deploy
+pnpm db:seed
+
+# بناء المشروع
+pnpm build
+
+# تشغيل التطبيق
+pnpm start -- --hostname 127.0.0.1 --port 3001
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## التطوير
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+لتشغيل وضع التطوير:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm dev
+```
 
-## Learn More
+## التقنيات المستخدمة
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 16.2.9
+- React 19.2.4
+- Prisma 7.8.0
+- TypeScript
+- Tailwind CSS

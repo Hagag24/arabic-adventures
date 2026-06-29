@@ -60,3 +60,15 @@ development/audio/azure/.venv/
 development/audio/azure/logs/
 development/audio/azure/staging/
 development/audio/azure/cache/
+
+# python and audio development caches
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+development/audio/staging/
+development/audio/review/**/*.wav
+development/audio/candidates/
+development/audio/tmp/
