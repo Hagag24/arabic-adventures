@@ -1,9 +1,4 @@
 import React from "react";
-import Link from "next/link";
-import SessionInitializer from "@/components/session/SessionInitializer";
-import PublicHeader from "@/components/layout/PublicHeader";
-
-export const dynamic = "force-dynamic";
 
 export default async function LandingPage() {
   // Static demo data for Vercel deployment
@@ -30,11 +25,12 @@ export default async function LandingPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-teal-50/20 text-right dir-rtl">
-      {/* Client-side Session Initializer */}
-      <SessionInitializer />
-
-      {/* Header */}
-      <PublicHeader title="مغامرات العربية" themeKey="white" />
+      {/* Simple Header */}
+      <header className="bg-white shadow-sm border-b border-teal-100">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-4">
+          <h1 className="text-2xl font-bold text-teal-900">مغامرات العربية</h1>
+        </div>
+      </header>
 
       {/* Main Content Area */}
       <main className="w-full max-w-[1400px] mx-auto px-6 lg:px-10 pb-16 flex flex-col items-center">
@@ -123,16 +119,15 @@ export default async function LandingPage() {
                       </div>
                     </div>
 
-                    <Link
-                      href={`/lessons/${journey.slug}`}
-                      className="w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm md:text-base rounded-2xl shadow-sm text-center transition-all duration-200 hover:shadow active:scale-95 touch-target block"
+                    <div
+                      className="w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm md:text-base rounded-2xl shadow-sm text-center transition-all duration-200 hover:shadow active:scale-95 touch-target block cursor-pointer"
                     >
                       {progress.percent > 0
                         ? progress.completed
                           ? "مكتمل! العب مجدداً 🌟"
                           : "تابع الدرس 🚀"
                         : "ابدأ الدرس الآن 🚀"}
-                    </Link>
+                    </div>
                   </div>
                 </div>
               );
