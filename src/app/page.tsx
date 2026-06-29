@@ -1,36 +1,79 @@
 import React from "react";
+import Link from "next/link";
+import { prisma } from "@/lib/db/prisma";
+import { getPlayerSessionId } from "@/lib/session/session-manager";
+import SessionInitializer from "@/components/session/SessionInitializer";
+import PublicHeader from "@/components/layout/PublicHeader";
+import { SemanticAudioButton } from "@/components/audio/SemanticAudioButton";
+
+export const dynamic = "force-dynamic";
 
 export default async function LandingPage() {
-  // Static demo data for Vercel deployment
-  const journeys = [
-    {
-      id: "1",
-      slug: "ancient-egyptian-teacher",
-      title: "المعلم المصري القديم",
-      shortDescription: "انضم إلى رحلة عبر الزمن لاستكشاف حضارة مصر القديمة وتعلم أسرار الكتابة الهيروغليفية.",
-      themeKey: "ancient-egypt",
-      estimatedMinutes: 25,
-    },
-    {
-      id: "2", 
-      slug: "magdi-yacoub",
-      title: "الدكتور مجدي يعقوب",
-      shortDescription: "تعرف على قصة الدكتور مجدي يعقوب وإنجازاته في مجال جراحة القلب.",
-      themeKey: "humanity",
-      estimatedMinutes: 20,
-    },
-  ];
+  const sessionId = await getPlayerSessionId();
 
-  const progressMap: Record<string, { percent: number; completed: boolean }> = {};
+  // Fetch all published journeys
+  const journeys = await prisma.journey.findMany({
+    where: { status: "PUBLISHED" },
+    orderBy: { displayOrder: "asc" },
+    include: {
+      stages: {
+        include: {
+          activities: {
+            where: { isPublished: true },
+          },
+        },
+      },
+    },
+  });
+
+  // Fetch journey progress for current player session if available
+  const progressMap: Record<string, { percent: number; completed: boolean }> =
+    {};
+
+  if (sessionId) {
+    const progresses = await prisma.journeyProgress.findMany({
+      where: { playerSessionId: sessionId },
+    });
+
+    for (const prog of progresses) {
+      // Calculate real completion percentage based on completed activities vs total activities
+      const journey = journeys.find((j) => j.id === prog.journeyId);
+      if (journey) {
+        const totalActivities = journey.stages.reduce(
+          (acc, stage) => acc + stage.activities.length,
+          0,
+        );
+
+        // Fetch completed activities count for this journey
+        const completedCount = await prisma.activityProgress.count({
+          where: {
+            playerSessionId: sessionId,
+            activity: {
+              journeyId: journey.id,
+            },
+            status: "COMPLETED",
+          },
+        });
+
+        const percent =
+          totalActivities > 0
+            ? Math.round((completedCount / totalActivities) * 100)
+            : 0;
+        progressMap[journey.id] = {
+          percent,
+          completed: prog.status === "COMPLETED",
+        };
+      }
+    }
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-teal-50/20 text-right dir-rtl">
-      {/* Simple Header */}
-      <header className="bg-white shadow-sm border-b border-teal-100">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-4">
-          <h1 className="text-2xl font-bold text-teal-900">مغامرات العربية</h1>
-        </div>
-      </header>
+      {/* Client-side Session Initializer */}
+      <SessionInitializer />
+
+      {/* Header */}
+      <PublicHeader title="مغامرات العربية" themeKey="white" />
 
       {/* Main Content Area */}
       <main className="w-full max-w-[1400px] mx-auto px-6 lg:px-10 pb-16 flex flex-col items-center">
@@ -53,9 +96,11 @@ export default async function LandingPage() {
             انضم إلينا في رحلة تفاعلية رائعة مصممة خصيصاً لمساعدتك على استكشاف
             وفهم لغة الضاد الجميلة من خلال قصص ممتعة ومقاطع صوتية وتحديات شيقة.
           </p>
-          <div className="mt-4 text-sm text-teal-600">
-            🎯 استمتع بتجربة تعليمية تفاعلية
-          </div>
+          <SemanticAudioButton
+            semanticKey="global.welcome.01"
+            label="استمع إلى الترحيب"
+            className="mt-2"
+          />
         </div>
 
         {/* Journey Previews */}
@@ -119,15 +164,16 @@ export default async function LandingPage() {
                       </div>
                     </div>
 
-                    <div
-                      className="w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm md:text-base rounded-2xl shadow-sm text-center transition-all duration-200 hover:shadow active:scale-95 touch-target block cursor-pointer"
+                    <Link
+                      href={`/lessons/${journey.slug}`}
+                      className="w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm md:text-base rounded-2xl shadow-sm text-center transition-all duration-200 hover:shadow active:scale-95 touch-target block"
                     >
                       {progress.percent > 0
                         ? progress.completed
                           ? "مكتمل! العب مجدداً 🌟"
                           : "تابع الدرس 🚀"
                         : "ابدأ الدرس الآن 🚀"}
-                    </div>
+                    </Link>
                   </div>
                 </div>
               );

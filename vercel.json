@@ -1,11 +1,7 @@
 {
-  "buildCommand": "pnpm db:generate && pnpm build",
+  "buildCommand": "pnpm build",
   "devCommand": "pnpm dev",
   "installCommand": "pnpm install",
   "framework": "nextjs",
-  "regions": ["iad1"],
-  "env": {
-    "DATABASE_URL": "file:./data/arabic-adventures.db",
-    "SHOW_NEXT_DEVTOOLS": "false"
-  }
+  "regions": ["iad1"]
 }
