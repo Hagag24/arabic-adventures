@@ -38,6 +38,7 @@ next-env.d.ts
 
 # database
 /data/*.db
+!/data/arabic-adventures.db
 /data/*.db-journal
 /data/*.db-shm
 /data/*.db-wal
